@@ -1,0 +1,57 @@
+--- repo/event/src/common.emevd.dcx.js
++++ candidate/event/src/common.emevd.dcx.js
+@@ -206,6 +206,7 @@
+     $InitializeEvent(6, 960, 76111);
+     $InitializeEvent(7, 960, 76157);
+     $InitializeEvent(8, 960, 76113);
++    $InitializeEvent(0, 780);
+     $InitializeEvent(0, 720, 160, 0);
+     $InitializeEvent(1, 720, 161, 1);
+     $InitializeEvent(2, 720, 162, 2);
+@@ -732,6 +733,7 @@
+     $InitializeEvent(0, 6908);
+     $InitializeEvent(0, 6909);
+     $InitializeEvent(0, 6910);
++    $InitializeEvent(0, 6911);
+     EndEvent();
+ });
+ 
+@@ -1162,6 +1164,11 @@
+     WaitFor(WeatherLotActive(-1));
+ });
+ 
++$Event(780, Default, function() {
++    EndIf(AnyBatchEventFlags(6700, 6703));
++    SetEventFlagID(6700, ON);
++});
++
+ // 時間帯監視イベント -- Time zone monitoring event
+ $Event(810, Restart, function() {
+     GotoIf(L1, TimeOfDayInRange(5, 30, 0, 11, 59, 59));
+@@ -3789,6 +3796,26 @@
+     WaitFor(PlayerIsInOwnWorld());
+     WaitFixedTimeSeconds(1);
+     RequestCharacterAIReplan(0);
++});
++
++$Event(6911, Restart, function() {
++    DisableNetworkSync();
++    EndIf(ThisEventSlot());
++    EndIf(EventFlag(6953));
++    RemoveItemFromPlayer(ItemType.Goods, 2009600, 1);
++    RemoveItemFromPlayer(ItemType.Goods, 2009610, 1);
++    RemoveItemFromPlayer(ItemType.Goods, 2009620, 1);
++    SetEventFlagID(60101, OFF);
++    SetEventFlagID(60102, OFF);
++    SetEventFlagID(60103, OFF);
++    SetEventFlagID(10008256, OFF);
++    SetEventFlagID(1034508601, OFF);
++    SetEventFlagID(1044528610, OFF);
++    SetEventFlagID(69560, OFF);
++    SetEventFlagID(6700, ON);
++    SetEventFlagID(6701, OFF);
++    SetEventFlagID(6702, OFF);
++    SetEventFlagID(6703, OFF);
+ });
+ 
+ // トロフィー取得_XX -- Trophy acquisition_XX

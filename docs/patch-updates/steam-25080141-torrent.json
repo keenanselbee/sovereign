@@ -1,0 +1,92 @@
+{
+  "steamBuild": "25080141",
+  "status": "applied-and-hash-verified",
+  "verification": {
+    "passed": true,
+    "binderHeaderAndMemberMetadataPreserved": true,
+    "unchangedOtherMembers": 6,
+    "unchangedExistingGroups": 91,
+    "addedGroups": [
+      "2147483557",
+      "2147483558",
+      "2147483559",
+      "2147483560",
+      "2147483561",
+      "2147483562"
+    ],
+    "modifiedGroup": "2147483616",
+    "modifiedExistingStates": [
+      8,
+      17
+    ],
+    "addedStates": [
+      56,
+      57,
+      58
+    ],
+    "sourceHelpersEqualUpstreamWithKeywordAdaptation": true,
+    "helpersEqualRecompiledVanilla": true,
+    "repoT3000RebuildByteEqual": true,
+    "witchyExtractedPayloadsVerified": true,
+    "gameplayTested": false,
+    "compilerNote": "New vanilla helpers recompile with ESDTool numeric/boolean expression encodings and simplified unconditional subconditions; they match an independent current-vanilla ESDTool rebuild, not the original vanilla bytecode representation."
+  },
+  "backupRun": ".codex-temp/torrent-dialogue/1789015528282739600",
+  "runtimeSha256": "087d7f9dc73fff5dc81654f2240f35f58b9f9d9e1e8b2deb35d8d108170dc7cf",
+  "sourceSha256": "ab8df6593bc7bf8e4a758319b55089cac84556926ef06aac49b07b96b2efcc6d",
+  "destinationCount": 9,
+  "physicalWrites": 8,
+  "untouchedFilesVerified": 19,
+  "outputs": [
+    {
+      "name": "m00_00_00_00.talkesdbnd.dcx",
+      "beforeSha256": "51b1a44d17e09678b9537668adc1730d54339aff0401237400d863bc94d6dc0f",
+      "afterSha256": "087d7f9dc73fff5dc81654f2240f35f58b9f9d9e1e8b2deb35d8d108170dc7cf"
+    },
+    {
+      "name": "m00_00_00_00.talkesdbnd.dcx",
+      "beforeSha256": "51b1a44d17e09678b9537668adc1730d54339aff0401237400d863bc94d6dc0f",
+      "afterSha256": "087d7f9dc73fff5dc81654f2240f35f58b9f9d9e1e8b2deb35d8d108170dc7cf"
+    },
+    {
+      "name": "m00_00_00_00.talkesdbnd.dcx",
+      "beforeSha256": "51b1a44d17e09678b9537668adc1730d54339aff0401237400d863bc94d6dc0f",
+      "afterSha256": "087d7f9dc73fff5dc81654f2240f35f58b9f9d9e1e8b2deb35d8d108170dc7cf"
+    },
+    {
+      "name": "m00_00_00_00.talkesdbnd.dcx",
+      "beforeSha256": null,
+      "afterSha256": "087d7f9dc73fff5dc81654f2240f35f58b9f9d9e1e8b2deb35d8d108170dc7cf"
+    },
+    {
+      "name": "t000001000.py",
+      "beforeSha256": "e12e900e2ab7d6a7fdd4cd3ebb3ff08ff30f187f09e8659ba11ab137499796d7",
+      "afterSha256": "ab8df6593bc7bf8e4a758319b55089cac84556926ef06aac49b07b96b2efcc6d"
+    },
+    {
+      "name": "t000001000.py",
+      "beforeSha256": "531ab2b0f60b66283831f7e7932c355632770fe3afeead07bdd8d9d0848b27aa",
+      "afterSha256": "ab8df6593bc7bf8e4a758319b55089cac84556926ef06aac49b07b96b2efcc6d"
+    },
+    {
+      "name": "t000001000.esd",
+      "beforeSha256": "30827d32d19cc18905efa7ca491aea8092c9f24cd8a173c41418dabd3d8746ae",
+      "afterSha256": "99845756a2d7018876912300ac93ca7d408d390bf17d38a65dd57e01b824ed0a"
+    },
+    {
+      "name": "t000003000.py",
+      "beforeSha256": "13669e247b5b645bf7b7321eb830e2f8958e328c2b5e2aa3ab5b3dae23109221",
+      "afterSha256": "028958898e554c5c24af11ddda608f3d1ac9d7719a9381b85e1f0811ded4a929"
+    },
+    {
+      "name": "t000003000.esd",
+      "beforeSha256": "c2ff8a1fb8d28fee4a0db7fa427419e09a84bf2c44c0788fd0899585c0e0962c",
+      "afterSha256": "425cd0388c399987230da31d3cfd2a98997cd65ed933d5cdafcc5d82598e59a8"
+    }
+  ],
+  "tools": {
+    "ESDTool.exe": "07c63674b4ee4355f774394ae6f72929c61c60e40467da788e59a3b2c09c4e76",
+    "WitchyBND.exe": "00aa5b321d5af0179d3c9154a48d2ab3bb55772eaf624a439cc5f6ad4e21982b",
+    "Andre.SoulsFormats.dll": "e8eb162007d41d2b10454f227982ae387277d4e0ffcfc52eeeff91286bb9791a"
+  }
+}

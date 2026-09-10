@@ -4060,6 +4060,25 @@ $Event(900005580, Restart, function(eventFlagId, assetEntityId, eventFlagId2) {
     DisableAssetTreasure(assetEntityId);
 });
 
+$Event(900005590, Default, function(eventFlagId, assetEntityId, eventFlagId2) {
+    DisableAsset(assetEntityId);
+    DisableAssetTreasure(assetEntityId);
+    if (PlayerIsInOwnWorld()) {
+        DisableObjAct(assetEntityId, -1);
+    }
+    EndIf(!EventFlag(eventFlagId));
+    WaitFor(EventFlag(eventFlagId));
+    EnableAsset(assetEntityId);
+    if (eventFlagId2 != 0) {
+        if (PlayerIsInOwnWorld()) {
+            EnableObjAct(assetEntityId, -1);
+        }
+    }
+    if (!(eventFlagId2 != 0 && !EventFlag(eventFlagId2))) {
+        EnableAssetTreasure(assetEntityId);
+    }
+});
+
 // 【共通】フィールド篝火登録 -- [Common] Field bonfire registration
 $Event(90005600, Restart, function(eventFlagId, assetEntityId, enemyDeactivationDistance, chrEntityId) {
     RegisterBonfire(eventFlagId, assetEntityId, 0, 0, 0, enemyDeactivationDistance);

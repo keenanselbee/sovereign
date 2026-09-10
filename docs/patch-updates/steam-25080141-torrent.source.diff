@@ -1,0 +1,143 @@
+--- before/t000001000.py
++++ after/t000001000.py
+@@ -1273,6 +1273,8 @@
+         # action:22230000:"Alter garments"
+         AddTalkListDataIf(ComparePlayerInventoryNumber(ItemType.Goods, 8163, CompareType.Greater, 0, False) == 1 or ComparePlayerInventoryNumber(ItemType.Goods, 8188, CompareType.Greater, 0, False) == 1,
+                           9, 22230000, -1)
++        """State 56"""
++        assert t000001000_x85()
+         """State 51"""
+         call = t000001000_x84()
+         if call.Get() == 0:
+@@ -1399,6 +1401,13 @@
+             def ExitPause():
+                 ClearPreviousMenuSelection()
+             assert t000001000_x78(goods3=2010000, goods4=2010100)
++        elif GetTalkListEntryResult() == 75:
++            """State 57,58"""
++            SetCanOpenMap(False)
++            ClearPreviousMenuSelection()
++            def ExitPause():
++                ClearPreviousMenuSelection()
++            assert t000001000_x87()
+         else:
+             """State 4,43"""
+             assert t000001000_x83()
+@@ -3012,6 +3021,117 @@
+         """State 3,5"""
+         return 1
+ 
++def t000001000_x85():
++    """State 0,2"""
++    if GetEventFlag(69560):
++        """State 3,1"""
++        Label('L0')
++        AddTalkListData(75, 20010070, -1)
++    else:
++        """State 4,5"""
++        if (ComparePlayerInventoryNumber(ItemType.Goods, 2009600, CompareType.GreaterOrEqual, 1, False) or ComparePlayerInventoryNumber(ItemType.Goods,
++            2009610, CompareType.GreaterOrEqual, 1, False) or ComparePlayerInventoryNumber(ItemType.Goods, 2009620,
++            CompareType.GreaterOrEqual, 1, False)):
++            """State 6,8"""
++            SetEventFlag(69560, FlagState.On)
++            """State 9"""
++            assert t000001000_x86()
++            Goto('L0')
++        else:
++            """State 7"""
++            pass
++    """State 10"""
++    return 0
++
++def t000001000_x86():
++    """State 0,1"""
++    assert GetCurrentStateElapsedTime() > 0.5
++    """State 2"""
++    assert t000001000_x4(action6=20011070)
++    """State 3"""
++    return 0
++
++def t000001000_x87():
++    """State 0,1"""
++    CloseShopMessage()
++    while True:
++        """State 2"""
++        ClearTalkListData()
++        """State 11"""
++        assert t000001000_x89(flag2=6700)
++        """State 12"""
++        assert t000001000_x88(goods1=2009600, flag3=6701, z1=2, action3=20010076, action4=20010072)
++        """State 13"""
++        assert t000001000_x88(goods1=2009610, flag3=6702, z1=3, action3=20010077, action4=20010073)
++        """State 14"""
++        assert t000001000_x88(goods1=2009620, flag3=6703, z1=4, action3=20010078, action4=20010074)
++        """State 3"""
++        AddTalkListData(99, 20010079, -1)
++        """State 4"""
++        ShowShopMessage(TalkOptionsType.Regular)
++        assert not (CheckSpecificPersonMenuIsOpen(1, 0) and not CheckSpecificPersonGenericDialogIsOpen(0))
++        """State 5"""
++        if GetTalkListEntryResult() == 1:
++            """State 6,15"""
++            assert t000001000_x90(flag1=6700, action1=20011075, action2=20011071)
++        elif GetTalkListEntryResult() == 2:
++            """State 7,16"""
++            assert t000001000_x90(flag1=6701, action1=20011076, action2=20011072)
++        elif GetTalkListEntryResult() == 3:
++            """State 8,17"""
++            assert t000001000_x90(flag1=6702, action1=20011077, action2=20011073)
++        elif GetTalkListEntryResult() == 4:
++            """State 9,18"""
++            assert t000001000_x90(flag1=6703, action1=20011078, action2=20011074)
++        else:
++            """State 10,19"""
++            return 0
++
++def t000001000_x88(goods1=_, flag3=_, z1=_, action3=_, action4=_):
++    """State 0,6"""
++    if ComparePlayerInventoryNumber(ItemType.Goods, goods1, CompareType.GreaterOrEqual, 1, False):
++        """State 7,1"""
++        if GetEventFlag(flag3):
++            """State 2,3"""
++            AddTalkListData(z1, action3, -1)
++        else:
++            """State 4,5"""
++            AddTalkListData(z1, action4, -1)
++    else:
++        """State 8"""
++        pass
++    """State 9"""
++    return 0
++
++def t000001000_x89(flag2=6700):
++    """State 0,1"""
++    if GetEventFlag(flag2):
++        """State 4,3"""
++        AddTalkListData(1, 20010075, -1)
++    else:
++        """State 5,2"""
++        AddTalkListData(1, 20010071, -1)
++    """State 6"""
++    return 0
++
++def t000001000_x90(flag1=_, action1=_, action2=_):
++    """State 0,1"""
++    if GetEventFlag(flag1):
++        """State 2,6"""
++        assert t000001000_x4(action6=action1)
++    else:
++        """State 3,5"""
++        SetEventFlag(6700, FlagState.Off)
++        SetEventFlag(6701, FlagState.Off)
++        SetEventFlag(6702, FlagState.Off)
++        SetEventFlag(6703, FlagState.Off)
++        """State 4"""
++        SetEventFlag(flag1, FlagState.On)
++        """State 7"""
++        assert t000001000_x4(action6=action2)
++    """State 8"""
++    return 0
++
+ def t000001000_x2032(text1=_, mode1=1):
+     """State 0,4"""
+     assert t000001000_x2() and CheckSpecificPersonTalkHasEnded(0)
