@@ -11,9 +11,6 @@ Tarnished warrior, fated to walk a dark and perilous path, seize the essence of 
 
 > ***Art thou fated to rise as Sovereign, or be unmade upon the path?***
 >
-<p align="center">
-  <img src="https://i.imgur.com/y5pVpnf.gif" />
-</p>
 
 ![](https://i.imgur.com/nVQxyYq.png)
 
@@ -24,10 +21,6 @@ Tarnished warrior, fated to walk a dark and perilous path, seize the essence of 
 - Disable Anti-Cheat and play offline: **[Anti-Cheat Toggler](https://www.nexusmods.com/eldenring/mods/90)**
 - Installation and technical information: **[Sovereign Repository](https://github.com/semisacred/sovereign)**
 - Make regular backups of your save file: `user\AppData\Roaming\EldenRing`
-
-<p align="center">
-  <img src="https://i.imgur.com/ncRJMv5.gif" />
-</p>
 
 ![](https://i.imgur.com/nVQxyYq.png)
 
@@ -58,10 +51,6 @@ Claim a Great Rune, and it fastens its crimson gaze upon you, discerning both yo
 Simply perform the **Dejection** gesture to yield to Nemesis and gain the **Malefic Woundseal**, a talisman that disables Hardcore Mode and unlocks the formidable **Oath of Sin**.
 
 Know this: equipping the Malefic Woundseal binds you wholly to the Blood Star’s will. Once bound, there is no hiding from its wrath. Remove the Woundseal and relentless assaults will follow. However, fate can be cheated.
-
-<p align="center">
-  <img src="https://i.imgur.com/ncRJMv5.gif" />
-</p>
 
 ![](https://i.imgur.com/nVQxyYq.png)
 
@@ -159,10 +148,6 @@ Jump attacks deal progressively more damage the longer you fall, from **+30% to 
 <h3>Deadly Lava</h3>
 Lava deals **5x damage**. No more lava baths.
 
-<p align="center">
-  <img src="https://i.imgur.com/it27pb9.gif" />
-</p>
-
 ![](https://i.imgur.com/nVQxyYq.png)
 
 <br><br>
@@ -196,10 +181,6 @@ Lava deals **5x damage**. No more lava baths.
 
 <h3>Mohg’s Great Rune</h3>
 - **Passive:** +50% Blood Ability damage for 15s on bloodloss near you
-
-<p align="center">
-  <img src="https://i.imgur.com/it27pb9.gif" />
-</p>
 
 ![](https://i.imgur.com/nVQxyYq.png)
 
@@ -384,10 +365,6 @@ Default Skill: Barbaric Roar.
 - **1H Crouch Attack:** Crush — brutal downward strike
 - **2H Crouch Attack:** Bloody Smash — fuel a terrible bloodflame with your own blood, then smash down
 - **Special Attack:** Bloodflame Earthshaker — earth-shaking shockwave and explosive bloodflame blast
-
-<p align="center">
-  <img src="https://i.imgur.com/it27pb9.gif" />
-</p>
 
 ![](https://i.imgur.com/nVQxyYq.png)
 
@@ -588,20 +565,5 @@ Turns body to steel for 40s: Hyperarmor, +40% physical damage negation, Tier 4 H
 <h3>Stonebarb Cracked Tear</h3>
   
 40s duration, new VFX.
-
-![](https://i.imgur.com/nVQxyYq.png)
-
-<br><br>
-
-<h1 align="center">Recommended</h1>
-
-- https://www.nexusmods.com/eldenring/mods/1587 — Chat with Melina
-- https://www.nexusmods.com/eldenring/mods/87 — Compass Be Gone
-- https://www.nexusmods.com/eldenring/mods/3022 — Fast Torrent
-- https://www.nexusmods.com/eldenring/mods/2828 — Long-Horn Torrent
-- https://www.nexusmods.com/eldenring/mods/2575 — Pass Time Anywhere
-- https://www.nexusmods.com/eldenring/mods/5456 — Ride Anywhere
-- https://www.nexusmods.com/eldenring/mods/6423 — Sovereign Loadscreens
-- https://www.nexusmods.com/eldenring/mods/94 — Sovereign ReShade
 
 ![](https://i.imgur.com/nVQxyYq.png)
