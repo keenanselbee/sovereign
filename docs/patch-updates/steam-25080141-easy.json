@@ -1,0 +1,3087 @@
+{
+  "kind": "Sovereign confirmed easy compatibility update",
+  "steamBuild": "25080141",
+  "appliedAt": "2026-09-10T04:34:05.186459+00:00",
+  "run": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100",
+  "backupDirectory": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup",
+  "handoffReceipt": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup\\handoff.json",
+  "verifiedPaths": 57,
+  "physicalWrites": 51,
+  "hardlinkPairsPreserved": 6,
+  "textureOwnership": "Preserve existing separate Sovereign - Textures package",
+  "toolHashes": {
+    "Z:\\Modding\\Elden Ring\\Tools\\WitchyBND\\WitchyBND.exe": "00aa5b321d5af0179d3c9154a48d2ab3bb55772eaf624a439cc5f6ad4e21982b",
+    "Z:\\Modding\\Elden Ring\\Tools\\Smithbox\\Andre.SoulsFormats.dll": "e8eb162007d41d2b10454f227982ae387277d4e0ffcfc52eeeff91286bb9791a",
+    "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\tools\\bin\\Inspect.dll": "a1235fbf8c394fa8c97a6f9b67b033c6401da3d92b3f25430cc6b666d2613878",
+    "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\fmg-tools\\bin\\MergeFmgs.dll": "997fbc57cdac6e46e4966ca16dadd7eeea8f6c28bd06a94e714e155909449624"
+  },
+  "outputs": {
+    "runtime/menu/hi/00_solo.tpfbdt": {
+      "sha256": "015bd0bfc48b50abcabea656f720d672dc10a364398d59283eda5c770200b14f",
+      "source": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\payload\\mod\\menu\\hi\\00_solo.tpfbdt",
+      "backup": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup\\candidate\\runtime\\menu\\hi\\00_solo.tpfbdt",
+      "bytes": 1539298664
+    },
+    "runtime/menu/hi/00_solo.tpfbhd": {
+      "sha256": "cecc321945a93dadcb9925b31d058cb7074f56dc42513408d9c6f12d563d7241",
+      "source": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\payload\\mod\\menu\\hi\\00_solo.tpfbhd",
+      "backup": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup\\candidate\\runtime\\menu\\hi\\00_solo.tpfbhd",
+      "bytes": 366016
+    },
+    "runtime/menu/hi/01_common.tpf.dcx": {
+      "sha256": "bddca25d505e413bb5a6f74023179365a34013b1ac143af952d98209aeaf8382",
+      "source": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\payload\\mod\\menu\\hi\\01_common.tpf.dcx",
+      "backup": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup\\candidate\\runtime\\menu\\hi\\01_common.tpf.dcx",
+      "bytes": 71999859
+    },
+    "runtime/msg/engus/menu.msgbnd.dcx": {
+      "sha256": "b937fbdfa7617812856373a33dccccc1b6b2ddf7648cce840b8cab4416a4b23b",
+      "source": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\payload\\mod\\msg\\engus\\menu.msgbnd.dcx",
+      "backup": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup\\candidate\\runtime\\msg\\engus\\menu.msgbnd.dcx",
+      "bytes": 494880
+    },
+    "runtime/msg/engus/menu_dlc01.msgbnd.dcx": {
+      "sha256": "204d5a4a8df05f4668328711a7ece26deffe13429ad901cf6aae5922e7e72ba4",
+      "source": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\payload\\mod\\msg\\engus\\menu_dlc01.msgbnd.dcx",
+      "backup": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup\\candidate\\runtime\\msg\\engus\\menu_dlc01.msgbnd.dcx",
+      "bytes": 530880
+    },
+    "runtime/sfx/sfxbnd_commoneffects.ffxbnd.dcx": {
+      "sha256": "ae9565c25802ac30d47c102ac5ea8b5f57ad9d6f6456960c1433c91d287d857a",
+      "source": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\payload\\mod\\sfx\\sfxbnd_commoneffects.ffxbnd.dcx",
+      "backup": "C:\\Repositories\\Sovereign\\.codex-temp\\easy-update\\1789013816480952100\\backup\\candidate\\runtime\\sfx\\sfxbnd_commoneffects.ffxbnd.dcx",
+      "bytes": 101050922
+    }
+  },
+  "qualification": [
+    {
+      "file": "sfxbnd_commoneffects.ffxbnd.dcx",
+      "equalDecoded": true
+    },
+    {
+      "file": "00_solo.tpfbhd",
+      "equalDecoded": true
+    },
+    {
+      "file": "01_common.tpf.dcx",
+      "equalDecoded": true
+    },
+    {
+      "file": "menu.msgbnd.dcx",
+      "equalDecoded": true
+    },
+    {
+      "file": "menu_dlc01.msgbnd.dcx",
+      "equalDecoded": true
+    }
+  ],
+  "sfx": {
+    "additions": [
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451600.fxr",
+        "relative": "effect/f000451600.fxr",
+        "hash": "7F6FD73DBF83B561AEC3344877093D9DD26509A3AB6DD2A25ED4D179D789A310"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451601.fxr",
+        "relative": "effect/f000451601.fxr",
+        "hash": "05DC36BC8515FEFD5881FD218CE88B78B06849CB5585C1E039C185EF0FA56DFE"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451602.fxr",
+        "relative": "effect/f000451602.fxr",
+        "hash": "2FDF877C032C8522C6B3E893B57BA0519BBEA2FE90F25DC9F8C54983B6C542A1"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451603.fxr",
+        "relative": "effect/f000451603.fxr",
+        "hash": "E6DCE019E4BEF854667BB52C8CA062130DCA0F52163F245D460F2D282098A522"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451604.fxr",
+        "relative": "effect/f000451604.fxr",
+        "hash": "0D2F9AEDF43696480279F2E77B184C29AA56C59618819EDE1ED9B340E72829BC"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451610.fxr",
+        "relative": "effect/f000451610.fxr",
+        "hash": "EE9030AF3CB4F28759E5151A146FCC69F4C0916FE78CCCA55A8972C545B5E8E0"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451611.fxr",
+        "relative": "effect/f000451611.fxr",
+        "hash": "BD811F5B5522340A70451AE54A620974B620AC439F3BC4F4BE1D9084BBEFC21C"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451612.fxr",
+        "relative": "effect/f000451612.fxr",
+        "hash": "C752E855B6AAA841ECF880F3805BCDBE576FAEA56C4F649B7B6F20ED158C6DEF"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451613.fxr",
+        "relative": "effect/f000451613.fxr",
+        "hash": "E3C8746598E5F96ED374DFBC63F3F9C6823EF740F4502BDFA978BC97BE32A8E0"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451614.fxr",
+        "relative": "effect/f000451614.fxr",
+        "hash": "18E42F1111D7AED42C929B7C2CD3007FF45A7E783F0C34215B3F95ABD9CCD2FB"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451615.fxr",
+        "relative": "effect/f000451615.fxr",
+        "hash": "4D93DDF2352B8644EB327225E116359EBBECB3F14BF0ED79F7E0FAADAF80DCFF"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451620.fxr",
+        "relative": "effect/f000451620.fxr",
+        "hash": "174CA00E896A783ACEA9C70893D3C32A3F8576830E51E6CD1E5CA2BB0D489582"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451621.fxr",
+        "relative": "effect/f000451621.fxr",
+        "hash": "16175A08B8417F5C2976576FE4541B8CF4D605C3BBCCAE8ABDF2D6E7C95A3BFB"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451622.fxr",
+        "relative": "effect/f000451622.fxr",
+        "hash": "66ADC895C6AE11DD9E4F31D36615C736DFFF42EADCFF4216592518A40AA83343"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451623.fxr",
+        "relative": "effect/f000451623.fxr",
+        "hash": "EF9ABC644C0C0712A2A3A04AC5594DD56A052B0E5B6DA9739181E2C82A7E020B"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451624.fxr",
+        "relative": "effect/f000451624.fxr",
+        "hash": "46AA697D07C35A136FE37B1EB7342408B668F4ECAEB58BC71C0D52DE7A22FAFD"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451625.fxr",
+        "relative": "effect/f000451625.fxr",
+        "hash": "951128B26860C327C6E922F4908B3A87FC34A763149C84452F43CF28A1CA2530"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451700.fxr",
+        "relative": "effect/f000451700.fxr",
+        "hash": "4D1A25B09B361B0307F431A3BD84D7AA6E7BB88CDEB18FA4B5741BD05A63E424"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\effect\\f000451701.fxr",
+        "relative": "effect/f000451701.fxr",
+        "hash": "CCBD0D64E3F8C4C3669C836CB0C74A014CDF60CDBE387BED98C0468EF023EB2B"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451600.ffxreslist",
+        "relative": "ResourceList/f000451600.ffxreslist",
+        "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451601.ffxreslist",
+        "relative": "ResourceList/f000451601.ffxreslist",
+        "hash": "1EA9AFD4BB7A9BF7BF96792E0A8B656E913E5DDCC9A7F99656DE4F36C64A982A"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451602.ffxreslist",
+        "relative": "ResourceList/f000451602.ffxreslist",
+        "hash": "AFEE9BD433A037B60168E7F9B6E41233D13B24E2E221C64195C6C33798BACECB"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451603.ffxreslist",
+        "relative": "ResourceList/f000451603.ffxreslist",
+        "hash": "5127CB8C87550B07E2415469C79702F5D6A7C9FDF54FF65F2F540895E845B139"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451604.ffxreslist",
+        "relative": "ResourceList/f000451604.ffxreslist",
+        "hash": "5127CB8C87550B07E2415469C79702F5D6A7C9FDF54FF65F2F540895E845B139"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451610.ffxreslist",
+        "relative": "ResourceList/f000451610.ffxreslist",
+        "hash": "AF4836D25364241D13C5688AE231CA8513CC79B91DDA8D7F898826C526388B2D"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451611.ffxreslist",
+        "relative": "ResourceList/f000451611.ffxreslist",
+        "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451612.ffxreslist",
+        "relative": "ResourceList/f000451612.ffxreslist",
+        "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451613.ffxreslist",
+        "relative": "ResourceList/f000451613.ffxreslist",
+        "hash": "E6421479DE586963409595A9BB370CDBB7A7F5BFC5EAFB18A5BF9896C7DACC26"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451614.ffxreslist",
+        "relative": "ResourceList/f000451614.ffxreslist",
+        "hash": "E6421479DE586963409595A9BB370CDBB7A7F5BFC5EAFB18A5BF9896C7DACC26"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451615.ffxreslist",
+        "relative": "ResourceList/f000451615.ffxreslist",
+        "hash": "E6421479DE586963409595A9BB370CDBB7A7F5BFC5EAFB18A5BF9896C7DACC26"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451620.ffxreslist",
+        "relative": "ResourceList/f000451620.ffxreslist",
+        "hash": "B376ACBE900102DF55857402835914A3CEAD991225E2A7FFE07F4CB68CF6E701"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451621.ffxreslist",
+        "relative": "ResourceList/f000451621.ffxreslist",
+        "hash": "B376ACBE900102DF55857402835914A3CEAD991225E2A7FFE07F4CB68CF6E701"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451622.ffxreslist",
+        "relative": "ResourceList/f000451622.ffxreslist",
+        "hash": "B376ACBE900102DF55857402835914A3CEAD991225E2A7FFE07F4CB68CF6E701"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451623.ffxreslist",
+        "relative": "ResourceList/f000451623.ffxreslist",
+        "hash": "3DC0E5493FA489F0E486B31E34624F95462299F0127B9CCC26BD89E871552F5D"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451624.ffxreslist",
+        "relative": "ResourceList/f000451624.ffxreslist",
+        "hash": "08AFC40BCD2E8DFC81A154DD3601210327D42CEA7B6E4FDB525616B7718D70AF"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451625.ffxreslist",
+        "relative": "ResourceList/f000451625.ffxreslist",
+        "hash": "3DC0E5493FA489F0E486B31E34624F95462299F0127B9CCC26BD89E871552F5D"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451700.ffxreslist",
+        "relative": "ResourceList/f000451700.ffxreslist",
+        "hash": "929AF1F532D4E0C54C7ABE74195F8A0D94A31B48BFA4C62E152FC9E72E66958F"
+      },
+      {
+        "name": "N:\\GR\\data\\INTERROOT_win64\\sfx\\ResourceList\\f000451701.ffxreslist",
+        "relative": "ResourceList/f000451701.ffxreslist",
+        "hash": "467781750BD5D28EE7ABA49A3198747E7650D7C1B9857F1500A2E866B310BA28"
+      }
+    ],
+    "existingMemberPayloadsPreserved": 15189,
+    "totalMembers": 15227,
+    "idsShiftedByCanonicalSortedInsertion": 8490,
+    "idRanges": [
+      0,
+      100000,
+      200000,
+      300000,
+      400000
+    ],
+    "sourceRebuildMatchedOriginal": true,
+    "resourceChecks": {
+      "note": "Source .tif/.sib names matched to packed .tpf/.flver names; gameplay not tested.",
+      "files": [
+        {
+          "file": "f000451600.ffxreslist",
+          "references": []
+        },
+        {
+          "file": "f000451601.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34020_a.tif",
+              "packedName": "s34020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10041_a.tif",
+              "packedName": "s10041_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10091_a.tif",
+              "packedName": "s10091_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34010_a.tif",
+              "packedName": "s34010_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10101_a.tif",
+              "packedName": "s10101_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60022_n.tif",
+              "packedName": "s60022_n.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451602.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34020_a.tif",
+              "packedName": "s34020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10041_a.tif",
+              "packedName": "s10041_a.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451603.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34020_a.tif",
+              "packedName": "s34020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10041_a.tif",
+              "packedName": "s10041_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10091_a.tif",
+              "packedName": "s10091_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60022_n.tif",
+              "packedName": "s60022_n.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451604.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34020_a.tif",
+              "packedName": "s34020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10041_a.tif",
+              "packedName": "s10041_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10091_a.tif",
+              "packedName": "s10091_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60022_n.tif",
+              "packedName": "s60022_n.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451610.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s10101_a.tif",
+              "packedName": "s10101_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10030_a.tif",
+              "packedName": "s10030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10020_a.tif",
+              "packedName": "s10020_a.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451611.ffxreslist",
+          "references": []
+        },
+        {
+          "file": "f000451612.ffxreslist",
+          "references": []
+        },
+        {
+          "file": "f000451613.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31271_a.tif",
+              "packedName": "s31271_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31281_a.tif",
+              "packedName": "s31281_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60490_a.tif",
+              "packedName": "s60490_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_a.tif",
+              "packedName": "s00001_a.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451614.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31271_a.tif",
+              "packedName": "s31271_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31281_a.tif",
+              "packedName": "s31281_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60490_a.tif",
+              "packedName": "s60490_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_a.tif",
+              "packedName": "s00001_a.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451615.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31271_a.tif",
+              "packedName": "s31271_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31281_a.tif",
+              "packedName": "s31281_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60490_a.tif",
+              "packedName": "s60490_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_a.tif",
+              "packedName": "s00001_a.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451620.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60571_a.tif",
+              "packedName": "s60571_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10020_a.tif",
+              "packedName": "s10020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43011_a.tif",
+              "packedName": "s43011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43012_n.tif",
+              "packedName": "s43012_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_3m.tif",
+              "packedName": "s00001_3m.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451621.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60571_a.tif",
+              "packedName": "s60571_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10020_a.tif",
+              "packedName": "s10020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43011_a.tif",
+              "packedName": "s43011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43012_n.tif",
+              "packedName": "s43012_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_3m.tif",
+              "packedName": "s00001_3m.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451622.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60571_a.tif",
+              "packedName": "s60571_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10020_a.tif",
+              "packedName": "s10020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43011_a.tif",
+              "packedName": "s43011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43012_n.tif",
+              "packedName": "s43012_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_3m.tif",
+              "packedName": "s00001_3m.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451623.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s43011_a.tif",
+              "packedName": "s43011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31411_a.tif",
+              "packedName": "s31411_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34010_a.tif",
+              "packedName": "s34010_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10041_a.tif",
+              "packedName": "s10041_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10020_a.tif",
+              "packedName": "s10020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34020_a.tif",
+              "packedName": "s34020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31241_a.tif",
+              "packedName": "s31241_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43012_n.tif",
+              "packedName": "s43012_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60022_n.tif",
+              "packedName": "s60022_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_3m.tif",
+              "packedName": "s00001_3m.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451624.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s43011_a.tif",
+              "packedName": "s43011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31411_a.tif",
+              "packedName": "s31411_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10020_a.tif",
+              "packedName": "s10020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34020_a.tif",
+              "packedName": "s34020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31241_a.tif",
+              "packedName": "s31241_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43012_n.tif",
+              "packedName": "s43012_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60022_n.tif",
+              "packedName": "s60022_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_3m.tif",
+              "packedName": "s00001_3m.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451625.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s43011_a.tif",
+              "packedName": "s43011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31411_a.tif",
+              "packedName": "s31411_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34010_a.tif",
+              "packedName": "s34010_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34030_a.tif",
+              "packedName": "s34030_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10041_a.tif",
+              "packedName": "s10041_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10020_a.tif",
+              "packedName": "s10020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34020_a.tif",
+              "packedName": "s34020_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s31241_a.tif",
+              "packedName": "s31241_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s10011_a.tif",
+              "packedName": "s10011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s43012_n.tif",
+              "packedName": "s43012_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s60022_n.tif",
+              "packedName": "s60022_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00001_3m.tif",
+              "packedName": "s00001_3m.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451700.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s26011_a.tif",
+              "packedName": "s26011_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s26041_a.tif",
+              "packedName": "s26041_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s64002_n.tif",
+              "packedName": "s64002_n.tpf",
+              "present": true
+            }
+          ]
+        },
+        {
+          "file": "f000451701.ffxreslist",
+          "references": [
+            {
+              "sourceReference": "s34031_a.tif",
+              "packedName": "s34031_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00003_r.tif",
+              "packedName": "s00003_r.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00007_em.tif",
+              "packedName": "s00007_em.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s00008_n.tif",
+              "packedName": "s00008_n.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s34041_a.tif",
+              "packedName": "s34041_a.tpf",
+              "present": true
+            },
+            {
+              "sourceReference": "s83050.sib",
+              "packedName": "s83050.flver",
+              "present": true
+            },
+            {
+              "sourceReference": "s83066.sib",
+              "packedName": "s83066.flver",
+              "present": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "icons": {
+    "soloAdditions": [
+      {
+        "ID": 1043,
+        "Name": "00_Solo\\MENU_Knowledge_03900.tpf.dcx",
+        "Flags": 2,
+        "Hash": "ED7AE9CB1F0A7F3145BD4EBC948DD8AE3955BA26C1C5E873A90DE866CE09F82B"
+      },
+      {
+        "ID": 1044,
+        "Name": "00_Solo\\MENU_Knowledge_03901.tpf.dcx",
+        "Flags": 2,
+        "Hash": "9061A23AF732E96604066A0445976F4FFE3691611B2202E542D7F5D5C2366894"
+      },
+      {
+        "ID": 1045,
+        "Name": "00_Solo\\MENU_Knowledge_03902.tpf.dcx",
+        "Flags": 2,
+        "Hash": "CAF9064EA8626739E027E4CA84ED0049F449847B821E85A42152B9050D2C415B"
+      },
+      {
+        "ID": 1966,
+        "Name": "00_Solo\\MENU_Knowledge_12400.tpf.dcx",
+        "Flags": 2,
+        "Hash": "1B7A4AF6094534F213281798732248A748A8CDD3334CCF3C691941D51BC2F05B"
+      },
+      {
+        "ID": 1967,
+        "Name": "00_Solo\\MENU_Knowledge_12401.tpf.dcx",
+        "Flags": 2,
+        "Hash": "3EA53F5F9DA11ADEE1408965833E11A3EE9F82C4D852108D111EACBF3A0AC225"
+      },
+      {
+        "ID": 1968,
+        "Name": "00_Solo\\MENU_Knowledge_12402.tpf.dcx",
+        "Flags": 2,
+        "Hash": "5F32F73F72489789EED8259FA756D877BB1E07CE42AE6AA17F77E8ABE0730105"
+      },
+      {
+        "ID": 1969,
+        "Name": "00_Solo\\MENU_Knowledge_12403.tpf.dcx",
+        "Flags": 2,
+        "Hash": "861AFFAE076EC8F4DC98917339E6BD866E6E2EB62A2CC0AEF754A21A2FB0EC09"
+      },
+      {
+        "ID": 1970,
+        "Name": "00_Solo\\MENU_Knowledge_12404.tpf.dcx",
+        "Flags": 2,
+        "Hash": "58B972984191C1A010B6CFDFA392BBC3904B0C1F5723B83B3227D33AA9201DE8"
+      },
+      {
+        "ID": 1971,
+        "Name": "00_Solo\\MENU_Knowledge_12405.tpf.dcx",
+        "Flags": 2,
+        "Hash": "7F38222518163789F34DC6E64B360C30CBB4964FCC1BB3CC1C209924776D59C4"
+      },
+      {
+        "ID": 1972,
+        "Name": "00_Solo\\MENU_Knowledge_12406.tpf.dcx",
+        "Flags": 2,
+        "Hash": "28242359CBBDDCE925DA9D7F076DCEB8578D16E9BA26B89DCC5936AEA88F523C"
+      },
+      {
+        "ID": 1973,
+        "Name": "00_Solo\\MENU_Knowledge_12407.tpf.dcx",
+        "Flags": 2,
+        "Hash": "8600E53FFBB1A38A87E37ED15415D364563C97928F32460758927FD579924802"
+      },
+      {
+        "ID": 2726,
+        "Name": "00_Solo\\MENU_Knowledge_15700.tpf.dcx",
+        "Flags": 2,
+        "Hash": "4E02A10B48EB0C3BEC75B52F66C7B1C59040C546F5643C7F92390B3FD5B823D4"
+      },
+      {
+        "ID": 2727,
+        "Name": "00_Solo\\MENU_Knowledge_15701.tpf.dcx",
+        "Flags": 2,
+        "Hash": "487EE5A7B71F6D6A950D2CC1750AB75658125F162C35AADF49600C507940D099"
+      },
+      {
+        "ID": 2728,
+        "Name": "00_Solo\\MENU_Knowledge_15702.tpf.dcx",
+        "Flags": 2,
+        "Hash": "38DBB3BA65EE16CBCE8D6448A29B5C75558F8390AC3C9AE73E75D8F1B4F3D843"
+      },
+      {
+        "ID": 2729,
+        "Name": "00_Solo\\MENU_Knowledge_15703.tpf.dcx",
+        "Flags": 2,
+        "Hash": "87EB95551F6861D9E2E4A026CD21585329058882558601FE6A25FECE03FBC010"
+      },
+      {
+        "ID": 2730,
+        "Name": "00_Solo\\MENU_Knowledge_15704.tpf.dcx",
+        "Flags": 2,
+        "Hash": "114F66FAD3D78AC683736501438CC40910D7350B1B0AF06453A2027E91526951"
+      },
+      {
+        "ID": 2731,
+        "Name": "00_Solo\\MENU_Knowledge_15705.tpf.dcx",
+        "Flags": 2,
+        "Hash": "21FAEF27D4FA4884FDD39B1DEA458CB01AA81DF28E35A96B3178117B0EDC6A81"
+      },
+      {
+        "ID": 2732,
+        "Name": "00_Solo\\MENU_Knowledge_15706.tpf.dcx",
+        "Flags": 2,
+        "Hash": "9E134CB13FDD3682BCC179D837CCE8D3498E5D11A42249F5D36F02D2241B8737"
+      },
+      {
+        "ID": 2733,
+        "Name": "00_Solo\\MENU_Knowledge_15707.tpf.dcx",
+        "Flags": 2,
+        "Hash": "F0D2AFF4CF77D63C5B17CEA14DB1DD2990CBC3BC8047BAD5EDBC9CC8E2B5847B"
+      },
+      {
+        "ID": 2734,
+        "Name": "00_Solo\\MENU_Knowledge_15708.tpf.dcx",
+        "Flags": 2,
+        "Hash": "7D55B09C61A02A300D7D89CE267C584D68FA3876718DD38B9BF75F34B678A33C"
+      },
+      {
+        "ID": 2735,
+        "Name": "00_Solo\\MENU_Knowledge_15709.tpf.dcx",
+        "Flags": 2,
+        "Hash": "185DE7BFC93A9DDB46B95C648B2A4D75E136E7831F8E3ACC5A716D30CA63848D"
+      },
+      {
+        "ID": 2736,
+        "Name": "00_Solo\\MENU_Knowledge_15710.tpf.dcx",
+        "Flags": 2,
+        "Hash": "4FE7A1CC4686675C305DB17BCB908659D40CD5D93243351446705FAAED0C7922"
+      },
+      {
+        "ID": 2737,
+        "Name": "00_Solo\\MENU_Knowledge_15711.tpf.dcx",
+        "Flags": 2,
+        "Hash": "EDD82298BCC28E21137A6D16FC20B140F44A1829A24DF78E593082D324CFD411"
+      },
+      {
+        "ID": 2738,
+        "Name": "00_Solo\\MENU_Knowledge_15712.tpf.dcx",
+        "Flags": 2,
+        "Hash": "6B9B40FA95AAF204C5E43FCBF2236D0DBAA69DE6B302DE3F9E5D0B0CD5AAD48C"
+      },
+      {
+        "ID": 2739,
+        "Name": "00_Solo\\MENU_Knowledge_15713.tpf.dcx",
+        "Flags": 2,
+        "Hash": "15D4582B3AD2A46839E28A494B45866D9163EA13A778B7AD8F280666831CB034"
+      },
+      {
+        "ID": 2740,
+        "Name": "00_Solo\\MENU_Knowledge_15714.tpf.dcx",
+        "Flags": 2,
+        "Hash": "6FF93B4FD38D1B4EBBF55698035D5B8146D58463390888287224083612CA0288"
+      },
+      {
+        "ID": 2741,
+        "Name": "00_Solo\\MENU_Knowledge_15715.tpf.dcx",
+        "Flags": 2,
+        "Hash": "F6BE1A1A0DECCE63BC67773E80EFDB456A468D5B7FA9B809A5491C875210F282"
+      },
+      {
+        "ID": 2742,
+        "Name": "00_Solo\\MENU_Knowledge_15716.tpf.dcx",
+        "Flags": 2,
+        "Hash": "8448B70A67A39571DB282D5B5926E896C15B9B0BDD84B070A0DBBF0457589BD9"
+      },
+      {
+        "ID": 2743,
+        "Name": "00_Solo\\MENU_Knowledge_15717.tpf.dcx",
+        "Flags": 2,
+        "Hash": "F451467798633D421209FC509D828FC97D26DA196B7D92818CD9C4F8B6EF206D"
+      },
+      {
+        "ID": 2744,
+        "Name": "00_Solo\\MENU_Knowledge_15718.tpf.dcx",
+        "Flags": 2,
+        "Hash": "C17541ABBAD69D84213A3AD4CEAD4D88378D1DC455C854870611A47F3236FCAD"
+      }
+    ],
+    "existingSoloPayloadsPreserved": 3049,
+    "commonReplacements": [
+      {
+        "name": "SB_FE_02",
+        "before": {
+          "Name": "SB_FE_02",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "C9AA96DDC912E1E3A1805C7C67B95FF1DA74F7D2C1FFE54B2240C577BACF1FBB"
+        },
+        "after": {
+          "Name": "SB_FE_02",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "D2C234145FB709F0EF747487A3E8B7486D553492F2028E66FC956727AADB2321"
+        }
+      },
+      {
+        "name": "SB_Icon_08_dlc",
+        "before": {
+          "Name": "SB_Icon_08_dlc",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "E02CD45FB0C59CC17C7590C44542379A3B21EF3D554D9BACB0467111F839B45E"
+        },
+        "after": {
+          "Name": "SB_Icon_08_dlc",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "77154B75B5F44780E7F119581443524E7E8F9EA7E47170A9434A77A6AAAB06CD"
+        }
+      },
+      {
+        "name": "SB_MainMenu_02",
+        "before": {
+          "Name": "SB_MainMenu_02",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "08A58B30126841D4E100145279930F843632F8655EA0E1AC17BCDD73B8B379BC"
+        },
+        "after": {
+          "Name": "SB_MainMenu_02",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "F04085CBC31BE6DEAE3482443DF80E465DD6E751DE50E46B4624FAC849A27252"
+        }
+      },
+      {
+        "name": "SB_Operating_1",
+        "before": {
+          "Name": "SB_Operating_1",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "4C3C5B4F0D83EDA75B21145B28C76661237F7470F28E553352E58A2744435EA2"
+        },
+        "after": {
+          "Name": "SB_Operating_1",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "2EC3733FC4ACE0B45271CB848D5681558A1B0171D40DCD706E6ED6B65576636B"
+        }
+      },
+      {
+        "name": "SB_Preset",
+        "before": {
+          "Name": "SB_Preset",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "01C3276A2C0B8E94DEBDCD5BEC68A1B2710B43CB3284FB76108B8E3BCB3FE406"
+        },
+        "after": {
+          "Name": "SB_Preset",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "BF37916F5BF9401408374064D6A407706270FE4A1E27E759D2A3257693B9BD29"
+        }
+      },
+      {
+        "name": "SB_Preset_2",
+        "before": {
+          "Name": "SB_Preset_2",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "D3B065648D4748A5FE95289F6D3632B8A73078D3ADB696C704E1D6ACEEF0F2C9"
+        },
+        "after": {
+          "Name": "SB_Preset_2",
+          "Platform": 0,
+          "Format": 102,
+          "Type": 0,
+          "Mipmaps": 1,
+          "Flags1": 0,
+          "Header": null,
+          "FloatStruct": null,
+          "ByteHash": "8EF2A39B2B94197880C21211553B5EDA32544094CF598E964CEC2DD82AD18AD3"
+        }
+      }
+    ],
+    "commonTextureCount": 56
+  },
+  "text": {
+    "menu.msgbnd.dcx": {
+      "customDifferencesPreserved": 66,
+      "upstreamChanges": 33,
+      "conflicts": 0,
+      "operations": [
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000001,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000002,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000003,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000004,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000005,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000006,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000007,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000008,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000009,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000010,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000011,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000012,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000013,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000014,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000015,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000016,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000017,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000018,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000020,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000021,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000022,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000023,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000024,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000025,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000026,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000027,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000028,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000029,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000030,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000031,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421040,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Summon Melina"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421041,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Dismiss Melina"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421042,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Talk to Melina"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421043,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Me?\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421044,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"This tiny golden aura is the grace of the Erdtree.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421045,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"O Radagon, leal hound of the Golden Order.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421046,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"I declare mine intent, to search the depths of the Golden Order.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421047,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Hark, brave warriors. Hark, my lord Godfrey. We commend your deeds.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421048,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"My Lord, and thy warriors. I divest each of thee of thy grace.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421049,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Then, after thy death, I will give back what I once claimed.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421050,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"The Erdtree governs all. The choice is thine.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421051,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Is there...another person inside of you?\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421052,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Is there...another person inside of you?\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421053,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Think not, of the kindling.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421054,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Hear me, Demigods. My children beloved.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421055,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"There is something I'd like to say.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421056,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"If you intend to claim the frenzied flame,\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421057,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"I shall see to the kindling.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421058,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Please, seek not the frenzied flame.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421059,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Please, put a stop to this madness.\""
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30060,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30061,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30062,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30063,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30064,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30065,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30066,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 1055421000,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 3020,
+          "beforeExists": true,
+          "before": " ",
+          "afterExists": true,
+          "after": ""
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 3021,
+          "beforeExists": true,
+          "before": " ",
+          "afterExists": true,
+          "after": ""
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331313,
+          "beforeExists": true,
+          "before": "COMMENCE",
+          "afterExists": true,
+          "after": "SIN PURGED"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331314,
+          "beforeExists": true,
+          "before": "VICTORY",
+          "afterExists": true,
+          "after": "SOVEREIGN OF WAR"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331315,
+          "beforeExists": true,
+          "before": "STALEMATE",
+          "afterExists": true,
+          "after": "ECLIPSE SLAYER"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331316,
+          "beforeExists": true,
+          "before": "DEFEAT",
+          "afterExists": true,
+          "after": "ABERRANT KNIGHT"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 400000,
+          "beforeExists": true,
+          "before": " ",
+          "afterExists": true,
+          "after": ""
+        },
+        {
+          "tableId": 204,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues.fmg",
+          "entryId": 225000,
+          "beforeExists": true,
+          "before": "Offer <?demandSoul?> Dragon Heart(s)\nto make <?itemName?> thine own",
+          "afterExists": true,
+          "after": "Offer <?demandSoul?> Heart(s) to make <?itemName?> thine own"
+        }
+      ],
+      "upstreamPreserved": [
+        {
+          "tableId": 32,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText.fmg",
+          "entryId": 9560,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Summon Knight Leontiel"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010070,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Change spectral steed appearance"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010071,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Original appearance"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010072,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Tree Sentinel"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010073,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Carian Silver"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010074,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Funereal Night"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010075,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Original appearance (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010076,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Tree Sentinel (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010077,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Carian Silver (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010078,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Funereal Night (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010079,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Cancel"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011070,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "The spectral steed's appearance can now be changed"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011071,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Original\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011072,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Tree Sentinel\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011073,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Carian Silver\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011074,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Funereal Night\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011075,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Original\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011076,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Tree Sentinel\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011077,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Carian Silver\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011078,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Funereal Night\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011079,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": null
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 80900,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Summoned Knight Leontiel"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 80901,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Knight Leontiel has died"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 80902,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Knight Leontiel returned to her world"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 288110,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Idus Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 288111,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Heavy Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 297140,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "Idus Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 297141,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "Heavy Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 401001,
+          "beforeExists": true,
+          "before": "\u00a9Bandai Namco Entertainment Inc. / \u00a92024 FromSoftware, Inc.",
+          "afterExists": true,
+          "after": "\u00a9Bandai Namco Entertainment Inc. / \u00a92026 FromSoftware, Inc."
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 401002,
+          "beforeExists": true,
+          "before": "\u00a9Bandai Namco Entertainment Inc. / \u00a92024 FromSoftware, Inc.",
+          "afterExists": true,
+          "after": "\u00a9Bandai Namco Entertainment Inc. / \u00a92026 FromSoftware, Inc."
+        },
+        {
+          "tableId": 201,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp.fmg",
+          "entryId": 297140,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "A knight of the land of Idus, famed for\ntheir lightweight attire and weaponry,\nwhich they wield with ample dexterity."
+        },
+        {
+          "tableId": 201,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp.fmg",
+          "entryId": 297141,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "A knight in bulky steel armor capable of\nmowing through foes with a substantively-\nsized scimitar."
+        },
+        {
+          "tableId": 203,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64.fmg",
+          "entryId": 401132,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Tarnished Pack"
+        }
+      ]
+    },
+    "menu_dlc01.msgbnd.dcx": {
+      "customDifferencesPreserved": 72,
+      "upstreamChanges": 33,
+      "conflicts": 0,
+      "operations": [
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000001,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000002,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000003,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000004,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000005,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000006,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000007,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000008,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000009,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000010,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000011,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000012,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000013,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000014,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000015,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000016,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000017,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000018,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000020,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000021,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000022,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000023,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000024,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000025,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000026,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000027,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000028,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000029,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000030,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 21000031,
+          "beforeExists": true,
+          "before": "Talk to Melina",
+          "afterExists": true,
+          "after": "Melina has something to say..."
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421040,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Summon Melina"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421041,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Dismiss Melina"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421042,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Talk to Melina"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421043,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Me?\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421044,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"This tiny golden aura is the grace of the Erdtree.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421045,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"O Radagon, leal hound of the Golden Order.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421046,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"I declare mine intent, to search the depths of the Golden Order.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421047,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Hark, brave warriors. Hark, my lord Godfrey. We commend your deeds.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421048,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"My Lord, and thy warriors. I divest each of thee of thy grace.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421049,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Then, after thy death, I will give back what I once claimed.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421050,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"The Erdtree governs all. The choice is thine.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421051,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Is there...another person inside of you?\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421052,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Is there...another person inside of you?\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421053,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Think not, of the kindling.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421054,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Hear me, Demigods. My children beloved.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421055,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"There is something I'd like to say.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421056,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"If you intend to claim the frenzied flame,\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421057,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"I shall see to the kindling.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421058,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Please, seek not the frenzied flame.\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 1055421059,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "\"Please, put a stop to this madness.\""
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30060,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30061,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30062,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30063,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30064,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30065,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 30066,
+          "beforeExists": true,
+          "before": "A new draconic power is available at the Cathedral of Dragon Communion",
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 1055421000,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "A new draconic power is available"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 3020,
+          "beforeExists": true,
+          "before": " ",
+          "afterExists": true,
+          "after": ""
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 3021,
+          "beforeExists": true,
+          "before": " ",
+          "afterExists": true,
+          "after": ""
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331313,
+          "beforeExists": true,
+          "before": "COMMENCE",
+          "afterExists": true,
+          "after": "SIN PURGED"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331314,
+          "beforeExists": true,
+          "before": "VICTORY",
+          "afterExists": true,
+          "after": "SOVEREIGN OF WAR"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331315,
+          "beforeExists": true,
+          "before": "STALEMATE",
+          "afterExists": true,
+          "after": "ECLIPSE SLAYER"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 331316,
+          "beforeExists": true,
+          "before": "DEFEAT",
+          "afterExists": true,
+          "after": "ABERRANT KNIGHT"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 400000,
+          "beforeExists": true,
+          "before": " ",
+          "afterExists": true,
+          "after": ""
+        },
+        {
+          "tableId": 204,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues.fmg",
+          "entryId": 225000,
+          "beforeExists": true,
+          "before": "Offer <?demandSoul?> Dragon Heart(s)\nto make <?itemName?> thine own",
+          "afterExists": true,
+          "after": "Offer <?demandSoul?> Heart(s) to make <?itemName?> thine own"
+        },
+        {
+          "tableId": 366,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk_dlc01.fmg",
+          "entryId": 26302000,
+          "beforeExists": true,
+          "before": "Communion with Bayle",
+          "afterExists": true,
+          "after": "Ritual of Dread Dragon Communion"
+        },
+        {
+          "tableId": 366,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk_dlc01.fmg",
+          "entryId": 26302010,
+          "beforeExists": true,
+          "before": "Ritual of Dragon Communion",
+          "afterExists": true,
+          "after": "Ritual of Ancient Dragon Communion"
+        },
+        {
+          "tableId": 368,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText_dlc01.fmg",
+          "entryId": 225001,
+          "beforeExists": true,
+          "before": "Dragon Communion: Bayle",
+          "afterExists": true,
+          "after": "Dread Dragon Communion"
+        },
+        {
+          "tableId": 368,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText_dlc01.fmg",
+          "entryId": 225002,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "Ancient Dragon Communion"
+        },
+        {
+          "tableId": 369,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp_dlc01.fmg",
+          "entryId": 225001,
+          "beforeExists": true,
+          "before": "Choose an ability of Bayle's to make thine own",
+          "afterExists": true,
+          "after": "Choose which dragon ability to make thine own"
+        },
+        {
+          "tableId": 372,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues_dlc01.fmg",
+          "entryId": 225001,
+          "beforeExists": true,
+          "before": "Offer Heart of Bayle\nto make <?itemName?> thine own",
+          "afterExists": true,
+          "after": "Offer Heart of Bayle to make <?itemName?> thine own"
+        }
+      ],
+      "upstreamPreserved": [
+        {
+          "tableId": 32,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText.fmg",
+          "entryId": 9560,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Summon Knight Leontiel"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010070,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Change spectral steed appearance"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010071,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Original appearance"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010072,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Tree Sentinel"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010073,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Carian Silver"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010074,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Funereal Night"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010075,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Original appearance (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010076,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Tree Sentinel (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010077,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Carian Silver (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010078,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Funereal Night (currently chosen)"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20010079,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Cancel"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011070,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "The spectral steed's appearance can now be changed"
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011071,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Original\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011072,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Tree Sentinel\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011073,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Carian Silver\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011074,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance changed to \"Funereal Night\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011075,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Original\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011076,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Tree Sentinel\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011077,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Carian Silver\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011078,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Spectral steed's appearance is currently set to \"Funereal Night\""
+        },
+        {
+          "tableId": 33,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "entryId": 20011079,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": null
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 80900,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Summoned Knight Leontiel"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 80901,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Knight Leontiel has died"
+        },
+        {
+          "tableId": 34,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "entryId": 80902,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Knight Leontiel returned to her world"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 288110,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Idus Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 288111,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Heavy Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 297140,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "Idus Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 297141,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "Heavy Knight"
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 401001,
+          "beforeExists": true,
+          "before": "\u00a9Bandai Namco Entertainment Inc. / \u00a92024 FromSoftware, Inc.",
+          "afterExists": true,
+          "after": "\u00a9Bandai Namco Entertainment Inc. / \u00a92026 FromSoftware, Inc."
+        },
+        {
+          "tableId": 200,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "entryId": 401002,
+          "beforeExists": true,
+          "before": "\u00a9Bandai Namco Entertainment Inc. / \u00a92024 FromSoftware, Inc.",
+          "afterExists": true,
+          "after": "\u00a9Bandai Namco Entertainment Inc. / \u00a92026 FromSoftware, Inc."
+        },
+        {
+          "tableId": 201,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp.fmg",
+          "entryId": 297140,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "A knight of the land of Idus, famed for\ntheir lightweight attire and weaponry,\nwhich they wield with ample dexterity."
+        },
+        {
+          "tableId": 201,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp.fmg",
+          "entryId": 297141,
+          "beforeExists": true,
+          "before": null,
+          "afterExists": true,
+          "after": "A knight in bulky steel armor capable of\nmowing through foes with a substantively-\nsized scimitar."
+        },
+        {
+          "tableId": 203,
+          "name": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64.fmg",
+          "entryId": 401132,
+          "beforeExists": false,
+          "before": null,
+          "afterExists": true,
+          "after": "Tarnished Pack"
+        }
+      ]
+    }
+  },
+  "unexpectedOtherRuntimeChanges": [],
+  "otherPathComparisonsUnchanged": 198,
+  "gameplayTested": false
+}
