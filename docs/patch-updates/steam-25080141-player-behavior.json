@@ -1,0 +1,275 @@
+{
+  "steamBuild": "25080141",
+  "status": "applied-and-hash-verified",
+  "outputs": {
+    "action/script/c0000.hks": "6da60e2b2e55d502495976f489ac8d47254139d9b86fe093b247c24ccbcd5785",
+    "action/eventnameid.txt": "589ed853bf5604298156862d198b4f126ef5200138744ed42acc7e99ef7e7713",
+    "action/statenameid.txt": "1b64f37c524db8f3d505346026c34250245fa9b6ed8f82376c8e21c09a95f331",
+    "chr/c0000.behbnd.dcx": "4c45cbc427e17c1ae528529853ce495ff75b857d6a2e3c7284006edc7ec37050"
+  },
+  "sourceRun": ".codex-temp/player-update/1789017055699019100",
+  "archive": "archive/game-updates/2026-09-09_to-steam-25080141/05-player-behavior-and-hks",
+  "targetPaths": 19,
+  "physicalWrites": 15,
+  "vortexLiveHardlinkPairsPreserved": 4,
+  "adoptedAnimationSha256": "a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0",
+  "animationWasNotRewritten": true,
+  "graph": {
+    "path": "C:\\Repositories\\Sovereign\\.codex-temp\\player-update\\1789017055699019100\\graph\\rebuilt.xml",
+    "namedAndSingletonAnchorsVerified": 31368,
+    "objects": 36868,
+    "allExpectedFieldsMatch": true,
+    "expectedSemanticSha256": "31acf0fc8e9d229fd98b32dfb1a1dc1fe037cfb15a46e78e1621fbd2b6a8c80f",
+    "actualSemanticSha256": "31acf0fc8e9d229fd98b32dfb1a1dc1fe037cfb15a46e78e1621fbd2b6a8c80f",
+    "newVanillaNodesPreserved": 69,
+    "customNodesPreserved": 336,
+    "meaning": "Verified exact planned structural union, including explicit event/clip remaps. No gameplay claim."
+  },
+  "graphCounts": {
+    "customNamedNodes": 336,
+    "newObjects": 342,
+    "removedUnreachableObjects": [
+      "object406"
+    ],
+    "eventNames": 1496,
+    "eventInfos": 1506,
+    "objectCount": 36868
+  },
+  "integration": {
+    "status": "static-integration-checks-passed",
+    "existingHksFunctionsPreservedOutsidePlan": 1386,
+    "changedHksFunctions": [
+      "DrawStanceRightAttackHeavy_onUpdate",
+      "DrawStanceRightAttackLight_onUpdate",
+      "ExecArtsStance",
+      "ExecAttack",
+      "ExecFallStart",
+      "GestureCommonFunction",
+      "IsStanceArts",
+      "LadderEndCommonFunction",
+      "QuickItemCommonFunction",
+      "SetSwordArtsPointInfo",
+      "StealthItemCommonFunction",
+      "SwordArtsOneShotComboEnd_onUpdate",
+      "SwordArtsOneShot_onUpdate"
+    ],
+    "newHksCallbackMatchesCurrentVanillaTokens": true,
+    "documentedEditsReverseExactly": true,
+    "requiredNamedConstantsVerified": true,
+    "uniqueExternalNameIds": true,
+    "graphEventNamesMapped": 1496,
+    "graphEventReferencesInRange": 1465,
+    "variableBindingsInRange": 4294,
+    "uniqueStateIdsWithinMachines": true,
+    "noClipIdAliasesAcrossDifferentAnimations": true,
+    "newVanillaAnimationNamesPresent": 33,
+    "customClipNamesNotInMainTaeBinder": [
+      "a978_030300",
+      "a978_030600",
+      "a978_032300",
+      "a978_032400",
+      "a978_032600",
+      "a981_030300",
+      "a981_032300"
+    ],
+    "customMissingInterpretation": "Pre-existing references preserved, not silently removed; may require separate assets or later gameplay repair. No new missing custom reference introduced.",
+    "hksRuntimeCompiled": false,
+    "gameplayTested": false,
+    "manualTests": "ER-014 through ER-016 and ER-025/026, plus dedicated heavy-cancel/FP/equipment transition checks."
+  },
+  "binder": {
+    "unchangedWitchyRoundtrip": true,
+    "candidateBinderMetadataPreserved": true,
+    "changedMembers": [
+      "N:\\GR\\data\\INTERROOT_win64\\action\\c0000\\Export\\Behaviors\\c0000.hkx"
+    ],
+    "otherMemberPayloadsPreserved": 2,
+    "animationBaselineAdopted": "a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0",
+    "animationUpdateReceipt": "docs/patch-updates/steam-25080141-animations.json",
+    "status": "applied-and-hash-verified"
+  },
+  "qualification": {
+    "scope": "scratch only; unchanged conversion, no deployment",
+    "run": "C:\\Repositories\\Sovereign\\.codex-temp\\behavior-xml-review\\run-1789016254878694400",
+    "tool": "Z:\\Modding\\Elden Ring\\Tools\\HKLibCLI.v0.1.2\\net7.0\\HKLib.CLI.exe",
+    "toolFiles": {
+      "HKLib.CLI.dll": "cc764c5eee026397b823159a82ae990558a983c5622a9283b0b59f628c34188a",
+      "HKLib.dll": "66532438f9a9ca8ad7548e1ff39b396edcc2380317b442cf93149949c374d9d1",
+      "HKLib.Reflection.dll": "bdd3260097517caacab3ac13b646643ad61acb5907fd9c7041da19ef26a04aea",
+      "HKLib.Serialization.dll": "7e7f9b90931c67831dfed9ec50b3b14e483aef4c99f8a924b13d62a483632b50"
+    },
+    "sources": {
+      "old": {
+        "path": "Z:\\Modding\\Elden Ring\\DSAnimStudio\\_\\_1.16\\c0000-behbnd-dcx\\Behaviors\\c0000.xml",
+        "before": {
+          "xml": "ce2199047e551622db09910c710d0fa2e7eb51641367649177ccfd2a2427b8a1",
+          "hkx": "8d03c26bbdebd9e1429f8f725219e30e633c39a5278e4ae76528fecf938d3d7c"
+        },
+        "digests": {
+          "supplied.xml": "5788492db9ad5edccec46cf1a98c4eee00f75482e29582658b34182b60b83065",
+          "roundtrip.xml": "5788492db9ad5edccec46cf1a98c4eee00f75482e29582658b34182b60b83065",
+          "original.xml": "5788492db9ad5edccec46cf1a98c4eee00f75482e29582658b34182b60b83065"
+        },
+        "rebuiltHkx": "4ccd51cce22da2814c8a0c0c81e60ef140893e10ded75e58e74a6d8b14635fe2",
+        "xmlRoundtripExactTree": true,
+        "suppliedXmlMatchesOriginalHkxTree": true,
+        "binaryIdentical": false,
+        "sourceUnchanged": true
+      },
+      "current": {
+        "path": "C:\\Users\\Keenan\\Desktop\\1.17\\c0000-behbnd-dcx\\Behaviors\\c0000.xml",
+        "before": {
+          "xml": "bd2bd3c197565d5a8f3fa03ec629204b23c2580379d097cbdba2233c59c9ab0d",
+          "hkx": "76e6311f7b0a9f8042b194255f4f6369def319ce0d1301f0ff4ca8bad42116a3"
+        },
+        "digests": {
+          "supplied.xml": "5b99e125c3a8ae9840110a31f6770b09023f3e897418c331ea592dbb705fad6d",
+          "roundtrip.xml": "5b99e125c3a8ae9840110a31f6770b09023f3e897418c331ea592dbb705fad6d",
+          "original.xml": "5b99e125c3a8ae9840110a31f6770b09023f3e897418c331ea592dbb705fad6d"
+        },
+        "rebuiltHkx": "4b5b9632b0dbdb2c97cbd592c22c5a880215304ceccbc3ea3b7978d9222ce1a3",
+        "xmlRoundtripExactTree": true,
+        "suppliedXmlMatchesOriginalHkxTree": true,
+        "binaryIdentical": false,
+        "sourceUnchanged": true
+      },
+      "mod": {
+        "path": "C:\\Repositories\\Sovereign\\.codex-temp\\behavior-xml-review\\run-1789016254878694400\\mod\\c0000-behbnd-dcx\\Behaviors\\c0000.hkx",
+        "recovery": "Original external loose XML missing. Repo and editor packed binders match. Recovered XML byte-identical to earlier inspected source.",
+        "packedSource": "C:\\Repositories\\Sovereign\\chr\\c0000.behbnd.dcx",
+        "packedSha256": "9035efb7e1c6b0359921ed68a51d17288e5b64add5c59d72edf334c8f1bab664",
+        "before": {
+          "xml": "c7df95aafcde99a4f4b086a02f4cd1e591bbf6db8fccb5298325507b494522fb",
+          "hkx": "41aef921b6b296e24c8e7f32df48c305dd84e5e82e9778fb1ac7b160b817e9f7"
+        },
+        "digests": {
+          "supplied.xml": "c348a582fc0920ba76b74182031a362652525ceef79f9446dbed61e908d98a49",
+          "roundtrip.xml": "c348a582fc0920ba76b74182031a362652525ceef79f9446dbed61e908d98a49",
+          "original.xml": "c348a582fc0920ba76b74182031a362652525ceef79f9446dbed61e908d98a49"
+        },
+        "rebuiltHkx": "41aef921b6b296e24c8e7f32df48c305dd84e5e82e9778fb1ac7b160b817e9f7",
+        "xmlRoundtripExactTree": true,
+        "suppliedXmlMatchesOriginalHkxTree": true,
+        "binaryIdentical": true,
+        "sourceUnchanged": true
+      }
+    }
+  },
+  "gameplayTested": false,
+  "hksRuntimeCompiled": false,
+  "targets": [
+    {
+      "path": "C:\\Repositories\\Sovereign\\action\\script\\c0000.hks",
+      "sha256": "6da60e2b2e55d502495976f489ac8d47254139d9b86fe093b247c24ccbcd5785",
+      "newFile": false
+    },
+    {
+      "path": "C:\\Repositories\\Sovereign\\action\\eventnameid.txt",
+      "sha256": "589ed853bf5604298156862d198b4f126ef5200138744ed42acc7e99ef7e7713",
+      "newFile": false
+    },
+    {
+      "path": "C:\\Repositories\\Sovereign\\action\\statenameid.txt",
+      "sha256": "1b64f37c524db8f3d505346026c34250245fa9b6ed8f82376c8e21c09a95f331",
+      "newFile": false
+    },
+    {
+      "path": "C:\\Repositories\\Sovereign\\chr\\c0000.behbnd.dcx",
+      "sha256": "4c45cbc427e17c1ae528529853ce495ff75b857d6a2e3c7284006edc7ec37050",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\mod\\action\\script\\c0000.hks",
+      "sha256": "6da60e2b2e55d502495976f489ac8d47254139d9b86fe093b247c24ccbcd5785",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\mod\\action\\eventnameid.txt",
+      "sha256": "589ed853bf5604298156862d198b4f126ef5200138744ed42acc7e99ef7e7713",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\mod\\action\\statenameid.txt",
+      "sha256": "1b64f37c524db8f3d505346026c34250245fa9b6ed8f82376c8e21c09a95f331",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\mod\\chr\\c0000.behbnd.dcx",
+      "sha256": "4c45cbc427e17c1ae528529853ce495ff75b857d6a2e3c7284006edc7ec37050",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign\\mod\\action\\script\\c0000.hks",
+      "sha256": "6da60e2b2e55d502495976f489ac8d47254139d9b86fe093b247c24ccbcd5785",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign\\mod\\action\\eventnameid.txt",
+      "sha256": "589ed853bf5604298156862d198b4f126ef5200138744ed42acc7e99ef7e7713",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign\\mod\\action\\statenameid.txt",
+      "sha256": "1b64f37c524db8f3d505346026c34250245fa9b6ed8f82376c8e21c09a95f331",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign\\mod\\chr\\c0000.behbnd.dcx",
+      "sha256": "4c45cbc427e17c1ae528529853ce495ff75b857d6a2e3c7284006edc7ec37050",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\Script\\c0000.hks",
+      "sha256": "6da60e2b2e55d502495976f489ac8d47254139d9b86fe093b247c24ccbcd5785",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\DSAnimStudio\\c0000.behbnd.dcx",
+      "sha256": "4c45cbc427e17c1ae528529853ce495ff75b857d6a2e3c7284006edc7ec37050",
+      "newFile": false
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\DSAnimStudio\\c0000-behbnd-dcx\\c0000.hkx",
+      "sha256": "21e24774deec0cff3204915323bdd5140e82b645026df5cd54588361c8bb3682",
+      "newFile": true
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\DSAnimStudio\\c0000-behbnd-dcx\\_witchy-bnd4.xml",
+      "sha256": "7d50b577def8cc7bc30a8d740130e9ed7910ec8c8349e8ba48ee2d64c6672cbf",
+      "newFile": true
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\DSAnimStudio\\c0000-behbnd-dcx\\Behaviors\\c0000.hkx",
+      "sha256": "b91f659de5693d63b809f435aad7f50f2020f379d4a2b0c90c946108abfb7835",
+      "newFile": true
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\DSAnimStudio\\c0000-behbnd-dcx\\Characters\\c0000.hkx",
+      "sha256": "dfcddd6407c1390e85192c5ef3ac04201374cfb1a2741491267faa6d83f20047",
+      "newFile": true
+    },
+    {
+      "path": "Z:\\Modding\\Elden Ring\\DSAnimStudio\\c0000-behbnd-dcx\\Behaviors\\c0000.xml",
+      "sha256": "195e8f5b0334fd2de6e99a6317edf7c16b963fb0ddde9b54f604f91d45e42f8c",
+      "newFile": true
+    }
+  ],
+  "tools": {
+    "Z:\\Modding\\Elden Ring\\Tools\\HKLibCLI.v0.1.2\\net7.0\\HKLib.CLI.exe": "c49e0847193591cfd13438ed80bd279cb2599a73ffd7ecca59c1d3b303787328",
+    "Z:\\Modding\\Elden Ring\\Tools\\WitchyBND\\WitchyBND.exe": "00aa5b321d5af0179d3c9154a48d2ab3bb55772eaf624a439cc5f6ad4e21982b",
+    "Z:\\Modding\\Elden Ring\\Tools\\Smithbox\\Andre.SoulsFormats.dll": "e8eb162007d41d2b10454f227982ae387277d4e0ffcfc52eeeff91286bb9791a"
+  },
+  "finalAudit": {
+    "status": "complete-file-integration",
+    "verifiedTargetPaths": 19,
+    "verifiedArchiveFiles": 32,
+    "restoreMapValidated": true,
+    "unchangedGuardsVerified": 13,
+    "graphTypeSchemasPreserved": 333,
+    "sourceAndRuntimeMatch": true,
+    "animationAuthorUpdatePreserved": true,
+    "gameTestsDocumentedPending": true,
+    "gameplayTested": false,
+    "hksRuntimeCompiled": false
+  }
+}

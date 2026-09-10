@@ -1,0 +1,1178 @@
+{
+  "steamBuild": "25080141",
+  "status": "applied-and-hash-verified",
+  "runtimeSha256": "a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0",
+  "backupRun": ".codex-temp/animation-update/1789016705947586400",
+  "verification": {
+    "passed": true,
+    "binderMembers": 665,
+    "unchangedMemberPayloads": 655,
+    "modifiedMemberPayloads": 7,
+    "addedMembers": 3,
+    "existingMemberMetadataAndRelativeOrderPreserved": true,
+    "packedMatchesExpectedTae": true,
+    "newAnimationClipReferencesVerified": 33,
+    "uniqueClipReferences": 25,
+    "gameplayTested": false
+  },
+  "taeVerification": {
+    "passed": true,
+    "modifiedExistingRecords": {
+      "a00.tae": [
+        101104
+      ],
+      "a415.tae": [
+        45000,
+        45100,
+        48000,
+        48100
+      ],
+      "a692.tae": [
+        40000,
+        40030,
+        40040,
+        42000,
+        42030,
+        42040,
+        42800,
+        42830,
+        42840,
+        44800,
+        44830,
+        44840
+      ],
+      "a693.tae": [
+        40000,
+        40030,
+        40040,
+        40240,
+        40340
+      ],
+      "a696.tae": [
+        40000,
+        40005,
+        40030,
+        40035,
+        40040,
+        40045
+      ],
+      "a699.tae": [
+        40000,
+        40005,
+        40030,
+        40035,
+        40040,
+        40045
+      ],
+      "a953.tae": [
+        31270,
+        33070,
+        35000,
+        35010,
+        35020,
+        35030
+      ]
+    },
+    "addedRecords": {
+      "a972.tae": 12,
+      "a269.tae": 15,
+      "a973.tae": 6
+    },
+    "preservedOtherExistingRecords": 15265,
+    "exception": {
+      "file": "a00.tae",
+      "animation": 101104,
+      "eventIndex": 0,
+      "type": 16,
+      "oldParameterBytes": 0,
+      "newParameterBytes": 8,
+      "explanation": "Zero-filled alignment bytes on a parameterless Blend event after adding a sound event; all defined fields and all other event payloads match the planned result."
+    }
+  },
+  "qualifiedUnchangedWriter": [
+    {
+      "file": "a00.tae",
+      "byteEqual": false,
+      "decodedEqual": true,
+      "changedRecords": [],
+      "headerDifferences": []
+    },
+    {
+      "file": "a415.tae",
+      "byteEqual": true,
+      "decodedEqual": true,
+      "changedRecords": [],
+      "headerDifferences": []
+    },
+    {
+      "file": "a692.tae",
+      "byteEqual": true,
+      "decodedEqual": true,
+      "changedRecords": [],
+      "headerDifferences": []
+    },
+    {
+      "file": "a693.tae",
+      "byteEqual": true,
+      "decodedEqual": true,
+      "changedRecords": [],
+      "headerDifferences": []
+    },
+    {
+      "file": "a696.tae",
+      "byteEqual": true,
+      "decodedEqual": true,
+      "changedRecords": [],
+      "headerDifferences": []
+    },
+    {
+      "file": "a699.tae",
+      "byteEqual": true,
+      "decodedEqual": true,
+      "changedRecords": [],
+      "headerDifferences": []
+    },
+    {
+      "file": "a953.tae",
+      "byteEqual": true,
+      "decodedEqual": true,
+      "changedRecords": [],
+      "headerDifferences": []
+    }
+  ],
+  "existingEmptyTaeOmissionsPreserved": [
+    "a107.tae",
+    "a160.tae",
+    "a164.tae",
+    "a204.tae",
+    "a223.tae",
+    "a224.tae"
+  ],
+  "addedTaeFiles": [
+    "a269.tae",
+    "a972.tae",
+    "a973.tae"
+  ],
+  "operations": [
+    {
+      "tae": "a00.tae",
+      "animationId": 101104,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 31,
+          "before": {
+            "Type": 129,
+            "Unk04": 0,
+            "StartTime": 0.53333336,
+            "EndTime": 0.56666666,
+            "MemeEndTime": 0.56666666,
+            "Group": 22,
+            "Data": "0F00000038180000FFFFFFFFFFFFFFFF000000010100000000000000FF000000"
+          },
+          "after": {
+            "Type": 129,
+            "Unk04": 0,
+            "StartTime": 0.9,
+            "EndTime": 0.93333334,
+            "MemeEndTime": 0.93333334,
+            "Group": 22,
+            "Data": "0F00000038180000FFFFFFFFFFFFFFFF000000010100000000000000FF000000"
+          }
+        }
+      ],
+      "eventInsertions": [
+        {
+          "index": 30,
+          "event": {
+            "Data": "0F000000C8000000FFFFFFFFFFFFFFFF000000010100000000000000FF000000",
+            "EndTime": 0.16666667,
+            "Group": 21,
+            "MemeEndTime": 0.16666667,
+            "StartTime": 0.13333334,
+            "Type": 129,
+            "Unk04": 0
+          }
+        }
+      ]
+    },
+    {
+      "tae": "a415.tae",
+      "animationId": 48000,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 12,
+          "before": {
+            "Type": 300,
+            "Unk04": 0,
+            "StartTime": 1.3666667,
+            "EndTime": 2,
+            "MemeEndTime": 2,
+            "Group": 3,
+            "Data": "5D000500000000000000803FFFFFFFFF"
+          },
+          "after": {
+            "Type": 300,
+            "Unk04": 0,
+            "StartTime": 0.96666664,
+            "EndTime": 1.6,
+            "MemeEndTime": 1.6,
+            "Group": 3,
+            "Data": "5D000500000000000000803FFFFFFFFF"
+          }
+        }
+      ],
+      "eventInsertions": []
+    },
+    {
+      "tae": "a415.tae",
+      "animationId": 45000,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 7,
+          "before": {
+            "Type": 300,
+            "Unk04": 0,
+            "StartTime": 1.3666667,
+            "EndTime": 2,
+            "MemeEndTime": 2,
+            "Group": 3,
+            "Data": "5D000500000000000000803FFFFFFFFF"
+          },
+          "after": {
+            "Type": 300,
+            "Unk04": 0,
+            "StartTime": 0.96666664,
+            "EndTime": 1.6,
+            "MemeEndTime": 1.6,
+            "Group": 3,
+            "Data": "5D000500000000000000803FFFFFFFFF"
+          }
+        }
+      ],
+      "eventInsertions": []
+    },
+    {
+      "tae": "a415.tae",
+      "animationId": 48100,
+      "operation": "replace"
+    },
+    {
+      "tae": "a415.tae",
+      "animationId": 45100,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 8,
+          "before": {
+            "Type": 300,
+            "Unk04": 0,
+            "StartTime": 1.3666667,
+            "EndTime": 2,
+            "MemeEndTime": 2,
+            "Group": 3,
+            "Data": "5D000500000000000000803FFFFFFFFF"
+          },
+          "after": {
+            "Type": 300,
+            "Unk04": 0,
+            "StartTime": 0.96666664,
+            "EndTime": 1.6,
+            "MemeEndTime": 1.6,
+            "Group": 3,
+            "Data": "5D000500000000000000803FFFFFFFFF"
+          }
+        }
+      ],
+      "eventInsertions": []
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 40000,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 44800,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 40040,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 1,
+          "before": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.2,
+            "MemeEndTime": 0.2,
+            "Group": 0,
+            "Data": "40000000000000004F020000FF000000"
+          },
+          "after": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 0,
+            "Data": "40000000000000004F020000FF000000"
+          }
+        },
+        {
+          "index": 2,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.2,
+            "MemeEndTime": 0.2,
+            "Group": 1,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 1,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          }
+        },
+        {
+          "index": 3,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.23333333,
+            "MemeEndTime": 0.23333333,
+            "Group": 2,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.36666667,
+            "MemeEndTime": 0.36666667,
+            "Group": 2,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          }
+        }
+      ],
+      "eventInsertions": []
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 44840,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 42030,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 42830,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 42000,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 42800,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 44830,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 42840,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 42040,
+      "operation": "replace"
+    },
+    {
+      "tae": "a692.tae",
+      "animationId": 40030,
+      "operation": "replace"
+    },
+    {
+      "tae": "a693.tae",
+      "animationId": 40000,
+      "operation": "replace"
+    },
+    {
+      "tae": "a693.tae",
+      "animationId": 40240,
+      "operation": "replace"
+    },
+    {
+      "tae": "a693.tae",
+      "animationId": 40340,
+      "operation": "replace"
+    },
+    {
+      "tae": "a693.tae",
+      "animationId": 40040,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 1,
+          "before": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.3,
+            "MemeEndTime": 0.3,
+            "Group": 0,
+            "Data": "40000000000000004F020000FF00000000000000000000000000000000000000"
+          },
+          "after": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.1,
+            "EndTime": 0.3,
+            "MemeEndTime": 0.3,
+            "Group": 0,
+            "Data": "40000000000000004F020000FF00000000000000000000000000000000000000"
+          }
+        },
+        {
+          "index": 2,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.3,
+            "MemeEndTime": 0.3,
+            "Group": 1,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.1,
+            "EndTime": 0.3,
+            "MemeEndTime": 0.3,
+            "Group": 1,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          }
+        },
+        {
+          "index": 3,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 2,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.1,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 2,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          }
+        }
+      ],
+      "eventInsertions": []
+    },
+    {
+      "tae": "a693.tae",
+      "animationId": 40030,
+      "operation": "replace"
+    },
+    {
+      "tae": "a696.tae",
+      "animationId": 40000,
+      "operation": "replace"
+    },
+    {
+      "tae": "a696.tae",
+      "animationId": 40035,
+      "operation": "replace"
+    },
+    {
+      "tae": "a696.tae",
+      "animationId": 40005,
+      "operation": "replace"
+    },
+    {
+      "tae": "a696.tae",
+      "animationId": 40040,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 2,
+          "before": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.3,
+            "MemeEndTime": 0.3,
+            "Group": 1,
+            "Data": "40000000000000004F020000FF000000"
+          },
+          "after": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 1,
+            "Data": "40000000000000004F020000FF000000"
+          }
+        },
+        {
+          "index": 3,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.3,
+            "MemeEndTime": 0.3,
+            "Group": 2,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 2,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          }
+        },
+        {
+          "index": 4,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 3,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.36666667,
+            "MemeEndTime": 0.36666667,
+            "Group": 3,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          }
+        }
+      ],
+      "eventInsertions": []
+    },
+    {
+      "tae": "a696.tae",
+      "animationId": 40045,
+      "operation": "replace"
+    },
+    {
+      "tae": "a696.tae",
+      "animationId": 40030,
+      "operation": "replace"
+    },
+    {
+      "tae": "a699.tae",
+      "animationId": 40000,
+      "operation": "replace"
+    },
+    {
+      "tae": "a699.tae",
+      "animationId": 40035,
+      "operation": "replace"
+    },
+    {
+      "tae": "a699.tae",
+      "animationId": 40005,
+      "operation": "replace"
+    },
+    {
+      "tae": "a699.tae",
+      "animationId": 40040,
+      "operation": "patch",
+      "eventChanges": [
+        {
+          "index": 2,
+          "before": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.26666668,
+            "MemeEndTime": 0.26666668,
+            "Group": 1,
+            "Data": "40000000000000004F020000FF000000"
+          },
+          "after": {
+            "Type": 1,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 1,
+            "Data": "40000000000000004F020000FF000000"
+          }
+        },
+        {
+          "index": 3,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.26666668,
+            "MemeEndTime": 0.26666668,
+            "Group": 2,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.33333334,
+            "MemeEndTime": 0.33333334,
+            "Group": 2,
+            "Data": "7700000000000000FFFFFFFF06000000"
+          }
+        },
+        {
+          "index": 4,
+          "before": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.3,
+            "MemeEndTime": 0.3,
+            "Group": 3,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          },
+          "after": {
+            "Type": 0,
+            "Unk04": 0,
+            "StartTime": 0.13333334,
+            "EndTime": 0.36666667,
+            "MemeEndTime": 0.36666667,
+            "Group": 3,
+            "Data": "1200000000000000FFFFFFFF06000000"
+          }
+        }
+      ],
+      "eventInsertions": []
+    },
+    {
+      "tae": "a699.tae",
+      "animationId": 40045,
+      "operation": "replace"
+    },
+    {
+      "tae": "a699.tae",
+      "animationId": 40030,
+      "operation": "replace"
+    },
+    {
+      "tae": "a953.tae",
+      "animationId": 31270,
+      "operation": "replace"
+    },
+    {
+      "tae": "a953.tae",
+      "animationId": 33070,
+      "operation": "replace"
+    },
+    {
+      "tae": "a953.tae",
+      "animationId": 35000,
+      "operation": "replace"
+    },
+    {
+      "tae": "a953.tae",
+      "animationId": 35010,
+      "operation": "replace"
+    },
+    {
+      "tae": "a953.tae",
+      "animationId": 35020,
+      "operation": "replace"
+    },
+    {
+      "tae": "a953.tae",
+      "animationId": 35030,
+      "operation": "replace"
+    }
+  ],
+  "clipReferences": [
+    {
+      "tae": "a269.tae",
+      "id": 30500,
+      "clip": "a125_030500.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 30501,
+      "clip": "a125_030501.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 30505,
+      "clip": "a125_030505.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 30510,
+      "clip": "a125_030510.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 30515,
+      "clip": "a125_030515.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32000,
+      "clip": "a128_032000.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32010,
+      "clip": "a128_032010.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32020,
+      "clip": "a128_032020.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32030,
+      "clip": "a128_032030.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32300,
+      "clip": "a125_032300.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32500,
+      "clip": "a125_032500.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32501,
+      "clip": "a125_032501.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32505,
+      "clip": "a125_032505.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32510,
+      "clip": "a125_032510.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a269.tae",
+      "id": 32515,
+      "clip": "a125_032515.hkx",
+      "vanillaBinders": [
+        "a9x"
+      ],
+      "effectiveBinders": [
+        "a9x"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40010,
+      "clip": "a972_040010.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40015,
+      "clip": "a972_040010.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40050,
+      "clip": "a972_040050.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40051,
+      "clip": "a972_040051.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40052,
+      "clip": "a972_040052.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40053,
+      "clip": "a972_040053.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40060,
+      "clip": "a972_040060.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40065,
+      "clip": "a972_040060.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40070,
+      "clip": "a972_040070.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40071,
+      "clip": "a972_040071.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40075,
+      "clip": "a972_040070.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a972.tae",
+      "id": 40076,
+      "clip": "a972_040071.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a973.tae",
+      "id": 40000,
+      "clip": "a973_040000.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a973.tae",
+      "id": 40005,
+      "clip": "a973_040000.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a973.tae",
+      "id": 40010,
+      "clip": "a973_040010.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a973.tae",
+      "id": 40015,
+      "clip": "a973_040010.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a973.tae",
+      "id": 40110,
+      "clip": "a973_040010.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    },
+    {
+      "tae": "a973.tae",
+      "id": 40111,
+      "clip": "a973_040010.hkx",
+      "vanillaBinders": [
+        "dlc02"
+      ],
+      "effectiveBinders": [
+        "dlc02"
+      ]
+    }
+  ],
+  "destinationCount": 14,
+  "physicalWrites": 13,
+  "projectArchived": true,
+  "projectRegeneration": "DSAnimStudio will import the updated binder on next open; the old auto-loaded .dsaproj is archived in the backup. No GUI was launched.",
+  "projectBackupSha256": "83dac4bf774f513f2a8f0f3adeca78adad9ce7e4e93e78b82265ac66cbe1c6bb",
+  "outputs": [
+    {
+      "name": "c0000.anibnd.dcx",
+      "beforeSha256": "6edbc174dcfb4fe96ada248969b75c42ba574d8079dfc6a314c969c028e9a8a1",
+      "afterSha256": "a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0"
+    },
+    {
+      "name": "c0000.anibnd.dcx",
+      "beforeSha256": "d829229cfd1bfe688221ada066e151ed704d35ab08fb5070dabb9d4a0bacb34f",
+      "afterSha256": "a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0"
+    },
+    {
+      "name": "c0000.anibnd.dcx",
+      "beforeSha256": "6edbc174dcfb4fe96ada248969b75c42ba574d8079dfc6a314c969c028e9a8a1",
+      "afterSha256": "a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0"
+    },
+    {
+      "name": "c0000.anibnd.dcx",
+      "beforeSha256": "6edbc174dcfb4fe96ada248969b75c42ba574d8079dfc6a314c969c028e9a8a1",
+      "afterSha256": "a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0"
+    },
+    {
+      "name": "a00.tae",
+      "beforeSha256": "e82bfd65da68573c2287c0267fbb5732af632b6aae53f0c8393ce32b97e75018",
+      "afterSha256": "56d378c5cdcd9dd99664282f17c96c9b38862d49b4d87e8a32908c9b946139b2"
+    },
+    {
+      "name": "a269.tae",
+      "beforeSha256": null,
+      "afterSha256": "d058bb5f764bb08c35977929bd8b2bd8e6a71f2b2b5e46111c614fe5b1d0623a"
+    },
+    {
+      "name": "a415.tae",
+      "beforeSha256": "e20c4d430f73ce247d79538d77134fb83baf67853a0b8bb78fc44d45d94dfabb",
+      "afterSha256": "95c963f248cb0223bb556882c25cd61ad521d384abe8910a34c3824eb64962e2"
+    },
+    {
+      "name": "a692.tae",
+      "beforeSha256": "6f96e58efc25364e59e844382f40258d7e299328f12bd2a8646b92e3174425a9",
+      "afterSha256": "a2b0b92e481d9636b42854c5a6db24069dfa78ff8a789cfa51468cf24b9f8fd0"
+    },
+    {
+      "name": "a693.tae",
+      "beforeSha256": "f658ffa472966cc6ae324b1b8b6ef396141a1863fb2c04fd37a60ca519bbb951",
+      "afterSha256": "695a989ceda50bdf32d08cbc56eda40f3eb502c934146f17b470d7fca8f8017a"
+    },
+    {
+      "name": "a696.tae",
+      "beforeSha256": "8749eb28b5b551229bb96835b4b718f6d393d70c518d453fd3bdaddb5765b9fe",
+      "afterSha256": "07fa90cf16aee449d6eb6cd648c900713e81ec31c8cdf22b4d3d9b18c9321f04"
+    },
+    {
+      "name": "a699.tae",
+      "beforeSha256": "c358d57dae1f6592a9d5de9cc92b23116420b7c9fe99ac2a5b37f41098022d96",
+      "afterSha256": "9e87008815406021bbbff93767a4206fbbe5fd2f785d0db5bc3c100c162b3711"
+    },
+    {
+      "name": "a953.tae",
+      "beforeSha256": "6a6239913abce9f2c1aba30d7c22badb3208eb317bc0b7c9e38c6d9eaea59c97",
+      "afterSha256": "b761622c21d406c42aaba839aa5def486aa8d9105b9db660b99688ad3dc332da"
+    },
+    {
+      "name": "a972.tae",
+      "beforeSha256": null,
+      "afterSha256": "4a17d68b179f77cde4390a431ffbdc4c7d8e6484a83c1ccff0aae79de3024307"
+    },
+    {
+      "name": "a973.tae",
+      "beforeSha256": null,
+      "afterSha256": "f2a2b0fdc563a27232e37dd7014ca65980a581099f184028b3183f8c95a2ea43"
+    }
+  ],
+  "tools": {
+    "WitchyBND.exe": "00aa5b321d5af0179d3c9154a48d2ab3bb55772eaf624a439cc5f6ad4e21982b",
+    "Andre.SoulsFormats.dll": "e8eb162007d41d2b10454f227982ae387277d4e0ffcfc52eeeff91286bb9791a",
+    "DSAnimStudio-ER-template": "1b61b8c46c2b0e57941d8764fd4917fa6984fb3c2a3539f48301be3677e3f877"
+  }
+}

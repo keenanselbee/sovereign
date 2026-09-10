@@ -1,0 +1,2068 @@
+{
+  "inputReview": "C:\\Repositories\\Sovereign\\.codex-temp\\behavior-xml-review\\run-1789016254878694400",
+  "baseline": "current",
+  "customNamedNodes": 336,
+  "newObjects": 342,
+  "removedUnreachableObjects": [
+    "object406"
+  ],
+  "customClipIdMap": {
+    "20048": 20048,
+    "20049": 20049,
+    "14857": 14890,
+    "14856": 14889,
+    "14858": 14891,
+    "14860": 14893,
+    "14861": 14894,
+    "14859": 14892,
+    "14862": 14895,
+    "14863": 14896,
+    "14898": 14931,
+    "14866": 14899,
+    "14864": 14897,
+    "14865": 14898,
+    "14867": 14900,
+    "14870": 14903,
+    "14871": 14904,
+    "14872": 14905,
+    "14873": 14906,
+    "14874": 14907,
+    "14875": 14908,
+    "14876": 14909,
+    "14965": 14998,
+    "15067": 15100,
+    "14879": 14912,
+    "20000": 20000,
+    "20001": 20001,
+    "20002": 20002,
+    "20003": 20003,
+    "20004": 20004,
+    "20005": 20005,
+    "20006": 20006,
+    "20007": 20007,
+    "20008": 20008,
+    "20009": 20009,
+    "20010": 20010,
+    "20011": 20011,
+    "20012": 20012,
+    "20013": 20013,
+    "20014": 20014,
+    "20015": 20015,
+    "20016": 20016,
+    "20017": 20017,
+    "20018": 20018,
+    "20019": 20019,
+    "20020": 20020,
+    "20021": 20021,
+    "20022": 20022,
+    "20023": 20023,
+    "20024": 20024,
+    "20025": 20025,
+    "20026": 20026,
+    "20027": 20027,
+    "20028": 20028,
+    "20029": 20029,
+    "20030": 20030,
+    "20031": 20031,
+    "20032": 20032,
+    "20033": 20033,
+    "20034": 20034,
+    "20035": 20035,
+    "20036": 20036,
+    "20037": 20037,
+    "20038": 20038,
+    "20039": 20039,
+    "14917": 14950,
+    "20040": 20040,
+    "20042": 20042,
+    "14918": 14951,
+    "20044": 20044,
+    "14925": 14958,
+    "20046": 20046,
+    "14927": 14960,
+    "14928": 14961,
+    "14929": 14962,
+    "14930": 14963,
+    "14931": 14964,
+    "14932": 14965,
+    "14933": 14966,
+    "14934": 14967,
+    "14935": 14968,
+    "14936": 14969,
+    "14937": 14970,
+    "14938": 14971,
+    "14939": 14972,
+    "14940": 14973,
+    "14941": 14974,
+    "14942": 14975,
+    "14943": 14976,
+    "14944": 14977,
+    "14945": 14978,
+    "14946": 14979,
+    "14947": 14980,
+    "14948": 14981,
+    "14949": 14982,
+    "14950": 14983,
+    "14951": 14984,
+    "14952": 14985,
+    "14953": 14986,
+    "14954": 14987,
+    "14878": 14911,
+    "14955": 14988,
+    "14956": 14989,
+    "14958": 14991,
+    "14959": 14992,
+    "14902": 14935,
+    "14960": 14993,
+    "14880": 14913,
+    "14962": 14995,
+    "14963": 14996,
+    "14961": 14994,
+    "14964": 14997,
+    "14967": 15000,
+    "14968": 15001,
+    "14969": 15002,
+    "14970": 15003,
+    "14971": 15004,
+    "14972": 15005,
+    "14973": 15006,
+    "14974": 15007,
+    "14975": 15008,
+    "14976": 15009,
+    "14977": 15010,
+    "14978": 15011,
+    "14979": 15012,
+    "14980": 15013,
+    "14981": 15014,
+    "14982": 15015,
+    "14983": 15016,
+    "14984": 15017,
+    "14985": 15018,
+    "14986": 15019,
+    "14987": 15020,
+    "14988": 15021,
+    "14989": 15022,
+    "14990": 15023,
+    "14991": 15024,
+    "14992": 15025,
+    "14993": 15026,
+    "14994": 15027,
+    "14995": 15028,
+    "14996": 15029,
+    "14997": 15030,
+    "14998": 15031,
+    "14999": 15032,
+    "15000": 15033,
+    "15001": 15034,
+    "15002": 15035,
+    "15003": 15036,
+    "15004": 15037,
+    "15005": 15038,
+    "15006": 15039,
+    "15007": 15040,
+    "15008": 15041,
+    "15009": 15042,
+    "15010": 15043,
+    "15011": 15044,
+    "15012": 15045,
+    "14890": 14923,
+    "15013": 15046,
+    "15015": 15048,
+    "15016": 15049,
+    "14891": 14924,
+    "15014": 15047,
+    "15017": 15050,
+    "15020": 15053,
+    "15021": 15054,
+    "14892": 14925,
+    "14884": 14917,
+    "15024": 15057,
+    "15025": 15058,
+    "15026": 15059,
+    "15027": 15060,
+    "15028": 15061,
+    "15029": 15062,
+    "15030": 15063,
+    "15031": 15064,
+    "15032": 15065,
+    "15033": 15066,
+    "15034": 15067,
+    "14893": 14926,
+    "14894": 14927,
+    "14895": 14928,
+    "15038": 15071,
+    "15039": 15072,
+    "15040": 15073,
+    "15041": 15074,
+    "15042": 15075,
+    "15043": 15076,
+    "15044": 15077,
+    "15045": 15078,
+    "15046": 15079,
+    "15047": 15080,
+    "15048": 15081,
+    "15049": 15082,
+    "15050": 15083,
+    "15051": 15084,
+    "15052": 15085,
+    "15053": 15086,
+    "15054": 15087,
+    "15055": 15088,
+    "15056": 15089,
+    "15057": 15090,
+    "15058": 15091,
+    "15059": 15092,
+    "15060": 15093,
+    "15061": 15094,
+    "15062": 15095,
+    "15063": 15096,
+    "15064": 15097,
+    "15065": 15098,
+    "15066": 15099,
+    "14901": 14934,
+    "15068": 15101,
+    "15069": 15102,
+    "15070": 15103,
+    "15071": 15104,
+    "15072": 15105,
+    "15073": 15106,
+    "15074": 15107,
+    "15075": 15108,
+    "15076": 15109,
+    "15077": 15110,
+    "15078": 15111,
+    "15079": 15112,
+    "15080": 15113,
+    "15081": 15114,
+    "14883": 14916,
+    "14903": 14936,
+    "14904": 14937,
+    "14882": 14915,
+    "14905": 14938,
+    "14906": 14939,
+    "14887": 14920,
+    "14907": 14940,
+    "14908": 14941,
+    "14909": 14942,
+    "14910": 14943,
+    "14911": 14944,
+    "14888": 14921,
+    "14912": 14945,
+    "14913": 14946,
+    "14868": 14901,
+    "14914": 14947,
+    "14915": 14948,
+    "14916": 14949,
+    "15018": 15051,
+    "14889": 14922,
+    "15019": 15052,
+    "14869": 14902,
+    "14900": 14933,
+    "14919": 14952,
+    "14920": 14953,
+    "15022": 15055,
+    "14921": 14954,
+    "15023": 15056,
+    "14922": 14955,
+    "14923": 14956,
+    "14924": 14957,
+    "14926": 14959,
+    "15035": 15068,
+    "15036": 15069,
+    "15037": 15070,
+    "14899": 14932,
+    "14966": 14999,
+    "14886": 14919,
+    "14896": 14929,
+    "14885": 14918,
+    "20041": 20041,
+    "20043": 20043,
+    "14881": 14914,
+    "14897": 14930,
+    "20045": 20045,
+    "14957": 14990,
+    "14877": 14910,
+    "20047": 20047
+  },
+  "eventIndexMap": {
+    "1465": 1466,
+    "1466": 1467,
+    "1467": 1468,
+    "1468": 1469,
+    "1469": 1470,
+    "1470": 1471,
+    "1471": 1472,
+    "1472": 1473,
+    "1473": 1474,
+    "1474": 1475,
+    "1475": 1476,
+    "1476": 1477,
+    "1477": 1478,
+    "1478": 1479,
+    "1479": 1480,
+    "1480": 1481,
+    "1481": 1482,
+    "1482": 1483,
+    "1483": 1484,
+    "1484": 1485,
+    "1485": 1486,
+    "1486": 1487,
+    "1487": 1488,
+    "1488": 1489,
+    "1489": 1490,
+    "1490": 1491,
+    "1491": 1492,
+    "1492": 1493,
+    "1493": 1494,
+    "1494": 1495
+  },
+  "transfers": [
+    {
+      "node": "CustomManualSelectorGenerator | AttackArrowLeftFireDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackArrowLeftFireStep_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackArrowRightFireDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackArrowRightFireStep_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothBackstep_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavy1End_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavy1Start_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavy1SubStart_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavy2End_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavy2Start_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavyCounter_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavyDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecial1End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecial1Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecial1SubStart_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecial2End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecial2Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecialWarrior1End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecialWarrior1Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecialWarrior1SubStart_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecialWarrior2End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothHeavySpecialWarrior2Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLeft1_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLeft2_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLeft3_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLeftDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLight1_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLight2_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLight3_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLight4_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLightCounter_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLightStealth_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLightStep_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackBothLightSubStart_FromRight_FootLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackDualBackStep_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackDualDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackDualRight1_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackDualRight2_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackDualRight3_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackDualRolling_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackLeftHeavy1a00_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackLeftHeavy1a02_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackLeftHeavy1a03_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackLeftHeavy2a00_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackLeftHeavy3a00_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackLeftHeavy4a00_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackLeftLight1_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightBackstep_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavy1End_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavy1Start_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavy1SubStart_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavy2End_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavy2Start_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavyCounter_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavyDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecial1End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecial1Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecial1SubStart_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecial2End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecial2Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecialWarrior1End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecialWarrior1Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecialWarrior1SubStart_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecialWarrior2End_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightHeavySpecialWarrior2Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLight1_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLight2_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLight3_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLight4_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLightCounter_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLightDash_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLightStealth_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLightStep_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | AttackRightLightSubStart_FromRight_FootLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | DrawStanceRightEnd_NoMP_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | DrawStanceRightEnd_NoMP_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | DrawStanceRightStart_NoMP_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | DrawStanceRightStart_NoMP_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Hard_BothLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Hard_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Hard_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Hard_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Hard_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Normal_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Normal_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Normal_Dual_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Normal_Dual_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Normal_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_D_Normal_Right_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Hard_BothLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Hard_BothLeft_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Hard_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Hard_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Hard_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Normal_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Normal_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Normal_Dual_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_F_Normal_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Land_F_Dual_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Land_F_H_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Land_F_H_Land_BothLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Land_F_H_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Land_F_N_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Land_F_N_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Hard_BothLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Hard_BothLeft_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Hard_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Hard_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Hard_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Normal_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Normal_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Normal_Dual_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_N_Normal_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_D_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_D_LandCMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_Dual_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_Dual_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_Dual_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_F_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_BothCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_BothLeftCMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_Land_BothCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_Land_BothLeftCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_Land_High_BothCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_Land_High_BothLeftCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_Land_RightCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_H_Land_Right_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_N_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_N_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_N_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_N_Land_BothCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_N_Land_High_BothCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_D_N_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_Dual_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_Dual_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_Dual_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_Dual_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_Dual_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_Dual_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_H_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_H_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_H_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_N_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_N_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_F_N_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_D_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_D_LandCMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_D_Land_BothLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_D_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_D_Land_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_F_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_LandCMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_BothLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_BothLeft_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_BothLeft_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_BothLeft_High_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_BothLeft_High_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_Both_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_Both_High_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_Both_High_CMSG02",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_Land_High_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_N_Land_BothLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_N_Land_BothLeft_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_N_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_H_N_Land_Both_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_D_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_D_LandCMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_D_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_D_Land_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_F_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_FallingCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_LandCMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_LandCMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_Land_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_Land_Both_High_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_Land_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_Land_High_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_N_Land_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_N_Land_Both_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_N_Land_Both_High_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_N_Land_Both_High_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_N_Land_Dual_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | JumpAttack_Start_N_N_Land_Dual_High_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_LandAttack_Dual",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_LandAttack_Hard_Both",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_LandAttack_Hard_Right",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_LandAttack_Normal_Both",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_LandAttack_Normal_Right",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_DualAttack_SwingEnd_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_DualAttack_SwingEnd_High_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_DualAttack_SwingEnd_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_DualAttack_SwingEnd_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_DualAttack_SwingStart_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_DualAttack_SwingStart_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Both_SwingEnd_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Both_SwingEnd_High_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Both_SwingEnd_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Both_SwingEnd_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Both_SwingStart_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Both_SwingStart_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Right_SwingEnd_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Right_SwingEnd_High_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Right_SwingEnd_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Right_SwingEnd_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Right_SwingStart_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_HardAttack_Right_SwingStart_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_Both_SwingEnd_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_Both_SwingEnd_High_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_Both_SwingEnd_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_Both_SwingEnd_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_Both_SwingStart_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_Both_SwingStart_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_SwingEnd_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_SwingEnd_High_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_SwingEnd_Idle",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_SwingEnd_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_SwingStart_High",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Land_N_NormalAttack_SwingStart_Low",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Loop_Attack_Hard_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Loop_Attack_Hard_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Loop_Attack_Normal_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Loop_Attack_Normal_Dual_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Jump_Loop_Attack_Normal_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireLeftCancel2_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireLeftCancel2_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireLeftCancel_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireLeftCancel_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireLeft_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireRightCancel2_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireRightCancel2_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireRightCancel_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireRightCancel_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireRight_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicFireRight_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLaunchLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLaunchLeft_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLaunchRight_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLaunchRight_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLoopLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLoopLeft_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLoopRight_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | MagicLoopRight_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Large_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Large_Left_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Large_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Small_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Small_Left_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Small_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Wall_Both_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Wall_Left_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Repelled_Wall_Right_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_L_Hard1_End_Jump_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_L_Hard1_End_Normal_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_L_Hard1_End_Normal_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_L_Hard1_Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_L_Top02_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_L_Top03_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_L_Top_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_R_Hard1_End_Jump_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_R_Hard1_End_Normal_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_R_Hard1_End_Normal_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_R_Hard1_Start_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_R_Top02_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_R_Top03_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideAttack_R_Top_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideJump_Attack_Left_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideJump_Attack_Left_Land_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideJump_Attack_Right_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideJump_Attack_Right_Land_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideMagicFireCancel_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideMagicFireCancel_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideMagicFire_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideMagicLaunch_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideMagicLoop CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideRepelledLarge_Left",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideRepelledLarge_Right",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideRepelledSmall_Left",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideRepelledSmall_Right",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideRepelledWall_Right",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | RideRepelledWalll_Left",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsHalfOneShotShieldBoth_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsHalfOneShotShieldBoth_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsHalfOneShotShieldBoth_NoMP_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsHalfOneShotShieldBoth_NoMP_CMSG_Upper",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldBoth_20_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldBoth_28_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldBoth_59_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldBoth_59_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldBoth_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldBoth_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_20_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_20_CMSG_NoMP00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_20_CMSG_NoMP01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_28_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_28_CMSG_NoMP00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_28_CMSG_NoMP01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_CMSG02",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_CMSG03",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_CMSG_NoMP02",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShotShieldLeft_CMSG_NoMP03",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_110_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_110_CMSG00",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_110_CMSG01",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_58_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_58_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_58_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_58_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_58_CMSG_NoMP00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_58_CMSG_NoMP01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_59_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_59_CMSG00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_59_CMSG01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_59_CMSG_NoMP",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_59_CMSG_NoMP00",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_59_CMSG_NoMP01",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_CMSG",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_CMSG00",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_CMSG01",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_CMSG_NoMP",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_CMSG_NoMP00",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsOneShot_CMSG_NoMP01",
+      "field": "generators",
+      "mode": "overlap"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsRolling_Front_CMSG_SelfTrans",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsRolling_Front_CMSG_SelfTrans2",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsRolling_Front_NoMP_CMSG_Light_SelfTrans",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsRolling_Front_NoMP_CMSG_Light_SelfTrans2",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsRolling_Front_NoMP_CMSG_SelfTrans",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | SwordArtsRolling_Front_NoMP_CMSG_SelfTrans2",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Throw31700_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Throw31710_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Throw31720_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Throw31730_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Throw31750_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | Throw31760_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | ThrowBackStab_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "CustomManualSelectorGenerator | ThrowErrorHandling_CMSG",
+      "field": "generators",
+      "mode": "mod_only"
+    },
+    {
+      "node": "hkbStateMachine | Attack_SM",
+      "field": "states",
+      "mode": "mod_only"
+    },
+    {
+      "node": "hkbStateMachine | Attack_SM",
+      "field": "wildcardTransitions",
+      "mode": "mod_only"
+    }
+  ],
+  "eventNames": 1496,
+  "eventInfos": 1506,
+  "objectCount": 36868,
+  "anonymousAliasConflicts": [],
+  "clipToolReference": "8f4ada3a10ce7ea75d0379c058193a1b1699b1c5",
+  "status": "applied-and-hash-verified; gameplay acceptance pending",
+  "verificationReceipt": "steam-25080141-player-behavior.json"
+}
