@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<tpf>
+<tpf WitchyVersion="2170000">
   <filename>MENU_Knowledge_03058.tpf.dcx</filename>
   <compression>DCX_KRAK</compression>
   <compressionLevel>6</compressionLevel>
+  <oodleCompressorType>KRAK</oodleCompressorType>
   <encoding>0x01</encoding>
   <flag2>0x03</flag2>
   <platform>PC</platform>
