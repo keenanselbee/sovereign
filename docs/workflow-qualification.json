@@ -1,0 +1,223 @@
+{
+  "date": "2026-09-09",
+  "kind": "workflow-qualification-not-gameplay",
+  "eventBuild": {
+    "compilerHash": "26258862f987a2c5f50fb51413befcc0748a7727d68aa58123e9edc7f6816968",
+    "readerLibraryHash": "e8eb162007d41d2b10454f227982ae387277d4e0ffcfc52eeeff91286bb9791a",
+    "readerSourceHash": "3578dbba37a8e563b226c81d177b3e97b5b90c2818b67eaf28cdc2a4a698a90f",
+    "outputs": [
+      {
+        "file": "common.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "e2915bbf897d0255cf831362aae7246525928e83eb00602647119501736bc02b",
+        "outputHash": "e2915bbf897d0255cf831362aae7246525928e83eb00602647119501736bc02b",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "common_func.emevd.dcx",
+        "runtimeCandidate": false,
+        "baselineHash": null,
+        "outputHash": "d2f0aba3dec344bdddeb98a53fde54ab7ba0298230fa6fc3d99300861b83e230",
+        "equal": null,
+        "reason": "No compiled comparison baseline; round trip is unqualified"
+      },
+      {
+        "file": "m11_10_00_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "b290566f03cf964697b07b8f3739dce95d0d47e502be0cae5bede049e2f0e673",
+        "outputHash": "b290566f03cf964697b07b8f3739dce95d0d47e502be0cae5bede049e2f0e673",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "m12_03_00_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "7bcf84c58bee3a087adf9860c461768dd8f14f501ca77991528a4e41d9195a45",
+        "outputHash": "7bcf84c58bee3a087adf9860c461768dd8f14f501ca77991528a4e41d9195a45",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "m13_00_00_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "fd36144ae6d54f5d2d9c33e4c9b6f7c124b2aae23a0f85ce92634060702ed912",
+        "outputHash": "fd36144ae6d54f5d2d9c33e4c9b6f7c124b2aae23a0f85ce92634060702ed912",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "m18_00_00_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "cd0a964d53533f662814aff819a511733436c325f1afd632628a07400a4f0fb5",
+        "outputHash": "cd0a964d53533f662814aff819a511733436c325f1afd632628a07400a4f0fb5",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "m60_41_52_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "35caf0b4992472649c99c206f26519c0da56bc44065301af5f47fd1fc5490a3b",
+        "outputHash": "35caf0b4992472649c99c206f26519c0da56bc44065301af5f47fd1fc5490a3b",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "m60_43_50_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "f7fa93cd29ce524cbc06389f4b0975fbd881e8d27ba5a0cc3ef12b9cf0061ebe",
+        "outputHash": "f7fa93cd29ce524cbc06389f4b0975fbd881e8d27ba5a0cc3ef12b9cf0061ebe",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "m61_45_44_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "ef5a0af2ac6b531238c806cdd0c7551b682733bb613f890e7f5fc055247a6055",
+        "outputHash": "ef5a0af2ac6b531238c806cdd0c7551b682733bb613f890e7f5fc055247a6055",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      },
+      {
+        "file": "m61_54_39_00.emevd.dcx",
+        "runtimeCandidate": true,
+        "baselineHash": "51538df38ed4f9b0e30375b61f62c609106b5000b233185083204eabcc724983",
+        "outputHash": "51538df38ed4f9b0e30375b61f62c609106b5000b233185083204eabcc724983",
+        "equal": true,
+        "changedEvents": [],
+        "changedMetadata": []
+      }
+    ]
+  },
+  "draftPackage": {
+    "fileCount": 66,
+    "sha256": "70126e5fd2f1ba080d39f5686851151df1128d957c0067067ff44114c9dedc13",
+    "version": "0.0.0-prep",
+    "bytes": 325025883
+  },
+  "status": {
+    "fileCount": 41,
+    "review": [
+      {
+        "scope": "params",
+        "file": "regulation.bin",
+        "hashes": {
+          "repo": "6c3d9d39b147517e8a43e8a5f4720d04a6d0b44f72aff2cf6c9b0e12b177a88d",
+          "editor": "663de145ee0be6719bd5a5a01243d666ae044c0647b274743a66662e6586de62",
+          "live": "6c3d9d39b147517e8a43e8a5f4720d04a6d0b44f72aff2cf6c9b0e12b177a88d",
+          "vortex": "6c3d9d39b147517e8a43e8a5f4720d04a6d0b44f72aff2cf6c9b0e12b177a88d"
+        }
+      },
+      {
+        "scope": "hks",
+        "file": "action/script/c8000.hks",
+        "hashes": {
+          "repo": null,
+          "editor": null,
+          "live": "3c7bdb30afba00611bb5ef045a92d637d0194aa3a7c7ecaaa6bc9f79e0633205",
+          "vortex": null
+        }
+      },
+      {
+        "scope": "text",
+        "file": "msg/engus/menu.msgbnd.dcx",
+        "hashes": {
+          "repo": "a62cb8655d9b4217f163c36d1c1088d0c5d5f94035c00712561399ceea566b14",
+          "editor": null,
+          "live": "a62cb8655d9b4217f163c36d1c1088d0c5d5f94035c00712561399ceea566b14",
+          "vortex": "a62cb8655d9b4217f163c36d1c1088d0c5d5f94035c00712561399ceea566b14"
+        }
+      },
+      {
+        "scope": "text",
+        "file": "msg/engus/menu_dlc01.msgbnd.dcx",
+        "hashes": {
+          "repo": "4d57558130ccfd2285ceb29eb3a87ad6b267e328df3f62564889ac83c1164416",
+          "editor": null,
+          "live": "4d57558130ccfd2285ceb29eb3a87ad6b267e328df3f62564889ac83c1164416",
+          "vortex": "4d57558130ccfd2285ceb29eb3a87ad6b267e328df3f62564889ac83c1164416"
+        }
+      },
+      {
+        "scope": "text",
+        "file": "msg/engus/menu_dlc02.msgbnd.dcx",
+        "hashes": {
+          "repo": "8f85035e43089f0e63e5662a8bd9eb7071ad20dd92815a84a43f9f99d2547308",
+          "editor": "d76a97be46c71127e144f7f4a1f39102a93bd021a4c621b2055e5d7a8d0ae0d3",
+          "live": "8f85035e43089f0e63e5662a8bd9eb7071ad20dd92815a84a43f9f99d2547308",
+          "vortex": "8f85035e43089f0e63e5662a8bd9eb7071ad20dd92815a84a43f9f99d2547308"
+        }
+      },
+      {
+        "scope": "animations",
+        "file": "chr/c0000_a0x.anibnd.dcx",
+        "hashes": {
+          "repo": "5b76b09a5f8e61f1b4d12a2c6553ba44183572add059537cad2b57edd99f4861",
+          "editor": "5b76b09a5f8e61f1b4d12a2c6553ba44183572add059537cad2b57edd99f4861",
+          "live": "c94e2a3dd54cab4e4bc93624e1302e0ea1abc3863b94fc232c53ee5048752131",
+          "vortex": "c94e2a3dd54cab4e4bc93624e1302e0ea1abc3863b94fc232c53ee5048752131"
+        }
+      },
+      {
+        "scope": "animations",
+        "file": "chr/c2500.chrbnd.dcx",
+        "hashes": {
+          "repo": null,
+          "editor": null,
+          "live": "b83219b444a56a90ab2e1570412d24fff16857e86cfa939382f6703404d06a1d",
+          "vortex": "b83219b444a56a90ab2e1570412d24fff16857e86cfa939382f6703404d06a1d"
+        }
+      },
+      {
+        "scope": "animations",
+        "file": "chr/c2500_h.texbnd.dcx",
+        "hashes": {
+          "repo": null,
+          "editor": null,
+          "live": "5972406b17b92a8920a6911c6c9acf44c18c54ce61dc36b7853863c8a11be571",
+          "vortex": "5972406b17b92a8920a6911c6c9acf44c18c54ce61dc36b7853863c8a11be571"
+        }
+      },
+      {
+        "scope": "animations",
+        "file": "chr/c2500_l.texbnd.dcx",
+        "hashes": {
+          "repo": null,
+          "editor": null,
+          "live": "bb1c570aa1e1663f08e00e73b29370ab6439f638d2538e46f819665a0d8125ab",
+          "vortex": "bb1c570aa1e1663f08e00e73b29370ab6439f638d2538e46f819665a0d8125ab"
+        }
+      },
+      {
+        "scope": "animations",
+        "file": "chr/c8000.anibnd.dcx",
+        "hashes": {
+          "repo": null,
+          "editor": null,
+          "live": "c74c7e64e6918f169e2c063e281ada10718d623cf8287c69beedcfbc55230e63",
+          "vortex": null
+        }
+      },
+      {
+        "scope": "animations",
+        "file": "chr/c8000.chrbnd.dcx",
+        "hashes": {
+          "repo": null,
+          "editor": null,
+          "live": "7ffbe74c474c2d899c5bbbf40a259d7dcc320f541b0a32f6e21e2319324c4f3c",
+          "vortex": null
+        }
+      }
+    ]
+  },
+  "manualTestsPassed": 0,
+  "releaseReady": false
+}

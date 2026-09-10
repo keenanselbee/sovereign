@@ -1,3 +1,11 @@
 menu/hi/00_solo.tpfbdt
 menu/hi/00_solo.tpfbhd
 menu/hi/01_common.tpf.dcx
+Sovereign.code-workspace
+.codex-temp/
+
+tools/eldenring-paths.local.json
+**/__pycache__/
+
+# Local game-update history.
+/archive/

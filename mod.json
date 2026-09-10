@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "Sovereign",
+  "displayName": "Sovereign",
+  "gameDomain": "eldenring",
+  "version": null,
+  "releaseReady": false,
+  "package": {
+    "source": "vortex",
+    "excludeDirectories": ["src", ".smithbox"],
+    "note": "Use the configured Vortex mod directory's parent (Sovereign), preserving mod/ and mods/. Exclude propagated authoring directories."
+  },
+  "nexus": {
+    "url": "https://www.nexusmods.com/games/eldenring/mods/201",
+    "gameScopedModId": "201",
+    "modId": "18610093293769",
+    "groupId": "893965",
+    "shortUniqueFileId": "qdbCxL2mS",
+    "apiSpecUrl": "https://api.nexusmods.com/openapi.yaml",
+    "descriptionDirectory": "_/nexus-page"
+  },
+  "runtimePatterns": [
+    "regulation.bin",
+    "action/script/*.hks",
+    "action/eventnameid.txt",
+    "action/statenameid.txt",
+    "chr/*.dcx",
+    "event/*.dcx",
+    "map/**/*.dcx",
+    "material/*.dcx",
+    "menu/*.gfx",
+    "msg/engus/*.dcx",
+    "parts/*.dcx",
+    "script/talk/*.dcx",
+    "sfx/*.dcx"
+  ],
+  "dependencies": [
+    {
+      "name": "Scripts-Data-Exposer-FS.dll",
+      "delivery": "bundled-from-vortex",
+      "verified": false,
+      "note": "Included from the Vortex package under mods/. Confirm version, download source and redistribution policy before release."
+    }
+  ]
+}

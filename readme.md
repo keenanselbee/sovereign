@@ -1,3 +1,6 @@
+> Development: [AI workflow](docs/WORKFLOW.md), [mechanics evidence](docs/MECHANICS.md), [manual tests](TEST-MATRIX.md), and [qualification results](docs/VERIFICATION.md).
+> The player guide below predates the current mechanics audit; verify its claims before release.
+
 <h1 align="center">Description</h1>
 
 > *Thou wouldst lay claim to the Elden Ring?*  
