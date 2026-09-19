@@ -1,0 +1,12 @@
+{
+  "member": "t213001110.esd",
+  "original": "t213001110.original.esd",
+  "originalHash": "9c2772b1a6ad74ee15fc859913be3c7cace3d9145301362a046a85c44456467a",
+  "baseline": "t213001110.baseline.txt",
+  "baselineHash": "a767e215e28f7b85db4eb5d874f2f873f2dc53b565bf55d66fdcba2b2ffd7a1f",
+  "groups": [
+    2147483608,
+    2147483589,
+    2147483588
+  ]
+}

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bnd4>
+  <filename>c0000.behbnd.dcx</filename>
+  <compression>DCX_KRAK</compression>
+  <compressionLevel>6</compressionLevel>
+  <oodleCompressorType>KRAK</oodleCompressorType>
+  <root>N:\GR\data\INTERROOT_win64\action\c0000\Export</root>
+  <version>07D7R6</version>
+  <format>IDs, Names1, Names2, Compression</format>
+  <bigendian>False</bigendian>
+  <bitbigendian>False</bitbigendian>
+  <unicode>True</unicode>
+  <extended>0x04</extended>
+  <unk04>False</unk04>
+  <unk05>False</unk05>
+  <files>
+    <file>
+      <flags>Flag1</flags>
+      <id>7000300</id>
+      <path>c0000.hkx</path>
+    </file>
+    <file>
+      <flags>Flag1</flags>
+      <id>7000400</id>
+      <path>Characters\c0000.hkx</path>
+    </file>
+    <file>
+      <flags>Flag1</flags>
+      <id>7000500</id>
+      <path>Behaviors\c0000.hkx</path>
+    </file>
+  </files>
+</bnd4>

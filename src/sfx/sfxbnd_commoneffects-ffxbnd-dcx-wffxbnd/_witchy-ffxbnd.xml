@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ffxbnd WitchyVersion="2170000">
+  <filename>sfxbnd_commoneffects.ffxbnd.dcx</filename>
+  <compression> DCX_DFLT</compression>
+  <compressionLevel>6</compressionLevel>
+  <oodleCompressorType>KRAK</oodleCompressorType>
+  <version>07D7R6</version>
+  <format>IDs, Names1, Names2, Compression</format>
+  <bigendian>False</bigendian>
+  <bitbigendian>False</bitbigendian>
+  <unicode>True</unicode>
+  <extended>0x04</extended>
+  <unk04>False</unk04>
+  <unk05>False</unk05>
+  <root>N:\GR\data\INTERROOT_win64\sfx\</root>
+  <effectDir>effect</effectDir>
+  <textureDir>tex</textureDir>
+  <modelDir>model</modelDir>
+  <animDir>hkx</animDir>
+  <resDir>ResourceList</resDir>
+  <platform>PC</platform>
+</ffxbnd>
