@@ -3,19 +3,23 @@
   "id": "Sovereign",
   "displayName": "Sovereign",
   "gameDomain": "eldenring",
-  "version": null,
+  "version": "1.0.1",
   "releaseReady": false,
   "package": {
     "source": "vortex",
     "excludeDirectories": ["src", ".smithbox"],
-    "note": "Use the configured Vortex mod directory's parent (Sovereign), preserving mod/ and mods/. Exclude propagated authoring directories."
+    "note": "Use the verified selected VDB stage, preserving mod/ and mods/. Legacy Vortex source is used only before a stage is selected. Exclude propagated authoring directories."
   },
   "nexus": {
     "url": "https://www.nexusmods.com/games/eldenring/mods/201",
     "gameScopedModId": "201",
     "modId": "18610093293769",
-    "groupId": "893965",
-    "shortUniqueFileId": "qdbCxL2mS",
+    "groupId": "7949853",
+    "shortUniqueFileId": "sVKWduzP0",
+    "textures": {
+      "groupId": "893965",
+      "shortUniqueFileId": "qdbCxL2mS"
+    },
     "apiSpecUrl": "https://api.nexusmods.com/openapi.yaml",
     "descriptionDirectory": "_/nexus-page"
   },

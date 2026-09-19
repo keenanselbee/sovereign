@@ -1,0 +1,9 @@
+TargetVersion=1.0.1
+BaselineVersion=0.1.0
+Added Hewg's Fallingstar Obliterator forging option after defeating the Godskin Duo and the three base-game Fallingstar Beasts, with a forging presentation and dialogue adapted to his story state.
+Reworked Black Scaled Armor acquisition around death during either Rykard phase or final victory while wearing an original Scaled piece, converting carried originals including duplicates and altered armor.
+Restored Crusade Insignia's missing passive effect.
+Updated shrine persistence, Hadeon's defeat and reward handling, and the red crystal's optional Nemesis hardcore state.
+Added the upstream Torrent appearance menu to the shared Grace dialogue.
+Merged current game menu text, missing effects and icon assets into the mod's existing custom assets.
+Recovered missing custom visual effects and the Obliterator ultimate motion in the authoring files.

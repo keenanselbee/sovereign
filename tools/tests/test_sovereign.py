@@ -61,6 +61,21 @@ class WorkflowTests(unittest.TestCase):
             settings['roots'][key] = str(self.root / key)
         self.assertEqual(workflow.status_rows(self.root / 'repo', settings)[0]['state'], 'Match')
 
+    def test_status_default_is_compact_and_verbose_preserves_matching_files(self):
+        self.write('mod.json', b'{}')
+        rows = [{'file': 'same.bin', 'state': 'Match', 'hashes': {'repo': 'same', 'editor': 'same'}},
+                {'file': 'changed.bin', 'state': 'Review', 'hashes': {'repo': 'old', 'editor': 'new'}}]
+        for extra in ([], ['--verbose']):
+            with mock.patch.object(workflow, 'ROOT', self.root), \
+                    mock.patch.object(workflow, 'config', return_value={}), \
+                    mock.patch.object(workflow, 'status_rows', return_value=rows), \
+                    mock.patch('sys.argv', ['sovereign.py', 'status', *extra]), \
+                    mock.patch('sys.stdout', new_callable=io.StringIO) as output:
+                workflow.main()
+            self.assertIn('changed.bin', output.getvalue())
+            self.assertIn('2 files inspected: 1 match, 1 need review', output.getvalue())
+            self.assertEqual('same.bin' in output.getvalue(), bool(extra))
+
     def test_package_has_only_runtime_payload_and_verified_receipt(self):
         self.write('regulation.bin')
         self.write('event/common.dcx')
@@ -200,29 +215,26 @@ class WorkflowTests(unittest.TestCase):
             with self.subTest(key=key), self.assertRaises(ValueError):
                 workflow.validate_nexus_metadata(altered)
 
-    def test_nexus_get_is_authenticated_read_only_and_sanitizes_errors(self):
-        opener = mock.Mock()
-        opener.open.return_value = io.BytesIO(b'{"data":{"mod_files":[]}}')
-        with mock.patch.dict(workflow.os.environ, {'NEXUS_API_KEY': 'fixture-secret'}), \
-                mock.patch.object(workflow.urllib.request, 'build_opener', return_value=opener):
+    def test_nexus_get_keeps_route_and_result_guards_with_shared_transport(self):
+        import nexus_automation
+        with mock.patch.object(nexus_automation, 'read', return_value={'mod_files': []}) as read:
             self.assertEqual(workflow.nexus_get('/mods/123/files'), {'mod_files': []})
-            request = opener.open.call_args.args[0]
-            self.assertEqual(request.full_url, 'https://api.nexusmods.com/v3/mods/123/files')
-            self.assertEqual(request.get_method(), 'GET')
-            self.assertEqual(request.get_header('Apikey'), 'fixture-secret')
-            self.assertIsNone(request.data)
-            opener.open.side_effect = workflow.urllib.error.HTTPError(
-                request.full_url, 429, 'fixture-secret', {}, io.BytesIO(b'fixture-secret'))
-            with self.assertRaisesRegex(ValueError, 'HTTP 429') as caught:
+            read.assert_called_once_with(workflow.ROOT, '/mods/123/files')
+            read.reset_mock()
+            with self.assertRaisesRegex(ValueError, 'Unsupported Nexus read path'):
+                workflow.nexus_get('/mods/123/changelogs')
+            read.assert_not_called()
+        with mock.patch.object(nexus_automation, 'read', return_value=[]):
+            with self.assertRaisesRegex(ValueError, 'Unexpected Nexus response'):
                 workflow.nexus_get('/mods/123/files')
-            self.assertNotIn('fixture-secret', str(caught.exception))
-        with mock.patch.dict(workflow.os.environ, {'NEXUS_API_KEY': ''}), \
-                mock.patch.object(workflow.urllib.request, 'build_opener') as build:
+        with mock.patch.dict(nexus_automation.os.environ, {'NEXUS_API_KEY': ''}), mock.patch.object(nexus_automation.subprocess, 'run') as run:
             with self.assertRaisesRegex(ValueError, 'NEXUS_API_KEY'):
-                workflow.nexus_get('/mods/123/files')
-            build.assert_not_called()
-        with self.assertRaises(workflow.urllib.error.URLError):
-            workflow.NoNexusRedirect().redirect_request(None, None, 302, '', {}, 'https://example.com')
+                nexus_automation.read(workflow.ROOT, '/mods/123/files')
+            run.assert_not_called()
+        with mock.patch.dict(nexus_automation.os.environ, {'NEXUS_API_KEY': 'fixture-secret'}), mock.patch.object(nexus_automation, 'tool_root', return_value=workflow.ROOT), mock.patch.object(nexus_automation.subprocess, 'run', side_effect=nexus_automation.subprocess.CalledProcessError(1, ['node'], stderr='fixture-secret')):
+            with self.assertRaisesRegex(ValueError, 'Nexus read failed') as caught:
+                nexus_automation.read(workflow.ROOT, '/mods/123/files')
+            self.assertNotIn('fixture-secret', str(caught.exception))
 
 
 if __name__ == '__main__':

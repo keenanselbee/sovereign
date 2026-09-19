@@ -1,0 +1,340 @@
+# Current Sovereign commands
+
+Implemented during the 2026-09-10/11 workflow goal. Main runtime files are in `mod/`,
+authoring sources in `src/`, and separate texture payloads in `packages/textures/mod/`.
+The nine external propagation entry points now use the VDB launcher. Switching,
+rollback and an installed shortcut passed real tests; see [the checkpoint](WORKFLOW-PREP-CHECKPOINT.md).
+
+## Inspect and choose a baseline
+
+```powershell
+python tools/sovereign.py doctor
+python tools/sovereign.py status --scope events --sources
+python tools/sovereign.py propagation-plan --scope maps
+```
+
+`asset-catalog.json` declares runtime membership, package ownership, optional editor
+destinations and source overlays. Local paths/tools live in ignored
+`tools/eldenring-paths.local.json`. Status reads all applicable copies; it does not
+choose one. Missing live files after disabling a mod are deployment state, not proof
+that the repository is outdated. The regulation row-name equivalence applies only to
+the two inspected SHA-256 hashes. An unlisted runtime file fails `check`.
+
+Status and doctor use each package's verified selected VDB stage for their Vortex
+comparison. They use its legacy folder only before that package has a selection;
+an invalid or modified selected stage fails rather than falling back silently.
+
+Status lists differences and a count by default. Add `--verbose` to list matching
+files too; `--json` retains every file, path and hash. Source comparisons perform
+one scan rather than a separate runtime scan followed by the source scan.
+
+Release metadata checks are read-only:
+
+```powershell
+python tools/sovereign.py version-check
+python tools/release_workflow.py target-version
+```
+
+`mod.json` owns the intended public version. `changelog.txt` must begin with the same
+`Version X.Y.Z` and keep older blocks newest first. Future propagation labels derive
+from that target; retained builds keep their original versions. See
+[VDB-RELEASE-PARITY](VDB-RELEASE-PARITY.md) before preparing the 1.0.0 release.
+Stage submission now reserves a fixed payload for every package/version and reuses
+matching prior requests/builds. Changed contents need a new label. Final release
+packaging requires a matching selected release stage and retains its exact ZIP under
+`.vdb/releases/`; follow the explicit freeze sequence in that release document.
+Both main and texture publishing, promotion-only retries and read-only collection
+readiness are implemented in [release automation](RELEASE-AUTOMATION.md). Joint
+updates are serialized textures first, main last; no commands publish implicitly.
+
+The SFX and dialogue source folders are partial override sets, not complete vanilla
+extractions. Source status compares those owned files without proposing to import
+thousands of unrelated editor files. Adding a new override requires explicitly
+placing/reviewing it in the repo source set. The four former dialogue source
+differences were reconciled through the qualified handoff in the checkpoint.
+
+## Build isolated candidates
+
+```powershell
+python tools/sovereign.py build-events --require-equivalent
+python tools/format_workflow.py unpack --file msg/engus/menu_dlc02.msgbnd.dcx
+python tools/format_workflow.py build --receipt <unpack-receipt> --require-equivalent
+python tools/format_workflow.py build --receipt <unpack-receipt> --patch <text-patch.json>
+python tools/format_workflow.py build-sfx --require-equivalent
+python tools/format_workflow.py build-sfx --from editor --require-equivalent
+python tools/format_workflow.py build-dialogue --file script/talk/m00_00_00_00.talkesdbnd.dcx --source src/talk/m00_00_00_00-talkesdbnd-dcx/t000001000.py --source src/talk/m00_00_00_00-talkesdbnd-dcx/t000003000.py --require-equivalent
+```
+
+All outputs are new `.codex-temp` candidates. `--require-equivalent` is an unchanged
+source qualification, not a flag to use after an intentional edit. Events use
+DarkScript and an independent EMEVD reader; `common_func` stays authoring-only.
+
+Text uses basic Witchy BND extraction/packing and a binary FMG writer. A patch is an
+array of `{ "file": "Example.fmg", "id": 123, "before": "old", "after": "new" }`.
+Both values are required; JSON null, empty text, whitespace, Unicode and literal
+`%null%` remain distinct. Existing IDs must match uniquely. The initial adapter
+replaces existing text only; additions/deletions require an explicitly extended and
+tested patch route. Do not hand-edit FMG/XML outside this patch route and then accept
+a build based on partial comparison. The full decoded expected result must match.
+
+Basic BND edits produce a complete decoded inventory for review. Intentional member
+changes still need a preservation specification. The wrapper rejects output/member
+path redirects and changed input/tool fingerprints. Do not use basic BND mode for
+specialized animation, SFX, texture-pair or graph edits.
+
+SFX builds copy the complete configured editor extraction into scratch, overlay the
+repo's accepted overrides/packing metadata, then use specialized Witchy packing.
+The full extraction includes DDS textures; a basic BND unpack produces TPFs and is
+not an interchangeable source. Every full/overlay input is hashed. Keep that external
+source available and synchronized. Unchanged qualification compares all 15,411
+members and binder metadata, including the historical DFLT compression envelope.
+
+The default SFX source is the accepted repo overlay plus the complete editor
+extraction. `--from editor` builds the complete editor extraction as saved, without
+overlaying older repo files. Both routes use isolated candidates and preserve the
+existing packed output. `--require-equivalent` is for unchanged-source qualification.
+For a reviewed editor rebuild/save, use `python tools/sfx_workflow.py build-save`.
+It makes independent recovery copies and atomically replaces only the packed editor
+output. Restore that output with `python tools/sfx_workflow.py restore --receipt
+<sfx-editor-save-receipt>`. Later edits prevent restoration. This save alone does not
+accept repo sources or deploy. New repo-owned SFX overrides still need explicit
+inclusion in the source overlay; do not assume the whole editor extraction is tracked.
+
+Dialogue uses ESDTool from its installation directory with the current mod binder's
+real basename as template. It compiles each source explicitly, filtered to its matching
+ESD so the compiler preserves that member's header. Repeating `-i` with individual
+sources in one invocation replaces the source list; do not use that older recipe.
+ESD `.py` files are DSL and must never be run as Python. The adapter checks member
+identities/metadata, exports decoded state groups and rejects changes to other ESDs.
+Intentional changes inside a selected ESD still need group/state semantic review.
+
+Use the existing detailed [animation](ANIMATION-UPDATE.md),
+[behavior](PLAYER-BEHAVIOR-UPDATE.md) and Smithbox recipes for other formats.
+No generic Lua validator or successful archive rebuild establishes game correctness.
+
+## Review a repo/editor handoff
+
+```powershell
+python tools/sovereign.py accept-plan --scope events --from repo
+python tools/sovereign.py accept --receipt <reviewed-handoff-receipt>
+python tools/sovereign.py restore --receipt <applied-handoff-receipt>
+```
+
+`--from editor` reverses the direction. Review the receipt and build evidence first.
+These commands copy exact bytes; they do not prove that source and output implement
+the same behavior. Plans cover scoped companions, detect conflicting duplicate
+outputs, reject drift, and make independent backups before replacing destinations.
+Atomic replacement avoids truncating a shared hardlink. No Vortex/live files are
+written. Durable records/backups are under ignored `.sovereign/handoffs/`.
+
+Player HKS/graph/animation handoffs require
+`python tools/player_workflow.py --from editor` (or `--from repo`), followed by
+`accept-plan --scope animations --from <same-source> --qualification <receipt>`.
+The qualifier checks complete packed/loose consistency, graph XML/HKX roundtrip,
+ultimate motion and absence of an unresolved saved project. HKS/name inputs are
+guarded, but no generic compiler is used to claim Havok Script compatibility.
+Native qualification is reused when its asset membership, packed/loose bytes,
+names, configuration and tool fingerprints still match. HKS-only edits receive
+fresh input guards without rebuilding unchanged binders/graphs. Changed assets or
+tools require a full qualification; a saved DSAnimStudio project still requires
+reconciliation. The complete player group remains coordinated.
+Dialogue handoff is
+available after `python tools/format_workflow.py qualify-talk` verifies every owned
+source rebuild and its exact `.esd` companion against runtime. Pass that receipt to
+`accept-plan --scope talk --from repo --qualification <receipt>`. Source/tool drift
+invalidates qualification. Never apply a source-only group to evade these requirements.
+
+Hewg's source additionally owns `.preserve.json`, `.original.esd` and `.baseline.txt`
+companions. The format workflow compiles both baseline and edited DSL and transplants
+only the manifest's reviewed changed state groups into the preserved original ESD.
+Keep the original/baseline hashes fixed; unexpected differences require investigation,
+not widening the allowed groups automatically. See the editing guide and gameplay report.
+
+Interrupted operations retain their receipt/backups. Restore refuses later manual
+edits and can recover a replacement completed before its final journal write.
+Inspect leftover `.sovereign-accepting`/`.sovereign-restoring` files and locks before
+manual cleanup; do not replay an interrupted operation blindly.
+
+## Stage, select and deploy through VDB
+
+Configure `vdb.local.json` from `vdb.local.example.json`, or set
+`VORTEX_DEVELOPMENT_BRIDGE_ROOT`. The adapter loads the bundled client named by the
+shared tool's verified `dist/latest.json`, verifies its hash and accepts client
+protocol 1, 2 or 3. New propagation requires `profile-finish-v3` and can queue while
+Vortex is closed. Existing low-level stage/deploy operations still use protocol 1
+and require a fresh extension snapshot.
+It does not vendor the extension or alter the Vortex database directly.
+
+```powershell
+python tools/vdb_workflow.py doctor
+python tools/vdb_workflow.py prepare --package main --version 0.0.0-workflow-test --from vortex
+python tools/vdb_workflow.py prepare --package textures --version 0.0.0-workflow-test --from vortex
+python tools/vdb_workflow.py prepare --package main --version 0.0.0-workflow-test --from repo --scope maps
+python tools/vdb_workflow.py stage --receipt <prepared-receipt>
+python tools/vdb_workflow.py wait --receipt <prepared-receipt> --seconds 15
+python tools/vdb_workflow.py select --receipt <completed-stage-receipt>
+python tools/vdb_workflow.py deploy --receipt <completed-stage-receipt> --profile <active-profile-id>
+python tools/vdb_workflow.py wait-operation --receipt <operation-receipt> --seconds 15
+python tools/vdb_workflow.py verify --receipt <completed-stage-receipt> --profile <active-profile-id>
+python tools/vdb_workflow.py rollback --receipt <previous-stage-receipt> --profile <active-profile-id>
+```
+
+The example version is only a local qualification label. `prepare --from vortex`
+preserves the configured existing package; `--from repo` deliberately substitutes
+that package's catalogued repo overrides while retaining the staged external DLL.
+Add `--scope` to replace only that scope and keep all other selected-stage bytes.
+Adding catalogued runtime files requires an existing verified selected stage,
+`--from repo`, and a scope covering every new file. Inspect `addedRuntimePaths` and
+the complete package difference before staging. Extra baseline files still fail;
+this does not authorize removing previously shipped files or adopting unknown files.
+The copied payload is independently verified and kept under `.vdb/prepared/`.
+Both packages use the default game-root mod type: main retains `mod/` and `mods/`,
+textures retains `mod/menu/hi`. Main and texture identities stay separate.
+
+Stage is always stage-only. Queue acceptance is not completion. Exit 2 means queued
+or pending; inspect/wait on the existing request instead of submitting it again.
+Failed/interrupted/expired receipts require review. Operation receipts preserve the
+selected client, request ID and previously enabled mods. A deployment requires the
+named Elden Ring profile already active; the adapter never switches profiles.
+
+`select` changes only the local package-source pointer. Nexus packaging then reads
+the verified selected main Vortex stage rather than the mutable legacy folder. It
+rechecks the complete stage against its receipt and fails on drift; it never silently
+substitutes current repo bytes. Stage selection does not deploy or publish. Existing
+Nexus commands, explicit release version and manual/dependency gates remain in force.
+
+Rollback activates a retained VDB build. This protocol has no disable-all operation;
+returning to an initially empty profile requires disabling the test packages and
+deploying through Vortex. Legacy mods with unrelated/ambiguous identity also require
+an explicit transition. The installed propagation shortcuts now use the scoped launcher. Do not run their
+archived legacy implementations, or edit an immutable VDB stage in place.
+
+## Verification
+
+To compose source acceptance and scoped stage preparation, use
+`python tools/propagate_workflow.py plan --scope <scope> --from editor --version <version>`
+(with `--qualification` for player/dialogue), review its receipt, then run
+`python tools/propagate_workflow.py apply --receipt <receipt>`.
+This creates a prepared VDB receipt; stage and deploy remain explicit. Failure after
+source acceptance retains that completed handoff and its independent restore copies.
+The familiar external VBS filenames now call `Propagate-Sovereign.ps1`; their original
+implementations are backed up and must not be run against a VDB deployment.
+
+Plans recheck complete scoped input membership and any player/dialogue qualification
+before acceptance, including when source and destination initially matched.
+
+Event plans and direct event handoffs automatically qualify the selected saved
+DarkScript sources against the saved runtime binaries, using isolated compilation
+and decoded comparison. Stale binaries stop acceptance with the affected filenames
+and comparison location. Compile/save those edits in DarkScript and retry. Saved
+source companions must also match runtime; `common_func` remains authoring-only.
+Unchanged input/tool fingerprints reuse the previous event qualification. Qualification
+is rechecked before acceptance, including when no file copy is needed.
+
+For local preparation without an active game profile, use the existing plan/apply
+commands. Version is optional and defaults to the checked regular target in `mod.json`.
+Player and repo-dialogue qualification also runs automatically:
+
+```powershell
+python tools/propagate_workflow.py plan --scope events --from editor
+python tools/propagate_workflow.py apply --receipt <printed-propagation-receipt>
+```
+
+Review the plan before applying. Apply accepts the chosen repo/editor direction and
+prepares a package, without staging or deployment. The familiar propagation shortcuts
+remain explicit complete deploy actions. SFX local preparation still uses its documented
+build/save step; it does not silently rebuild the editor extraction during planning.
+
+For an explicitly requested complete propagation, the new combined command is:
+
+```powershell
+python tools/propagate_workflow.py run --scope maps --from editor --profile SkC-QjDMc
+python tools/propagate_workflow.py resume --receipt <propagation-receipt> --profile SkC-QjDMc
+```
+
+`run` accepts the specified source scope, prepares/stages its package, deploys through
+Vortex, and selects that exact build for packaging only after live-byte verification.
+Omit `--profile` to update all existing Elden Ring profiles; specify it to limit scope.
+Neither queuing nor source acceptance requires that profile to be active. Enabled
+versions wait for safe deployment, disabled selections update without deployment,
+and absent packages remain absent. `--stage-only` changes no profile or packaging
+selection. Duplicate or ambiguous provider identities fail before activation. The default version
+is the checked target; this does not imply publication or acceptance. Player and repo-dialogue
+qualification runs automatically if no existing `--qualification` is supplied.
+For SFX from the editor, `run` first builds with WitchyBND and saves the packed editor
+output with a recovery receipt, then accepts the scoped sources/output. It rechecks
+the complete SFX extraction before and after source acceptance. Other scopes propagate
+their saved outputs; event propagation verifies that saved source and binaries agree.
+If later propagation
+fails, inspect its source-handoff receipt and `sfxEditorSave` separately; restoring the
+packed editor output does not undo a completed repo handoff or deployment.
+
+The default wait budget is 120 seconds (`--wait-seconds 1..600`). A pending result
+returns exit 2 with the existing propagation receipt. `resume` waits on that request;
+it does not queue a duplicate stage/deployment. Interrupted or failed submissions
+require inspection. Child receipts remain linked before deployment submission, and
+source acceptance remains recoverable if later staging/deployment fails. A completed
+Vortex callback with mismatching live bytes is an error and does not select the build.
+The legacy combined path passed real deployment/resume checks. The new all-profile
+finish path has fixture coverage; native all-profile acceptance remains pending.
+The legacy-provider transition and external shortcut installation are complete.
+
+If package preparation fails after source acceptance, rerun `apply --receipt` to
+continue locally, or `resume --receipt --profile` to continue the requested deployment.
+Both recheck the recorded accepted files and configuration before continuing and do
+not repeat the handoff. Later edits, incomplete handoffs, or older receipts without
+accepted-input guards still require inspection. Recovery does not blindly resubmit
+an uncertain Vortex operation.
+
+Regular versions keep their requested identity. Identical package/version retries
+reuse the original immutable stage/request; changed bytes require a new version and
+matching changelog block. Historical development receipts remain resumable and retain
+their selected-build reuse behavior. No new development labels are generated.
+
+The PowerShell launcher provides the same workflow from any working directory:
+
+```powershell
+.\tools\Propagate-Sovereign.ps1 -Scope maps -Profile SkC-QjDMc
+.\tools\Propagate-Sovereign.ps1 -Scope sfx -Profile SkC-QjDMc
+.\tools\Propagate-Sovereign.ps1 -Receipt <propagation-receipt> -Profile SkC-QjDMc
+```
+
+It defaults to editor input and the checked regular target, currently `1.0.1`.
+Use `-Source repo`, `-Package textures`, `-Version`, or `-Qualification` explicitly when
+needed. It preserves failure/pending exit codes. The installed external VBS shortcuts call this launcher. Logs, including the receipt
+needed to resume a pending run, are under `.sovereign/propagation-logs/`.
+
+The installed item shortcut uses `-Scope item-text`, an alias for Python scope
+`file:msg/engus/item_dlc02.msgbnd.dcx`. It accepts only that binder and preserves
+the selected stage's menu binder. `-Scope text` explicitly accepts the whole text
+scope. Python `file:<runtime-relative-path>` selection is limited to catalog-owned
+FMG binders; it cannot bypass coordinated player or other format qualifications.
+
+## One-time layout migration
+
+```powershell
+python tools/layout_workflow.py plan
+python tools/layout_workflow.py apply --receipt <reviewed-layout-receipt>
+python tools/layout_workflow.py restore --receipt <applied-or-interrupted-layout-receipt>
+```
+
+The one-time migration is complete. Do not apply an old plan again. The commands
+remain available for inspected recovery; a new clone already uses the final layout.
+Review the plan's complete old/new file map. Apply verifies and independently backs
+up all inputs before moving any file, rejects new source members and existing targets,
+then changes the catalog after output verification. It does not edit Vortex, live
+files, external editors, old receipts or unclassified files. Empty directories remain.
+The receipt maps historical paths to their new locations. Earlier catalog-dependent
+handoff receipts are historical evidence; do not blindly replay them after migration.
+Restore reverses a complete or interrupted move only if no affected file/catalog has
+later edits. Inspect failed backup preparation before retrying the same receipt.
+
+## Checks
+
+```powershell
+python -m unittest discover -s tools/tests -v
+python tools/sovereign.py check
+```
+
+Requalify affected native routes after tool/library/options changes. Build receipts
+and fixture tests do not mark manual gameplay acceptance Passed.

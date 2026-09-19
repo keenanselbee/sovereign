@@ -1,7 +1,6 @@
 menu/hi/00_solo.tpfbdt
 menu/hi/00_solo.tpfbhd
 menu/hi/01_common.tpf.dcx
-Sovereign.code-workspace
 .codex-temp/
 
 tools/eldenring-paths.local.json
@@ -9,3 +8,17 @@ tools/eldenring-paths.local.json
 
 # Local game-update history.
 /archive/
+
+# Shared Nexus Automation checkout for this workstation.
+nexus-automation.local.json
+
+# Durable Nexus operation journals; retain across scratch cleanup.
+/.nexus-automation/
+
+# Durable local handoff, Vortex version reservations and retained release ZIPs/receipts.
+/.sovereign/
+/.vdb/
+/vdb.local.json
+
+# Separate local texture payload after layout migration.
+/packages/textures/mod/menu/hi/

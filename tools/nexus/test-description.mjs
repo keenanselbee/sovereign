@@ -5,11 +5,11 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { buildEditUrl, readDescriptions, fillDescriptions, clickSave, verifySaved, assertSourceHashes } from './update-nexus-description.mjs';
+import { buildEditUrl, readDescriptions, fillDescriptions, clickSave, verifySaved, assertSourceHashes, sharedToolRoot } from './update-nexus-description.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const require = createRequire(import.meta.url);
-const { chromium } = require(path.join(root, '.codex-temp/nexus-description-tool/node_modules/playwright'));
+const { chromium } = require(path.join(sharedToolRoot, 'node_modules/playwright'));
 
 test('source drift stops a save', async () => {
   const run = await fs.mkdtemp(path.join(root, '.codex-temp/description-test-'));

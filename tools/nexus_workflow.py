@@ -9,20 +9,24 @@ import json
 import os
 from pathlib import Path
 import shutil
-import socket
 import subprocess
 import sys
-import time
-import urllib.request
 import zipfile
 
 import sovereign as core
+import nexus_automation as automation
 
 ROOT = core.ROOT
 
 
-def vortex_root(config_path=None):
+def vortex_root(config_path=None, package_id="main"):
     settings = core.config(argparse.Namespace(config=config_path))
+    import vdb_workflow
+    selected = vdb_workflow.selected_source(ROOT, settings, package_id)
+    if selected is not None:
+        return selected
+    if package_id != 'main':
+        raise ValueError('Texture packaging requires a verified selected VDB stage')
     runtime = Path(settings['roots']['vortex']).resolve()
     if runtime.name.lower() != 'mod':
         raise ValueError('Configured Vortex runtime root must end in mod; its parent is the package source')
@@ -67,13 +71,22 @@ def inventory(source, manifest):
     return {'source': str(source), 'files': dict(sorted(included.items())), 'excluded': sorted(excluded)}
 
 
-def package_plan(manifest, config_path=None):
-    result = inventory(vortex_root(config_path), manifest)
+def package_inventory(source, manifest, package_id="main"):
+    if package_id == "main":
+        return inventory(source, manifest)
+    if package_id != "textures":
+        raise ValueError("Unknown package")
+    import vdb_workflow
+    return vdb_workflow.inventory(source, ROOT, package_id)
+
+
+def package_plan(manifest, config_path=None, package_id="main"):
+    result = package_inventory(vortex_root(config_path, package_id), manifest, package_id)
     differences = []
     for name, entry in result['files'].items():
         if not name.startswith('mod/'):
             continue
-        repo_path = core.contained(ROOT, name[4:])
+        repo_path = core.contained((ROOT / "packages/textures/mod" if package_id == "textures" else core.runtime_base(ROOT, manifest)), name[4:])
         if not repo_path.is_file():
             differences.append({'file': name, 'state': 'Vortex only'})
         elif core.digest(repo_path) != entry['sha256']:
@@ -84,15 +97,26 @@ def package_plan(manifest, config_path=None):
     return result
 
 
-def build_vortex_package(source, manifest, run, version, draft=True):
+def build_vortex_package(source, manifest, run, version, draft=True, settings=None, package_id="main"):
+    if not draft:
+        if (not manifest.get('releaseReady') or manifest.get('version') != version
+                or any(not row.get('verified') for row in manifest['dependencies'])):
+            raise ValueError('Release version, releaseReady and dependency verification gates must pass')
+        import release_artifact
+        settings = settings if settings is not None else core.config(argparse.Namespace(config=None))
+        return release_artifact.package(ROOT, settings, source, manifest, run, version, package_id)
+    return write_vortex_package(source, manifest, run, version, draft, package_id)
+
+
+def write_vortex_package(source, manifest, run, version, draft=True, package_id="main"):
     if not core.re.fullmatch(r'[0-9]+(?:\.[0-9]+){1,3}(?:-[A-Za-z0-9.-]+)?', version):
         raise ValueError('Use an explicit numeric version with optional prerelease suffix')
     if not draft and (not manifest.get('releaseReady') or manifest.get('version') != version
                       or any(not row.get('verified') for row in manifest['dependencies'])):
         raise ValueError('Release version, releaseReady and dependency verification gates must pass')
-    before = inventory(source, manifest)
+    before = package_inventory(source, manifest, package_id)
     run = Path(run)
-    archive = run / f"Sovereign-{version}{'-DRAFT' if draft else ''}.zip"
+    archive = run / f"Sovereign{'-Textures' if package_id == 'textures' else ''}-{version}{'-DRAFT' if draft else ''}.zip"
     with zipfile.ZipFile(archive, 'x', zipfile.ZIP_DEFLATED, compresslevel=6) as zipped:
         for name, expected in before['files'].items():
             # Stream large archives instead of loading them into memory.
@@ -106,9 +130,9 @@ def build_vortex_package(source, manifest, run, version, draft=True):
                 actual = hashlib.file_digest(stream, 'sha256').hexdigest()
             if actual != expected['sha256']:
                 raise ValueError(f'ZIP content differs from Vortex snapshot: {name}')
-    if inventory(source, manifest) != before:
+    if package_inventory(source, manifest, package_id) != before:
         raise ValueError('Vortex files changed during packaging; reject this candidate')
-    receipt = {**before, 'kind': 'vortex-package', 'draft': draft, 'version': version,
+    receipt = {**before, 'kind': 'vortex-package', 'packageId': package_id, 'draft': draft, 'version': version,
                'archive': archive.name, 'sha256': core.digest(archive),
                'createdAt': datetime.now(timezone.utc).isoformat(), 'gameplayVerified': False}
     core.write_json(run / 'receipt.json', receipt)
@@ -116,67 +140,15 @@ def build_vortex_package(source, manifest, run, version, draft=True):
 
 
 def setup_browser():
+    root = automation.tool_root(ROOT)
     npm = shutil.which('npm.cmd') or shutil.which('npm')
     if not npm or not shutil.which('node'):
         raise ValueError('Node.js and npm are required')
-    root = core.contained(ROOT, '.codex-temp/nexus-description-tool')
-    root.mkdir(parents=True, exist_ok=True)
-    core.write_json(root / 'package.json', {'name': 'sovereign-nexus-browser', 'private': True,
-                                         'dependencies': {'playwright': '1.62.0'}})
-    subprocess.run([npm, 'install', '--ignore-scripts', '--no-audit', '--no-fund'], cwd=root, check=True)
-
-
-def chrome_arguments(executable, profile, port):
-    return [str(executable), '--remote-debugging-address=127.0.0.1', f'--remote-debugging-port={port}',
-            f'--user-data-dir={profile}', '--no-first-run', '--disable-background-mode',
-            '--hide-crash-restore-bubble', '--window-size=1300,1044', '--new-window', 'about:blank']
-
-
-def start_chrome(profile, interactive=False):
-    candidates = [Path(os.environ[key]) / tail for key, tail in (
-        ('PROGRAMFILES', 'Google/Chrome/Application/chrome.exe'),
-        ('PROGRAMFILES(X86)', 'Google/Chrome/Application/chrome.exe'),
-        ('LOCALAPPDATA', 'Google/Chrome/Application/chrome.exe')) if os.environ.get(key)]
-    executable = next((path for path in candidates if path.is_file()), None)
-    if executable is None:
-        raise ValueError('Installed Google Chrome was not found')
-    Path(profile).mkdir(parents=True, exist_ok=True)
-    with socket.socket() as reservation:
-        reservation.bind(('127.0.0.1', 0))
-        port = reservation.getsockname()[1]
-    startup = subprocess.STARTUPINFO() if os.name == 'nt' else None
-    if startup is not None and not interactive:
-        startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-        startup.wShowWindow = 0
-    env = os.environ.copy()
-    env.pop('NEXUS_API_KEY', None)
-    process = subprocess.Popen(chrome_arguments(executable, profile, port), startupinfo=startup, env=env,
-                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    try:
-        deadline = time.monotonic() + 20
-        while time.monotonic() < deadline:
-            if process.poll() is not None:
-                raise ValueError('Dedicated Chrome exited; close any window using the Sovereign profile and retry')
-            try:
-                with urllib.request.urlopen(f'http://127.0.0.1:{port}/json/version', timeout=1) as response:
-                    endpoint = json.load(response)
-                if endpoint.get('webSocketDebuggerUrl'):
-                    return process, port
-            except (OSError, ValueError):
-                pass
-            time.sleep(0.2)
-        raise ValueError('Dedicated Chrome debugging endpoint did not become ready')
-    except Exception:
-        if process.poll() is None:
-            process.terminate()
-        raise
+    subprocess.run([npm, 'ci', '--ignore-scripts', '--no-audit', '--no-fund'], cwd=root, check=True)
 
 
 def descriptions(manifest, save=False, login=False, backup=None):
     core.validate_nexus_metadata(manifest)
-    tool_root = core.contained(ROOT, '.codex-temp/nexus-description-tool')
-    if not (tool_root / 'node_modules/playwright/package.json').is_file():
-        raise ValueError('Run tools/Update-NexusDescription.ps1 -Setup once to install local browser tooling')
     directory = core.contained(ROOT, manifest['nexus']['descriptionDirectory'])
     if not login and not backup:
         issues = core.nexus_issues(ROOT, manifest, descriptions_only=True)
@@ -207,35 +179,20 @@ def descriptions(manifest, save=False, login=False, backup=None):
         if core.read_json(ROOT / 'mod.json') != manifest or any(core.digest(path) != expected for path, expected in source_hashes.items()):
             raise ValueError('Description inputs changed; rerun the review')
         run = core.new_run('nexus-description-requests')
-        request = {'action': 'login' if login else ('revert-' if backup else '') + ('save' if save else 'review'),
+        request = {'schemaVersion': 1, 'restoreCommandPrefix': 'tools/Update-NexusDescription.ps1', 'action': 'login' if login else ('revert-' if backup else '') + ('save' if save else 'review'),
                    'repoRoot': str(ROOT), 'packageName': 'Sovereign', 'displayName': manifest['displayName'],
                    'nexusUrl': manifest['nexus']['url'], 'browser': 'Chrome', 'timeoutSeconds': 180,
                    'profileRoot': str(core.contained(ROOT, '.codex-temp/nexus-browser-profile-chrome')),
                    'backupRoot': str(core.contained(ROOT, '.codex-temp/nexus-description-backups')),
                    'resultPath': str(run / 'result.json'), 'restoreBackupPath': backup,
                    'sourceHashes': source_hashes, **desired}
-        env = os.environ.copy()
-        env['NEXUS_DESCRIPTION_TOOL_ROOT'] = str(tool_root)
-        # Browser authentication uses its isolated profile; it does not need the API key.
-        env.pop('NEXUS_API_KEY', None)
-        # Launch regular installed Chrome, like Grailwright; Playwright only attaches.
-        # Do not use its launchPersistentContext defaults (--no-sandbox/automation flags).
-        chrome, port = start_chrome(request['profileRoot'], interactive=login)
-        request['remoteDebuggingPort'] = port
         core.write_json(run / 'request.json', request)
         try:
-            subprocess.run(['node', str(ROOT / 'tools/nexus/update-nexus-description.mjs'),
-                            '--request', str(run / 'request.json')], cwd=ROOT, env=env, check=True, timeout=600)
+            automation.invoke(ROOT, 'descriptions', run / 'request.json')
         except subprocess.CalledProcessError:
             progress = core.contained(ROOT, '.codex-temp/nexus-description-progress/Sovereign.json')
             reason = core.read_json(progress).get('error', 'Browser review failed') if progress.is_file() else 'Browser review failed'
             raise ValueError(f'{reason} Evidence: {run}') from None
-        finally:
-            try:
-                chrome.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                # Only the process launched above; never close the user's personal Chrome.
-                chrome.terminate()
         result = core.read_json(run / 'result.json')
         if result.get('status') not in ('reviewed', 'already-current', 'saved-and-verified', 'logged-in'):
             raise ValueError('Browser did not verify completion; inspect its progress/backup before retrying')
@@ -250,7 +207,9 @@ def published_payload_matches(package, remote):
     """An observed immutable version plus an exact local upload receipt can establish Current."""
     if not remote.get('current'):
         return False
-    for journal in core.contained(ROOT, '.codex-temp/vortex-packages').glob('*/upload-journal.json'):
+    journals = list(core.contained(ROOT, '.codex-temp/vortex-packages').glob('*/upload-journal.json'))
+    journals.extend(core.contained(ROOT, '.vdb/releases/main').glob('*/upload-journal.json'))
+    for journal in journals:
         try:
             state = core.read_json(journal)
             plan = state['plan']
@@ -309,9 +268,11 @@ def main():
     desc.add_argument('--backup')
     review = commands.add_parser('audit')
     review.add_argument('--skip-browser', action='store_true')
-    commands.add_parser('package-plan')
+    plan = commands.add_parser('package-plan')
+    plan.add_argument('--package', choices=('main', 'textures'), default='main')
     package = commands.add_parser('package')
     package.add_argument('--version', required=True)
+    package.add_argument('--package', choices=('main', 'textures'), default='main')
     package.add_argument('--release', action='store_true')
     args = parser.parse_args()
     manifest = core.read_json(ROOT / 'mod.json')
@@ -326,7 +287,7 @@ def main():
     elif args.command == 'audit':
         core.emit(audit(manifest, args.skip_browser, args.config), True)
     elif args.command == 'package-plan':
-        core.emit(package_plan(manifest, args.config), True)
+        core.emit(package_plan(manifest, args.config, args.package), True)
     elif args.command == 'package':
         if args.release:
             issues = core.nexus_issues(ROOT, manifest)
@@ -334,7 +295,8 @@ def main():
                 raise ValueError('\n'.join(issues))
         with core.operation('package'):
             run = core.new_run('vortex-packages')
-            archive = build_vortex_package(vortex_root(args.config), manifest, run, args.version, not args.release)
+            archive = build_vortex_package(vortex_root(args.config, args.package), manifest, run, args.version, not args.release,
+                                          core.config(argparse.Namespace(config=args.config)), args.package)
             print(archive)
     return 0
 

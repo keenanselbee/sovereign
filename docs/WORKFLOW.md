@@ -1,229 +1,138 @@
-# Sovereign development workflow
+Sovereign development workflow
+==============================
 
-Prepared 2026-09-09. This repository now supports inspection, isolated event builds,
-Vortex-backed packaging and Nexus review/update tooling. It is not marked release-ready. See [mechanics](MECHANICS.md)
-and the [manual test matrix](../TEST-MATRIX.md) before changing release claims.
-The completed event/text compatibility work is recorded in
-[PATCH-UPDATE-PLAN.md](PATCH-UPDATE-PLAN.md), including the verified Vortex/live hardlinks
-and the author's existing three-destination propagation workflow.
-The later effects, icons and older-menu handoff is recorded in
-[EASY-COMPATIBILITY-UPDATE.md](EASY-COMPATIBILITY-UPDATE.md). Icons retain their separate
-`Sovereign - Textures` Vortex package; they are not included by the main NEXUS packager.
-The completed Grace/Torrent dialogue merge and synchronized talk authoring files
-are recorded in [TORRENT-DIALOGUE-UPDATE.md](TORRENT-DIALOGUE-UPDATE.md).
-The applied TAE animation merge, qualified writer route and archived DSAnimStudio
-project handoff are recorded in [ANIMATION-UPDATE.md](ANIMATION-UPDATE.md).
-The coordinated HKS, behavior and name-ID merge and authoring handoff are recorded
-in [PLAYER-BEHAVIOR-UPDATE.md](PLAYER-BEHAVIOR-UPDATE.md). Its game checks remain pending.
-The recovered custom effects and archived visual alternatives are recorded in
-[SFX-RECOVERY.md](SFX-RECOVERY.md). Both active SFX source and repo modified files are synchronized.
-Completed update originals are retained in the [game-update archive](../archive/README.md).
-Its [catalog](../archive/CATALOG.md) links the current backup and restoration locations.
+Sovereign now uses accepted repo sources/outputs, qualified native tools and the shared
+Vortex Development Bridge (VDB). Repository preparation is separate from gameplay
+acceptance and Nexus publication. See the [checkpoint](WORKFLOW-PREP-CHECKPOINT.md),
+[command reference](WORKFLOW-COMMANDS.md), [editing guide](EDITING-GUIDE.md), and
+[remaining feature plan](FEATURE-CORRECTNESS-PLAN.md).
 
-## Commands
 
-Run from the repository root with Python 3.11 or later. Commands resolve project
-paths from the script location, so invocation from another working directory is supported.
+File ownership
+--------------
+
+- `mod/` contains the main package's 70 accepted runtime files.
+- `src/` contains 1,123 owned source/metadata files. SFX and dialogue are partial
+  overlays; player sources include the accepted loose animation and behavior folders.
+- `packages/textures/mod/` contains the separate package's three local icon archives.
+  These remain Git-ignored. Their header/data pair stays together.
+- `reference/mapstudio/` retains two unshipped copies with unassigned provenance.
+  They are not editing or packaging inputs.
+- External Smithbox, Script, DSAnimStudio and SFX directories remain working copies.
+  A saved editor file is accepted deliberately, not selected by timestamp.
+- The verified stage selected in `.vdb/selected.json` supplies the release ZIP.
+  Vortex owns deployment. Live game files are outputs and diagnostic evidence.
+
+`asset-catalog.json` defines ownership and mappings. Workstation paths/tools belong in
+ignored `tools/eldenring-paths.local.json`; VDB location belongs in `vdb.local.json`.
+Native tools stay external. The main Vortex package also retains its existing
+`mods/Scripts-Data-Exposer-FS.dll`; provenance and distribution remain release gates.
+
+
+Normal edit and propagation
+---------------------------
+
+1. Read the relevant editing guide/update report and compare scoped repo/editor
+   inputs. Preserve custom changes and choose a baseline by content.
+2. Edit with the appropriate tool, build an isolated candidate, and inspect decoded
+   differences. Build success alone does not prove intended gameplay.
+3. Accept matching source/output together. Reload old editor buffers after handoffs.
+4. Explicit propagation prepares an immutable package and queues VDB finalization
+   across all game profiles. Enabled versions deploy when active and safe; disabled
+   selections update without enabling/deploying; absent packages stay absent.
+   After completion, refresh the local receipt to select the verified packaging stage.
+5. Record actual gameplay results in TEST-MATRIX only after an observed game test.
 
 ```powershell
+python tools/sovereign.py status --scope maps
+python tools/sovereign.py status --scope events --sources
+python tools/vdb_workflow.py doctor
+.\tools\Propagate-Sovereign.ps1 -Scope maps
+.\tools\Propagate-Sovereign.ps1 -Scope maps -Profile SkC-QjDMc
+.\tools\Propagate-Sovereign.ps1 -Scope maps -StageOnly
+.\tools\Propagate-Sovereign.ps1 -Receipt <pending-receipt> -Profile SkC-QjDMc
+```
+
+Omit `-Profile` to update all game profiles, including disabled selections. The
+example explicit profile is this workstation's Elden Ring Default. It need not be
+active to queue work. `-StageOnly` stages without changing profiles or selecting a
+packaging source. The launcher defaults to editor input and the checked regular version from
+`mod.json`, currently `1.0.1`; `-Source repo` selects accepted repo input explicitly.
+It does not generate development labels or bump the version. Once a version is staged,
+changed package bytes require a new target and matching changelog block.
+See [release numbering and Grailwright parity](VDB-RELEASE-PARITY.md) for the initial
+1.0.0 changelog, release checks and remaining promotion work.
+The nine familiar external VBS filenames now call this launcher. They no longer purge
+folders or copy directly into legacy Vortex/live paths. Logs and resume instructions
+are under `.sovereign/propagation-logs/`. Never run archived old implementations.
+The item shortcut uses `-Scope item-text`, accepting only `item_dlc02.msgbnd.dcx`.
+Use `-Scope text` explicitly when all catalogued message binders are intended.
+
+Player propagation qualifies the coordinated HKS/name/graph/animation group and refuses
+an unresolved saved DSAnimStudio project. Dialogue currently uses accepted repo source
+and matching ESD companions. SFX editor propagation rebuilds the complete editor source
+with WitchyBND, saves its packed output with a backup, then accepts source/output.
+Other scopes propagate saved outputs; event source must be compiled before propagation.
+Event plans now verify saved source/binary consistency automatically and reject stale
+outputs. Unchanged event checks and native player qualifications are reused with exact
+input/tool guards; HKS-only edits do not rebuild unchanged player binders.
+New SFX overrides must be explicitly added to the repo overlay. See the command reference
+for qualifications, partial failures, saved-project limitations and recovery.
+
+A pending request continues inside Vortex without the launcher. Resume with its
+original profile/mode to refresh local receipts and packaging selection; never
+blindly resubmit. An interrupted mutation requires
+inspection. Copying a new source over an old packed file is not a qualified handoff.
+Preparation failures after completed source acceptance can continue from their receipt
+when accepted hashes still match. Historical development receipts retain their reuse
+behavior. Regular versions retain their exact requested identity. Local plan/apply
+commands need no active Vortex profile and use the checked target when omitted.
+Each package/version is reserved before stage submission. Reusing its label with changed
+contents fails; identical contents reuse the original stage/request. Historical receipts
+also participate in the check. Main and textures have separate version reservations.
+
+
+Verification and recovery
+-------------------------
+
+```powershell
+python -m unittest discover -s tools/tests -q
 python tools/sovereign.py check
-python tools/sovereign.py status --scope all
-python tools/sovereign.py status --scope events --json
-python tools/sovereign.py propagation-plan --scope maps
 python tools/sovereign.py build-events --require-equivalent
-python tools/sovereign.py nexus-check
-python tools/sovereign.py nexus-check --descriptions-only
-python tools/sovereign.py nexus-status
-python tools/sovereign.py tests
-python tools/sovereign.py logs --lines 60
-python tools/sovereign.py package --draft --version 0.0.0-prep
-python -m unittest discover -s tools/tests -v
 ```
 
-`status`, `propagation-plan`, `check`, `nexus-check`, `tests`, and `logs` read files.
-Builds, packages, helper binaries, logs, locks and receipts stay in `.codex-temp/`.
-No command deploys runtime files or launches the game. `nexus-status` contacts
-the official Nexus API with read-only requests. The separate Nexus wrappers below
-open a dedicated browser or publish only with their explicit save/publish options.
-`0.0.0-prep` is a draft example, not the mod's selected release version.
+Run affected format qualifications when changing tools/options. `check` also rejects
+runtime copies recreated at retired root paths. It does not establish game compatibility.
+Event builds keep `common_func` authoring-only; they never add an unqualified runtime override.
 
-Copy `tools/eldenring-paths.example.json` to `tools/eldenring-paths.local.json` and
-adjust paths on another workstation. The local copy is ignored by Git. The example
-records this workstation's authoring arrangement. An alternate config can be passed
-before the command: `python tools/sovereign.py --config C:/path/paths.json status`.
-Event builds also require .NET 10 SDK, the configured DarkScript3 executable and
-Smithbox's local `Andre.SoulsFormats.dll` and Oodle library. These dependencies are
-not redistributed by this repo. No package download or tool installation is automated.
+The pre-work full backup, accepted asset copies, source handoffs, VDB version switching,
+shortcut backups, layout map and validation receipts are listed in the checkpoint.
+`.sovereign/` and `.vdb/` contain durable recovery records; `.codex-temp/` contains
+regenerable build/inspection output. Preserve publishing journals during scratch cleanup.
+Historical archives live at `Z:/Backup/Elden Ring/archive`; verify relocated paths before
+restoring. Old receipts retain their original paths. Do not replay them after migration
+without accounting for the recorded relocation map and later edits.
 
-## Source ownership and handoff
 
-Existing propagation runs **external editor workspace -> repo + live + Vortex**.
-The next old propagation can overwrite an edit made only in this repo. Before any
-gameplay edit, compare the relevant four copies and choose an agreed baseline using
-content, not timestamps. A matching hash means identical bytes, not correct mechanics.
-Differences can be row names alone. Unsaved editor buffers are not inspected.
+Nexus and remaining release work
+-------------------------------
 
-1. Run scoped status. Resolve editor/repo differences and record baseline hashes.
-2. Make a narrow candidate in a repository scratch run; state the intended field,
-   event, flag, text or animation changes and the behavior they implement.
-3. Compile with a qualified format-specific tool, reopen the result and compare
-   decoded data. Verify unrelated rows, instructions, binder entries and metadata.
-4. Review the exact changed behavior and required manual tests. Accept only the
-   intended source and runtime outputs into the repo, retaining a rollback copy.
-5. An explicitly requested editor handoff must update the matching authoring source
-   and output from the same candidate, with expected-hash checks. Reload affected
-   files in open editors before saving. Repository edits alone are not a handoff.
-6. Explicit propagation must use the reviewed scope and destinations, preserve prior
-   managed files, stop on drift, verify destination hashes, and record a receipt.
-   Live testing uses the actual game-folder launcher and a backed-up test save.
+Use the existing shared Nexus Automation workflow in [NEXUS](NEXUS.md). `NEXUS` is an
+audit; publishing and remote saves require the applicable explicit instruction.
+Descriptions remain under `_/nexus-page/`. Keep page summary, file pitch, detailed BBCode
+and changelog distinct; verify mechanics before updating public claims.
 
-Only the inspection and candidate portions are automated here. `propagation-plan`
-is an informational preview of differences, not a deployable transaction or approval
-receipt. It never chooses a winning file. A conflict-safe apply command and replacement
-shortcut wrappers remain future work; do not run old scripts automatically.
+Draft packaging uses the selected immutable main Vortex stage, preserving `mod/` and
+`mods/`, and verifies every archive entry. It never substitutes repo bytes silently or
+publishes automatically. Main and texture packages retain separate identities.
+Final main release packaging requires a completed selected stage labelled with the
+release version. It retains the exact verified ZIP and stage binding under
+`.vdb/releases/main/<version>/`; retries return that ZIP. Publication rejects a changed
+selection, payload or archive. See [the release workflow](VDB-RELEASE-PARITY.md).
 
-## Existing Elden Ring workflows
-
-Paths below are relative to `Z:/Modding/Elden Ring`. Destination runtime paths are
-relative to the repo, `Game/mod`, and `Vortex/Sovereign/mod`.
-
-| Authoring workspace | Existing script | Runtime output / observation |
-|---|---|---|
-| Smithbox | propagate-regulation.bin.vbs | regulation.bin; row names to repo/Vortex only |
-| Smithbox | propagate-map.vbs | map/**/*.dcx; deletes destination map trees first |
-| Smithbox | propagate-item.msgbnd.dcx.vbs | English item_dlc02 binder only |
-| Script | propagate-c0000.hks.vbs | action/script/c0000.hks |
-| Script | propagate-c9997.hks.vbs | action/script/c9997.hks |
-| Script | propagate-event.vbs | Existing compiled DCX plus source copies; does not compile JS |
-| DSAnimStudio | propagate-c0000.anibnd.vbs | chr/c0000.anibnd.dcx |
-| DSAnimStudio | propagate-c0000.behbnd.vbs | chr/c0000.behbnd.dcx |
-| SFX | propagate-sfxbnd_commoneffects.ffxbnd.vbs | Builds with WitchyBND, then copies shared effects |
-
-Several wrappers depend on the current directory, swallow copy errors or play their
-success sound after errors. Regulation propagation deletes destination row-name files
-first. SFX deletes the old local packed output before compiling. Multi-target copies
-have no rollback or hash checks. Archived `_ /5` scripts (directory `_`, then `5`)
-contain old destinations and are not active workflow definitions.
-
-No active wrapper was found for `c0000_a0x.anibnd.dcx`, ESD talk, other languages or
-message binders, parts, materials, menus or the script-exposer DLL. Status covers the
-configured scopes, including event JS, but not every runtime pattern, source file or
-Smithbox row-name file.
-It includes managed editor-only and destination-only files; their absence from the
-repo is a review item, never permission to delete them.
-
-The inspected Smithbox project points at the installed game. DSAnimStudio's
-`_DSAS_PROJECT.json` still points at missing `C:/Steam/...` paths. Confirm which active
-project is opened before correcting external settings. ESDTool's configuration has
-the vanilla game as its base and an empty mod directory: future compilation must use
-the existing modified binder as its template or other dialogue changes can be lost.
-ESD `.py` files are an ESD DSL, not ordinary Python scripts to execute.
-
-The inspected launcher is `Z:/Steam/steamapps/common/ELDEN RING/Game/launchmod_eldenring.bat`,
-whose configuration loads `mod`. A separate tools-folder launcher also exists; do not
-assume it is the one being tested. `logs` only tails logs under the configured Game
-directory. Logging does not prove a specific mechanic works.
-
-## What can be edited confidently
-
-| Format | Current supported work | Acceptance requirement |
-|---|---|---|
-| Nexus/docs | Evidence-based text and formatting | Local checks, fact review, Nexus visual review |
-| HKS | Focused source changes after baseline agreement | Focused diff plus game tests; generic Lua is not a qualified HKS checker |
-| EMEVD | Isolated DarkScript compilation and decoded comparison | Review instructions, bindings, layers, rest behavior and metadata; game test |
-| FMG/regulation | Inspection and explicit change planning | Writer round-trip qualification and version-aware semantic diff before acceptance |
-| MSB | Entity/reference inspection and change planning | Writer qualification, ID/type preservation, Smithbox placement and game checks |
-| ESD/TAE | Inspection and change planning | Template/binder-preserving build qualification and affected interaction tests |
-| FXR/FLVER/TPF/Havok | Inspection and packaging | Tool-specific qualification plus visual/game checks before automated edits |
-
-The event builder copies sources and local common_func inputs into an isolated run,
-compiles all ten source files, and requires the complete expected output set. It
-compares candidates with shipped binaries, or the source-side baseline for files not
-shipped at the event root. Compression encoding is excluded; event order, duplicate
-IDs, instructions, argument bytes, bindings, layers and other serialized public event
-data are retained. `--require-equivalent` fails on any decoded difference or a missing
-runtime baseline and still
-leaves the receipt and before/after JSON for review. Compile success alone does not
-qualify a no-change round trip or an in-game result. Once a deliberate source edit is
-made, run without that option and review every reported difference.
-
-`common_func.emevd.dcx` is currently excluded from the runtime event root by the old
-propagator. The builder reports it as a non-runtime candidate. It does not add that
-file to the shipped set. It currently has no compiled baseline in the repository:
-compilation is checked, but its round trip remains unqualified and does not block
-qualification of the shipped files. Sources that compile correctly can still be stale relative
-to their binaries, so an initial mismatch requires investigation, not automatic copying.
-
-CLI reference: [DarkScript3 RoundTripTool source](https://github.com/AinTunez/DarkScript3/blob/master/DarkScript3/RoundTripTool.cs).
-Installed tool hashes are recorded in each event receipt; requalify after tool updates.
-The local reader is not a general-purpose binary writer.
-
-## Nexus conventions adopted from Grailwright
-
-Keep `_/nexus-page/nexus-full-desc.txt` as the editable full description and retain
-`description-bbcode.txt` as the previous reference. The full draft still contains older
-mechanical claims; formatting conversion is not feature verification. Keep short and
-file descriptions distinct, with the file pitch shorter and at most 255 characters;
-the short description is at most 350 characters. Keep these identity pitches stable
-across routine releases. The short/file pitches are populated local drafts; the full
-page still requires feature verification. Use `nexus-check --descriptions-only` for
-copy editing without requiring a selected release version.
-Use ASCII text, plain `[code]` blocks and established BBCode styling. Keep Sovereign's
-existing visual identity instead of copying another game's theme. Changelog entries
-must describe completed changes, not plans.
-
-`NEXUS` is a review: report **Current / Update / Verify** for description, metadata,
-release files and feature claims. `nexus-check` only checks local files, metadata and
-basic tag balance; it cannot validate rendering, links or remote state. The page and
-file-group IDs in `mod.json` are configured and verified; the release version remains
-unset. `nexus-status` checks remote identity and active file versions. See
-[NEXUS.md](NEXUS.md) for the API contract, observed file history and audit findings.
-
-If the released file is already current, publish an explicitly requested description
-update without duplicating the upload. A future upload must use the exact reviewed
-archive hash, remote-state comparison, operation lock, prior-state backup and receipt.
-Grailwright's publisher assumes its own metadata, helpers and package shape; copying a
-single publishing script or its BepInEx build behavior is not an Elden Ring workflow.
-Standalone description review/save, API publishing and a combined audit now live in
-this repo. See [NEXUS.md](NEXUS.md) for commands, setup and qualification limits.
-
-## Draft packaging and release gates
-
-The package source is the parent of the configured Vortex `mod` directory:
-`Z:/Modding/Elden Ring/Vortex/Sovereign`. Preserve its `mod/` and `mods/` paths in
-the ZIP. The author's propagation scripts remain the way to refresh those bytes;
-packaging does not run them or substitute repo content. `runtimePatterns` still
-supports repo inspection and the legacy helper, but no longer defines release contents.
-
-`mod.json` excludes propagated `src` and `.smithbox` directories. The packager reports
-all exclusions and repo differences, preserves zero-byte files, rejects directory/file
-links and unexpected top-level/private files, hashes the source, verifies all ZIP
-entries and hashes, and rechecks the source inventory after packaging. Failed runs
-must not be accepted; only successful candidates receive `receipt.json`.
-
-The tested Vortex snapshot contains 90 files: 70 package files and 20 excluded authoring
-files. Three `c2500` character files exist only in Vortex, and `c0000_a0x.anibnd.dcx`
-differs from the repo. These are review observations, not permission to change either
-copy. The ignored menu/hi archives are absent from this snapshot and are not added.
-
-`mods/Scripts-Data-Exposer-FS.dll` is included because it is in the Vortex package.
-Its version/source/distribution policy still needs verification. A draft filename
-and external receipt identify test archives; no extra draft-marker file is inserted
-into the game payload. The legacy repo-only `make_package` helper is retained for
-its tests, but the `package` CLI now calls the Vortex packager.
-
-```powershell
-python tools/nexus_workflow.py package-plan
-python tools/sovereign.py package --draft --version 0.0.0-workflow-test
-# Once the selected version and release/dependency gates are verified:
-python tools/nexus_workflow.py package --release --version <selected-version>
-```
-
-Release requires agreed source/output baselines, qualified binary changes, passing
-affected tests with save/reload and multiplayer rules, completed Nexus metadata and
-verified player claims, dependency/install verification, and an exact reviewed archive.
-See `TEST-MATRIX.md`. Never mark a manual test Passed from code inspection alone.
-
-The longer investigation and decoded exports remain local in
-`.codex-temp/sovereign-inspect/`; the durable conclusions are in these docs. Scratch
-files are not release inputs and may be regenerated or removed after review.
+The subsequent [gameplay update](GAMEPLAY-CORRECTNESS-UPDATE.md) implements the armor
+and Hewg/per-journey decisions. Manual game tests, dependency provenance, clean installation, release metadata
+and accurate descriptions remain in stages S7/S8 of the [release plan](REPOSITORY-AND-RELEASE-PLAN.md).
+Earlier investigation prose is retained in [WORKFLOW-REFERENCE](WORKFLOW-REFERENCE.md)
+and [WORKFLOW-PREP-HISTORY](WORKFLOW-PREP-HISTORY.md); those snapshots do not supersede
+current commands or the editing guide.

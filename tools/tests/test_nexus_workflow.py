@@ -15,10 +15,12 @@ import nexus_publish as publisher
 
 class NexusWorkflowTests(unittest.TestCase):
     def test_chrome_launch_uses_regular_browser_flags_and_dedicated_profile(self):
-        args = workflow.chrome_arguments('chrome.exe', r'C:\repo\.codex-temp\profile', 43210)
+        shared = workflow.automation.tool_root(workflow.ROOT)
+        script = "import { chromeArguments } from " + json.dumps((shared / 'src/browser/session.mjs').as_uri()) + "; console.log(JSON.stringify(chromeArguments('C:/repo/.codex-temp/profile', 43210)))"
+        args = json.loads(workflow.subprocess.run(['node', '--input-type=module', '-e', script], check=True, capture_output=True, text=True).stdout)
         self.assertIn('--remote-debugging-address=127.0.0.1', args)
         self.assertIn('--remote-debugging-port=43210', args)
-        self.assertIn(r'--user-data-dir=C:\repo\.codex-temp\profile', args)
+        self.assertIn('--user-data-dir=C:/repo/.codex-temp/profile', args)
         for flag in ('--no-sandbox', '--enable-automation', '--headless', '--disable-blink-features=AutomationControlled'):
             self.assertNotIn(flag, args)
 
@@ -84,45 +86,13 @@ class NexusWorkflowTests(unittest.TestCase):
                 workflow.inventory(self.root, self.manifest)
             path.unlink()
 
-    def test_multipart_integer_size_etags_and_finalise_order(self):
-        archive = self.write('candidate.zip', b'abcdefgh')
-        calls, parts = [], []
-        def api(method, path, body=None):
-            calls.append((method, path, body))
-            if path == '/uploads/multipart':
-                self.assertIs(type(body['size_bytes']), int)
-                return {'id': 'fixture-upload', 'part_size_bytes': 3,
-                        'part_presigned_urls': ['https://s3.test/1', 'https://s3.test/2', 'https://s3.test/3'],
-                        'complete_presigned_url': 'https://s3.test/complete'}
-            return {'state': 'available'}
-        def storage(method, url, data, content_type):
-            if method == 'PUT':
-                parts.append(data)
-                return '"fixture-etag"', b''
-            self.assertIn(b'<PartNumber>3</PartNumber>', data)
-            return None, b'<CompleteMultipartUploadResult/>'
-        self.assertEqual(publisher.upload_parts(archive, api, storage), 'fixture-upload')
-        self.assertEqual(parts, [b'abc', b'def', b'gh'])
-        self.assertEqual([row[1] for row in calls], ['/uploads/multipart', '/uploads/fixture-upload/finalise', '/uploads/fixture-upload'])
-
-    def test_partial_upload_is_journaled_and_cannot_be_repeated(self):
+    def test_existing_upload_journal_blocks_adapter_before_any_shared_call(self):
         archive = self.write('candidate.zip')
-        plan = {'archive': str(archive), 'archiveSha256': workflow.core.digest(archive), 'sourceHashes': {},
-                'groupId': '893965', 'modId': '18610093293769', 'version': '0.2', 'name': 'Sovereign',
-                'description': 'Pitch', 'changelog': 'Completed change', 'baseline': {'id': 'old'}}
-        def api(method, path, body=None):
-            if method == 'GET':
-                return {'versions': [{'id': 'old', 'version': '0.1', 'category': 'main'}]}
-            if path.endswith('/changelogs'):
-                raise ValueError('Temporary error')
-            return {'version': {'id': 'new'}}
-        with self.assertRaisesRegex(ValueError, 'Temporary error'):
-            publisher.publish(plan, api, lambda _: 'upload-id')
-        state = workflow.core.read_json(archive.parent / 'upload-journal.json')
-        self.assertEqual(state['versionId'], 'new')
-        self.assertEqual(state['status'], 'changelog-post-started')
-        with self.assertRaisesRegex(ValueError, 'journal already exists'):
-            publisher.publish(plan, api, lambda _: self.fail('must not upload again'))
+        self.write('upload-journal.json', b'{"versionId":"31"}')
+        with mock.patch.object(workflow.automation, 'invoke') as invoke:
+            with self.assertRaisesRegex(ValueError, 'journal already exists'):
+                publisher.publish({'archive': str(archive)})
+            invoke.assert_not_called()
 
     def test_changelog_must_match_both_release_versions(self):
         self.write('nexus-changelog.txt', b'TargetVersion=0.2\nBaselineVersion=0.1\nCompleted change\n')
@@ -130,38 +100,125 @@ class NexusWorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             publisher.reviewed_changelog(self.root, '0.3', '0.1')
 
-    def test_publish_success_records_immutable_id_and_exact_payload(self):
+    def test_publish_plan_keeps_every_active_id_and_adapter_forwards_it(self):
+        archive = self.write('.codex-temp/vortex-packages/fixture/release.zip')
+        directory = self.root / 'nexus'
+        manifest = {
+            'id': 'Sovereign', 'displayName': 'Sovereign', 'version': '0.2', 'releaseReady': True,
+            'dependencies': [{'verified': True}], 'package': {'excludeDirectories': ['src']},
+            'nexus': {'url': 'https://www.nexusmods.com/games/eldenring/mods/201',
+                      'descriptionDirectory': 'nexus', 'groupId': '20', 'modId': '10'}
+        }
+        self.write('mod.json', json.dumps(manifest).encode())
+        self.write('changelog.txt', b'Version 1.0.0\nCompleted change\n')
+        for name, text in {
+            'nexus-short-desc.txt': 'Short', 'nexus-full-desc.txt': '[b]Full[/b]',
+            'nexus-file-desc.txt': 'Pitch',
+            'nexus-changelog.txt': 'TargetVersion=0.2\nBaselineVersion=0.1\nCompleted change\n'
+        }.items():
+            self.write(f'nexus/{name}', text.encode())
+        remote = {
+            'current': {'id': '30', 'version': '0.1'},
+            'activeVersions': [
+                {'id': '30', 'version': '0.1', 'category': 'main', 'is_primary': True},
+                {'id': '29', 'version': '0.0.9', 'category': 'optional', 'is_primary': False}
+            ]
+        }
+        receipt = {'sha256': workflow.core.digest(archive), 'source': str(self.root / 'vortex'), 'files': {}}
+        with mock.patch.object(workflow.core, 'ROOT', self.root), \
+                mock.patch.object(publisher, 'verified_archive', return_value=(archive, receipt)), \
+                mock.patch.object(publisher.core, 'nexus_issues', return_value=[]), \
+                mock.patch.object(publisher.core, 'nexus_status', return_value=remote), \
+                mock.patch.object(publisher, 'api', return_value={'versions': []}):
+            plan = publisher.publish_plan(archive, manifest)
+        self.assertEqual(plan['baseline'], remote['current'])
+        self.assertEqual(plan['expectedActiveIds'], ['29', '30'])
+
+        def invoke(_repo, _command, request_path):
+            request = workflow.core.read_json(request_path)
+            self.assertEqual(request['baselineVersionId'], '30')
+            self.assertEqual(request['expectedActiveIds'], ['29', '30'])
+            return {'status': 'version-read-verified', 'versionId': '31'}
+
+        with mock.patch.object(workflow.core, 'ROOT', self.root), \
+                mock.patch.object(workflow.automation, 'invoke', side_effect=invoke):
+            self.assertEqual(publisher.publish(plan)['versionId'], '31')
+
+    def test_publish_plan_rejects_metadata_changed_during_remote_review(self):
+        archive = self.write('.codex-temp/vortex-packages/fixture/release.zip')
+        manifest = {
+            'id': 'Sovereign', 'displayName': 'Sovereign', 'version': '0.2', 'releaseReady': True,
+            'dependencies': [{'verified': True}], 'package': {'excludeDirectories': ['src']},
+            'nexus': {'url': 'https://www.nexusmods.com/games/eldenring/mods/201',
+                      'descriptionDirectory': 'nexus', 'groupId': '20', 'modId': '10'}
+        }
+        self.write('mod.json', json.dumps(manifest).encode())
+        for name, text in {
+            'nexus-short-desc.txt': 'Short', 'nexus-full-desc.txt': '[b]Full[/b]',
+            'nexus-file-desc.txt': 'Pitch',
+            'nexus-changelog.txt': 'TargetVersion=0.2\nBaselineVersion=0.1\nCompleted change\n'
+        }.items():
+            self.write(f'nexus/{name}', text.encode())
+        remote = {'current': {'id': '30', 'version': '0.1'}, 'activeVersions': [{'id': '30'}]}
+        receipt = {'sha256': workflow.core.digest(archive), 'source': str(self.root / 'vortex'), 'files': {}}
+
+        for changed in ('mod.json', 'nexus/nexus-changelog.txt', 'changelog.txt'):
+            with self.subTest(changed=changed):
+                def remote_read(_manifest):
+                    if changed == 'mod.json':
+                        self.write(changed, json.dumps({**manifest, 'displayName': 'Changed'}).encode())
+                    else:
+                        self.write(changed, b'TargetVersion=0.2\nBaselineVersion=0.1\nRevised change\n')
+                    return remote
+
+                self.write('mod.json', json.dumps(manifest).encode())
+                self.write('changelog.txt', b'Version 1.0.0\nCompleted change\n')
+                self.write('nexus/nexus-changelog.txt', b'TargetVersion=0.2\nBaselineVersion=0.1\nCompleted change\n')
+                with mock.patch.object(workflow.core, 'ROOT', self.root), \
+                        mock.patch.object(publisher, 'verified_archive', return_value=(archive, receipt)), \
+                        mock.patch.object(publisher.core, 'nexus_issues', return_value=[]), \
+                        mock.patch.object(publisher.core, 'nexus_status', side_effect=remote_read), \
+                        mock.patch.object(publisher, 'api', return_value={'versions': []}):
+                    with self.assertRaisesRegex(ValueError, 'Release inputs changed during planning'):
+                        publisher.publish_plan(archive, manifest)
+
+    def test_shared_publish_adapter_preserves_payload_and_source_preconditions(self):
         archive = self.write('candidate.zip')
+        self.write('mod.json', json.dumps({'id': 'Sovereign', 'nexus': {'url': 'https://www.nexusmods.com/games/eldenring/mods/201'}}).encode())
+        plan = {'archive': str(archive), 'archiveSha256': workflow.core.digest(archive),
+                'sourceHashes': {str(archive): workflow.core.digest(archive)}, 'sourceInventory': {'root': str(self.root), 'names': []},
+                'groupId': '893965', 'modId': '18610093293769', 'version': '0.2', 'name': 'Sovereign',
+                'description': 'Pitch', 'changelog': 'Completed change', 'baseline': {'id': '30', 'version': '0.1'}}
+        def invoke(repo, command, request_path):
+            self.assertEqual(repo, self.root)
+            self.assertEqual(command, 'publish')
+            request = workflow.core.read_json(request_path)
+            self.assertTrue(request['apply'])
+            self.assertEqual(request['file']['previous_version_id'], '30')
+            self.assertEqual(request['file']['description'], 'Pitch')
+            self.assertTrue(request['file']['show_requirements_pop_up'])
+            self.assertTrue(request['file']['archive_existing_file'])
+            self.assertEqual(request['sourceHashes'], plan['sourceHashes'])
+            self.assertEqual(request['sourceInventory'], plan['sourceInventory'])
+            self.assertIsNone(request['expectedActiveIds'])
+            self.assertEqual(request['journalPath'], str(archive.parent / 'upload-journal.json'))
+            return {'status': 'version-read-verified', 'versionId': '31'}
+        with mock.patch.object(workflow.core, 'ROOT', self.root), mock.patch.object(workflow.automation, 'invoke', side_effect=invoke):
+            self.assertEqual(publisher.publish(plan)['versionId'], '31')
+
+    def test_shared_publish_failure_preserves_partial_journal(self):
+        archive = self.write('candidate.zip')
+        self.write('mod.json', json.dumps({'id': 'Sovereign', 'nexus': {'url': 'https://www.nexusmods.com/games/eldenring/mods/201'}}).encode())
         plan = {'archive': str(archive), 'archiveSha256': workflow.core.digest(archive), 'sourceHashes': {},
                 'groupId': '893965', 'modId': '18610093293769', 'version': '0.2', 'name': 'Sovereign',
-                'description': 'Pitch', 'changelog': 'Completed change', 'baseline': {'id': 'old'}}
-        created = False
-        def api(method, path, body=None):
-            nonlocal created
-            if method == 'GET':
-                return {'versions': [{'id': 'new' if created else 'old', 'version': '0.2' if created else '0.1',
-                                      'category': 'main', 'game_scoped_id': '123'}]}
-            if path.endswith('/versions'):
-                self.assertEqual(body['previous_version_id'], 'old')
-                self.assertEqual(body['description'], 'Pitch')
-                self.assertTrue(body['archive_existing_file'])
-                created = True
-                return {'version': {'id': 'new'}}
-            self.assertEqual(body, {'version': '0.2', 'changelog': 'Completed change'})
-            return {}
-        result = publisher.publish(plan, api, lambda _: 'upload-id')
-        self.assertEqual(result['status'], 'version-read-verified')
-        self.assertEqual(result['remoteVersion']['game_scoped_id'], '123')
-
-    def test_remote_drift_blocks_version_creation_after_upload(self):
-        archive = self.write('candidate.zip')
-        plan = {'archive': str(archive), 'archiveSha256': workflow.core.digest(archive), 'sourceHashes': {},
-                'groupId': '893965', 'version': '0.2', 'baseline': {'id': 'old'}}
-        def api(method, path, body=None):
-            self.assertEqual(method, 'GET')
-            return {'versions': [{'id': 'changed', 'version': '0.3', 'category': 'main'}]}
-        with self.assertRaisesRegex(ValueError, 'Remote release changed'):
-            publisher.publish(plan, api, lambda _: 'upload-id')
+                'description': 'Pitch', 'changelog': 'Change', 'baseline': {'id': '30', 'version': '0.1'}}
+        def failed(*args):
+            self.write('upload-journal.json', b'{"versionId":"31","phase":"changelog-post-started"}')
+            raise workflow.subprocess.CalledProcessError(1, ['node'])
+        with mock.patch.object(workflow.core, 'ROOT', self.root), mock.patch.object(workflow.automation, 'invoke', side_effect=failed):
+            with self.assertRaisesRegex(ValueError, 'Publish incomplete'):
+                publisher.publish(plan)
+        self.assertEqual(workflow.core.read_json(archive.parent / 'upload-journal.json')['versionId'], '31')
 
     def test_current_file_requires_immutable_id_and_matching_vortex_payload(self):
         archive = self.write('.codex-temp/vortex-packages/fixture/release.zip')
@@ -178,6 +235,18 @@ class NexusWorkflowTests(unittest.TestCase):
             self.assertFalse(workflow.published_payload_matches({'files': {}}, remote))
             remote['current']['id'] = 'unrelated-same-label'
             self.assertFalse(workflow.published_payload_matches({'files': files}, remote))
+
+    def test_current_file_finds_durable_release_journals(self):
+        archive = self.write('.vdb/releases/main/1.0.0/Sovereign-1.0.0.zip')
+        fingerprint = workflow.core.digest(archive)
+        files = {'mod/regulation.bin': {'size': 7, 'sha256': 'fixture'}}
+        plan = {'groupId': '893965', 'modId': '18610093293769', 'version': '1.0.0', 'archiveSha256': fingerprint}
+        workflow.core.write_json(archive.parent / 'receipt.json', {'kind': 'vortex-package', 'draft': False,
+            'version': '1.0.0', 'files': files, 'archive': archive.name, 'sha256': fingerprint})
+        workflow.core.write_json(archive.parent / 'upload-journal.json', {'versionId': 'new', 'plan': plan})
+        remote = {'groupId': '893965', 'modId': '18610093293769', 'current': {'id': 'new', 'version': '1.0.0'}}
+        with mock.patch.object(workflow, 'ROOT', self.root):
+            self.assertTrue(workflow.published_payload_matches({'files': files}, remote))
 
 
 if __name__ == '__main__':

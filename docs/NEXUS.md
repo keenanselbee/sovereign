@@ -1,6 +1,24 @@
 # Nexus API and Sovereign release target
 
-Reviewed 2026-09-09 against the published [Nexus OpenAPI specification](https://api.nexusmods.com/openapi.yaml)
+Package-source update: when `.vdb/selected.json` selects a completed main build,
+the existing packaging commands read that exact Vortex stage and reverify its full
+inventory against the stage receipt. Drafts without a selection use the configured
+legacy Sovereign package. Final releases require a completed selected stage with
+the exact release version, and retain the verified ZIP and its stage identity under
+`.vdb/releases/main/<version>/`. Identical retries return that ZIP; publication
+rejects scratch-only archives or changes to the selected build/contents. They never
+fall back from a drifted selected stage to
+different bytes. See [the current workflow commands](WORKFLOW-COMMANDS.md) for
+stage preparation/selection; publishing and release gates below still apply.
+
+Versioning update 2026-09-11: `mod.json` now selects **1.0.0** as the local release
+target, with full version history in root `changelog.txt`. This does not relabel the
+selected development build or mark the mod release-ready. `version-check` validates
+the target/history; release packaging and publishing also require that consistency.
+The publisher fingerprints the history during its preflight. See
+[VDB release parity](VDB-RELEASE-PARITY.md) for the remaining promotion workflow.
+
+Historical API review, 2026-09-09, against the published [Nexus OpenAPI specification](https://api.nexusmods.com/openapi.yaml)
 (OpenAPI 3.0.3, API version 3.0.0; server `https://api.nexusmods.com/v3`).
 The inspected specification's SHA-256 is
 `1dc1ade76e9fd73f7edf3bebab41e7bc4b1c3578e87f85d70f0ad09b7e2c7746`.
@@ -8,7 +26,7 @@ A temporary snapshot is in `.codex-temp/nexus-api-audit/openapi.yaml`. Runtime c
 use the API contract directly; they do not download or execute a specification file.
 Recheck the published contract before changing the client or adding publishing.
 
-## Configured existing file
+## Configured files and publication order
 
 Public identifiers belong in `mod.json`. Credentials belong only in the
 `NEXUS_API_KEY` environment variable, never in manifests, scripts, arguments or chat.
@@ -18,22 +36,35 @@ Public identifiers belong in `mod.json`. Credentials belong only in the
 | Game domain | `eldenring` | Nexus game slug |
 | Page ID | `201` | Game-scoped mod ID used in the page URL |
 | Unique mod ID | `18610093293769` | v3 `/mods/{id}` identifier |
-| Group ID / mod file ID | `893965` | Persistent file to receive future versions |
-| Short Unique File ID | `qdbCxL2mS` | UI identifier from the author's screenshot; not a numeric API ID |
+| Main group ID / API File ID | `7949853` | Persistent Sovereign main file |
+| Main Short Unique File ID | `sVKWduzP0` | Author-confirmed UI identifier |
+| Texture group ID / API File ID | `893965` | Persistent Sovereign - Textures file |
+| Texture Short Unique File ID | `qdbCxL2mS` | Author-confirmed UI identifier |
 
-Authenticated, read-only API calls confirmed the page ID, unique mod ID and group
-membership. The group still has the historical name **Sacred Tweaks**, while its
-single active Main version is **Sovereign 0.1**. That active version has immutable
-v3 ID `18610093305851` and game-scoped file version ID `12283` (the numeric Vortex
-file ID). It reports `is_primary: false`. These are observations, not new release
-metadata or proof that local files match the download.
+The author confirmed these mappings with both Advanced/API dialogs. Fresh read-only
+API calls confirmed main's primary version **Sovereign 0.1.0**, immutable v3 ID
+`18610093344220`, game-scoped file ID `50652`; textures' non-primary version is
+**Sovereign - Textures 0.1.0**, immutable v3 ID `18610093305851`, game-scoped file ID
+`12283`. The API's parent group names remain misleading: main's is
+`Sovereign -  Textures`, and textures' is `Sacred Tweaks`. Use the confirmed IDs,
+not those historical names. Earlier notes treating 893965 as main are superseded.
 
-There are 42 versions in the group, including 41 archived entries. Two archived
-uploads are newer than the active version. Do not select a release by newest upload
-date or group name alone. The separate group `893968`, named Sovereign, was inactive
-with all three versions archived; the screenshot's requested group is `893965`.
-Do not rename or switch groups implicitly. The short UI identifier was transcribed
-from the screenshot; the read endpoints do not verify it.
+`mod.json` is the authored metadata source: `nexus.groupId` identifies main, and
+`nexus.textures.groupId` identifies textures on the same page. Keep this metadata
+there instead of introducing a duplicate `API.txt`. The shared API transport,
+credential handling and ID meanings match Grailwright despite the different filename.
+
+When both packages are updated together, publish and verify textures first, then
+publish main last. This is the author's ordering requirement so main stays above
+textures in the files list. Serialize the uploads; resolve any failed or uncertain
+texture upload before proceeding to main. Main remains primary; textures remain
+non-primary. A textures-only update does not call for a duplicate main upload just
+to reorder the page. The combined publisher now enforces this sequence and supports
+texture-only publication. See [release automation](RELEASE-AUTOMATION.md) for review,
+publication, exact-operation resume, promotion and collection-readiness commands.
+
+Historical groups and archived versions remain untouched. The short UI identifiers
+come from the author's screenshots; the read endpoints do not independently verify them.
 
 ## Repeatable checks
 
@@ -53,7 +84,7 @@ redirects are refused so credentials cannot be forwarded to a different host.
 
 An equal version label does not prove equal archive contents. Page copy, file pitch,
 changelog, visual rendering and mechanics still need separate verification. The
-selected local release version remains unset. Short/file pitches now have local drafts;
+selected local release version was unset at that review. Short/file pitches now have local drafts;
 the full description still needs the mechanics review described below.
 
 ## Description workflow (Grailwright conventions)
@@ -64,7 +95,7 @@ authoritative files; do not create competing copies at the repository root.
 | File | Nexus destination | Editorial rule |
 |---|---|---|
 | `nexus-short-desc.txt` | Page summary | At most 350 characters; stable identity and player experience |
-| `nexus-file-desc.txt` | File-row description for group `893965` | At most 255 characters and shorter than the summary; a distinct, persuasive pitch |
+| `nexus-file-desc.txt` | File-row description for main group `7949853` | At most 255 characters and shorter than the summary; a distinct, persuasive pitch |
 | `nexus-full-desc.txt` | Main page description | Detailed features, requirements, installation and compatibility in Nexus BBCode |
 
 `description-bbcode.txt` is the historical reference, not a second publishing source.
@@ -106,7 +137,7 @@ forward; do not ask again for the same changes.
 - For a description-only update, use the three files above and save only the requested
   changed fields. Short/full descriptions belong to the page editor. The file pitch
   belongs to the existing file's editor; verify its current immutable version within
-  group `893965` before editing. A page-description save alone does not save the pitch.
+  main group `7949853` before editing. A page-description save alone does not save the pitch.
 - Before saving, refresh the relevant remote values, retain their exact prior text
   in `.codex-temp/nexus-description-backups/`, and record which local file hashes are
   being applied. Serialize Nexus writes with the repository's `operation('nexus')`
@@ -133,7 +164,8 @@ invoke Grailwright's script directly against this repo.
 - Uploading a new version: create a multipart upload with integer `size_bytes` and
   `filename`; PUT each part to its presigned URL; collect ETags; POST completion XML;
   POST `/uploads/{id}/finalise`; wait for `state: available`; then POST
-  `/mod-files/893965/versions` with the upload ID and reviewed file metadata.
+  `/mod-files/{groupId}/versions` with the upload ID and reviewed file metadata
+  (`7949853` for main, `893965` for textures).
 - The old `/mod-file-update-groups/{group_id}/versions` endpoint is deprecated and
   eligible for removal on/after 2026-09-09. Use `/mod-files/{id}/versions`.
 - POST `/mods/{id}/changelogs` appends entries, including when a version already
@@ -204,16 +236,26 @@ four existing Worker tests passed; no deployed storage or website files were cha
 .\tools\Publish-NexusMod.ps1 -ArchivePath <zip> -Publish
 ```
 
-Node.js, npm, installed Chrome and Python 3.11+ are needed. Setup pins Playwright
-1.62.0 in `.codex-temp/nexus-description-tool` without installing another browser.
-No Grailwright checkout is required at runtime. Login uses a visible dedicated Chrome
+Node.js 22+, npm, installed Chrome and Python 3.11+ are needed. Configure the ignored
+`nexus-automation.local.json` with an absolute `toolRoot` pointing to the separate
+`@keenan/nexus-automation` checkout, or set `NEXUS_AUTOMATION_ROOT`. Setup runs
+`npm ci` there using its lockfile (Playwright 1.62.0), without installing another
+browser. No Grailwright checkout is required at runtime. Both repositories can
+share that package and its `.local` state; when using separate package checkouts,
+set the same absolute `NEXUS_AUTOMATION_STATE_ROOT` for both consumers. Login uses a visible dedicated Chrome
 window; review/save use the same regular Chrome profile and close it afterward. The
-wrapper launches installed Chrome directly, with its sandbox enabled, then attaches
+shared engine launches installed Chrome directly, with its sandbox enabled, then attaches
 Playwright over a dedicated loopback DevTools port, matching Grailwright's approach.
 It does not use Playwright's browser-launch defaults or `--no-sandbox`. Do not run
 another browser against the same profile concurrently. API credentials are omitted
 from the browser process environment. Login credentials/cookies stay in the ignored
 profile directory. No personal browser cookies are copied into it.
+
+Sovereign retains its packaging/release gates, reviewed changelog policy, Elden Ring
+identity checks, audit format, and existing wrapper defaults. The shared package
+owns the editor, API/storage transport, multipart upload, source rechecks, page/profile
+locks, browser ownership records, and publication journal. Existing browser profiles,
+description backups, and upload journals keep their locations and remain ignored.
 
 The `NEXUS` chat command is the coordinator, as in Grailwright: run the combined
 audit, review feature evidence, report Current / Update / Verify for each surface and
@@ -250,6 +292,22 @@ confirmed version creation, an uncertain changelog POST and verified version rer
 An existing journal prevents an automatic retry. Reconcile remote outcomes first;
 never delete the journal merely to make a retry run. A successful version upload
 still needs the separate short/full save and file/changelog rendering checks.
+
+The shared CLI supports explicit `resume --journal <path>` after inspection for
+safe stages with known upload/version identity. It refuses uncertain version or
+changelog POST outcomes and legacy journals. It never restarts a partial upload.
+Preserve the exact package directory and its receipt/journal after publication;
+new release archives/journals are retained under `.vdb/releases/`. Preserve legacy
+scratch journals too; cleaning `.codex-temp` indiscriminately would discard them.
+
+### Shared extraction qualification on 2026-09-10
+
+The shared package's preservation record maps transport, editor, ownership, locking,
+failure/recovery, and adapter fixture tests to the original capabilities. Sovereign's
+Python packaging/audit tests and intercepted editor tests also run against it.
+The extraction did not perform an authenticated editor save, live upload, changelog
+POST, or Vortex deployment. The earlier live observations below are historical,
+not qualification of this new implementation.
 
 ### Qualification on 2026-09-09
 

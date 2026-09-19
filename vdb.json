@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "sovereign",
+  "gameId": "eldenring",
+  "packages": [
+    {"id": "main", "displayName": "Sovereign", "logicalFileName": "Sovereign", "installation": "prepared-directory", "modType": "", "activation": "stage-only", "nexus": {"gameDomain": "eldenring", "gameScopedModId": "201", "groupId": "7949853"}},
+    {"id": "textures", "displayName": "Sovereign - Textures", "logicalFileName": "Sovereign - Textures", "installation": "prepared-directory", "modType": "", "activation": "stage-only", "nexus": {"gameDomain": "eldenring", "gameScopedModId": "201", "groupId": "893965"}}
+  ]
+}

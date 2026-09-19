@@ -12,12 +12,19 @@ import shutil
 import subprocess
 import sys
 import time
-import urllib.error
-import urllib.request
 import zipfile
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import asset_workflow as assets
+
 ROOT = Path(__file__).resolve().parents[1]
-SCOPES = ('all', 'params', 'hks', 'events', 'maps', 'text', 'animations', 'sfx')
+SCOPES = ('all', 'params', 'hks', 'events', 'maps', 'text', 'animations', 'sfx', 'models', 'talk', 'textures')
+
+
+def runtime_base(root, manifest=None):
+    if (Path(root) / 'asset-catalog.json').is_file():
+        return assets.runtime_root(root)
+    return Path(root)
 
 
 def read_json(path):
@@ -60,6 +67,15 @@ def config(args):
 
 def runtime_files(root, manifest):
     """Explicit runtime patterns; reject symlink escapes and case-colliding paths."""
+    catalog_path = Path(root) / 'asset-catalog.json'
+    if catalog_path.is_file():
+        data = assets.catalog(root)
+        base = assets.safe_path(root, data['runtimeRoot'])
+        expected = [name for group in data['groups'] if group['package'] == 'main' for name in group['files']]
+        missing = [name for name in expected if not assets.safe_path(base, name).is_file()]
+        if missing:
+            raise ValueError('Missing catalogued runtime files: ' + ', '.join(missing))
+        return sorted(expected)
     root = Path(root).resolve()
     found = {}
     for pattern in manifest['runtimePatterns']:
@@ -79,6 +95,8 @@ def runtime_files(root, manifest):
 
 
 def status_rows(root, settings, scope='all'):
+    if (Path(root) / 'asset-catalog.json').is_file():
+        return assets.status(root, settings, scope)
     root = Path(root)
     rows = []
     seen = set()
@@ -197,6 +215,11 @@ def compare_events(before, after):
 
 def build_events(args):
     settings = config(args)
+    runtime = runtime_base(ROOT)
+    source_root = ROOT / 'event/src'
+    if (ROOT / 'asset-catalog.json').is_file():
+        source_root = assets.safe_path(ROOT, next(group['repo'] for group in assets.catalog(ROOT)['sources']
+                                                 if group['id'] == 'event-sources'))
     executable = Path(settings['tools']['darkscript'])
     if not executable.is_file():
         raise ValueError('Configured DarkScript executable is missing.')
@@ -207,7 +230,7 @@ def build_events(args):
         source.mkdir()
         output.mkdir()
         # Include local common_func sources/binaries for typed initialization lookup.
-        inputs = [p for p in (ROOT / 'event/src').iterdir() if p.is_file() and p.name.endswith(('.emevd.dcx', '.emevd.dcx.js'))]
+        inputs = [p for p in source_root.iterdir() if p.is_file() and p.name.endswith(('.emevd.dcx', '.emevd.dcx.js'))]
         originals = {str(p): digest(p) for p in inputs}
         for path in inputs:
             contained(ROOT, path.relative_to(ROOT))
@@ -221,9 +244,9 @@ def build_events(args):
             raise ValueError(f'Compiler output does not match expected files. Inspect {run}')
         helper, env = build_inspector(settings)
         results = []
-        shipped = {p.name for p in (ROOT / 'event').glob('*.dcx')}
+        shipped = {p.name for p in (runtime / 'event').glob('*.dcx')}
         for name in expected:
-            baseline = ROOT / 'event' / name if name in shipped else source / name
+            baseline = runtime / 'event' / name if name in shipped else source / name
             if not baseline.is_file():
                 results.append({'file': name, 'runtimeCandidate': name in shipped, 'baselineHash': None,
                                 'outputHash': digest(output / name), 'equal': None,
@@ -293,6 +316,12 @@ def nexus_issues(root, manifest, descriptions_only=False):
         return issues
     if not manifest.get('version'):
         issues.append('Release version is not selected')
+    else:
+        import release_workflow
+        try:
+            release_workflow.check(root, manifest)
+        except (ValueError, OSError) as error:
+            issues.append(str(error))
     try:
         validate_nexus_metadata(manifest)
     except ValueError as error:
@@ -306,36 +335,24 @@ def validate_nexus_metadata(manifest):
         if not isinstance(nexus.get(key), str) or not re.fullmatch(r'[1-9][0-9]*', nexus[key]):
             raise ValueError(f'Nexus metadata: {key} must be a positive decimal ID')
     expected = f"https://www.nexusmods.com/games/eldenring/mods/{nexus['gameScopedModId']}"
+    if 'textures' in nexus:
+        texture_group = nexus['textures'].get('groupId')
+        if (not isinstance(texture_group, str) or not re.fullmatch(r'[1-9][0-9]*', texture_group)
+                or texture_group == nexus['groupId']):
+            raise ValueError('Nexus metadata: textures must have a distinct positive decimal groupId')
     if manifest.get('gameDomain') != 'eldenring' or nexus.get('url') != expected:
         raise ValueError('Nexus metadata: URL must match the Elden Ring page ID')
 
 
-class NoNexusRedirect(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        raise urllib.error.URLError('Nexus redirect refused')
-
-
 def nexus_get(path):
-    """Read the fixed official API host; never log credentials or response error bodies."""
+    """Read through the shared fixed-host transport, retaining this adapter's route policy."""
     if not re.fullmatch(r'/(?:games/eldenring/mods/[1-9][0-9]*|mods/[1-9][0-9]*/files|mod-files/[1-9][0-9]*/versions)', path):
         raise ValueError('Unsupported Nexus read path')
-    key = os.environ.get('NEXUS_API_KEY', '').strip()
-    if not key:
-        raise ValueError('Set NEXUS_API_KEY in the environment; never put it in repo files or chat')
-    request = urllib.request.Request('https://api.nexusmods.com/v3' + path,
-                                     headers={'apikey': key, 'Accept': 'application/json'}, method='GET')
-    try:
-        with urllib.request.build_opener(NoNexusRedirect()).open(request, timeout=25) as response:
-            payload = json.load(response)
-    except urllib.error.HTTPError as error:
-        raise ValueError(f'Nexus read failed (HTTP {error.code}); remote state remains Verify') from None
-    except (urllib.error.URLError, OSError):
-        raise ValueError('Nexus read failed or timed out; remote state remains Verify') from None
-    except (ValueError, UnicodeError):
-        raise ValueError('Nexus returned invalid JSON; remote state remains Verify') from None
-    if not isinstance(payload, dict) or not isinstance(payload.get('data'), dict):
+    import nexus_automation
+    result = nexus_automation.read(ROOT, path)
+    if not isinstance(result, dict):
         raise ValueError('Unexpected Nexus response schema; remote state remains Verify')
-    return payload['data']
+    return result
 
 
 def nexus_status(manifest, get=nexus_get):
@@ -381,6 +398,7 @@ def make_package(root, manifest, run, version):
     if not re.fullmatch(r'[0-9]+(?:\.[0-9]+){1,3}(?:-[A-Za-z0-9.-]+)?', version):
         raise ValueError('Use a numeric release version, optionally with a prerelease suffix.')
     files = runtime_files(root, manifest)
+    root = runtime_base(root, manifest)
     if 'regulation.bin' not in files:
         raise ValueError('No regulation.bin in candidate.')
     expected = {name: digest(contained(root, name)) for name in files}
@@ -413,9 +431,20 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     status = sub.add_parser('status', help='Read-only hash comparison; Match is not a gameplay verdict')
     status.add_argument('--scope', choices=SCOPES, default='all'); status.add_argument('--json', action='store_true')
+    status.add_argument('--sources', action='store_true', help='Also compare catalogued editor/source trees')
+    status.add_argument('--verbose', action='store_true', help='Also list matching files (JSON always includes all files)')
     plan = sub.add_parser('propagation-plan', help='Preview repo-to-target differences; never copies or deletes')
     plan.add_argument('--scope', choices=SCOPES, required=True); plan.add_argument('--json', action='store_true')
     sub.add_parser('check', help='Validate local preparation and runtime manifest')
+    sub.add_parser('version-check', help='Check the release target against changelog.txt; no writes')
+    sub.add_parser('doctor', help='Check catalogued files and configured tools without writing')
+    handoff = sub.add_parser('accept-plan', help='Prepare a hash-checked repo/editor handoff receipt; never deploy')
+    handoff.add_argument('--scope', required=True)
+    handoff.add_argument('--from', dest='source', choices=('repo', 'editor'), required=True)
+    handoff.add_argument('--qualification', help='Current qualified format receipt for coordinated handoff')
+    for name in ('accept', 'restore'):
+        command = sub.add_parser(name, help='Apply or restore a reviewed repo/editor handoff receipt')
+        command.add_argument('--receipt', required=True)
     nexus = sub.add_parser('nexus-check', help='Local copy/metadata checks; no network or publishing')
     nexus.add_argument('--descriptions-only', action='store_true',
                        help='Check the three description files without requiring release version or API metadata')
@@ -431,28 +460,60 @@ def main():
     args = parser.parse_args()
     manifest = read_json(ROOT / 'mod.json')
     if args.command in ('status', 'propagation-plan'):
-        rows = status_rows(ROOT, config(args), args.scope)
+        if getattr(args, 'sources', False) and (ROOT / 'asset-catalog.json').is_file():
+            rows = assets.status(ROOT, config(args), args.scope, include_sources=True)
+        else:
+            rows = status_rows(ROOT, config(args), args.scope)
         if args.command == 'propagation-plan':
-            rows = [dict(row, action='Review baseline before copying; no deletions proposed') for row in rows if row['state'] != 'Match']
+            rows = [dict(row, action='Review baseline before copying; no deletions proposed') for row in rows if row['state'] == 'Review']
         if args.json:
             emit(rows, True)
         else:
             for row in rows:
+                if args.command == 'status' and not args.verbose and row['state'] == 'Match':
+                    continue
                 differences = [f'missing {key}' if value is None else f'differs {key}'
                                for key, value in row['hashes'].items()
                                if value != row['hashes']['repo'] or value is None]
                 print(f"{row['state']:6} {row['file']}" + (f" ({', '.join(differences)})" if differences else ''))
-            print(f'{len(rows)} files inspected. No files changed.')
+            matching = sum(row['state'] == 'Match' for row in rows)
+            print(f'{len(rows)} files inspected: {matching} match, {len(rows) - matching} need review. No files changed.')
+            if args.command == 'status' and not args.verbose:
+                print('Use --verbose for matching files or --json for full paths and hashes.')
     elif args.command == 'check':
+        import release_workflow
+        release_workflow.check(ROOT, manifest)
         if manifest.get('schemaVersion') != 1 or manifest.get('gameDomain') != 'eldenring':
             raise ValueError('Unexpected manifest schema/game.')
         files = runtime_files(ROOT, manifest)
+        if (ROOT / 'asset-catalog.json').is_file():
+            findings = assets.inventory_review(ROOT, config(args))
+            unknown = [row for row in findings if row['location'].startswith('repo') and row['state'] == 'Uncatalogued']
+            if unknown:
+                raise ValueError('Uncatalogued runtime files: ' + ', '.join(row['file'] for row in unknown))
         if 'regulation.bin' not in files:
             raise ValueError('Runtime manifest does not include regulation.bin.')
         for required in ('AGENTS.md', 'docs/WORKFLOW.md', 'docs/MECHANICS.md', 'TEST-MATRIX.md'):
             if not (ROOT / required).is_file():
                 raise ValueError(f'Missing preparation document: {required}')
         print(f'Preparation checks passed; {len(files)} runtime candidate files. Release readiness is not implied.')
+    elif args.command == 'version-check':
+        import release_workflow
+        emit(release_workflow.check(ROOT, manifest), True)
+    elif args.command == 'doctor':
+        settings = config(args)
+        rows = assets.status(ROOT, settings)
+        emit({'runtimeRoot': str(runtime_base(ROOT)), 'files': len(rows),
+              'review': [{'file': row['file'], 'state': row['state']} for row in rows if row['state'] != 'Match'],
+              'tools': {name: {'path': path, 'exists': Path(path).exists()} for name, path in settings['tools'].items()},
+              'inventoryFindings': assets.inventory_review(ROOT, settings),
+              'externalOwned': assets.catalog(ROOT)['externalFiles'], 'releaseReady': manifest['releaseReady']}, True)
+    elif args.command == 'accept-plan':
+        print(assets.prepare_handoff(ROOT, config(args), args.scope, args.source, args.qualification))
+    elif args.command in ('accept', 'restore'):
+        function = assets.apply_handoff if args.command == 'accept' else assets.restore_handoff
+        result = function(ROOT, config(args), args.receipt)
+        print(f"Handoff {result['status']}: {len(result['entries'])} files. No Vortex/live writes.")
     elif args.command == 'nexus-check':
         issues = nexus_issues(ROOT, manifest, args.descriptions_only)
         emit(issues or 'Local Nexus structure passes; remote state and mechanics still need verification.')

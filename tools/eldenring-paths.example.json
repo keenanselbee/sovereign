@@ -6,62 +6,14 @@
     "animations": "Z:\\Modding\\Elden Ring\\DSAnimStudio",
     "sfx": "Z:\\Modding\\Elden Ring\\SFX",
     "live": "Z:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\mod",
-    "vortex": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign\\mod"
+    "vortex": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign\\mod",
+    "vortexTextures": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign - Textures\\mod"
   },
   "tools": {
     "smithbox": "Z:\\Modding\\Elden Ring\\Tools\\Smithbox",
-    "darkscript": "Z:\\Modding\\Elden Ring\\Tools\\DarkScript\\DarkScript3.exe"
-  },
-  "mappings": [
-    {"scope": "events", "pattern": "event/src/*.js", "prefix": "event/src", "editorRoot": "scripts", "editorPrefix": "src"},
-    {
-      "scope": "params",
-      "pattern": "regulation.bin",
-      "prefix": "",
-      "editorRoot": "smithbox",
-      "editorPrefix": ""
-    },
-    {
-      "scope": "hks",
-      "pattern": "action/script/*.hks",
-      "prefix": "action/script",
-      "editorRoot": "scripts",
-      "editorPrefix": ""
-    },
-    {
-      "scope": "events",
-      "pattern": "event/*.dcx",
-      "prefix": "event",
-      "editorRoot": "scripts",
-      "editorPrefix": "src"
-    },
-    {
-      "scope": "maps",
-      "pattern": "map/**/*.dcx",
-      "prefix": "map",
-      "editorRoot": "smithbox",
-      "editorPrefix": "map"
-    },
-    {
-      "scope": "text",
-      "pattern": "msg/engus/*.dcx",
-      "prefix": "msg/engus",
-      "editorRoot": "smithbox",
-      "editorPrefix": "msg/engus"
-    },
-    {
-      "scope": "animations",
-      "pattern": "chr/*.dcx",
-      "prefix": "chr",
-      "editorRoot": "animations",
-      "editorPrefix": ""
-    },
-    {
-      "scope": "sfx",
-      "pattern": "sfx/*.dcx",
-      "prefix": "sfx",
-      "editorRoot": "sfx",
-      "editorPrefix": ""
-    }
-  ]
+    "darkscript": "Z:\\Modding\\Elden Ring\\Tools\\DarkScript\\DarkScript3.exe",
+    "witchy": "Z:\\Modding\\Elden Ring\\Tools\\WitchyBND\\WitchyBND.exe",
+    "esdtool": "Z:\\Modding\\Elden Ring\\Tools\\ESDTool\\esdtool.exe",
+    "hklib": "Z:/Modding/Elden Ring/Tools/HKLibCLI.v0.1.2/net7.0/HKLib.CLI.exe"
+  }
 }
