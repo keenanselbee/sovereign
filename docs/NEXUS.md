@@ -85,7 +85,8 @@ redirects are refused so credentials cannot be forwarded to a different host.
 An equal version label does not prove equal archive contents. Page copy, file pitch,
 changelog, visual rendering and mechanics still need separate verification. The
 selected local release version was unset at that review. Short/file pitches now have local drafts;
-the full description still needs the mechanics review described below.
+the revised full description was saved on 2026-09-19 as recorded below. Gameplay
+and package verification remain separate from that description save.
 
 ## Description workflow (Grailwright conventions)
 
@@ -111,6 +112,130 @@ near-copies. Use ASCII punctuation and plain `[code]` blocks, not Markdown fence
 inside plain code blocks with pipe columns and a separator row.
 
 ### Local editing and review
+
+The 2026-09-19 full-description rewrite follows Grailwright's template and Soul and
+Service's feature-list / quick-start structure while retaining Sovereign's colors
+and artwork. On the author's explicit request, the full description was saved to
+the live page on 2026-09-19, including the local Hadeon threshold and deflect-thorn
+changes. Reopening the editor verified the saved text; the live summary was
+preserved. No download, file pitch or changelog was updated. The save receipt and
+prior-text backup reference are under
+`.codex-temp/nexus-description-requests/1789864293467428400/result.json`.
+The public page at `https://www.nexusmods.com/eldenring/mods/201` displayed the
+updated copy. Desktop screenshots confirmed the feature list, controls and Hadeon
+tables, and Hardcore Mode wording; `render-review.json` beside the receipt records
+that check. The newer `/games/eldenring/mods/201` path worked for the editor but
+returned a 404 as a public page during this review.
+The subsequent requested cleanup removed all embedded images/GIFs, changed the
+signature-weapons feature label, and added action-name quick-start instructions
+and spell-slot casting instructions. The redundant controller reference and ordinary
+two-handing were removed from the custom-shortcut guide. Short italic button examples
+now follow each shortcut, using the author's reported Xbox Block-on-LT layout
+(Skill on LB); the guide states that example layout once. Ultimate wording requires pressing Block and
+Heavy Attack together within the brief timing window. The final save was verified against
+the local full description and visually checked on the public page; its receipt
+and screenshots are under
+`.codex-temp/nexus-description-requests/1789868150216604900/`. The summary remained
+unchanged. Quick-casting source evidence is recorded in `docs/DESIGN.md`.
+The subsequent local installation revision uses a concise Vortex route: import
+ME3's Windows ZIP, install Elden Mod Loader and both Sovereign packages, deploy,
+and launch ME3 with `launch --game eldenring --package mod` from the game's `Game`
+directory. The official Windows ZIP layout and installed ME3 0.13.0 CLI help were
+checked. The author's 2026-09-19 19:40 launch logs show ME3 loading `Game/mod` with
+`start_online: false` and Elden Mod Loader loading `Scripts-Data-Exposer-FS.dll`
+among 13 DLLs without a reported loading error. This verifies the existing local
+loader setup, not a clean installation or gameplay acceptance. The author also
+approved a desktop-shortcut option using the same launch arguments and working
+directory. The full description was saved and reread on the live page, then the
+Vortex steps, launcher settings, shortcut option and offline note were visually
+checked. Save/backup references and rendered screenshots are retained under
+`.codex-temp/nexus-description-requests/1789872842597769600/`. Only the full page
+description was changed; the short description was preserved.
+The following author-requested save moved the two closing quotation lines above
+"Art thou fated..." beneath the opening title and removed the footer quotation.
+All three lines were verified once each, in order and italicized on the live page.
+The latest save/backup references and opening screenshot are under
+`.codex-temp/nexus-description-requests/1789873031088970900/`.
+The Hadeon feature point now names "Crucible Lord Hadeon, Jailor of Nemesis" and
+explains serving before/after release and equipped Bindseal suppression of Hardcore
+Mode. The author's approved wording was saved, reread and visually verified;
+the latest receipt and feature screenshot are under
+`.codex-temp/nexus-description-requests/1789873663644127100/`.
+The following approved refinement removes the repeated Hardcore activation sentence
+from the threat feature, uses "mysterious entity", and clarifies that removing the
+Bindseal restores Hardcore Mode only after Nemesis has been freed. The full text
+was saved and reread, the summary preserved, and the public feature list visually
+verified. Evidence is under
+`.codex-temp/nexus-description-requests/1789873985324466000/`.
+The approved Difficulty overview was added immediately after Quick Start, with the
+entire Quick Start section preserved. It explains expected tool use, ordinary
+Nemesis pressure, allegiance protection and optional Hardcore Mode. The full
+description was saved and reread, the summary preserved, and placement/formatting
+verified on the public page. Receipt and screenshot:
+`.codex-temp/nexus-description-requests/1789874254774732700/`.
+The author then approved a modifier table and the player-facing names Nightmare
+Mode (formerly Hardcore Mode) and God (the strongest assigned enemy tier). The full
+description now uses those names and explains baseline/tier totals, Nemesis
+stacking and Bindseal protection. Current parameter extraction is retained under
+`.codex-temp/difficulty-map-20260919/`; runtime parameters were not changed.
+The live full description was saved, reread and visually verified, including the
+table alignment. The summary was preserved. Receipt and screenshots:
+`.codex-temp/nexus-description-requests/1789874679063441000/`.
+The approved overlap trim removed about 316 words, concentrated Nightmare Mode
+rules in Difficulty, retained Quick Start unchanged, and shortened repeated combat
+and shrine explanations. The Sin section now explicitly explains learning Rapture
+near Nemesis, performing the ritual there, receiving the Bindseal, and equipping it.
+Current gesture 102 maps to animation 81020; its effect 1626966 starts shrine event
+5750309, which awards lot 6800 after the ritual. This is source verification, not
+a new in-game acceptance result. The full description was saved and reread, the
+summary preserved, and the public rendering verified. Receipt and screenshots:
+`.codex-temp/nexus-description-requests/1789875095532126300/`.
+On request, the difficulty table now displays x2, x2.5 and 50% without approximation
+marks. These are presentation rounding only; gameplay values remain unchanged.
+The full description was saved and the table visually verified, with the summary
+preserved. Evidence: `.codex-temp/nexus-description-requests/1789875222026637400/`.
+The Difficulty opening now states the approved challenge/tool-use expectation and
+recommends serving Nemesis as the most forgiving path, while clarifying that
+baseline increases remain. Saved text and public formatting were verified; the
+summary was preserved. Latest receipt and screenshot:
+`.codex-temp/nexus-description-requests/1789875374463378900/`.
+The approved Blood Star wording introduces "Nemesis, the Blood Star" and replaces
+gendered references to the entity. Hadeon and other characters retain their own
+pronouns. Saved text and public formatting were verified, with the summary preserved.
+Latest receipt: `.codex-temp/nexus-description-requests/1789930692283885600/`.
+The accompanying eclipse investigation confirmed the existing overview but identified
+omitted timed-cycle, fast-travel lock and kill-reward details. Current regulation
+extracts are in `.codex-temp/eclipse-review-20260920/`; events 5750115/5750116 own
+the ordinary cycle/rewards, and 5750018 counts registered kills. These findings
+were reported as a proposed copy expansion, without changing eclipse wording.
+On 2026-09-20, the approved description expansion was saved and reread on Nexus.
+It names Sin Eclipses, explains their ordinary rewards, separates Magic and
+Incantations from equipment, and adds both Profane Tomes with lore, pickup
+locations and catalyst recipes, including the required Dragon Communion Seal +10.
+At the author's request, Fire Giant progression is included: the reserve before
+his defeat, loss of its bonus until Forge kindling, and full non-depleting potency
+after kindling. This reflects source behavior and author intent, not a new
+in-game acceptance result. Quick Start and the remote short description were
+preserved. Description checks and public rendering review passed; the new
+sections and tables were inspected without raw BBCode or embedded images.
+The save, backup pointer and render evidence are under
+`.codex-temp/nexus-description-requests/1789932308565512400/`.
+No package, file pitch, changelog, gameplay asset or deployment was changed.
+
+On 2026-09-20, Quick Start was clarified to strongly recommend manually swapping
+Block and Skill in the controller settings: Block on LT/L2 and Skill on LB/L1.
+The Xbox examples explicitly use that layout. The full description save was
+reread and the public recommendation was visually verified; the short description
+was preserved. Format and whitespace checks passed. Evidence is under
+`.codex-temp/nexus-description-requests/1789936001892257100/`.
+This changed description copy only, not the game's bindings or default controls.
+
+Current source and the mechanics/design reviews inform the copy, but the save does
+not establish that the downloadable release contains every described change.
+Controls, installation/dependency instructions and in-game behavior still need
+release verification, including Hadeon, shrine persistence, and Obliterator's
+existing ultimate-charge bypass. Unverified legacy numbers and acquisition stories
+were omitted rather than carried forward as facts.
 
 1. For `NEXUS`, check local files and inspect fresh remote file/page evidence. Report
    Current / Update / Verify separately for the release file, short description,

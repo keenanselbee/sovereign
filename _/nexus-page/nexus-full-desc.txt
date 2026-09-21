@@ -1,491 +1,490 @@
 [center][color=#CC4125][size=6]Sovereign[/size][/color]
+[i]The flame devours as it grants power. The blood remembers every sin.[/i]
+[i]To ascend is to suffer, to claim is to forsake. None tread this path unchanged.[/i]
 [i]Art thou fated to rise as Sovereign, or be unmade upon the path?[/i][/center]
 
 [line]
 
-[b]Sovereign[/b] reshapes Elden Ring around Dragon Communion, dangerous afflictions, reworked weapons, and the pursuit of Divinity.
+[b]Sovereign[/b] reshapes Elden Ring around precise deflection, powerful Oaths, reworked weapons, and dangerous paths to godhood. Turn defense into devastating attacks, draw strength from Great Runes and Dragon Communion, and face the growing influence of [b]Nemesis, the Blood Star[/b].
 
-Tarnished warrior, fated to walk a dark and perilous path, seize the essence of dragons, for their strength is yours with each heart devoured. Battle the demi-gods, seek the last vestige of the gloam-eyed, and open the way to the realm of shadow. Commune with the ancients and channel their primeval rage. Thwart the meddling of Miquella, and gain access to the Divine Gate. There, with an Empyrean vessel, the power of the Great Runes, and the fury of the Elderblood, grasp divinity as a sword drawn from your own blood. Only then shall you stand against the overwhelming might of Destined Death.
-
-[center][i]The flame devours as it grants power. The blood remembers every sin.
-To ascend is to suffer, to claim is to forsake. None tread this path unchanged.[/i][/center]
-
-[center][img]https://i.imgur.com/y5pVpnf.gif[/img][/center]
+Power comes at a price. Dragon Communion brings afflictions, blood abilities spend your own health, and stronger blessings ask you to change how you fight. Learn their strengths, work around their costs, and build a Tarnished who can stand against the gods.
 
 [line]
 
-[heading][color=#CC4125][size=5]Installation & Information[/size][/color][/heading]
+[heading][color=#CC4125][size=5]Major Features[/size][/color][/heading]
 
 [list]
-[*]Disable Anti-Cheat and play offline. See [url=https://www.nexusmods.com/eldenring/mods/90]Anti-Cheat Toggler[/url].[/*]
-[*]Read the installation and technical information in the [url=https://github.com/semisacred/sovereign]Sovereign Repository[/url].[/*]
-[*]Make regular backups of your save files.[/*]
+[*][b]Turn defense into offense:[/b] Well-timed blocks become deflects, helping you survive attacks and charge your weapon's ultimate. No special tear is required to start learning.[/*]
+[*][b]Choose an Oath that suits your build:[/b] Order, Golden Order, Totality, and Sin provide different blessings, defensive abilities, and ways to face the world's dangers.[/*]
+[*][b]Face the growing threat of Nemesis:[/b] Red-eyed enemies and Sin Eclipses make your journey more dangerous as you progress.[/*]
+[*][b]Face Crucible Lord Hadeon, Jailor of Nemesis:[/b] Battle the guardian of the Blood Star's prison with aid from the mysterious entity. After victory, serve Nemesis, leave the entity imprisoned, or shatter the crystal to activate [b]Nightmare Mode[/b].[/*]
+[*][b]Claim the power of dragons:[/b] Dragon Communion, ancient hearts, and new catalysts open powerful magic, while Dragonrot and other afflictions make that power costly.[/*]
+[*][b]Master signature weapons with distinct fighting styles:[/b] Wind, bloodflame, black flame, Destined Death, and gravity shape new skills, crouch attacks, and weapon-specific ultimates.[/*]
+[*][b]Find power through exploration and quests:[/b] Great Rune passives, Goldmask's reward, shrine rituals, transformed armor, and Hewg's Fallingstar Obliterator give you reasons to seek more than another damage upgrade.[/*]
+[*][b]Reach Divinity and remain untouched:[/b] Keep many of your buffs from running out as long as you avoid damage. Get hit, and their timers start counting down again.[/*]
 [/list]
-
-[code]%APPDATA%\EldenRing[/code]
 
 [line]
 
-[heading][color=#CC4125][size=5]Overview & Features[/size][/color][/heading]
+[heading][color=#CC4125][size=5]Quick Start Guide[/size][/color][/heading]
 
-[b]Nightmare Difficulty[/b]
+[b][color=#ffffff]1. Learn the Core Controls[/color][/b]
 
-Enemies have 1.5x HP/FP/SP, defenses, and damage. They have increased perception and engage from a greater distance.
+The guide uses action names so the same instructions work with a controller or keyboard. Use your assigned buttons or keys; [b]Action[/b] means interact.
+
+[b]Recommended controller setup:[/b] We highly recommend swapping the Block and Skill bindings in the game's controller settings: [b]Block on LT and Skill on LB[/b] (PlayStation: [b]Block on L2 and Skill on L1[/b]). The Xbox examples below use this layout.
+
+[list]
+[*][b]Crouch attack:[/b] Press Light Attack while crouching. e.g. [i]left stick, then RB.[/i][/*]
+[*][b]Weapon ultimate:[/b] Press Block and Heavy Attack together when your ultimate is ready. e.g. [i]LT + RT.[/i][/*]
+[*][b]Quick cast your first spell:[/b] Hold Action and press Skill. e.g. [i]Y + LB.[/i][/*]
+[*][b]Quick cast your second spell:[/b] Hold Action and press Light Attack. e.g. [i]Y + RB.[/i][/*]
+[*][b]Activate your Oath:[/b] Hold Action and press Crouch when your Oath is ready. e.g. [i]Y + left stick.[/i][/*]
+[/list]
+
+Tap block just before an attack connects. Practice against an enemy whose timing you know, and watch your stamina as well as your health. Deflection is a core part of Sovereign's combat, available without drinking the Deflecting Hardtear.
+
+[b][color=#ffffff]2. Learn Your Weapon's Full Moveset[/color][/b]
+
+With a signature weapon equipped, crouch and press Light Attack. Try this both one-handed and two-handed, since the attacks can differ.
+
+Kills and deflects charge your ultimate. When the readiness icon appears, press Block and Heavy Attack together. The timing window is brief, so do not hold Block first and wait before attacking. Some weapons also need their weapon buff active. The ultimate is a separate move from your ordinary weapon skill.
+
+[b][color=#ffffff]3. Set Up Quick Spell Casting[/color][/b]
+
+At a Site of Grace, put two spells you want close at hand in your first two memory slots. Equip a staff or sacred seal that can cast them. Hold Action and press Skill to cast the first spell, or Light Attack to cast the second, without cycling through your spell list.
+
+The shortcuts use the normal casting requirements and costs. They return to your previously selected spell after choosing the quick cast, so you can keep another spell selected for regular casting. If you equip casting tools in both hands, the shortcut uses the left-hand one; make sure it can cast your chosen spells.
+
+[b][color=#ffffff]4. Find and Use an Oath[/color][/b]
+
+Radagon's and Marika's Scarseals grant access to Order; their Soreseals grant Golden Order. Radagon's Scarseal can be earned at the Weeping Evergaol. Equip the relevant seal, then hold Action and press Crouch to use your Oath when it is ready. These blessings are part of your expected toolkit.
+
+[b][color=#ffffff]5. Understand the Shrine Before Breaking the Crystal[/color][/b]
+
+Hadeon guards the shrine of Nemesis in the Stranded Graveyard. Defeating him opens the shrine's rite and gives you a choice about the crystal. You do not need to destroy it to obtain the Aberrant Bindseal. Destroying the crystal releases Nemesis and activates Nightmare Mode for that journey.
+
+[b][color=#ffffff]6. Read the Cost of New Power[/color][/b]
+
+Dragon Communion, Rapture, Fury, and other powerful abilities have different costs and conditions. A blood ability may replace holy blessings; an affliction may become more dangerous at low health. Build around the combination you want to use.
+
+[line]
+
+[heading][color=#CC4125][size=5]Difficulty[/size][/color][/heading]
+
+[b]Sovereign is challenging, even outside Nightmare Mode.[/b] It gives you powerful tools to meet that challenge: deflection, Oaths, weapon ultimates, and strong blessings. Learning to use them is part of the intended experience.
+
+[b]For the most forgiving path, serve Nemesis.[/b] Equipping the Blood Star's Aberrant Bindseal grants protective blessings, access to Sin and Thorn Ward, and protection from the entity's influence. It also suppresses Nightmare Mode if you have released Nemesis. Enemies retain their baseline difficulty increases, but the Blood Star's aid makes the journey easier.
+
+[b]Enemy Strength[/b]
+
+The table includes Sovereign's baseline modifier and each assigned enemy tier. Guard damage means stamina damage against your guard; stance and buildup columns show how much the enemy receives.
 
 [code]
-| Enemy tier | Total HP multiplier |
-|------------|---------------------|
-| Base       | 1.5x                |
-| Elite      | 2.25x               |
-| Boss       | 3x                  |
-| Nightmare  | 4.5x                |
+| Enemy tier | Health | Attack power | Guard damage | Stance taken | Buildup taken |
+|------------|--------|--------------|--------------|--------------|---------------|
+| Ordinary   | x1.5   | x1.5         | x1.5         | 75%          | 100%          |
+| Elite      | x2.25  | x1.5         | x2           | 66.6%        | 80%           |
+| Boss       | x3     | x1.5         | x2.5         | 58.3%        | 65%           |
+| God        | x4.5   | x1.5         | x3           | 50%          | 50%           |
 [/code]
 
-Nightmare Bosses are the most powerful in-universe, possessing exceptional resilience and overwhelming might.
+Lower stance damage and status buildup received make enemies harder to stagger or afflict. Enemies also normally gain [b]50% higher flat defense[/b] and increased sight and hearing.
 
-Nightmare+: Malenia's attacks heal her for double the amount and cannot be dodged.
-Nightmare+: Maliketh's destined death attacks deal immense holy damage and cannot be dodged. Full HP for phase 2.
+These are modifier totals, not exact comparisons with every vanilla enemy. Individual enemy changes, regional scaling, and journey scaling also apply. Attack power and flat defense do not translate directly into equivalent percentages of final damage.
 
-Nemesis: Enemies have a chance to spawn with red eyes, granting them double HP and damage.
-They will relentlessly hunt you with murderous intent and yield significantly more runes when slain.
+[b]The Growing Threat of Nemesis[/b]
 
-[b]Dragon Communion Progression[/b]
+Red-eyed Nemesis enemies gain [b]another x2 health, attack power, and guard stamina damage[/b], receive [b]half as much stance damage[/b] and [b]65% as much status buildup[/b], and award [b]x3 runes[/b].
 
-Seize strength great enough to challenge gods. With each heart devoured, your power grows, revealing a path toward Divinity. Such power however demands a terrible price.
+[b]Sin Eclipses[/b]
 
-[b]Ritual of Ancient Dragon Communion[/b]
+After your first Great Rune, the Blood Star can trigger Sin Eclipses that empower eligible enemies and temporarily prevent fast travel. These onslaughts become more frequent as you collect Great Runes, even while Nemesis remains imprisoned.
 
-Ancient dragons are not so different from their drake kin. Hunt and consume their Ancient Dragon Hearts at the Grand Altar of Dragon Communion to unlock powerful new incantations.
+Defeat enemies during an eclipse to earn Darklight Shards and, with enough kills, Darklight Arcs when it ends. Serving Nemesis protects you from these onslaughts.
 
-[b]Dragonrot, Frenzied Flame, and Bayle's Cursed Blood Afflictions[/b]
+[b]Optional Nightmare Mode[/b]
 
-Consuming dragon hearts causes Dragonrot. At low health, your blood starts to decay. Dragonrot will get progressively worse throughout your playthrough if left untreated. Inheriting the Frenzied Flame halts Dragonrot but leaves you prone to bursts of madness. Eating Bayle's Heart will cause your blood to erupt in lightning and magma when near death. All afflictions can be halted by equipping the Fatesever Needle Talisman.
+Shatter the crystal imprisoning Nemesis to release the Blood Star and activate [b]Nightmare Mode[/b] for your current journey. This keeps the Sin Eclipse active, exposing eligible enemies to Nemesis enhancement. The lasting eclipse does not use the ordinary timed onslaught's reward cycle. Resting or reloading does not undo the release; a new journey gives you a fresh Hadeon and crystal choice.
 
-[b]Special Attack (L2 + R2)[/b]
+After defeating Hadeon, you can serve Nemesis before or after release. Equip the Blood Star's [b]Aberrant Bindseal[/b] to gain its protection and suppress Nightmare Mode. Removing it restores the mode if Nemesis has been freed. The seal does not remove the baseline enemy modifiers.
 
-When wielding a Sovereign weapon with both hands, press L2 + R2 to execute a powerful special attack.
-Has a cooldown of 30s and is available when the icon is showing. Normal weapons execute a backstep attack.
-[center][img]https://i.imgur.com/Acka9TQ.png[/img][/center]
+[line]
 
-[b]1H & 2H Crouch Attacks (L3 + R1)[/b]
+[heading][color=#CC4125][size=5]Combat and Controls[/size][/color][/heading]
 
-When wielding a Sovereign weapon, press L3 + R1 to execute a special attack unique to the weapon. Both one-handed and two-handed versions are available for each weapon.
+[b]Deflection[/b]
 
-[b]Perfect Block / Deflection[/b]
+Deflect reactions vary with your weapon, hand position, and the incoming attack. See Quick Start for timing and controls.
 
-Tap block with precise timing to deflect with Sekiro-style VFX. No tear required.
+[b]Weapon Ultimates[/b]
 
-[b]Dynamic Attack Movement[/b]
+Weapons share an ultimate meter. Some require an active weapon buff, including Godslayer's Greatsword and Fallingstar Obliterator; see Signature Weapons for their individual requirements.
 
-Most modified attacks and abilities will travel farther if you hold the button used. The effect is usually subtle, but can be dramatic for moves that already have significant movement.
+[b]Crouch Attacks and Movement[/b]
 
-[b]Backstep replaced with Endure / Blasphemous Claw[/b]
+Sovereign's signature weapons have custom crouch attacks, including distinct one-handed and two-handed moves. Several attacks also change their travel distance when held, letting you adjust how far you commit. Falling attacks gain additional power with height, while some equipment and protective effects change which falls you can survive.
 
-Dodging in place now executes, if obtained from Bernahl, Endure and eventually Blasphemous Claw.
-Endure lets you tank damage and poise through attacks and Blasphemous Claw has a new parry effect.
+[b]Endure and Blasphemous Claw[/b]
+
+The stationary dodge action can use Endure and, once acquired, Blasphemous Claw. Endure helps you stand through an incoming attack; the Claw adds a timed defensive answer. Their available actions depend on your unlocks, state, and resources.
+
+[b]More Control Shortcuts[/b]
+
+The Quick Start Guide above covers crouch attacks, ultimates, quick spell casting, and Oaths. Two more shortcuts keep useful tools close at hand:
+
+[list]
+[*][b]Toggle your lantern:[/b] Hold Action and press Block, once you own a lantern. e.g. [i]Y + LT.[/i][/*]
+[*][b]Use Margit's Shackle:[/b] Hold Action and press Dodge, once you have acquired it. e.g. [i]Y + B.[/i][/*]
+[/list]
+
+The lantern shortcut replaces the left-hand two-hand shortcut in the default setup. The mod also provides quick access to acquired shackles and gestures, reducing trips through your item and gesture menus.
+
+[line]
+
+[heading][color=#CC4125][size=5]Oaths and Allegiance[/size][/color][/heading]
+
+Oaths are powerful tools for surviving Sovereign's harder encounters. The seal you equip determines which Oath you can call upon. Oath readiness has its own cooldown; a blessing can last longer than the wait before your next activation.
+
+[code]
+| Oath         | Required equipment             | Main benefit                     |
+|--------------|--------------------------------|----------------------------------|
+| Order        | Radagon's or Marika's Scarseal | Golden Vow and healing over time |
+| Golden Order | Radagon's or Marika's Soreseal | Stronger healing with Golden Vow |
+| Totality     | Perfect Runeseal               | Sacred Ward and counterattacks   |
+| Sin          | Aberrant Bindseal              | Thorn Ward and Nemesis's favor   |
+[/code]
+
+[b]Order and Golden Order[/b]
+
+Order combines Golden Vow with Blessing's Boon. Golden Order upgrades the healing to Blessing of the Erdtree. The seals also have their own equipment bonuses and holy-damage tradeoffs, so choose one for the whole build rather than only its Oath.
+
+[b]Totality and Sacred Ward[/b]
+
+Tell Goldmask that Radagon is Marika to receive the Perfect Runeseal and its gesture. Totality is a defensive stance that answers attacks with Wrath and Sacred Ward. Your stamina matters; the stance is not permission to ignore every attack indefinitely.
+
+Sacred Ward is a strong protective bubble. Its protection can be spent by taking damage, and the reactive Totality stance can renew it. The bubble and the stance are related, but simply having the bubble does not mean you are holding Totality.
+
+[b]Sin and the Aberrant Bindseal[/b]
+
+After defeating Hadeon, stand near Nemesis at the shrine to learn the [b]Rapture[/b] gesture after a short delay. Perform Rapture there and let the ritual finish to receive the [b]Aberrant Bindseal[/b]. You do not need to break the crystal.
+
+Equip the seal to become a follower and gain Sin, Thorn Ward, and Nemesis's blessings. Removing it consumes the seal; return and repeat the ritual to obtain another. See Difficulty for its effect on Nightmare Mode.
+
+[line]
+
+[heading][color=#CC4125][size=5]Nemesis and Hadeon[/size][/color][/heading]
+
+Nemesis, the Blood Star, aids you against the guardian of its prison.
+
+[b]Hadeon, Guardian of the Shrine[/b]
+
+Face Hadeon in the Stranded Graveyard. During the fight, Nemesis helps at clear points in his health bar:
+
+[code]
+| Hadeon's remaining health | Nemesis's help                              |
+|---------------------------|---------------------------------------------|
+| 75%                       | Fully heal the player                       |
+| 50%                       | Grant Thorn Ward                            |
+| 25%                       | A shriek removes 10% of Hadeon's maximum HP |
+[/code]
+
+Each gift occurs once per attempt. If Hadeon falls off the arena and is returned, he loses another 5% of his maximum health. Ordinary retreat and reset teleports do not cause that damage.
+
+[b]Thorns Reward Your Deflects[/b]
+
+During Hadeon's fight, deflecting with Thorn Ward releases a short-range thorn burst that damages him without costing health or ward charges. Bursts have a half-second cooldown. Taking damage still uses the ward's normal protection and retaliation. This deflect effect applies only to Hadeon's encounter.
+
+[b]Victory and the Shrine[/b]
+
+Defeating Hadeon awards Erdtree's Favor +3, unlocks the shrine's rite, and reveals the red crystal. The Aberrant Bindseal comes from the separate Rapture ritual described under Oaths and Allegiance.
+
+[line]
+
+[heading][color=#CC4125][size=5]Dragon Communion and Afflictions[/size][/color][/heading]
+
+Hunt dragons, learn their incantations, and pursue ancient communion. Your growing command of dragon magic opens new powers, but it also changes the dangers carried in your own blood.
+
+Ancient Dragon Hearts and the Grand Altar of Dragon Communion extend the hunt into more powerful magic. The Profane Tomes below unlock ancient communion and the crafting path to its new catalysts.
+
+[b]Dragonrot[/b]
+
+Dragon Communion brings Dragonrot, an affliction that becomes dangerous when your health is low. Further communion and Great Rune progression can make its effects more severe. Treat low health as a risk to manage, especially when combining dragon powers with abilities that spend your own health.
+
+[b]The Frenzied Flame[/b]
+
+Inheriting the Frenzied Flame suppresses Dragonrot but introduces its own madness affliction. It can build through increasingly dangerous stages and erupt in a damaging outburst. Margit's Shackle can suppress the affliction temporarily.
+
+[b]Bayle's Cursed Blood[/b]
+
+Bayle's power carries a separate curse, threatening a violent eruption when you are near death. It deserves particular care in builds that deliberately fight at low health.
+
+[b]Fatesever Needle[/b]
+
+Equipping the Fatesever Needle suppresses these afflictions. That protection depends on the talisman: it does not mean the underlying curses have been permanently removed.
+
+[line]
+
+[heading][color=#CC4125][size=5]Profane Tomes and Forbidden Knowledge[/size][/color][/heading]
+
+Two Profane Tomes preserve Magus Gyre's research into draconic transfiguration. Finding them unlocks knowledge and crafting recipes; they do not need to be given to an incantation teacher.
+
+[b]Profane Tome [1][/b]
+
+Gyre's first tome hints at the link between Dragonrot, the Frenzied Flame, and unalloyed gold amid a storm. It unlocks Ancient Dragon Communion at the communion altars and the recipe for the [b]Elderblood Communion Seal[/b].
+
+[b]Where to find it:[/b] In the isolated part of Crumbling Farum Azula reached through the Four Belfries' Crumbling Lands waygate, replacing the base Pearldrake Talisman pickup.
+[b]Recipe:[/b] Dragon Communion Seal [b]+10[/b] and one Ancient Dragon Heart.
+
+[b]Profane Tome [2][/b]
+
+The second tome describes a crimson cosmos infused with Elderblood, a plan to draw upon the breath of gods, and a mysterious Gate. It unlocks the recipe for the [b]Staff of the Sovereign[/b].
+
+[b]Where to find it:[/b] In Farum Azula's hall between Crumbling Beast Grave Depths and Tempest-Facing Balcony, replacing the Ancient Dragon Prayerbook pickup.
+[b]Recipe:[/b] Elderblood Communion Seal and Staff of the Great Beyond.
+
+Crafting the Staff of the Sovereign also unlocks [b]Elderblood Greatbow[/b] in the ancient communion offerings. Finding the second tome alone does not unlock the spell.
+
+[line]
+
+[heading][color=#CC4125][size=5]Great Runes and Divinity[/size][/color][/heading]
 
 [b]Great Rune Passives[/b]
 
-Restoring a Great Rune at a Divine Tower will unlock its passive effect.
+Great Runes contribute passive benefits alongside their active effects. They also affect Nemesis encounters and Dragonrot. Your victories can make you stronger while changing the dangers around you.
 
-[b]Flask of Wondrous Physick[/b]
-
-3 charges. No excuse not to use it.
-
-[b]Double Jump[/b]
-
-Torrent grants you the ability to perform a second jump in midair.
-
-[b]Fall Damage Rework[/b]
-
-Survive falls from extreme heights with: Longtail Cat Talisman, Opaline Bubbletear, Opaline Bubblesoap, Sacred Ward, Leaden Hardtear, or Ironjar Aromatic.
-
-[b]Plunging Attack Damage[/b]
-
-Jump attacks deal progressively more damage the longer you fall, from +30% to +300%.
-
-[b]Grace is no longer a full reset[/b]
-
-Enemies do not respawn after grace and certain long-lasting buffs/debuffs do not expire. Imagine a short rest instead of a long rest.
-
-[b]Maidenless no more[/b]
-
-Provided that she is alive and willing, Melina will assist with leveling up and can be summoned and talked to at sites of grace.
-
-[b]Quick Lantern (Action + L2)[/b]
-
-Toggle the Lantern with the hotkey. This replaces two-handing the left-hand weapon. To disable it, set [b]leftHandChangeDisabledLanternEnabled = FALSE[/b] in [code]action\script\c0000.hks[/code].
-
-[b]Deadly Lava[/b]
-
-3x damage. No more lava baths.
-[center][img]https://i.imgur.com/it27pb9.gif[/img][/center]
-
-[line]
-
-[heading][color=#CC4125][size=5]Great Runes[/size][/color][/heading]
-
-[b]Godrick's Great Rune[/b]
-
-[b]Passive:[/b] +1 all attributes.
-[b]Active:[/b] +5 all attributes.
-
-[b]Rennala's Great Rune[/b]
-
-[b]Passive:[/b] Restore +0.5 FP/s.
-[b]Active:[/b] Rebirth.
-
-[b]Radahn's Great Rune[/b]
-
-[b]Passive:[/b] +20% Equip Load.
-[b]Active:[/b] +10 STR, +20% FP, +20% SP.
-
-[b]Rykard's Great Rune[/b]
-
-[b]Passive:[/b] Stack +1% max HP/FP/SP for 10 minutes per kill.
-[b]Active:[/b] Restore 14% + 160 HP on kill.
-
-[b]Morgott's Great Rune[/b]
-
-[b]Passive:[/b] +5 FTH.
-[b]Active:[/b] +20% Holy damage, Rune Loss prevented upon death, +50% resistance to Madness and Death Blight.
-
-[b]Malenia's Great Rune[/b]
-
-[b]Passive:[/b] -50% attack stamina consumption.
-[b]Active:[/b] +10 DEX, attacks dealt after taking damage recover HP, boost attack power on consecutive hits (10%/15%/20%), +50% resistance to Scarlet Rot.
-
-[b]Mohg's Great Rune[/b]
-
-[b]Passive:[/b] +50% Blood Ability damage for 15s on bloodloss near you.
-
-[center][img]https://i.imgur.com/it27pb9.gif[/img][/center]
-
-[line]
-
-[heading][color=#CC4125][size=5]Gestures[/size][/color][/heading]
-
-[b]Golden Order Totality (Action + L1)[/b]
-
-Requires a Scarseal or Soreseal: Apply Law of Regression and expel a charged Wrath of Gold costing 40 FP. Enemies attacking you trigger Wrath of Gold and Sacred Ward, granting you near invincibility as long as you have the FP to maintain it. Strong enough attacks will stagger you out of the pose. Grants Blessing of the Erdtree, Golden Vow, and Sacred Ward to yourself and nearby allies.
-[b]Sacred Ward:[/b] 90% damage reduction bubble with 2x HP recovery for 180s.
-[center][img]https://i.imgur.com/Zr6rJCj.png[/img] [img]https://i.imgur.com/6puWWj9.png[/img] [img]https://i.imgur.com/eiKagYp.png[/img][/center]
-
-[b]Rapture (Action + R1)[/b]
-
-Requires Mohg's Shackle and sufficiently high VGR: Sacrifice nearly all of your HP to become Raptured. Once Raptured, apply Bloodflame Blasphemy, or Exalted Bloodflame Blasphemy if Mohg's Rune is active. Apply Flame Grant Me Strength.
-[center][img]https://i.imgur.com/NyCUc2Q.png[/img] [img]https://i.imgur.com/Fc3UhOg.png[/img] [img]https://i.imgur.com/CKUCF1o.png[/img][/center]
-
-[center][img]https://i.imgur.com/it27pb9.gif[/img][/center]
-
-[line]
-
-[heading][color=#CC4125][size=5]Progression & Afflictions[/size][/color][/heading]
-
-[b]Dragon Communion[/b]
-
-For every dragon heart consumed, you gain +1 ARC but will also progress your Dragonrot which rots your blood slowly starting at 10% HP. Dragonrot gets worse over time, with each Great Rune acquired, your blood starts rotting at a higher HP threshold: 10% -> 20% -> 30% HP and so on.
-[b]Lesser Dragonrot:[/b] After consuming several dragon hearts, your blood will rot slowly starting at 10% HP.
-[b]Greater Dragonrot:[/b] After consuming a large amount of dragon hearts, your blood will rot more rapidly.
-You can halt all Dragonrot by inheriting the Frenzied Flame or equipping the Fatesever Needle Talisman.
-
-Bayle's Cursed Blood: Consuming Bayle's heart gives +10 ARC but will cause your blood to erupt in lightning and magma when below 10% HP, killing you instantly. It can be halted by equipping the Fatesever Needle.
-
-Formless Sigil (Dragon Communion Seal): A sigil that imbues incantations with arcane power. After consuming all base game dragon hearts via Dragon Communion and upgrading your Formless Sigil to +10, it automatically upgrades into Elderblood Sigil.
-
-Elderblood Sigil: Greater arcane scaling. New Skill: Sovereign Fury. After slaying Bayle, battling Placidusax, and consuming all available dragon hearts via Dragon Communion, Elderblood Sigil automatically upgrades into Ascension Sigil.
-
-Ascension Sigil: Extraordinary arcane scaling. New Skill: Sovereign Ascension. Once you have the Ascension Sigil and can spark Divinity with Sovereign Ascension, you can now turn your eyes to Maliketh and Destined Death. You may now be a match for him.
-[center][img]https://i.imgur.com/gP1F7Td.png[/img] [img]https://i.imgur.com/jmqLEYL.png[/img] [img]https://i.imgur.com/FHUA1nP.png[/img] [img]https://i.imgur.com/JHSamp1.png[/img] [img]https://i.imgur.com/e7c99bn.png[/img][/center]
-
-[b]Frenzied Flame[/b]
-
-Inheriting the Frenzied Flame will halt Dragonrot but will leave you prone to madness giving you +30% Frenzied Flame damage and -30% Madness resistance.
-Any change to your HP will have a small chance of triggering the Frenzied Flame affliction which will advance it to the next stage:
-[b]Frenzied Flame Stage 1:[/b] Slow madness buildup.
-[b]Frenzied Flame Stage 2:[/b] Rapid madness buildup.
-[b]Frenzied Flame Stage 3:[/b] Release all madness and howl in agony, losing 30% HP, 20% FP, and damaging nearby enemies.
-Using Margit's Shackle can temporarily halt the affliction, while equipping the Fatesever Needle offers a more lasting solution.
-[center][img]https://i.imgur.com/aEl1KPb.png[/img][/center]
-
-[center][img]https://i.imgur.com/PDBhsYA.gif[/img][/center]
-
-[line]
-
-[heading][color=#CC4125][size=5]Skills & Buffs[/size][/color][/heading]
-
-[b]Quick Buff[/b]
-
-Use Numen's Runes and Rune Arcs to dynamically apply buffs if you have obtained them and meet their requirements:
-Blessing's Boon / Blessing of the Erdtree / Golden Vow: Requires incantation and Scarseal or Soreseal equipped.
-Flame Grant Me Strength: Requires incantation.
-[b]Sacred Ward:[/b] Requires Soreseal.
-Dragonbolt Blessing / Vyke's Dragonbolt: Requires incantation and lesser / greater Dragonrot.
-Bloodflame Blasphemy: Requires player to be currently Raptured. Overwrites holy buffs.
-[center][img]https://i.imgur.com/SYR9yJR.png[/img] [img]https://i.imgur.com/Zr6rJCj.png[/img] [img]https://i.imgur.com/6puWWj9.png[/img] [img]https://i.imgur.com/5YZeAIO.png[/img] [img]https://i.imgur.com/eiKagYp.png[/img] [img]https://i.imgur.com/8QZTRLH.png[/img] [img]https://i.imgur.com/wsRzmJz.png[/img] [img]https://i.imgur.com/e24TRdc.png[/img] [img]https://i.imgur.com/Q0YGPZ9.png[/img][/center]
-
-[b]Bloodflame Blasphemy[/b]
-
-Once Raptured, apply Bloodflame Blasphemy with Rapture, Mohg's Shackle, or Quick Buff. Removes all holy buffs.
-Bloodflame Blasphemy(180s): +30% damage, restores 2% HP/FP/SP per second, and applies Flame Grant Me Strength. When reaching 0 HP, explode in bloodflame, heal 10% HP and lose Raptured status.
-Exalted Bloodflame Blasphemy(180s): +50% damage, and restores 3% HP/FP/SP per second.
-[center][img]https://i.imgur.com/e24TRdc.png[/img] [img]https://i.imgur.com/Q0YGPZ9.png[/img][/center]
+[code]
+| Great Rune | Passive benefit                              |
+|------------|----------------------------------------------|
+| Godrick    | +1 to all attributes                         |
+| Rennala    | +5 Mind                                      |
+| Radahn     | +20% maximum equip load                      |
+| Morgott    | +5 Faith                                     |
+| Rykard     | Additional benefits from defeating enemies   |
+| Mohg       | Benefits tied to blood loss                  |
+| Malenia    | Changes to attack stamina costs and recovery |
+[/code]
 
 [b]Sovereign Fury[/b]
 
-Requires Elderblood Sigil from Dragon Communion progression. Harness the raw fury of the ancient dragons. Each cast consumes 3% max HP/FP/SP for 10m.
-Sovereign Fury(60s): +30% max HP/FP/SP, +20 SP/s, Tier 3 Hardness, +50% lightning damage negation, +20% status effect resistance, +20% movement speed, +50% ancient lightning damage, lightning-enhanced heavy attacks, lightning-enhanced perfect block.
-[b]Chains:[/b] Vyke's Dragonbolt.
-[center][img]https://i.imgur.com/JHSamp1.png[/img][/center]
+Fury draws on ancient dragon power to increase your resources and strengthen movement, defense, and lightning-based combat. Its casting cost temporarily reduces maximum HP, FP, and stamina. Repeated use is a choice about how much power you need and how much of that cost you can afford.
 
-[b]Sovereign Ascension // Soulflame Divinity[/b]
+[b]Soulflame Divinity[/b]
 
-Requires Ascension Sigil from Dragon Communion progression. On the ground, cast Sovereign Fury. While airborne, cast Sovereign Ascension, which is the same as Sovereign Fury except that it can spark Divinity. Each additional cast of Sovereign Ascension increases your chance of instant death to divine lightning.
-Soulflame Divinity: Requires full HP and Entwining Umbilical Cord. +50 FP/s, +50 SP/s, +50% Holy damage negation, fades on damage taken. Allows animation cancelling and holds all effects at their current duration. This lets you stack as many effects as possible as long as you remain undamaged. Can momentarily mitigate the overwhelming power of Destined Death.
-[center][img]https://i.imgur.com/ldFCPnt.png[/img][/center]
+The Staff of the Sovereign's airborne Fury, the Entwining Umbilical Cord, and very high health open the way to Divinity. Repeated airborne casts are dangerous, so forcing the transformation is a risk of its own.
 
-[center][img]https://i.imgur.com/mKOT8z8.gif[/img][/center]
+While you avoid damage, Divinity stops many of your buff timers from counting down. It also grants rapid HP, FP, and stamina recovery and lets you move between actions more quickly, rewarding careful play with lasting power.
 
-[line]
+Get hit, and those buffs begin counting down from where they stopped. Oath and ultimate cooldowns continue normally.
 
-[heading][color=#CC4125][size=5]Weapons[/size][/color][/heading]
-
-[b]Stormblessed Zweihander [size=2][url=https://eldenring.wiki.fextralife.com/Zweihander]Wiki[/url][/size][/b]
-
-Greatsword moveset, increased attack speed, found in Stormveil Castle.
-[b]New Skill:[/b] Stormblessed Blade (25 FP) - Call on the winds of the storm to bless your blade. All of your attacks channel the winds, +100 physical damage for 180s.
-
-[b]1H Crouch Attack:[/b] Gale Sweep - Drop low and strike in a spinning motion like a sudden gust.
-[b]2H Crouch Attack:[/b] Skyward Annihilator - Assume a low stance and deliver a brutal uppercut like a burst of wind.
-[b]Special Attack:[/b] Whirlwind Slash - Overwhelm foes with a tempestuous whirlwind attack.
-
-[b]Blasphemous Blade [size=2][url=https://eldenring.wiki.fextralife.com/Blasphemous+Blade]Wiki[/url][/size][/b]
-
-Straight sword moveset, FTH > STR > DEX scaling, passive bleed effect, on crit heal, area bloodloss heal.
-[b]New Skill:[/b] Ravenous Bloodflame (14% + 160 HP) - Stack up to 6 times on kill, on crit, or by casting the skill again.
-Each stack dynamically increases the size, damage, and on hit heal of the effect. Mohg's Great Rune enables a special 7th stack.
-
-[b]1H Crouch Attack:[/b] Furious Thrust - Execute a powerful forward lunge with a piercing thrust.
-1-7 Ravenous Bloodflame stacks: Increased damage.
-[b]2H Crouch Attack:[/b] Bloodrend - Somersault forwards, striking foes with armament.
-1-7 Ravenous Bloodflame stacks: Dynamic bloodflame blast based on player HP.
-[b]Special Attack:[/b] Savage Bloodrend - Violently somersault forwards, striking foes with armament.
-1-6 Ravenous Bloodflame stacks: Deadly dynamic bloodflame blast based on player HP.
-7 Ravenous Bloodflame stacks: Exalted bloodflame explosion.
-
-[b]Godslayer's Greatsword (30 STR / 30 FTH/ 16 DEX) [size=2][url=https://eldenring.wiki.fextralife.com/Godslayer's+Greatsword]Wiki[/url][/size][/b]
-
-Greatsword moveset, FTH > STR > DEX scaling, low base damage.
-[b]New Skill:[/b] Soulflame Heresy(45 FP) - Black Flame for 90s, Soulflame for 7s if Entwining Umbilical Cord is equipped.
-Black Flame(90s): +130 fire damage, 2% HP dealt on hit over 2s. Applies Soulflame on crit.
-Soulflame(7s): +300 fire damage, 1.5x crit damage, refreshed on hit, applies Heresy on crit and on kill.
-Heresy(60s->30s): +5% damage, +5% damage negation. Stacks 10 times with dynamic duration and VFX.
-
-[b]1H / 2H Crouch Attack:[/b] God Hunt - Unleash a powerful shockwave while Black Flame is active. Empowered by Soulflame.
-[b]Special Attack:[/b] Queen's Black Flame - Execute a godslaying sweeping slash, with an optional follow-up attack.
-
-[b]Black Blade [size=2][url=https://eldenring.wiki.fextralife.com/Maliketh's+Black+Blade]Wiki[/url][/size][/b]
-
-[b]New Skill:[/b] Destined Death (100 FP) - Destined Death for 10m, Awakened Destined Death for 30s.
-Destined Death (10m): +50 fire damage, +50 holy damage. Weapon hits and abilities deal a stacking 2% HP damage debuff.
-Awakened Destined Death (30s): +200 fire damage, +200 holy damage. Weapon hits and abilities deal a stacking 3% HP damage debuff.
-
-[b]1H Crouch Attack:[/b] Mortal Thrust - Launch forward to impale foes.
-[b]2H Crouch Attack:[/b] Mortal Rend - Execute a fierce spinning slash with deadly projectile.
-[b]Special Attack:[/b] Deliver Destined Death - Plunge the greatsword into the ground to summon a myriad of blades.
-
-[b]Great Stars (44 STR) [size=2][url=https://eldenring.wiki.fextralife.com/Great+Stars]Wiki[/url][/size][/b]
-
-Heavy affinity, increased STR scaling, 20 weight.
-[b]Default Skill:[/b] Barbaric Roar.
-
-[b]1H Crouch Attack:[/b] Crush - Gather your strength before sending Great Stars down in a brutal strike.
-[b]2H Crouch Attack:[/b] Bloody Smash - Raise Great Stars up high and fuel a terrible bloodflame with your own blood,
-then smash it down in a devastating attack.
-[b]Special Attack:[/b] Bloodflame Earthshaker - Unleash an earth-shaking shockwave and an explosive bloodflame blast.
-
-[center][img]https://i.imgur.com/it27pb9.gif[/img][/center]
+Seek the Entwining Umbilical Cord through the Gloam-Eyed Queen's Grave encounter. The Cord is also an offensive talisman in its own right.
 
 [line]
 
-[heading][color=#CC4125][size=5]Spells[/size][/color][/heading]
+[heading][color=#CC4125][size=5]Blood Power[/size][/color][/heading]
 
-[b]Fireball Incantations[/b]
+[b]Rapture and Bloodflame Blasphemy[/b]
 
-Flame Sling, Black Flame, Giantsflame Take Thee, Flame Fall Upon Them
-Bigger AOE when charged, longer range.
+Rapture and Mohg's Shackle turn your own blood into power. They support a bloodflame playstyle built around spending health, striking nearby enemies, and drawing on powerful attack and recovery buffs.
 
-[b]Flame Grant Me Strength [size=2][url=https://eldenring.wiki.fextralife.com/Flame+Grant+me+Strength]Wiki[/url][/size][/b]
+Bloodflame Blasphemy replaces holy blessings rather than stacking freely with all of them. Its death-rescue effect can consume the blood buff to save you in an explosion of bloodflame. That rescue is part of the buff, not a permanent extra life.
 
-180s duration, +20% Fire/Physical Damage, +5 Stamina Recovery, +20 cast speed.
+[b]Supremacy[/b]
 
-[b]Fire Giant Incantations [size=2][url=https://eldenring.wiki.fextralife.com/Fire+Giant+Incantations]Wiki[/url][/size][/b]
-
-1.5x FP cost, +100% bonus damage. Each cast reduces this bonus damage by 20%. While reduced, the bonus damage will recharge, increasing by 20% every 60s until reaching +100% once more.
-
-[b]Flame of the Fell God [size=2][url=https://eldenring.wiki.fextralife.com/Flame+of+the+Fell+God]Wiki[/url][/size][/b]
-
-2x FP cost, much bigger AOE, longer range.
-
-[b]Dragonbolt Blessing [size=2][url=https://eldenring.wiki.fextralife.com/Dragonbolt+Blessing]Wiki[/url][/size][/b]
-
-90s duration, +5 SP/s, Tier 2 Hardness, -35% lightning damage negation, +5% status effect resistance, +5% movement speed.
-
-[b]Vyke's Dragonbolt [size=2][url=https://eldenring.wiki.fextralife.com/Vyke's+Dragonbolt]Wiki[/url][/size][/b]
-
-90s duration, +10 SP/s, Tier 2 Hardness, -35% lightning damage negation, +10% status effect resistance, +10% movement speed.
-If Sovereign Fury has been cast once, Vyke's Dragonbolt will apply Sovereign Fury temporarily while below 30% HP.
-
-[b]Dragon Communion Incantations [size=2][url=https://eldenring.wiki.fextralife.com/Ancient+Dragons'+Lightning+Strike]Wiki[/url][/size][/b]
-
-No FP cost, 2x SP cost, limited uses per rest, +100% damage after obtaining 4 Dragon Communion incantations.
-
-[b]Lansseax's Glaive [size=2][url=https://eldenring.wiki.fextralife.com/Lansseax's+Glaive]Wiki[/url][/size] // Fortissax's Lightning Spear [size=2][url=https://eldenring.wiki.fextralife.com/Fortissax's+Lightning+Spear]Wiki[/url][/size][/b]
-
-2x damage, 3 uses per rest.
-
-[b]Lord's Dragonbolt (Dragonbolt of Florissax)[/b]
-
-2x damage, 3 uses per rest.
-
-[b]Elderblood Greatbow[/b]
-
-Requires 3 Ancient Dragon Communion incantations.
-Fires great arrow from an arcane greatbow with potent anti-dragon and anti-healing effect.
-
-[b]Blessing's Boon [size=2][url=https://eldenring.wiki.fextralife.com/Blessing's+Boon]Wiki[/url][/size] // Blessing of the Erdtree [size=2][url=https://eldenring.wiki.fextralife.com/Blessing+of+the+Erdtree]Wiki[/url][/size][/b]
-
-2x duration.
-
-[b]Minor Fortification Incantations[/b]
-
-Flame Fortification, Magic Fortification, Lightning Fortification, and Divine Fortification.
-300s duration.
-
-[b]Major Fortification Incantations[/b]
-
-Black Flame's Protection, Flame Protect Me, Barrier of Gold, Golden Lightning Fortification, Lord's Divine Fortification, and Protection of the Erdtree.
-180s duration.
+Mohgwyn's Sacred Spear's ultimate can grant Supremacy, empowering you through a blood ritual. Its blessing can be spent to save you from death, and it replaces certain other blessings. Choose your supporting buffs with those limits in mind.
 
 [line]
 
-[heading][color=#CC4125][size=5]Armor & Shields[/size][/color][/heading]
+[heading][color=#CC4125][size=5]Signature Weapons[/size][/color][/heading]
 
-[b]Dragonlord's Plate (Scaled Set) [size=2][url=https://eldenring.wiki.fextralife.com/Scaled+Set]Wiki[/url][/size][/b]
+These weapons offer different ways to fight, not simply larger numbers. Their skills prepare or strengthen their movesets, while crouch attacks and ultimates give you additional ways to spend an opening.
 
-Dragonlord's Armor: Apply Sovereign's Fury while HP is below 30% and Ancient Dragonbolt is active.
-Gauntlets of the Heretic: +10% damage dealt by Godslayer, Fire Giant, and Blood attacks.
-Raven's Shadow Greaves: Raptor of the Mists on crouch, and semi-invisibility while crouched.
-Use Entwining Umbilical Cord if you want to wear your own armor but still have all the effects of the Dragonlord's Plate armor set.
+[b][color=#ffffff]Stormblessed Zweihander[/color][/b]
 
-[b]Eclipse Crest Greatshield (32 STR / 32 FTH) [size=2][url=https://eldenring.wiki.fextralife.com/Eclipse+Crest+Greatshield]Wiki[/url][/size][/b]
+A mobile wind weapon built around sweeping attacks and forward movement.
+[b]Skill:[/b] Stormblessed Blade calls the wind into your weapon.
+[b]Crouch attacks:[/b] Gale Sweep gives the one-handed weapon a low spinning strike; Skyward Annihilator turns the two-handed attack into a rising blow.
+[b]Ultimate:[/b] Whirlwind Slash delivers a broad wind-driven assault.
 
-Bonus resistances removed. 79% holy guard absorption.
-[b]New Skill:[/b] Black Sun's Zenith(50 FP) - Expel a shockwave and grant temporary invincibility. Repel magic and if timed perfectly, can parry. Can be cast with no FP but will build up Death Blight instead.
+[b][color=#ffffff]Blasphemous Blade[/color][/b]
 
-[line]
+A bloodflame weapon that trades health for growing power.
+[b]Skill:[/b] Ravenous Bloodflame builds stacks that change the strength and appearance of its attacks.
+[b]Crouch attacks:[/b] Furious Thrust lunges forward; Bloodrend commits to a somersaulting strike with bloodflame effects.
+[b]Ultimate:[/b] Savage Bloodrend turns stored bloodflame and your current health into a larger burst.
 
-[heading][color=#CC4125][size=5]Talismans[/size][/color][/heading]
+[b][color=#ffffff]Godslayer's Greatsword[/color][/b]
 
-[b]Radagon's Scarseal [size=2][url=https://eldenring.wiki.fextralife.com/Radagon's+Scarseal]Wiki[/url][/size] // Radagon's Soreseal [size=2][url=https://eldenring.wiki.fextralife.com/Radagon's+Soreseal]Wiki[/url][/size][/b]
+A weapon built around maintaining Black Flame and making the most of brief Soulflame windows.
+[b]Skill:[/b] Soulflame Heresy brings together the blade's Black Flame, Soulflame, and Heresy effects.
+[b]Crouch attacks:[/b] God Hunt sends out a shockwave whose behavior depends on the active flame.
+[b]Ultimate:[/b] Queen's Black Flame delivers a sweeping attack with a follow-up. Its stronger actions depend on preparing the weapon with the right buff.
 
-+5/+10 Stamina Recovery, +15/+30 Cast Speed, +15%/+30% Holy damage, -15%/-30% Holy damage negation.
-Increased attributes and damage taken removed.
+[b][color=#ffffff]Maliketh's Black Blade[/color][/b]
 
-[b]Marika's Soreseal [size=2][url=https://eldenring.wiki.fextralife.com/Marika's+Soreseal]Wiki[/url][/size] // Marika's Scarseal [size=2][url=https://eldenring.wiki.fextralife.com/Marika's+Scarseal]Wiki[/url][/size][/b]
+Destined Death becomes a sustained weapon state, with a stronger awakened opening.
+[b]Skill:[/b] Awaken the blade and bring Destined Death into its attacks.
+[b]Crouch attacks:[/b] Mortal Thrust drives forward, while Mortal Rend adds a spinning attack and projectile.
+[b]Ultimate:[/b] Deliver Destined Death plunges the blade down and unleashes its wider attack. Active weapon effects change what its attacks can deliver.
 
-+1%/+2% FP/s, +15%/+30% Holy damage, -15%/-30% Holy damage negation.
-Increased attributes and damage taken removed.
+[b][color=#ffffff]Mohgwyn's Sacred Spear[/color][/b]
 
-[b]Arsenal Charm [size=2][url=https://eldenring.wiki.fextralife.com/Arsenal+Charm]Wiki[/url][/size] // Arsenal Charm +1 [size=2][url=https://eldenring.wiki.fextralife.com/Arsenal+Charm]Wiki[/url][/size] // Great-jar's Arsenal [size=2][url=https://eldenring.wiki.fextralife.com/Great-Jar's+Arsenal]Wiki[/url][/size][/b]
+A blood ritual weapon whose ultimate changes the fight beyond the initial attack.
+[b]Combat role:[/b] Use its ritual and blood effects to pressure enemies while maintaining your own resources.
+[b]Ultimate:[/b] The ritual can grant Supremacy, carrying its attack, recovery, and blood-rescue effects into the following fight.
 
-Originally 15%/17%/19%. Now 20%/25%/30% additional Equip Load.
+[b][color=#ffffff]Fallingstar Obliterator[/color][/b]
 
-[b]Moon of Nokstella [size=2][url=https://eldenring.wiki.fextralife.com/Moon+of+Nokstella]Wiki[/url][/size][/b]
+A gravity weapon earned through Hewg, with a prepared beam attack at the center of its moveset.
+[b]Acquisition:[/b] Defeat the Godskin Duo and all three base-game Fallingstar Beasts in the current journey, then speak to Hewg. He offers a hint before you qualify. His later dialogue still allows the forging reward, once per journey.
+[b]Skill:[/b] Harness Void Eye costs 45 FP and prepares the weapon with a 60-second magic and lightning buff.
+[b]Ultimate:[/b] The beam requires Void Eye and refreshes that buff when used. Attempting the ultimate without Void Eye starts the preparation action instead.
 
-+4 Memory Slots, +10 Intelligence.
-Now you can reach the max cap of 14 slots.
+[b][color=#ffffff]Great Stars[/color][/b]
 
-[b]Entwining Umbilical Cord [size=2][url=https://eldenring.wiki.fextralife.com/Entwining+Umbilical+Cord]Wiki[/url][/size][/b]
-
-Enables Crimson Eye via Dark Vow gesture. Also enables all effects from the Dragonlord's Plate armor set.
-Crimson Eye (600s): While below 50% HP, 50% chance to retain runes on death. Gain +1% rune gain per enemy defeated.
-[b]Merchant:[/b] Purchase from Mountaintops of the Giants Merchant for 30000 runes.
-A sacred relic, intricately carved with celestial symbols, pulsating with an otherworldly energy.
-
-[line]
-
-[heading][color=#CC4125][size=5]Items[/size][/color][/heading]
-
-[b]Rune Arc [size=2][url=https://eldenring.wiki.fextralife.com/Rune+Arc]Wiki[/url][/size][/b]
-
-Restore 100% HP/FP/SP and apply Quick Buffs.
-[b]Craftable:[/b] 5000 runes and 1 Sanctuary Stone.
-
-[b]Numen's Rune [size=2][url=https://eldenring.wiki.fextralife.com/Numen's+Rune]Wiki[/url][/size][/b]
-
-Apply Quick Buffs.
-[b]Craftable:[/b] 1000 runes and 1 Ruin Fragment.
-
-[b]Margit's Shackle [size=2][url=https://eldenring.wiki.fextralife.com/Margit's+Shackle]Wiki[/url][/size] (Action + Dodge)[/b]
-
-Casts the Darkness incantation on use. Blinds everything in a large radius briefly.
-Removes Death Blight and Madness buildup. Halts the Frenzied Flame Curse for a time.
-[center][img]https://i.imgur.com/N5LAw2Q.gif[/img][/center]
-
-[b]Mohg's Shackle (Action + Jump)[/b]
-
-Light your blood aflame to damage and bleed surrounding enemies. Take 9% + 160 HP damage. Removes Bleed buildup.
-Applies Flame Grant Me Strength. If Raptured, applies Bloodflame Blasphemy.
-The bloodflame blast dynamically increases in size and intensity the lower HP you are.
-[center][img]https://i.imgur.com/eoclGlJ.gif[/img][/center]
-
-[b]Opaline Bubblesoap (Soap) [size=2][url=https://eldenring.wiki.fextralife.com/Soap]Wiki[/url][/size][/b]
-
-Grants Opaline Bubble and removes accumulations.
-Opaline Bubble: 90% damage reduction bubble with poison/scarlet rot immunity for 180s.
-[b]Craftable:[/b] 3 Melted Mushrooms, 1 Silver Tear Husk, 1 Trina's Lily.
-[b]Merchant:[/b] Purchase from Siofra River Merchant for 2200 runes.
-90% damage reduction for 1 hit. Also lets you survive falls from great heights.
-Now very worth a trip to the Eternal City.
-
-[b]Starlight Shards [size=2][url=https://eldenring.wiki.fextralife.com/Starlight+Shards]Wiki[/url][/size][/b]
-
-1% FP/s & -10% FP Consumption for 300s. Stacks.
-[b]Craftable:[/b] 3 Cracked Crystal, 2 Crystal Bud, 2 Glintstone Firefly, 1 Nascent Butterfly.
-[b]Merchant:[/b] Purchase from Sorceress Sellen for 3500 runes.
-
-[b]Dragon Flesh (Dragon Communion Flesh) [size=2][url=https://eldenring.wiki.fextralife.com/Dragon+Communion+Flesh]Wiki[/url][/size] // Dragonscale Flesh [size=2][url=https://eldenring.wiki.fextralife.com/Dragonscale+Flesh]Wiki[/url][/size][/b]
-
-Stack +3%/+5% max HP/FP/SP & -3%/-5% HP Recovery for 10 minutes per use.
-Heal 40% HP over 2s/60% HP over 3s. 10 uses per rest.
-Dragon Flesh now drops from Dragonbarrow dragons.
-Dragonscale Flesh now drops from Jagged Peak dragons.
+A heavy blood-themed weapon built around forceful strikes and committed finishes.
+[b]Crouch attacks:[/b] Crush delivers a heavy downward strike; Bloody Smash adds a bloodflame attack to the two-handed moveset.
+[b]Ultimate:[/b] Bloodflame Earthshaker combines a ground-shaking attack with a bloodflame burst.
 
 [line]
 
-[heading][color=#CC4125][size=5]Crystal Tears[/size][/color][/heading]
+[heading][color=#CC4125][size=5]Magic and Incantations[/size][/color][/heading]
 
-[b]Leaden Hardtear [size=2][url=https://eldenring.wiki.fextralife.com/Leaden+Hardtear]Wiki[/url][/size][/b]
+[b]Fire Monk and Godslayer Incantations[/b]
 
-Turns body to steel for 40s: Hyperarmor, +40% physical damage negation, Tier 4 Hardness, -60% lightning damage negation,
--50% status effects, -50% guard stamina consumption. Limits movement speed, jumps, and rolls.
+[b]Flame Sling[/b] and [b]Black Flame[/b] reach farther. Their charged projectiles travel faster and produce larger explosions, making charged casts more useful against distant or grouped enemies.
 
-[b]Stonebarb Cracked Tear [size=2][url=https://eldenring.wiki.fextralife.com/Stonebarb+Cracked+Tear]Wiki[/url][/size][/b]
+[b]Fire Giant Incantations[/b]
 
-40s duration, new VFX.
+Giant fire gains larger blasts and higher casting costs. [b]Giantsflame Take Thee[/b] reaches farther and explodes over a wider area. Charged [b]Flame, Fall Upon Them[/b] gains longer-reaching projectiles and larger bursts. [b]Flame of the Fell God[/b] moves faster and produces a much larger blast with longer-lasting effects.
 
-[line]
+[code]
+| Incantation             | FP cost          |
+|-------------------------|------------------|
+| Flame, Fall Upon Them   | 24               |
+| Giantsflame Take Thee   | 45               |
+| Burn, O Flame!          | 39 / 45 charged  |
+| Flame of the Fell God   | 68               |
+[/code]
 
-[heading][color=#CC4125][size=5]Recommended Mods[/size][/color][/heading]
+These four incantations draw on a power reserve that changes with your progress:
 
 [list]
-[*][url=https://www.nexusmods.com/eldenring/mods/1587]Chat with Melina[/url][/*]
-[*][url=https://www.nexusmods.com/eldenring/mods/87]Compass Be Gone[/url][/*]
-[*][url=https://www.nexusmods.com/eldenring/mods/3022]Fast Torrent[/url][/*]
-[*][url=https://www.nexusmods.com/eldenring/mods/2828]Long-Horn Torrent[/url][/*]
-[*][url=https://www.nexusmods.com/eldenring/mods/2575]Pass Time Anywhere[/url][/*]
-[*][url=https://www.nexusmods.com/eldenring/mods/5456]Ride Anywhere[/url][/*]
-[*][url=https://www.nexusmods.com/eldenring/mods/6423]Sovereign Loadscreens[/url][/*]
-[*][url=https://www.nexusmods.com/eldenring/mods/94]Sovereign ReShade[/url][/*]
+[*][b]Before defeating the Fire Giant:[/b] A full reserve doubles their damage. Repeated casting lowers the bonus in 20-percentage-point steps, down to normal damage; one step recovers every 60 seconds. Flame of the Fell God empties the reserve.[/*]
+[*][b]After defeating the Fire Giant:[/b] The reserve's damage bonus is lost until you kindle the Forge.[/*]
+[*][b]After kindling the Forge:[/b] The full double-damage bonus returns and no longer depletes through casting.[/*]
 [/list]
+
+[b]Dragon Cult and Dragonbolt Blessings[/b]
+
+Dragonbolt blessings improve movement, stamina recovery, and resistance to status buildup. Their protection comes with a tradeoff: you take [b]35% more lightning damage[/b].
+
+[code]
+| Blessing              | Duration | Movement speed | Status buildup taken |
+|-----------------------|----------|----------------|-----------------------|
+| Dragonbolt Blessing   | 90 sec   | +5%            | 95%                  |
+| Vyke's Dragonbolt     | 90 sec   | +10%           | 90%                  |
+| Betrayer's Dragonbolt | 180 sec  | +15%           | 85%                  |
+[/code]
+
+[b]Vyke's Dragonbolt[/b] now applies a body blessing without automatically enchanting your weapon. [b]Betrayer's Dragonbolt[/b] also increases your lightning damage against enemies by 25%, blesses nearby allies, and makes nearby enemies more vulnerable to lightning. Its effects on nearby targets last 90 seconds.
+
+[b]Dragon Communion and Ancient Dragon Magic[/b]
+
+Advanced dragon incantations emphasize Arcane. [b]Lansseax's Glaive[/b] requires 48 Arcane and [b]Fortissax's Lightning Spear[/b] requires 52; each costs 9 FP, has five uses, and demands substantial stamina. [b]Placidusax's Ruin[/b] requires 60 Arcane, [b]Bayle's Tyranny[/b] 62, and [b]Bayle's Flame Lightning[/b] 64. Ordinary dragon breaths retain their own casting costs.
+
+[b]Elderblood Greatbow[/b] requires 58 Arcane and costs 40 FP. Fire a chargeable arrow of bloodflame and red lightning that inflicts Dragonrot, reduces healing, and deals especially heavy damage to dragons. Hold the cast to keep the arrow nocked. See Profane Tomes and Forbidden Knowledge for its unlock.
+
+[b]Blessings and Fortifications[/b]
+
+[list]
+[*][b]Lesser fortifications:[/b] Fire, Magic, Lightning, and Divine Fortification last 5 minutes.[/*]
+[*][b]Major protection:[/b] Flame, Protect Me; Black Flame's Protection; Barrier of Gold; Protection of the Erdtree; Lord's Divine Fortification; and Golden Lightning Fortification last 3 minutes.[/*]
+[*][b]Flame, Grant Me Strength:[/b] Lasts 3 minutes, increases physical and fire damage against enemies by 20%, improves stamina recovery, and adds casting speed equivalent to 20 Dexterity.[/*]
+[*][b]Healing blessings:[/b] Blessing's Boon restores 8 HP per second and Blessing of the Erdtree restores 12 HP per second. Both last 3 minutes.[/*]
+[*][b]Golden Vow:[/b] The incantation lasts 3 minutes.[/*]
+[/list]
+
+Oaths, Blood Power, and Divinity have their own sections covering how those systems interact with your blessings.
+
+[line]
+
+[heading][color=#CC4125][size=5]Equipment and Useful Items[/size][/color][/heading]
+
+[b]Armor That Changes Through Your Journey[/b]
+
+The Scaled armor has a black transformation tied to Rykard. With at least one original Scaled piece equipped, dying during either phase of the fight or defeating Rykard can transform the original pieces you are carrying. Carried quantities and the altered chest piece are preserved; pieces left in storage are not part of that exchange.
+
+This route requires an active Rykard encounter. Equipping the armor after he is already defeated does not recreate it. Other color and equipment effects have their own conditions.
+
+[b]Talismans That Support a Playstyle[/b]
+
+Scarseals, Soreseals, the Perfect Runeseal, and the Aberrant Bindseal provide access to the Oath system. The Entwining Umbilical Cord supports Soulflame and Divinity, while Crusade Insignia rewards kills with a temporary combat buff.
+
+[b]Quick Buffs and Recovery[/b]
+
+Numen's Runes and Rune Arcs let you quickly apply buffs you have access to. You still need the required spells, equipment, or other conditions, and buffs that replace one another cannot all be kept at once. These item-based quick buffs are separate from the two spell-slot shortcuts in the Quick Start Guide.
+
+Starlight Shards support FP recovery, Opaline Bubblesoap provides a protective bubble, and Dragon Flesh and Dragonscale Flesh trade stronger temporary resources against reduced healing.
+
+[b]Shackles as Everyday Tools[/b]
+
+Margit's Shackle becomes a useful darkness and curse-management tool. Mohg's Shackle spends your blood on an area attack and connects to the bloodflame playstyle. Their shortcuts make them easier to reach without replacing the requirements for acquiring them.
+
+[line]
+
+[heading][color=#CC4125][size=5]Exploration and Convenience[/size][/color][/heading]
+
+[list]
+[*][b]More airborne options:[/b] Custom movement and falling-attack behavior give height and commitment a greater role in combat. Fall protection depends on the particular equipment and state; it does not make every fall safe.[/*]
+[*][b]Torrent appearance choices:[/b] Acquiring the relevant regalia unlocks an appearance menu at Grace. Choose from the appearances you own or return to Torrent's original look.[/*]
+[*][b]Useful shortcuts:[/b] Reach Oaths, acquired shackles, gestures, and the lantern through the combat controls instead of repeatedly searching menus.[/*]
+[*][b]Distinct visual effects:[/b] Recognize deflects, bloodflame, Soulflame, dragon power, and Nemesis's influence through their different effects.[/*]
+[/list]
+
+[line]
+
+[heading][color=#CC4125][size=5]Requirements and Installation[/size][/color][/heading]
+
+Requires [b]Elden Ring on PC[/b]. Shadow of the Erdtree is needed for the DLC content and progression.
+
+[b]Install with Vortex[/b]
+
+[list=1]
+[*]Manage [b]Elden Ring[/b] in Vortex.[/*]
+[*]Download [b]me3-windows-amd64.zip[/b] from [url=https://github.com/garyttierney/me3/releases/latest]Mod Engine 3's GitHub releases[/url]. Import it with [b]Install From File[/b] and enable it.[/*]
+[*]Install and enable [url=https://www.nexusmods.com/eldenring/mods/117]Elden Mod Loader[/url], [b]Sovereign[/b], and [b]Sovereign - Textures[/b] using [b]Mod Manager Download[/b].[/*]
+[*]Click [b]Deploy Mods[/b].[/*]
+[*]Open Steam, then launch [b]Mod Engine 3[/b] from Vortex's Dashboard.[/*]
+[/list]
+
+[b]One-time launcher setup[/b]
+
+On Vortex's Dashboard, add a tool named [b]Mod Engine 3[/b]:
+[b]Target:[/b] Select bin\me3.exe inside Elden Ring's Game folder.
+[b]Start In:[/b] Select that same Game folder.
+[b]Arguments:[/b]
+[code]launch --game eldenring --package mod[/code]
+
+[b]Optional: launch from your desktop[/b]
+
+Create a shortcut to Game\bin\me3.exe. In the shortcut's [b]Properties[/b], add [b]launch --game eldenring --package mod[/b] after the quoted executable path in [b]Target[/b], and set [b]Start in[/b] to your Game folder. Open Steam, then use the shortcut to play. You only need Vortex when changing mods; deploy those changes before playing.
+
+Mod Engine 3 automatically blocks connections to FromSoftware's official multiplayer servers. Sovereign includes Script Exposer; Elden Mod Loader loads it automatically.
+
+Back up [b]%APPDATA%\EldenRing[/b] before playing. Disable older Sovereign versions when updating.
+
+[line]
+
+[heading][color=#CC4125][size=5]Compatibility[/size][/color][/heading]
+
+Sovereign changes game data, player scripts and animations, events, maps, dialogue, text, equipment, and effects. Another mod that replaces the same files can overwrite part of Sovereign even if the game still launches.
+
+[list]
+[*][b]Other gameplay overhauls:[/b] Do not assume they can be combined by changing load order. Conflicting changes need a compatible merge.[/*]
+[*][b]Player movesets and animation mods:[/b] Treat these as potential conflicts with Sovereign's deflection, weapon actions, and ultimates.[/*]
+[*][b]Map, dialogue, and progression mods:[/b] Check overlaps with the shrine, Grace menus, Hewg, and other altered events.[/*]
+[*][b]Texture and interface replacements:[/b] Check which files they replace, including the separate Sovereign - Textures package.[/*]
+[/list]
+
+Offline use does not establish multiplayer compatibility. This page does not promise support for a multiplayer overhaul or for every other mod in an existing collection.
