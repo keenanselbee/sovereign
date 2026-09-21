@@ -10344,6 +10344,16 @@ function SetJustGuardSucceedEffect(level)
         act(AddSpEffect, 102007)
     end
     act(AddSpEffect, 102019)
+    -- Hadeon's Nemesis presence empowers active Thorn Ward on successful deflects.
+    -- The dedicated burst has no self-damage and does not consume a ward charge.
+    if env(GetSpEffectID, 1627102) == TRUE and env(GetHP) > 0
+        and env(GetSpEffectID, 1627103) == FALSE
+        and (env(GetSpEffectID, 1626916) == TRUE
+            or env(GetSpEffectID, 1626917) == TRUE
+            or env(GetSpEffectID, 1626918) == TRUE) then
+        act(AddSpEffect, 1627103)
+        act(AddSpEffect, 1627104)
+    end
     -- SACRED Deflection
     if level >= 2 then
         act(AddSpEffect, 154)

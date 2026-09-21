@@ -7,9 +7,15 @@ character, with deflection as the intended way to win and stronger Nemesis help
 as Hadeon loses HP. Percentage HP loss on an arena fall/return is a candidate;
 its eligibility and numbers are not settled.
 
+Superseded combat proposal: the author subsequently selected the smaller
+[threshold-boon and deflect-thorn implementation](HADEON-COMBAT-UPDATE.md).
+The random-boon descriptions below are the pre-change baseline, and the proposed
+deflect-credit meter/8% fall rule below was not adopted. Use the combat update for
+current implementation and remaining acceptance.
+
 The [opening plan](HADEON-SEAL-PLAN.md) still owns keyless access, barriers, travel
 and retries. This report develops combat. Runtime, editor workspaces and deployment
-were not changed. The earlier commit proposal needs refreshing after these docs.
+were not changed by this initial investigation.
 
 
 Current player support

@@ -11,6 +11,7 @@
 $Event(0, Default, function() {
     // SACRED
     $InitializeEvent(0, 5750000);
+    $InitializeEvent(0, 5750140);
     $InitializeEvent(0, 5750001);
     $InitializeEvent(0, 5750002); 
     $InitializeEvent(0, 5750003); 
@@ -9417,58 +9418,96 @@ $Event(5750004, Default, function() {
 
 // SACRED Existing Playthrough Cleanup
 $Event(5750009, Default, function() {
-    // Ancient Dragons' Lightning Spear
+    EndIf(!PlayerIsInOwnWorld());
+    EndIf(EventFlag(69990)); // Once per character, including across NG+.
+
+    // Settle bosses with nothing owed before any wait. A pending normal reward
+    // must not become eligible for catch-up while another exchange is delayed.
+    if (EventFlag(1055420215) || (!PlayerHasItem(ItemType.Goods, 6941)
+        && (!EventFlag(9111) || !EventFlag(510110)))) {
+        SetEventFlagID(1055420800, ON);
+    }
+    if (EventFlag(1055420235) || (!PlayerHasItem(ItemType.Goods, 7050)
+        && (!EventFlag(9115) || !EventFlag(510150)))) {
+        SetEventFlagID(1055420801, ON);
+    }
+    if (EventFlag(1055420210) || (!PlayerHasItem(ItemType.Goods, 6950)
+        && (!EventFlag(1041520800) || !EventFlag(530300)))) {
+        SetEventFlagID(1055420802, ON);
+    }
+    if (EventFlag(1055420230) || (!PlayerHasItem(ItemType.Goods, 2006910)
+        && (!EventFlag(2054390850) || !EventFlag(530805)))) {
+        SetEventFlagID(1055420803, ON);
+    }
+
+    // The obsolete prayerbook can be carried or already delivered without buying spells.
+    SetEventFlagID(11109884, OFF);
+    SetEventFlagID(1037469315, OFF);
+    RemoveItemFromPlayer(ItemType.Goods, 8865, 1);
+    // Ancient Dragons' Lightning Spear and Lightning Strike
     if (!EventFlag(1055420200) && PlayerHasItem(ItemType.Goods, 6940)) {
         WaitFixedTimeSeconds(6);
-        SetEventFlagID(11109884, OFF);
-        SetEventFlagID(1037469315, OFF);
-        RemoveItemFromPlayer(ItemType.Goods, 8865, 1);
         RemoveItemFromPlayer(ItemType.Goods, 6940, 1);
     }
-    // Ancient Dragons' Lightning Strike
     if (!EventFlag(1055420205) && PlayerHasItem(ItemType.Goods, 6910)) {
         WaitFixedTimeSeconds(6);
-        SetEventFlagID(11109884, OFF);
-        SetEventFlagID(1037469315, OFF);
-        RemoveItemFromPlayer(ItemType.Goods, 8865, 1);
         RemoveItemFromPlayer(ItemType.Goods, 6910, 1);
     }
-    // Lannseax's Glaive
-    if (!EventFlag(1055420210) && PlayerHasItem(ItemType.Goods, 6950)) {
-        WaitFixedTimeSeconds(6);
-        RemoveItemFromPlayer(ItemType.Goods, 6950, 1);
-        AwardItemLot(30870);
+    // Lansseax: either the spell exchange or the missed boss hearts, never both.
+    if (!EventFlag(1055420802)) {
+        if (PlayerHasItem(ItemType.Goods, 6950)) {
+            WaitFixedTimeSeconds(6);
+            RemoveItemFromPlayer(ItemType.Goods, 6950, 1);
+            AwardItemLot(30880);
+        } else {
+            WaitFixedTimeSeconds(6);
+            AwardItemLot(30880);
+        }
         DisplayBlinkingMessage(1055421000);
     }
-    // Fortissax's Lightning Spear
-    if (!EventFlag(1055420215) && PlayerHasItem(ItemType.Goods, 6941)) {
-        WaitFixedTimeSeconds(6);
-        SetEventFlagID(510110, OFF);
-        RemoveItemFromPlayer(ItemType.Goods, 6941, 1);
-        AwardItemLot(10116);
+    // Fortissax: either the spell exchange or the missed boss hearts, never both.
+    if (!EventFlag(1055420800)) {
+        if (PlayerHasItem(ItemType.Goods, 6941)) {
+            WaitFixedTimeSeconds(6);
+            RemoveItemFromPlayer(ItemType.Goods, 6941, 1);
+            AwardItemLot(10116);
+        } else {
+            WaitFixedTimeSeconds(6);
+            AwardItemLot(10117);
+        }
         DisplayBlinkingMessage(1055421000);
     }
-    // Betrayer's Dragonbolt (Dragonbolt of Florissax)
-    if (!EventFlag(1055420230) && PlayerHasItem(ItemType.Goods, 2006910)) {
-        WaitFixedTimeSeconds(6);
-        RemoveItemFromPlayer(ItemType.Goods, 2006910, 1);
-        AwardItemLot(30870);
+    // Florissax / Senessax: either the spell exchange or the missed boss hearts, never both.
+    if (!EventFlag(1055420803)) {
+        if (PlayerHasItem(ItemType.Goods, 2006910)) {
+            WaitFixedTimeSeconds(6);
+            RemoveItemFromPlayer(ItemType.Goods, 2006910, 1);
+            AwardItemLot(30890);
+        } else {
+            WaitFixedTimeSeconds(6);
+            AwardItemLot(30890);
+        }
         DisplayBlinkingMessage(1055421000);
     }
-    // Placidusax's Ruin
-    if (!EventFlag(1055420235) && PlayerHasItem(ItemType.Goods, 7050)) {
-        WaitFixedTimeSeconds(6);
-        SetEventFlagID(510150, OFF);
-        RemoveItemFromPlayer(ItemType.Goods, 7050, 1);
-        AwardItemLot(10156);
+    // Placidusax: either the spell exchange or the missed boss hearts, never both.
+    if (!EventFlag(1055420801)) {
+        if (PlayerHasItem(ItemType.Goods, 7050)) {
+            WaitFixedTimeSeconds(6);
+            RemoveItemFromPlayer(ItemType.Goods, 7050, 1);
+            AwardItemLot(10156);
+        } else {
+            WaitFixedTimeSeconds(6);
+            AwardItemLot(10157);
+        }
         DisplayBlinkingMessage(1055421000);
     }
-    // Perfect Runeseal
+    // Perfect Runeseal recovery; normal Goldmask dialogue awards it separately.
     if (EventFlag(60848) && !EventFlag(1055420260)) {
         WaitFixedTimeSeconds(6);
         AwardItemLot(6900);
         SetEventFlagID(1055420260, ON);
     }
+    SetEventFlagID(69990, ON);
     EndEvent();
 });
 
@@ -10301,10 +10340,12 @@ $Event(5750034, Restart, function() {
 
 // SACRED Dragon Communion Elderblood Communion Seal Recipe Award
 $Event(5750035, Restart, function() {
-    if (PlayerHasItem(ItemType.Weapon, 34100000) || PlayerHasItem(ItemType.Weapon, 34200000)) {
+    if (PlayerHasItemIncludingBBox(ItemType.Weapon, 34100000) || PlayerHasItemIncludingBBox(ItemType.Weapon, 34200000)) {
+        SetEventFlagID(1055420241, OFF);
         EndEvent();
     }
-    WaitFor(EventFlag(1055420240));
+    SetEventFlagID(1055420241, OFF);
+    WaitFor(PlayerHasItem(ItemType.Goods, 8870) || PlayerHasItem(ItemType.Goods, 88040) || PlayerHasItem(ItemType.Goods, 88041) || PlayerHasItem(ItemType.Goods, 88042) || PlayerHasItem(ItemType.Goods, 88043) || PlayerHasItem(ItemType.Goods, 88044) || PlayerHasItem(ItemType.Goods, 88045) || PlayerHasItem(ItemType.Goods, 88046) || PlayerHasItem(ItemType.Goods, 88047));
     SetEventFlagID(1055420241, ON);
     WaitFor(PlayerHasItem(ItemType.Goods, 9160));
     RemoveItemFromPlayer(ItemType.Goods, 9160, 1);
@@ -10316,10 +10357,12 @@ $Event(5750035, Restart, function() {
 
 // SACRED Dragon Communion Staff of the Sovereign Recipe Award / Elderblood Greatbow Available
 $Event(5750036, Restart, function() {
-    if (PlayerHasItem(ItemType.Weapon, 34200000)) {
+    if (PlayerHasItemIncludingBBox(ItemType.Weapon, 34200000)) {
+        SetEventFlagID(1055420246, OFF);
         EndEvent();
     }
-    WaitFor(EventFlag(1055420245));
+    SetEventFlagID(1055420246, OFF);
+    WaitFor(PlayerHasItem(ItemType.Goods, 8871) || PlayerHasItem(ItemType.Goods, 88056) || PlayerHasItem(ItemType.Goods, 88057) || PlayerHasItem(ItemType.Goods, 88058) || PlayerHasItem(ItemType.Goods, 88059) || PlayerHasItem(ItemType.Goods, 88060) || PlayerHasItem(ItemType.Goods, 88061) || PlayerHasItem(ItemType.Goods, 88062) || PlayerHasItem(ItemType.Goods, 88063));
     SetEventFlagID(1055420246, ON);
     WaitFor(PlayerHasItem(ItemType.Goods, 9161));
     RemoveItemFromPlayer(ItemType.Goods, 9161, 1);
@@ -11525,3 +11568,1437 @@ $Event(5750132, Default, function() {
     }
     EndEvent();
 });
+
+// BEGIN GENERATED PROFANE TOMES
+// Authored text and allocations: src/tomes/profane-tomes.json.
+// One host controller serializes discovery numbers. Grant before removing receipts.
+$Event(5750140, Restart, function() {
+    EndIf(!PlayerIsInOwnWorld());
+    // The Mortal Vessel
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8872);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+    if (tomeCheck) {
+        SetEventFlagID(1055424200, ON);
+        SetEventFlagID(1055424300, OFF);
+    } else {
+        SetEventFlagID(1055424300, OFF);
+        if (!EventFlag(1055424200)) {
+            SetEventFlagID(1055424300, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8872)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880000);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88000));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880010);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88001));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880020);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88002));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880030);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88003));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880040);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88004));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880050);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88005));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880060);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88006));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880070);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88007));
+                RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8872, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    // The Watching Star
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8873);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+    if (tomeCheck) {
+        SetEventFlagID(1055424201, ON);
+        SetEventFlagID(1055424301, OFF);
+    } else {
+        SetEventFlagID(1055424301, OFF);
+        if (!EventFlag(1055424201)) {
+            SetEventFlagID(1055424301, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8873)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880080);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88008));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880090);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88009));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880100);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88010));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880110);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88011));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880120);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88012));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880130);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88013));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880140);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88014));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880150);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88015));
+                RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8873, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    // Borrowed Divinity
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8874);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+    if (tomeCheck) {
+        SetEventFlagID(1055424202, ON);
+        SetEventFlagID(1055424302, OFF);
+    } else {
+        SetEventFlagID(1055424302, OFF);
+        if (!EventFlag(1055424202)) {
+            SetEventFlagID(1055424302, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8874)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880160);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88016));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880170);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88017));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880180);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88018));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880190);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88019));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880200);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88020));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880210);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88021));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880220);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88022));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880230);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88023));
+                RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8874, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    // The Hunger of Dragons
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8875);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+    if (tomeCheck) {
+        SetEventFlagID(1055424203, ON);
+        SetEventFlagID(1055424303, OFF);
+    } else {
+        SetEventFlagID(1055424303, OFF);
+        if (!EventFlag(1055424203)) {
+            SetEventFlagID(1055424303, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8875)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880240);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88024));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880250);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88025));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880260);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88026));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880270);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88027));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880280);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88028));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880290);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88029));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880300);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88030));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880310);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88031));
+                RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8875, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    // Fire Remembered
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8876);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+    if (tomeCheck) {
+        SetEventFlagID(1055424204, ON);
+        SetEventFlagID(1055424304, OFF);
+    } else {
+        SetEventFlagID(1055424304, OFF);
+        if (!EventFlag(1055424204)) {
+            SetEventFlagID(1055424304, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8876)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880320);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88032));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880330);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88033));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880340);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88034));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880350);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88035));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880360);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88036));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880370);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88037));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880380);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88038));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880390);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88039));
+                RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8876, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    // Elderblood
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8870);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+    if (tomeCheck) {
+        SetEventFlagID(1055424205, ON);
+        SetEventFlagID(1055424305, OFF);
+    } else {
+        SetEventFlagID(1055424305, OFF);
+        if (!EventFlag(1055424205)) {
+            SetEventFlagID(1055424305, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8870)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880400);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88040));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880410);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88041));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880420);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88042));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880430);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88043));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880440);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88044));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880450);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88045));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880460);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88046));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880470);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88047));
+                RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8870, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    // The Price of Power
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8877);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+    if (tomeCheck) {
+        SetEventFlagID(1055424206, ON);
+        SetEventFlagID(1055424306, OFF);
+    } else {
+        SetEventFlagID(1055424306, OFF);
+        if (!EventFlag(1055424206)) {
+            SetEventFlagID(1055424306, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8877)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880480);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88048));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880490);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88049));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880500);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88050));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880510);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88051));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880520);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88052));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880530);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88053));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880540);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88054));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880550);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88055));
+                RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8877, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    // To Become Sovereign
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8871);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+    if (tomeCheck) {
+        SetEventFlagID(1055424207, ON);
+        SetEventFlagID(1055424307, OFF);
+    } else {
+        SetEventFlagID(1055424307, OFF);
+        if (!EventFlag(1055424207)) {
+            SetEventFlagID(1055424307, ON);
+        }
+    }
+    if (PlayerHasItem(ItemType.Goods, 8871)) {
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+        if (!tomeCheck) {
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88000);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88008);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88016);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88024);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88032);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88048);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+            if (!tomeCheck) {
+                AwardItemLot(880560);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88056));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88001);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88009);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88017);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88025);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88033);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88049);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+            if (!tomeCheck) {
+                AwardItemLot(880570);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88057));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88002);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88010);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88018);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88026);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88034);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88050);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+            if (!tomeCheck) {
+                AwardItemLot(880580);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88058));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88003);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88011);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88019);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88027);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88035);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88051);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+            if (!tomeCheck) {
+                AwardItemLot(880590);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88059));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88004);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88012);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88020);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88028);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88036);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88052);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+            if (!tomeCheck) {
+                AwardItemLot(880600);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88060));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88005);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88013);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88021);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88029);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88037);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88053);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+            if (!tomeCheck) {
+                AwardItemLot(880610);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88061));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88006);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88014);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88022);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88030);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88038);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88054);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+            if (!tomeCheck) {
+                AwardItemLot(880620);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88062));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+            WaitFor(PlayerIsInOwnWorld());
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88007);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88015);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88023);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88031);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88039);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88055);
+            tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+            if (!tomeCheck) {
+                AwardItemLot(880630);
+                WaitFor(PlayerHasItem(ItemType.Goods, 88063));
+                RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+                RestartEvent();
+            }
+            WaitFor(PlayerIsInOwnWorld());
+        }
+        WaitFor(PlayerIsInOwnWorld());
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+        tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+        if (tomeCheck) {
+            RemoveItemFromPlayer(ItemType.Goods, 8871, 1);
+        }
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8870);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88040);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88041);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88042);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88043);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88044);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88045);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88046);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88047);
+    if (tomeCheck) {
+        SetEventFlagID(1055420240, ON);
+    }
+    WaitFor(PlayerIsInOwnWorld());
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 8871);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88056);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88057);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88058);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88059);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88060);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88061);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88062);
+    tomeCheck |= PlayerHasItem(ItemType.Goods, 88063);
+    if (tomeCheck) {
+        SetEventFlagID(1055420245, ON);
+    }
+    if (PlayerHasItemIncludingBBox(ItemType.Armor, 110000)) {
+        SetEventFlagID(1055424400, ON);
+    }
+    if (PlayerHasItemIncludingBBox(ItemType.Weapon, 34200000)) {
+        SetEventFlagID(1055420220, ON);
+    }
+    WaitFixedTimeSeconds(0.25);
+    RestartEvent();
+});
+// END GENERATED PROFANE TOMES

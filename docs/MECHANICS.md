@@ -16,6 +16,22 @@ For the broader 2026-09-11 investigation of opening difficulty, Oaths, Divinity 
 custom attacks, see [BALANCE-REVIEW](BALANCE-REVIEW.md) and its stored parameter
 evidence. Its tuning ranges are proposals, not accepted gameplay changes.
 
+For the implemented 2026-09-19 Hadeon threshold boons, fall attrition and
+encounter-only deflect thorns, see [HADEON-COMBAT-UPDATE](HADEON-COMBAT-UPDATE.md).
+That update supersedes the earlier random encounter-boon behavior, preserves
+global follower/Oath behavior, and remains awaiting gameplay acceptance.
+
+For the implemented 2026-09-20 optional guidebooks, discovery numbering, NG+
+retention, and independent Gyre hat flag, see
+[PROFANE-TOMES-UPDATE](PROFANE-TOMES-UPDATE.md). Fresh saves are the target;
+older-save migration is deliberately excluded. Game tests remain pending.
+
+For the 2026-09-20 tome flag correction and once-per-character vanilla-save
+onboarding, see [the implementation record](ONBOARDING-FLAG-FIX-PLAN.md). It records
+valid tome flags, completion marker `69990`, independent dragon compensation
+receipts, pending-reward exclusion, prayerbook cleanup, and the Placidusax stock
+correction. Native/source checks pass; actual NG+ and reward tests remain pending.
+
 ## Nemesis and the physical red crystal
 
 Updated 2026-09-10: **Implemented (static evidence), game tests pending**.

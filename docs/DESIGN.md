@@ -54,10 +54,28 @@ an architectural/design assessment, not a claim of full content verification or
 release readiness. The proposed Hadeon entry seal refines an existing encounter.
 
 
+Profane Tome guidebooks
+----------------------
+
+**Author-approved, 2026-09-20:** expand Gyre's research into eight optional guidebooks,
+numbered by discovery order and retained through NG+. Teach combat without gating
+deflect charge behind a book. Keep the two existing Farum Azula books exclusive to
+their current placements and preserve their progression roles. Suppress duplicate
+sources after collection. Target fresh saves without backward compatibility.
+See the [implementation and distribution](PROFANE-TOMES-UPDATE.md); gameplay
+acceptance is pending.
+
+
 Combat and controls
 -------------------
 
 ### Deflection and active defense
+
+**Author-approved timing trial, 2026-09-19:** extend the opening deflect window
+from 0.2 to 13/60 seconds, leaving shorter repeat-attempt windows and other
+mechanics intact. Implemented in the repository; see the
+[deflect-window update](DEFLECT-WINDOW-UPDATE.md). Deployment and playtesting
+remain separate.
 
 **Implementation evidence:** player HKS has custom deflection animations selected
 by attack direction, guard damage and weapon/hand configuration. Deflection also
@@ -114,7 +132,30 @@ verify its mapping with the selected configuration.
 | Quick shackles | Bring acquired utility/blood abilities into the normal input set | Legacy combinations need current input verification |
 | Quick gestures | Access Totality and Rapture without navigating the gesture menu | Distinguish these actions from the equipped Oath package |
 | Lantern | Toggle an acquired lantern through the replacement hand-change input | HKS configuration and lantern branches |
+| Quick spell casting | Cast either of the first two memorized spells without cycling | `ExecMagic`: Action + L2 selects slot 0; Action + R1 selects slot 1; restores the prior selection after deciding the cast |
 | Quick buff | Consolidate eligible buffs through Numen's Runes/Rune Arcs | Legacy feature; current item-to-effect eligibility needs its own complete trace |
+
+The 2026-09-19 quick-casting source review found that `ExecMagic` checks the
+left-hand casting tool before the right-hand one and retains normal usability
+checks. These spell shortcuts are separate from consumable quick buffs. The
+current quick-cast branches read L2/R1 directly, without the ultimate's
+`swapL1L2Inputs` branch. This is source evidence, not an in-game controller test.
+
+The action-name copy review traced on-foot Block to `ACTION_ARM_L1`
+(`ExecGuardOnCancelTiming`) and Skill to `ACTION_ARM_L2` (`ExecArtsStance`).
+Consequently the default ultimate is Block + Heavy Attack; quick casting is
+Action + Skill for slot 0 and Action + Light Attack for slot 1. The swap setting
+does not establish a universal on-foot Block/Skill reversal: do not describe it
+that way merely from its name. Ordinary two-handing is not a Sovereign feature
+and is omitted from the description's custom-shortcut guide.
+
+Ultimate timing: `ModUltimateAttack` requires both inputs held and `buttonHold < 2`.
+`ModButtonHold` increments the shared counter while Jump, L1 or L2 is held and
+resets it when none is held; it runs every third player update. Heavy Attack does
+not itself advance this counter, so this is not a symmetric comparison of both
+press timestamps. Player-facing instructions should say "Press Block and Heavy
+Attack together," not suggest holding Block indefinitely before attacking. Exact
+real-time tolerance and the separate weapon-specific branches need in-game checks.
 
 Before changing a shortcut, evaluate one/two-handed use, alternate input settings,
 movement, insufficient resources and conflicts with ordinary actions. Accessibility
@@ -243,11 +284,15 @@ gating and new-character tuning are under investigation, not implemented by the
 design review. See [the revised implementation plan](HADEON-SEAL-PLAN.md).
 Preserve crystal destruction as the separate hardcore decision after Hadeon.
 
-**Further direction, 2026-09-19:** make deflection the intended new-character
-solution and increase Nemesis assistance as Hadeon weakens. Percentage HP loss on
-an arena fall/return is under consideration. The [combat investigation](HADEON-ENCOUNTER-REVIEW.md)
-records existing blessings, distinct recovery paths and a proposed attrition loop;
-its numerical prototype is not an accepted runtime change.
+**Accepted combat change, 2026-09-19:** replace random encounter boons with a
+one-time heal at 75% HP, Thorn Ward at 50%, and shriek plus 10% maximum-HP damage
+at 25%. Genuine arena fall returns remove 5% maximum HP. During this encounter,
+successful deflects with an active ward fire a short-range thorn burst without
+consuming a charge or costing player HP, limited by a 0.5-second cooldown.
+Implemented in the repo; gameplay and deployment remain pending. See the
+[combat update](HADEON-COMBAT-UPDATE.md). The earlier
+[investigation](HADEON-ENCOUNTER-REVIEW.md) retains historical findings and superseded
+deflection-credit proposals; no extra deflect meter is part of the accepted change.
 
 **Confirmed intent:** releasing Nemesis starts hardcore. The existing accepted
 implementation uses destruction of crystal entity 18002346 after Hadeon as the

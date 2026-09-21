@@ -777,6 +777,12 @@ $Event(5750300, Restart, function() {
     $InitializeEvent(0, 5750290);
     $InitializeEvent(0, 5750291);
     if (PlayerIsInOwnWorld()) {
+        // Attempt-local milestones and combat state; never reuse follower boon flags.
+        BatchSetEventFlags(1055422930, 1055422933, OFF);
+        ClearSpEffect(10000, 1627102);
+        ClearSpEffect(10000, 1627103);
+        $InitializeEvent(0, 5750305);
+        $InitializeEvent(0, 5750306);
         $InitializeCommonEvent(0, 90005300, 1055420915, 18002354, 0, 0, 0);
     }
     DisableAsset(18000352);
@@ -853,19 +859,26 @@ $Event(5750302, Restart, function() {
     EnableCharacter(18002354);
     $InitializeEvent(0, 5750303);
     $InitializeEvent(0, 5750304);
-    $InitializeEvent(0, 5750305);
     EndEvent();
 });
 
 // SACRED Crucible Lord Hadeon 2
 $Event(5750303, Restart, function() {
     EndIf(!PlayerIsInOwnWorld());
-    WaitFor(CharacterAIState(18002354, AIStateType.Combat) && !InArea(10000, 18002367) && !InArea(10000, 18000361) 
-    && !InArea(10000, 18000362) && !InArea(10000, 18002348) && !InArea(10000, 18002349) && !InArea(10000, 18002375));
+    WaitFor(EventFlag(1055420915) || (CharacterHPValue(10000) > 0
+        && CharacterHPValue(18002354) > 0 && CharacterAIState(18002354, AIStateType.Combat)
+        && !InArea(10000, 18002367) && !InArea(10000, 18000361)
+        && !InArea(10000, 18000362) && !InArea(10000, 18002348)
+        && !InArea(10000, 18002349) && !InArea(10000, 18002375)));
+    EndIf(EventFlag(1055420915));
     DisplayBossHealthBar(Enabled, 18002354, 0, 999900100);
     SetBossBGM(472000, BossBGMState.Start);
-    WaitFor(CharacterHPValue(18002354) <= 0 || !CharacterAIState(18002354, AIStateType.Combat) || InArea(10000, 18002367));
-    if (CharacterHPValue(18002354) > 0 && (!CharacterAIState(18002354, AIStateType.Combat) || InArea(10000, 18002367))) {
+    SetEventFlagID(1055422933, ON);
+    WaitFor(CharacterHPValue(18002354) <= 0 || CharacterHPValue(10000) <= 0 || !CharacterAIState(18002354, AIStateType.Combat) || InArea(10000, 18002367));
+    SetEventFlagID(1055422933, OFF);
+    ClearSpEffect(10000, 1627102);
+    if (CharacterHPValue(18002354) > 0 && (CharacterHPValue(10000) <= 0
+        || !CharacterAIState(18002354, AIStateType.Combat) || InArea(10000, 18002367))) {
         WaitFixedTimeSeconds(6);
         SpawnOneshotSFX(TargetEntityType.Character, 18002354, 220, 440621);
         WarpCharacterAndCopyFloor(18002354, TargetEntityType.Area, 18002366, -1, 18002366);
@@ -896,10 +909,12 @@ $Event(5750303, Restart, function() {
 
 // SACRED Crucible Lord Hadeon 3
 $Event(5750304, Restart, function() {
+    EndIf(!PlayerIsInOwnWorld());
     EndIf(EventFlag(1055420915));
     WaitFor(EventFlag(1055420915) || InArea(18002354, 18002367) || InArea(18002354, 18002349));
     EndIf(EventFlag(1055420915));
     WaitFixedTimeSeconds(0.1);
+    EndIf(EventFlag(1055420915) || CharacterHPValue(18002354) <= 0);
     if (InArea(18002354, 18002349) && !InArea(10000, 18002348) && !InArea(10000, 18002349)) {
         SpawnOneshotSFX(TargetEntityType.Character, 18002354, 220, 440621);
         PlaySE(10000, SoundType.SFX, 6800);
@@ -924,7 +939,11 @@ $Event(5750304, Restart, function() {
         $InitializeEvent(0, 5750302);
         RestartEvent();
     }
-    BatchSetEventFlags(1055422920, 1055422925, OFF); 
+    // Only the below-arena recovery is a damaging fall, never a retreat teleport.
+    if (!InArea(18002354, 18002367) || CharacterHPValue(18002354) <= 0) {
+        RestartEvent();
+    }
+    BatchSetEventFlags(1055422920, 1055422925, OFF);
     RandomlySetEventFlagInRange(1055422920, 1055422925, ON);
     SpawnOneshotSFX(TargetEntityType.Character, 18002354, 220, 440621);
     PlaySE(10000, SoundType.SFX, 6800);
@@ -950,71 +969,93 @@ $Event(5750304, Restart, function() {
         SpawnOneshotSFX(TargetEntityType.Area, 18002373, -1, 440481);
     }
     RequestCharacterAnimationReset(18002354, 0);
+    WaitFor(CharacterHPValue(18002354) <= 0 || !InArea(18002354, 18002367));
+    if (!EventFlag(1055420915)
+        && CharacterHPValue(18002354) > 0 && CharacterHPValue(10000) > 0
+        && InArea(10000, 18000359) && !InArea(10000, 18002367)) {
+        SetSpEffect(18002354, 1627100); // One pulse: 5% of maximum HP, after arrival.
+    }
     WaitFixedTimeSeconds(1);
     RestartEvent();
 });
 
-// SACRED Crucible Lord Hadeon Nemesis Blessings 1
+// SACRED Hadeon presence: short-lived, host-only permission for deflect thorns.
 $Event(5750305, Restart, function() {
-    WaitFixedTimeSeconds(30);
+    EndIf(!PlayerIsInOwnWorld());
+    if (!EventFlag(1055420915) && EventFlag(1055422933)
+        && CharacterHPValue(18002354) > 0 && CharacterHPValue(10000) > 0
+        && InArea(10000, 18000359) && !InArea(10000, 18002367)
+        && !InArea(18002354, 18002367)) {
+        SetSpEffect(10000, 1627102);
+    } else {
+        ClearSpEffect(10000, 1627102);
+    }
     EndIf(EventFlag(1055420915));
-    $InitializeEvent(0, 5750306);
-    EndEvent();
+    if (CharacterHPValue(10000) <= 0) {
+        BatchSetEventFlags(1055422930, 1055422932, OFF);
+        ClearSpEffect(10000, 1627103);
+    }
+    WaitFixedTimeSeconds(0.05);
+    RestartEvent();
 });
 
-// SACRED Crucible Lord Hadeon Nemesis Blessings 2
+// SACRED Hadeon milestones: heal at 75%, Thorn Ward at 50%, shriek at 25%.
 $Event(5750306, Restart, function() {
-    WaitFor(InArea(10000, 18000359) && !InArea(10000, 18002367) && CharacterHPValue(18002354) > 0);
-    if (!InArea(10000, 18000359) || InArea(10000, 18002367) || CharacterHPValue(18002354) <= 0) {
-        EndEvent();
+    EndIf(!PlayerIsInOwnWorld());
+    EndIf(EventFlag(1055420915));
+    WaitFor(EventFlag(1055420915) || (EventFlag(1055422933)
+        && CharacterHPValue(18002354) > 0 && CharacterHPValue(10000) > 0
+        && InArea(10000, 18000359) && !InArea(10000, 18002367)
+        && !InArea(18002354, 18002367)
+        && ((!EventFlag(1055422930) && HPRatio(18002354) <= 0.75)
+            || (!EventFlag(1055422931) && HPRatio(18002354) <= 0.50)
+            || (!EventFlag(1055422932) && HPRatio(18002354) <= 0.25))));
+    EndIf(EventFlag(1055420915));
+    if (!EventFlag(1055422933) || CharacterHPValue(10000) <= 0
+        || CharacterHPValue(18002354) <= 0 || !InArea(10000, 18000359)
+        || InArea(10000, 18002367) || InArea(18002354, 18002367)) {
+        RestartEvent();
     }
-    if (!EventFlag(1055422049)) {
-        WaitRandomTimeSeconds(5, 10);
-        SetSpEffect(10000, 1626986);
-        SetSpEffect(10000, 1626991);
-        SetSpEffect(10000, 1626993);
-    }
-    BatchSetEventFlags(1055422050, 1055422055, OFF);
-    RandomlySetEventFlagInRange(1055422050, 1055422055, ON);
-    SetEventFlagID(1055422049, OFF); 
-    if (EventFlag(1055422050) || EventFlag(1055422051)) {
-        if (CharacterHasSpEffect(10000, 239)) {
-            SetEventFlagID(1055422049, ON);
-            RestartEvent();
-        }
+    SetSpEffect(10000, 1626986);
+    SetSpEffect(10000, 1626991);
+    SetSpEffect(10000, 1626993);
+    if (!EventFlag(1055422930) && HPRatio(18002354) <= 0.75) {
+        // Consume the milestone even if the player is already at full health.
+        SetEventFlagID(1055422930, ON);
         $InitializeEvent(0, 5750340);
         SpawnOneshotSFX(TargetEntityType.Character, 10000, 220, 7505981);
         PlaySE(10000, SoundType.SFX, 523875);
         SetSpEffect(10000, 1626935);
-        WaitFixedTimeSeconds(1);
-        RestartEvent();
-    } else if (EventFlag(1055422052) || EventFlag(1055422053) || EventFlag(1055422054)) {
-        if (CharacterHasSpEffect(10000, 1626916)) {
-            SetEventFlagID(1055422049, ON);
-            RestartEvent();
-        }
+    }
+    if (!EventFlag(1055422931) && HPRatio(18002354) <= 0.50) {
+        SetEventFlagID(1055422931, ON);
         SetSpEffect(10000, 1626926);
         ClearSpEffect(10000, 1626916);
         ClearSpEffect(10000, 1626917);
         ClearSpEffect(10000, 1626918);
         ClearSpEffect(10000, 1626926);
         SetSpEffect(10000, 1626915);
-        WaitFixedTimeSeconds(0.1);
         $InitializeEvent(0, 5750340);
         SetSpEffect(10000, 1626916);
         $InitializeEvent(0, 5750308);
-        WaitFixedTimeSeconds(1);
-        RestartEvent();
-    } else if (EventFlag(1055422055)) {
+    }
+    if (!EventFlag(1055422932) && HPRatio(18002354) <= 0.25) {
         PlaySE(10000, SoundType.SFX, 530181);
         WaitFixedTimeSeconds(0.1);
         PlaySE(10000, SoundType.SFX, 450264);
         PlaySE(10000, SoundType.SFX, 450264);
         WaitFixedTimeSeconds(0.2);
-        SetSpEffect(10000, 1626976);
-        WaitFixedTimeSeconds(1);
-        RestartEvent();
+        // No delayed grant or damage after death, retreat, victory or a fall.
+        if (!EventFlag(1055420915) && EventFlag(1055422933)
+            && CharacterHPValue(18002354) > 0 && CharacterHPValue(10000) > 0
+            && InArea(10000, 18000359) && !InArea(10000, 18002367)
+            && !InArea(18002354, 18002367)) {
+            SetEventFlagID(1055422932, ON);
+            SetSpEffect(10000, 1626976);
+            SetSpEffect(18002354, 1627101); // 10% maximum HP, independent of AoE contact.
+        }
     }
+    WaitFixedTimeSeconds(0.05);
     RestartEvent();
 });
 

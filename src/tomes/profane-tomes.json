@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "eventId": 5750140,
+  "hatFlag": 1055424400,
+  "fireMonkLot": 390000007,
+  "books": [
+    {
+      "subject": 0,
+      "title": "The Mortal Vessel",
+      "receiptGoods": 8872,
+      "variants": [
+        88000,
+        88001,
+        88002,
+        88003,
+        88004,
+        88005,
+        88006,
+        88007
+      ],
+      "collectedFlag": 1055424200,
+      "availableFlag": 1055424300,
+      "stockFlag": 1055424500,
+      "shops": [
+        {
+          "row": 100521,
+          "price": 500
+        }
+      ],
+      "mapLot": null,
+      "caption": "An early volume of Magus Gyre's research into the limitations of mortal flesh. Its margins bear diagrams of broken blades and hands corrected again and again.\n\nRaise your guard just before a blow lands to deflect it. No special crystal tear is required. Successful deflections and defeated enemies charge your weapon's ultimate.\n\nWhen ready, press Block and Heavy Attack together. Some weapons require their weapon buff first. Attacking while crouched reveals further techniques, which may differ between one-handed and two-handed use.\n\nWith a suitable catalyst equipped, hold Action and press Skill to cast the first memorized spell, or Light Attack for the second. Normal requirements and costs apply.\n\n\"Each blow turned aside prepares an answer. The wise do not merely endure their enemy's strength. They return it.\""
+    },
+    {
+      "subject": 1,
+      "title": "The Watching Star",
+      "receiptGoods": 8873,
+      "variants": [
+        88008,
+        88009,
+        88010,
+        88011,
+        88012,
+        88013,
+        88014,
+        88015
+      ],
+      "collectedFlag": 1055424201,
+      "availableFlag": 1055424301,
+      "stockFlag": 1055424510,
+      "shops": [
+        {
+          "row": 100670,
+          "price": 1000
+        }
+      ],
+      "mapLot": null,
+      "caption": "A volume of Magus Gyre's observations upon the Blood Star. What began as a record of celestial phenomena ends as an account of being watched.\n\nNemesis offers shelter, yet regards devotion as possession. Its favour is generous where obedience is assured; beyond that shelter, its influence makes the world crueler.\n\nGreat Runes draw its attention. Sin Eclipses spread its malice among the living. Wearing the Aberrant Bindseal grants protection and suppresses Nightmare Mode, even after the crystal is shattered. Removing the seal restores the danger and consumes the seal; the shrine's rite may be repeated.\n\n\"It does not wish me dead. That would be simpler. It wishes every other light extinguished, until I can see by its radiance alone.\""
+    },
+    {
+      "subject": 2,
+      "title": "Borrowed Divinity",
+      "receiptGoods": 8874,
+      "variants": [
+        88016,
+        88017,
+        88018,
+        88019,
+        88020,
+        88021,
+        88022,
+        88023
+      ],
+      "collectedFlag": 1055424202,
+      "availableFlag": 1055424302,
+      "stockFlag": 1055424520,
+      "shops": [
+        {
+          "row": 100379,
+          "price": 1000
+        }
+      ],
+      "mapLot": 10000250,
+      "caption": "A volume of Magus Gyre's comparative studies of sacred seals. Orthodox prayers crowd the margins, each followed by a smaller, less reverent correction.\n\nRadagon's and Marika's Scarseals grant the Oath of Order. Their Soreseals grant Golden Order. Equip the appropriate seal, then hold Action and press Crouch when the Oath is ready.\n\nOrder joins Golden Vow with healing over time; Golden Order strengthens that healing. Goldmask's Perfect Runeseal opens the way to Totality and Sacred Ward. Stamina still limits the protection of the stance.\n\nGreat Runes also confer passive benefits. Consider what you carry, not merely what you have activated.\n\n\"A blessing is an arrangement. A seal, its signature. They call obedience the source of power, yet the instrument answers whoever bears it. A most unfortunate oversight.\""
+    },
+    {
+      "subject": 3,
+      "title": "The Hunger of Dragons",
+      "receiptGoods": 8875,
+      "variants": [
+        88024,
+        88025,
+        88026,
+        88027,
+        88028,
+        88029,
+        88030,
+        88031
+      ],
+      "collectedFlag": 1055424203,
+      "availableFlag": 1055424303,
+      "stockFlag": 1055424530,
+      "shops": [
+        {
+          "row": 100828,
+          "price": 1500
+        }
+      ],
+      "mapLot": null,
+      "caption": "A volume of Magus Gyre's research into communion through consumption. Anatomical drawings give way to increasingly uncertain distinctions between the devourer and the devoured.\n\nDragon Communion grants power at a cost. Dragonrot becomes especially dangerous as health dwindles, and further communion can deepen the affliction.\n\nAdvanced dragon incantations demand considerable Arcane investment. Cheap casting does not always mean effortless casting; certain ancient rites allow few uses and consume substantial stamina.\n\nThe Frenzied Flame can suppress Dragonrot, but carries an affliction of its own. The Fatesever Needle offers protection while equipped.\n\n\"The heart was swallowed. Why, then, does it continue to hunger? I have counted my own pulse beside its pulse. They are drawing closer.\""
+    },
+    {
+      "subject": 4,
+      "title": "Fire Remembered",
+      "receiptGoods": 8876,
+      "variants": [
+        88032,
+        88033,
+        88034,
+        88035,
+        88036,
+        88037,
+        88038,
+        88039
+      ],
+      "collectedFlag": 1055424204,
+      "availableFlag": 1055424304,
+      "stockFlag": 1055424540,
+      "shops": [
+        {
+          "row": 100799,
+          "price": 2500
+        }
+      ],
+      "mapLot": null,
+      "caption": "A volume of Magus Gyre's experiments upon inherited flame and borrowed lightning. Most conclusions were apparently reached before the surrounding pages caught fire.\n\nThe four Fire Giant incantations draw upon a reserve that doubles their damage at full strength. Repeated casting diminishes the bonus; one step recovers each minute. Flame of the Fell God exhausts the reserve.\n\nThe Fire Giant's death severs this benefit. Kindling the Forge restores its full strength without further depletion.\n\nDragonbolt blessings quicken movement, aid stamina recovery, and resist status buildup, but leave the body more vulnerable to lightning. Lesser fortifications last five minutes; major fortifications and healing blessings last three.\n\n\"The giant is a custodian, not the source. Kill the custodian and the door closes. Light the furnace, and we shall discover whether doors are still necessary.\""
+    },
+    {
+      "subject": 5,
+      "title": "Elderblood",
+      "receiptGoods": 8870,
+      "variants": [
+        88040,
+        88041,
+        88042,
+        88043,
+        88044,
+        88045,
+        88046,
+        88047
+      ],
+      "collectedFlag": 1055424205,
+      "availableFlag": 1055424305,
+      "stockFlag": 1055424550,
+      "shops": [],
+      "mapLot": 13000830,
+      "caption": "The culmination of Magus Gyre's research into draconic transfiguration, its vellum a maze of maddening theorems, unheard and unheeded.\n\nUnlocks Ancient Dragon Communion.\n\nAcquire the knowledge to craft the Elderblood Communion Seal from a Dragon Communion Seal strengthened to +10 and one Ancient Dragon Heart.\n\nAncient communion demands more than the imitation of a dragon's breath. Through Elderblood, the vessel itself may be prepared to receive greater power.\n\n\"Indeed, Dragonrot can be swallowed by the Mad Flame, fouler still than any rot; yet hush them, hush them with unalloyed gold roused amid the storm's own screaming...\""
+    },
+    {
+      "subject": 6,
+      "title": "The Price of Power",
+      "receiptGoods": 8877,
+      "variants": [
+        88048,
+        88049,
+        88050,
+        88051,
+        88052,
+        88053,
+        88054,
+        88055
+      ],
+      "collectedFlag": 1055424206,
+      "availableFlag": 1055424306,
+      "stockFlag": 1055424560,
+      "shops": [
+        {
+          "row": 100748,
+          "price": 2500
+        }
+      ],
+      "mapLot": 12050330,
+      "caption": "A volume of Magus Gyre's investigations into blood as both offering and instrument. The handwriting remains precise wherever the author's hand ceased trembling.\n\nRapture and Mohg's Shackle turn the caster's own health into bloodflame power. Such rites are dangerous when joined with afflictions that worsen near death.\n\nBloodflame Blasphemy replaces holy blessings. Its protection may be consumed to avert death in an eruption of bloodflame.\n\nMohgwyn's Sacred Spear can grant Supremacy through its ultimate. This blessing also carries a means of surviving death, but neither protection is inexhaustible.\n\n\"They speak of sacrifice as though the loss were proof of devotion. Nonsense. Measure the blood. Measure what answers. Never pay twice for a miracle that has already departed.\""
+    },
+    {
+      "subject": 7,
+      "title": "To Become Sovereign",
+      "receiptGoods": 8871,
+      "variants": [
+        88056,
+        88057,
+        88058,
+        88059,
+        88060,
+        88061,
+        88062,
+        88063
+      ],
+      "collectedFlag": 1055424207,
+      "availableFlag": 1055424307,
+      "stockFlag": 1055424570,
+      "shops": [],
+      "mapLot": 13000120,
+      "caption": "The final volume of Magus Gyre's research into draconic transfiguration. Its diagrams no longer distinguish between the body, the heavens, and the vessel intended to contain them.\n\nAcquire the knowledge to craft the Staff of the Sovereign from the Elderblood Communion Seal and the Staff of the Great Beyond. Crafting the staff also reveals Elderblood Greatbow among the ancient communion offerings.\n\nSovereign Fury grants power at a temporary cost to maximum health, focus, and stamina. With the Entwining Umbilical Cord, sufficient vitality, and airborne Fury, seek Soulflame Divinity.\n\nWhile untouched, many blessings cease to diminish. Injury sets their remaining time in motion again. Oath and ultimate cooldowns continue normally.\n\n\"Yes, yes! A crimson cosmos infused with Elderblood, a snarling siphon primed to yank the arcane torrent backward and drink the very breath of gods! At the Gate, at the Gate it will be enough!\""
+    }
+  ]
+}

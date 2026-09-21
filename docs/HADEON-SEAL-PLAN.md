@@ -2,13 +2,13 @@ Hadeon mandatory opening encounter
 ==================================
 
 Status: revised design direction under investigation, 2026-09-11. The latest
-request supersedes the earlier optional key-triggered commitment proposal. No
-runtime, map or regulation edits implement this revised direction yet.
+request supersedes the earlier optional key-triggered commitment proposal.
+Keyless access and travel gating remain unimplemented; combat assistance has a
+separate [implemented update](HADEON-COMBAT-UPDATE.md), with game tests pending.
 
-The 2026-09-19 [combat investigation](HADEON-ENCOUNTER-REVIEW.md) traces current
-Nemesis support and arena returns, and proposes deflection-earned attrition with
-stronger assistance as Hadeon loses HP. Its numbers and reward schedule remain
-playtest proposals; no combat implementation accompanied the investigation.
+The 2026-09-19 [combat investigation](HADEON-ENCOUNTER-REVIEW.md) traces
+the former Nemesis support and arena returns. Its deflection-credit proposal was
+superseded by the approved minimal threshold-boon and deflect-thorn update.
 
 
 Requested direction

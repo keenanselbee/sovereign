@@ -33,6 +33,9 @@ Baseline and acceptance:
 
 `common.emevd.dcx` and other EMEVD files:
 
+- Before allocating state, consult [the event flag reference](EVENT-FLAGS.md) for
+  valid ranges, stock counter spacing, and reload versus NG+ lifetime. An unused
+  number is not necessarily a valid flag.
 - Edit the existing reviewed JS under `src/events`; compile with configured DarkScript3
   (`Z:\Modding\Elden Ring\Tools\DarkScript\DarkScript3.exe` on this workstation).
   Use `python tools/sovereign.py build-events` for isolated candidates. Run with

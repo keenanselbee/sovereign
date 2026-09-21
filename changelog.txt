@@ -1,6 +1,9 @@
 Version 1.0.1
-Use regular version numbers for local propagation instead of timestamped development labels.
-Queue finalization across game profiles while preserving disabled states, with explicit profile and stage-only options.
+Added eight Profane Tomes with discovery-order numbering, merchant and world sources, and retained knowledge in NG+.
+Corrected tome collection, shop, and hat flags to valid saved ranges.
+Made vanilla-save onboarding run once per character and preserve learned spells in NG+.
+Added separate dragon compensation receipts to prevent duplicate grants and preserve pending normal boss rewards.
+Corrected Placidusax's spell shop flag and removed obsolete prayerbook access independently of spell ownership.
 
 Version 1.0.0
 Added Hewg's Fallingstar Obliterator forging option after defeating the Godskin Duo and the three base-game Fallingstar Beasts.
@@ -12,3 +15,9 @@ Updated shrine persistence, Hadeon's defeat and reward handling, and the red cry
 Added the upstream Torrent appearance menu to the shared Grace dialogue.
 Merged current game menu text, missing effects and icon assets into the mod's existing custom assets.
 Recovered missing custom visual effects and the Obliterator ultimate motion in the authoring files.
+Replaced Hadeon's random Nemesis boons with health milestones: a full heal at 75%, Thorn Ward at 50%, and a shriek dealing 10% of his maximum health at 25%.
+Made Hadeon's arena-fall teleports cost 5% of his maximum health.
+Added a short-range thorn burst on successful deflects while Thorn Ward is active in Hadeon's Nemesis encounter, with a half-second cooldown.
+Extended the opening deflect window by one frame at 60 FPS, from 200 to approximately 217 milliseconds.
+Use regular version numbers for local propagation instead of timestamped development labels.
+Queue finalization across game profiles while preserving disabled states, with explicit profile and stage-only options.
