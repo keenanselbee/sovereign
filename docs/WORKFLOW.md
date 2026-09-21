@@ -33,15 +33,35 @@ Normal edit and propagation
 ---------------------------
 
 1. Read the relevant editing guide/update report and compare scoped repo/editor
-   inputs. Preserve custom changes and choose a baseline by content.
+   inputs. Preserve custom changes and choose a baseline by content. Automatic
+   propagation checks the last verified shared hashes in `.sovereign/editor-sync.json`
+   and stops on stale sources or independently changed destinations.
 2. Edit with the appropriate tool, build an isolated candidate, and inspect decoded
    differences. Build success alone does not prove intended gameplay.
-3. Accept matching source/output together. Reload old editor buffers after handoffs.
-4. Explicit propagation prepares an immutable package and queues VDB finalization
-   across all game profiles. Enabled versions deploy when active and safe; disabled
-   selections update without enabling/deploying; absent packages stay absent.
+3. For the completed batch of changed packaged files, advance `mod.json` to the next
+   unused regular version, update the changelog and dependent target metadata, and run
+   `version-check`. Bump once per cohesive batch; identical retries and documentation
+   or tooling changes outside the package do not need another mod version.
+4. Accept matching source/output together, then sync the affected catalogued files
+   back to their configured manual editor workspaces by default. The author has
+   authorized these scoped syncs without another confirmation. Use the guarded,
+   recoverable `accept-plan --from repo` / `accept` workflow and each format's
+   qualification; resolve independent editor edits first. Reload old editor buffers
+   after handoffs. Report any sync that could not complete.
+5. As the default completion step, prepare the affected immutable package and queue
+   protocol-3 VDB finalization across all game profiles. This has standing author
+   authorization; do not wait for another staging/deployment request. Enabled versions
+   deploy when active and safe; disabled selections update without enabling/deploying;
+   absent packages stay absent. If Vortex is closed, leave the durable request queued
+   for its next launch instead of launching Vortex merely to process it. Combine all
+   affected scopes in one package before staging a version, rather than staging
+   different intermediate payloads under the same version.
    After completion, refresh the local receipt to select the verified packaging stage.
-5. Record actual gameplay results in TEST-MATRIX only after an observed game test.
+   Report queued work as queued, with its receipt; resume that request later.
+6. Record actual gameplay results in TEST-MATRIX only after an observed game test.
+
+Explicit stage-only, local-only, audit, or DNE instructions override the normal
+completion behavior. This default does not authorize Nexus publication or commits.
 
 ```powershell
 python tools/sovereign.py status --scope maps
@@ -58,8 +78,9 @@ example explicit profile is this workstation's Elden Ring Default. It need not b
 active to queue work. `-StageOnly` stages without changing profiles or selecting a
 packaging source. The launcher defaults to editor input and the checked regular version from
 `mod.json`, currently `1.0.1`; `-Source repo` selects accepted repo input explicitly.
-It does not generate development labels or bump the version. Once a version is staged,
-changed package bytes require a new target and matching changelog block.
+The launcher does not itself author changelog entries or bump the version; the agent
+must complete step 3 before invoking it. It does not generate development labels.
+Once a version is staged, changed package bytes require a new target and changelog.
 See [release numbering and Grailwright parity](VDB-RELEASE-PARITY.md) for the initial
 1.0.0 changelog, release checks and remaining promotion work.
 The nine familiar external VBS filenames now call this launcher. They no longer purge

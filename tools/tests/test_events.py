@@ -30,6 +30,7 @@ class EventTests(unittest.TestCase):
                      'editor/src/common.emevd.dcx.js', 'src/events/common_func.emevd.dcx.js',
                      'editor/src/common_func.emevd.dcx.js'):
             self.write(name, b'old')
+        assets.record_sync_baseline(self.root, self.settings)
         for patch in (mock.patch.object(events.core, 'ROOT', self.root),
                       mock.patch.object(events, 'tool_hashes', return_value={'compiler': 'v1'}),
                       mock.patch.object(events.core, 'build_inspector', return_value=(self.root, {})),

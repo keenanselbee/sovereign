@@ -34,6 +34,7 @@ def prepare(root, settings, scope, role, package, version, qualification=None):
     vdb.project(root)
     if not vdb.re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9.-]+)?', version):
         raise ValueError('Pass an explicit development/release version')
+    assets.check_sync_conflicts(root, settings, scope, role, require_known=True)
     if any(s in ('animations', 'hks') for s in scopes):
         assets.validate_player_qualification(root, settings, role, qualification)
     if 'talk' in scopes:
@@ -97,6 +98,8 @@ def apply(root, settings, receipt):
             for entry in handoff['entries']:
                 accepted_guards[entry['destination']] = entry['after']
             assets.apply_handoff(root, settings, doc['handoff'])
+        else:
+            assets.record_sync_baseline(root, settings, doc['scope'])
         doc.update(status='source-accepted', acceptedGuards=accepted_guards, expectedRuntime=expected_runtime)
         assets.save(path, doc)
     elif expected_runtime != doc.get('expectedRuntime'):
@@ -286,6 +289,8 @@ def main():
     elif args.command == 'run':
         import finish_workflow
         finish_workflow.compatible_client(core.ROOT)
+        # Check before SFX build/save can overwrite a saved editor output.
+        assets.check_sync_conflicts(core.ROOT, settings, args.scope, args.source, require_known=True)
         scopes = assets.catalog(core.ROOT).get('coordinatedScopes', {}).get(args.scope, [args.scope])
         if not args.qualification and any(s in ('animations', 'hks') for s in scopes):
             import player_workflow

@@ -247,7 +247,78 @@ def matches_scope(data, scope, row):
     return row['scope'] in scopes or row['group'] in scopes
 
 
-def prepare_handoff(root, settings, scope, source, qualification=None):
+def sync_state(root):
+    path = safe_path(root, '.sovereign/editor-sync.json')
+    state = read(path) if path.exists() else {'schemaVersion': 1, 'pairs': {}}
+    if state.get('schemaVersion') != 1 or not isinstance(state.get('pairs'), dict):
+        raise ValueError('Invalid editor sync baseline; inspect .sovereign/editor-sync.json')
+    return state
+
+
+def sync_pair(repo, editor):
+    # Paths identify each pair, so changing a configured workspace cannot reuse its history.
+    return fingerprint([str(Path(repo).resolve()).casefold(), str(Path(editor).resolve()).casefold()])
+
+
+def check_sync_conflicts(root, settings, scope, source, require_known=False):
+    state = sync_state(root)
+    data = catalog(root)
+    destination = 'editor' if source == 'repo' else 'repo'
+    for row in locations(root, settings, data, True):
+        if scope != 'all' and not matches_scope(data, scope, row):
+            continue
+        paths = row['paths']
+        if 'editor' not in paths:
+            continue
+        src, dst = checksum(paths[source]), checksum(paths[destination])
+        if src == dst:
+            continue
+        baseline = state['pairs'].get(sync_pair(paths['repo'], paths['editor']))
+        if baseline is None:
+            if require_known and dst is not None:
+                raise ValueError(f'No shared sync baseline for {row["file"]}; review a scoped '
+                                 'accept-plan/accept handoff before automatic propagation')
+            continue
+        if not re.fullmatch(r'[0-9a-f]{64}', baseline.get('sha256', '')):
+            raise ValueError('Invalid content hash in editor sync baseline')
+        if dst != baseline['sha256']:
+            reason = 'selected source is stale' if src == baseline['sha256'] else 'both sides changed'
+            raise ValueError(f'Sync conflict ({reason}): {row["file"]}. Reconcile the contents, '
+                             'then use accept-plan --resolve-conflicts with the reviewed source. '
+                             'No files were copied.')
+
+
+def record_sync_guards(root, guards, source):
+    state = sync_state(root)
+    for row in guards:
+        src, dst = Path(row['source']), Path(row['destination'])
+        if checksum(src) != row['after'] or checksum(dst) != row['after']:
+            raise ValueError('Cannot record a sync baseline for differing or missing files')
+        repo, editor = (src, dst) if source == 'repo' else (dst, src)
+        state['pairs'][sync_pair(repo, editor)] = {
+            'repo': str(repo), 'editor': str(editor), 'sha256': row['after']}
+    save(safe_path(root, '.sovereign/editor-sync.json'), state)
+
+
+def record_sync_baseline(root, settings, scope='all'):
+    # Explicitly record only observed equality; never infer a winner from dates/history.
+    with lock(root):
+        data = catalog(root)
+        guards, skipped = [], []
+        for row in locations(root, settings, data, True):
+            if (scope != 'all' and not matches_scope(data, scope, row)) or 'editor' not in row['paths']:
+                continue
+            repo, editor = row['paths']['repo'], row['paths']['editor']
+            value = checksum(repo)
+            if value is not None and value == checksum(editor):
+                guards.append({'source': str(repo), 'destination': str(editor), 'after': value})
+            else:
+                skipped.append(row['file'])
+        record_sync_guards(root, guards, 'repo')
+        return {'recorded': len(guards), 'skipped': skipped}
+
+
+def prepare_handoff(root, settings, scope, source, qualification=None, resolve_conflicts=False):
     if scope == 'all' or source not in ('repo', 'editor'):
         raise ValueError('Choose a specific scope and --from repo or editor')
     data = catalog(root)
@@ -286,12 +357,14 @@ def prepare_handoff(root, settings, scope, source, qualification=None):
                             'destination': str(dst), 'before': before, 'after': after})
     if not entries:
         raise ValueError('No differing files with a configured handoff destination in this scope')
+    if not resolve_conflicts:
+        check_sync_conflicts(root, settings, scope, source)
     directory = safe_path(root, '.sovereign/handoffs/' + uuid.uuid4().hex)
     directory.mkdir(parents=True)
     document = {'schemaVersion': 1, 'status': 'planned', 'scope': scope, 'sourceRole': source,
                 'root': str(Path(root).resolve()), 'catalogHash': fingerprint(data),
                 'settingsHash': fingerprint(settings), 'entries': entries, 'guards': guards,
-                'qualification': proof,
+                'qualification': proof, 'resolveConflicts': resolve_conflicts,
                 'note': 'Exact-byte source acceptance only; inspect semantics and build evidence before applying. No stage/live writes.'}
     save(directory / 'receipt.json', document)
     return directory / 'receipt.json'
@@ -311,6 +384,8 @@ def validate_receipt(root, settings, path, restoring=False):
     source = document['sourceRole']
     if source not in ('repo', 'editor') or document['schemaVersion'] != 1:
         raise ValueError('Invalid handoff schema or source role')
+    if not isinstance(document.get('resolveConflicts', False), bool):
+        raise ValueError('Conflict resolution must be an explicit boolean')
     destination = 'editor' if source == 'repo' else 'repo'
     scope = document['scope']
     if scope in {group['id'] for group in data['sources']}:
@@ -371,6 +446,8 @@ def apply_handoff(root, settings, path):
         for row in document['guards']:
             if checksum(row['source']) != row['after'] or checksum(row['destination']) != row['before']:
                 raise ValueError('Source/destination changed since plan: ' + row['destination'])
+        if not document.get('resolveConflicts', False):
+            check_sync_conflicts(root, settings, document['scope'], document['sourceRole'])
         # Finish independent backups and candidate copies before the first destination mutation.
         for i, row in enumerate(document['entries']):
             candidate = path.parent / f'{i:05d}-after.bin'
@@ -406,6 +483,7 @@ def apply_handoff(root, settings, path):
                    for row in document['guards']):
                 raise ValueError('Source/companion changed before handoff verification finished')
             validate_receipt(root, settings, path)
+            record_sync_guards(root, document['guards'], document['sourceRole'])
             document['status'] = 'complete'
         except Exception as error:
             document.update(status='interrupted', error=str(error))

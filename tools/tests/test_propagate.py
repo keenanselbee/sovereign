@@ -38,6 +38,7 @@ class PropagateTests(unittest.TestCase):
         for name in ('mod', 'editor'):
             (self.root / name).mkdir()
             (self.root / name / 'regulation.bin').write_bytes(b'accepted')
+        assets.record_sync_baseline(self.root, self.settings)
 
     def test_item_file_handoff_preserves_menu_and_validates_exact_guards(self):
         self.data['groups'][0].update(id='text', scope='text', recipe='fmg',
@@ -45,6 +46,9 @@ class PropagateTests(unittest.TestCase):
         assets.save(self.root / 'asset-catalog.json', self.data)
         for name in ('item.dcx', 'menu.dcx'):
             (self.root / 'mod' / name).write_bytes(b'accepted')
+            (self.root / 'editor' / name).write_bytes(b'accepted')
+        assets.record_sync_baseline(self.root, self.settings)
+        for name in ('item.dcx', 'menu.dcx'):
             (self.root / 'editor' / name).write_bytes(b'editor change')
         with mock.patch.object(propagate.vdb, 'project'):
             path = propagate.prepare(self.root, self.settings, 'file:item.dcx', 'editor', 'main', '0.0.0-test')

@@ -1,7 +1,37 @@
 VDB and versioned release workflow
 =================================
 
-Current policy, 2026-09-12: the authored target is **1.0.1**. Propagation now uses
+Current completion policy, 2026-09-20: each completed batch of changed packaged
+files includes a version bump, verified manual-editor sync, and queued VDB
+finalization. Enabled mods deploy when active and safe; closed Vortex processes
+the queue next launch. Disabled/absent packages remain so. Explicit stage-only
+requests override the default. Documentation/tooling outside the package and
+identical retries do not produce another mod version. The agent updates version
+and changelog before using the existing launcher, which does not author them.
+Main 1.0.1 is staged, enabled, and deployed with verified live bytes in the Elden
+Ring Default profile; textures retain their unchanged 1.0.0 payload. The existing
+protocol-3 finalization reused build `47e326a49d8cc47e85a274b8` without restaging
+different contents or bumping its version. Its completed receipt is
+`.vdb/finalizations/default-completion-1.0.1/receipt.json`, request
+`c21404b1-9f88-43d8-a58e-f2c1c0638033`. The verified build is now the selected
+packaging source. This is deployment verification, not gameplay acceptance.
+
+Seven existing finalization tests passed after the policy update, including
+closed-Vortex submission, resume without duplicate submission, disabled-profile
+handling, and stage-only behavior. Closed-Vortex behavior was covered by fixtures;
+this live 1.0.1 finalization completed with Vortex running. No bridge code or
+installation changes were required: both client and extension advertise
+`profile-finish-v3`. The snapshot envelope's `protocolVersion: 1` alone is not a
+capability failure; use the full capability check.
+
+Historical target, 2026-09-19: the author requested **1.0.0** for both main and textures.
+Neither package had a regular-version stage or reservation, so the unstaged 1.0.1
+workflow notes were consolidated into 1.0.0 without relabeling a retained build.
+The Hadeon encounter changes and one-frame opening deflect adjustment are included;
+gameplay acceptance remains pending and `releaseReady` remains false.
+Both packages were subsequently [deployed and verified locally](DEPLOYMENT-1.0.0.md).
+
+Current policy: propagation uses
 the checked regular target without a development suffix. Bump `mod.json` and add
 a matching changelog block before staging changed bytes under a used version.
 Identical package/version retries reuse their immutable build. The old `dev-version`

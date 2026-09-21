@@ -442,6 +442,10 @@ def main():
     handoff.add_argument('--scope', required=True)
     handoff.add_argument('--from', dest='source', choices=('repo', 'editor'), required=True)
     handoff.add_argument('--qualification', help='Current qualified format receipt for coordinated handoff')
+    handoff.add_argument('--resolve-conflicts', action='store_true',
+                         help='Explicitly choose the reviewed source after reconciling a sync conflict')
+    baseline = sub.add_parser('sync-baseline', help='Record matching repo/editor hashes only; copy nothing')
+    baseline.add_argument('--scope', default='all')
     for name in ('accept', 'restore'):
         command = sub.add_parser(name, help='Apply or restore a reviewed repo/editor handoff receipt')
         command.add_argument('--receipt', required=True)
@@ -509,7 +513,10 @@ def main():
               'inventoryFindings': assets.inventory_review(ROOT, settings),
               'externalOwned': assets.catalog(ROOT)['externalFiles'], 'releaseReady': manifest['releaseReady']}, True)
     elif args.command == 'accept-plan':
-        print(assets.prepare_handoff(ROOT, config(args), args.scope, args.source, args.qualification))
+        print(assets.prepare_handoff(ROOT, config(args), args.scope, args.source, args.qualification,
+                                    args.resolve_conflicts))
+    elif args.command == 'sync-baseline':
+        emit(assets.record_sync_baseline(ROOT, config(args), args.scope), True)
     elif args.command in ('accept', 'restore'):
         function = assets.apply_handoff if args.command == 'accept' else assets.restore_handoff
         result = function(ROOT, config(args), args.receipt)

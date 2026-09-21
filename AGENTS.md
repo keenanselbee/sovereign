@@ -29,6 +29,9 @@ Repository-Specific Notes
   `qualify-talk` and its unchanged input/tool/companion receipt before `accept-plan`.
   Never choose a source-only group to bypass coordinated handoff requirements.
 - VDB `stage` never activates. Wait for its completed receipt before selecting a build.
+  Completing authorized runtime changes now includes versioning, manual-editor sync,
+  and normal VDB finalization by default, without a separate propagation request.
+  Use the existing protocol-3 finish queue, not low-level stage-only as the default.
   Normal propagation uses protocol-3 finish, defaulting to all game profiles;
   `--profile` narrows scope and `--stage-only` changes no profile or packaging selection.
   Enabled versions deploy when active and safe; disabled selections update without
@@ -43,8 +46,13 @@ Repository-Specific Notes
   `docs/VDB-RELEASE-PARITY.md`. `mod.json` owns the release target; `changelog.txt`
   keeps newest-first `Version X.Y.Z` blocks and plain change lines. Match Grailwright's
   single-digit minor/patch numbering and rollover. Run `version-check` after changes.
-  Ordinary propagation uses the checked regular version from `mod.json`, starting
-  at 1.0.1. Do not generate new development labels. Bump the target and changelog
+  Each completed batch of changed packaged files gets the next unused regular version
+  and an accurate changelog before staging. Bump once for the cohesive batch, not for
+  every edit or retry. Documentation/tooling-only changes outside the package do not
+  create a mod version. Stage only affected packages, combining their changed scopes
+  before reserving a version; never stage different intermediate payloads at one version.
+  Ordinary propagation uses the checked regular version from `mod.json`.
+  Do not generate new development labels. Bump the target and changelog
   before staging changed bytes under a previously used version. Propagation never
   bumps the target or implies publication. Keep `releaseReady` false until acceptance.
   Every staged package/version owns one fixed payload. Identical retries reuse the
@@ -58,6 +66,28 @@ Repository-Specific Notes
 - External editor workspaces currently propagate into this repo. Resolve scoped
   editor/repo differences before editing gameplay; a repo-only edit can be overwritten
   by the user's next propagation. Never choose a baseline by timestamp alone.
+- The author gives standing authorization to sync completed, verified Sovereign edits
+  to the configured manual workspaces: Smithbox, Script, DSAnimStudio and SFX under
+  `Z:\Modding\Elden Ring`. This is the default completion step for affected catalogued
+  assets, without another permission request. Use the existing qualified
+  `accept-plan --from repo` / `accept` handoff with guards and recovery copies; keep
+  coordinated sources/binaries together. Resolve independent editor changes first,
+  preserve unrelated files and account for open editor buffers. Report a blocked
+  sync rather than claiming completion. This author instruction overrides the shared
+  external-write restriction for those configured workspaces only. Audits and DNE
+  requests remain read-only unless separately authorized. For completed runtime work,
+  the author also authorizes VDB staging and deployment when the mod is already enabled.
+  Queue finalization if Vortex is closed; do not launch it merely to drain the queue.
+  Preserve disabled/absent package states and wait for safe active-profile deployment.
+  Report completed versus queued work with its existing receipt, and resume that
+  request rather than resubmitting. Explicit stage-only/local-only requests override
+  this default. Publication, commits, and external tool installation remain separate.
+- Preserve `.sovereign/editor-sync.json`, the last verified common hashes for
+  repo/editor pairs. Automatic propagation rejects stale sources, independently
+  changed destinations and unknown divergent pairs. After inspecting and reconciling
+  a conflict, use a scoped `accept-plan --resolve-conflicts` with the reviewed source;
+  never add that override to automatic propagation or choose by modification date.
+  `sync-baseline` records existing equality only and cannot resolve a divergence.
 - Local paths belong in ignored `tools/eldenring-paths.local.json`. Release packaging
   uses the verified selected VDB stage as its source, preserving `mod/` and
   `mods/`. `mod.json` records explicit authoring-directory exclusions. Keep output

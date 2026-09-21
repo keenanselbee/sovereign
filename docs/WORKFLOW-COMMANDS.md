@@ -28,6 +28,23 @@ Status lists differences and a count by default. Add `--verbose` to list matchin
 files too; `--json` retains every file, path and hash. Source comparisons perform
 one scan rather than a separate runtime scan followed by the source scan.
 
+Propagation also checks `.sovereign/editor-sync.json`, which records the last
+verified shared hash for each repo/editor pair. A one-sided edit may propagate
+toward the unchanged side. A stale selected source or independent destination
+edit stops before copying or staging, even if its modification date is newer.
+The check runs before SFX rebuild/save as well as before handoff. Successful
+handoffs refresh the baseline; failed or restored handoffs do not label differing
+files as synchronized.
+
+For an initial workspace, `python tools/sovereign.py sync-baseline --scope all`
+records only files whose contents already match, copying nothing. It lists and
+skips differences. Automatic propagation of differing existing files without a
+baseline requires a reviewed scoped `accept-plan` / `accept` first.
+For a known conflict, inspect/reconcile both copies and explicitly choose the
+reviewed source with `accept-plan --scope <scope> --from <repo-or-editor>
+--resolve-conflicts`. This flag is not exposed by propagation shortcuts. It retains
+format qualification, backups and guards against edits after planning.
+
 Release metadata checks are read-only:
 
 ```powershell
@@ -54,6 +71,11 @@ placing/reviewing it in the repo source set. The four former dialogue source
 differences were reconciled through the qualified handoff in the checkpoint.
 
 ## Build isolated candidates
+
+After accepting a verified edit, syncing the affected files to the configured manual
+editor workspaces is authorized by default. Follow the qualified handoff below;
+preserve independent editor changes and the complete coordinated asset group.
+This does not make an inspection request a sync request or authorize deployment.
 
 ```powershell
 python tools/sovereign.py build-events --require-equivalent
@@ -245,10 +267,13 @@ prepares a package, without staging or deployment. The familiar propagation shor
 remain explicit complete deploy actions. SFX local preparation still uses its documented
 build/save step; it does not silently rebuild the editor extraction during planning.
 
-For an explicitly requested complete propagation, the new combined command is:
+For the normal authorized completion of runtime edits, use the combined command
+after versioning and verification. A separate propagation request is no longer
+required. Explicit local-only/stage-only requests still override this default:
 
 ```powershell
 python tools/propagate_workflow.py run --scope maps --from editor --profile SkC-QjDMc
+python tools/propagate_workflow.py run --scope events --from repo --wait-seconds 30
 python tools/propagate_workflow.py resume --receipt <propagation-receipt> --profile SkC-QjDMc
 ```
 
@@ -268,6 +293,14 @@ their saved outputs; event propagation verifies that saved source and binaries a
 If later propagation
 fails, inspect its source-handoff receipt and `sfxEditorSave` separately; restoring the
 packed editor output does not undo a completed repo handoff or deployment.
+
+Do not start Vortex merely because it is closed. The protocol-3 finish request is
+durable and the extension processes it on the next launch. The low-level `stage`
+command's fresh-snapshot requirement is not the normal closed-Vortex completion
+path. For an already prepared package containing multiple accepted scopes, reuse
+that exact package with `finish_workflow.submit` / `refresh`; do not prepare partial
+same-version replacements. Keep the finalization receipt before waiting and resume
+it without another submission. A completed stage alone is not completed deployment.
 
 The default wait budget is 120 seconds (`--wait-seconds 1..600`). A pending result
 returns exit 2 with the existing propagation receipt. `resume` waits on that request;
@@ -309,6 +342,11 @@ The installed item shortcut uses `-Scope item-text`, an alias for Python scope
 the selected stage's menu binder. `-Scope text` explicitly accepts the whole text
 scope. Python `file:<runtime-relative-path>` selection is limited to catalog-owned
 FMG binders; it cannot bypass coordinated player or other format qualifications.
+
+All nine installed shortcuts omit `-Profile`, using the current all-profile
+finalization default. A deliberate single-profile launch still supports `-Profile`.
+The 2026-09-20 shortcut backups and verification hashes are retained in
+`.sovereign/shortcuts/9f5e33dc2a924ea197a823224eca7917/receipt.json`.
 
 ## One-time layout migration
 
