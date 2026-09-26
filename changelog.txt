@@ -1,3 +1,164 @@
+Version 1.3.3
+Wait three continuous seconds before Nemesis aid starts; its ten-second ramp now reaches double HP, FP, stamina and outgoing damage, with half blocking stamina cost.
+Keep Hadeon visible at his original position facing the barrier after retreat, preserving confirmed-death recovery and his original first-summon facing.
+Delay hallway light shutoff by one second and cancel it on reentry; victory and crystal states retain priority.
+Replace Deflection artwork with the approved sparks scene, game icon and reusable blank panel, without charge diamonds.
+Clarify the four-charge Deflection and Guard Counter tutorial, update the opening spirit's dialogue and delay the Soldier of Godrick Ultimate lesson to 2.5 seconds.
+
+Version 1.3.2
+Show Deflection two seconds after crossing the approach box before the added Godrick Knight.
+Move Ultimate Attacks to Soldier of Godrick and show Jump to Evade three seconds after entering Hadeon's room.
+Convert the added Godrick Knight to the sword-and-shield variant while preserving custom difficulty tuning and the Stonesword Key drop.
+Trial guard and dodge-invulnerability bypass on Hadeon's shared Crucible Knight stomp wave; damage and collision are unchanged.
+
+Version 1.3.1
+Preserve Hadeon room brightness and already-lit fixtures through player death; restart ignition after respawn.
+Bridge brief Hadeon aid permission gaps so the ten-second stat buildup can complete without restarting each step.
+Extend bounded movement diagnostics to ten minutes and capture animation requests, priority gates and speed resets to investigate intermittent stops.
+
+Version 1.3.0
+Fix Hadeon aid initialization errors that interrupted player Update and prevented the blessing's stats and crimson aura.
+Skip inactive aid resource and timer work while retaining gradual gains, safe withdrawal and bounded movement diagnostics.
+Restore hallway red lighting through paired lit/unlit fixtures controlled by the existing proximity boxes and Hadeon/crystal states.
+Shorten Hadeon's 96-position room-light buildup from sixty to thirty seconds, preserving brightness stages and post-eclipse dimming.
+
+Version 1.2.9
+Write immediate player-only diagnostic startup entries before optional reads, preserve probe errors and keep logging after a failed field.
+Capture movement and Hadeon aid diagnostics at the start of Update, with callback checkpoints and bounded logs. Gameplay and lighting are unchanged.
+
+Version 1.2.8
+Spread Hadeon room ignition across 96 individual positions over sixty seconds, with HP-based brightness active throughout.
+Keep the 125 existing hallway fixtures visible when unlit; proximity and progression now switch their effects instead of hiding the objects.
+Add a bounded player-only Hadeon aid trace to investigate missing blessing activation. The blessing ramp and withdrawal remain ten seconds.
+
+Version 1.2.7
+Use effective maximum HP for Sovereign's HP-percentage markers while preserving existing Oath healing calculations.
+Skip Hadeon blessing resource adjustments when an unrelated maximum-resource change is detected during that step.
+
+Version 1.2.6
+Build Nemesis's aid over ten seconds in Hadeon's arena: up to 50% more maximum HP, FP, stamina, damage and guard endurance, with proportional current resources and the Darklight Shard aura.
+Withdraw the aid over ten seconds after Hadeon's death or arena departure without killing the player; actual player death clears it.
+Make beginner rescue heal to the effective maximum HP, including Hadeon's temporary blessing.
+
+Version 1.2.5
+Confirm sustained player death before resetting Hadeon's encounter, lighting or milestone state, so a beginner rescue does not queue a retreat.
+Cancel Hadeon's delayed retreat when its cause clears, and keep brief loss of aggro inside the arena from resetting the fight.
+Remove room ignition flashes: each light group turns on once during the existing ten-second sequence.
+
+Version 1.2.4
+Restore custom movement speed and add bounded movement diagnostics for the intermittent slowdown.
+Fix Hadeon room ignition flags while retaining the ten-second lighting sequence.
+Give beginner rescue a 30-second cooldown, reduced to 15 seconds in Hadeon's arena, with ordinary lethal-hit interception and brief damage protection.
+Show an Ultimate Attacks tutorial four seconds after entering Hadeon's arena, using Guard Counters artwork.
+Give generic Ultimates and Obliterator's generic fallback small launch back, and allow that reaction on Hadeon without changing other Crucible knights or custom signature Ultimates.
+
+Version 1.2.3
+Remove the extra half-second delay before the new-game Chapel eclipse and landing, retaining opening readiness guards.
+
+Version 1.2.2
+Keep the new-game Chapel eclipse, remove its player Nemesis aura and trigger a one-time heavy landing after the opening cutscene.
+Put Rick into a combat-ready stance during recovery and give his Wrath stronger backward knockback without changing damage.
+Request Hoarah Loux's vocal twice simultaneously at the start of Rick's buildup.
+Restore custom jumping and temporarily bypass custom action and ground speed scaling to investigate movement locks.
+
+Version 1.2.1
+Give Rick a half-second recovery after Wrath and explicitly play its buildup and explosion sounds.
+Route Hoarah Loux's vocal through the native sound carrier at the encounter location.
+Restore shared animation control and temporarily bypass custom airborne actions to isolate intermittent movement locks.
+
+Version 1.2.0
+Use the soldier's actual stance-break state and hold it during Rick's golden warning, keeping critical hits disabled.
+Remove Rick's post-Wrath delay and incoming kneel so combat resumes at the explosion while the vocal continues.
+
+Version 1.1.9
+Repair Rick's missing Wrath behavior link and fire from his active actor; separate the soldier's reset and kneeling playback for testing.
+Show the deflection tutorial one second earlier.
+Spread Hadeon room ignition over ten seconds with smaller candle groups and remove gaze brightness surges.
+Keep room brazier flames off until ignition and extinguish them at the end of the crystal fade.
+Temporarily disable shared player animation cancellation to investigate movement pauses; Divinity cancellation remains active.
+
+Version 1.1.8
+Replace Rick's black-screen transformation with a protected kneeling warning, golden buildup and charged Wrath burst at 75% base attack power.
+Restart Soldier of Godrick on every attempt, retaining the Hoarah Loux vocal and final victory reward.
+Suppress the two ceiling Grafted Scions in Stranded Graveyard.
+Ignite Hadeon's room braziers and candle groups in randomized order on entry.
+Restore hallway candle proximity shutoff before Hadeon's defeat, retaining victory and crystal lighting states.
+
+Version 1.1.7
+Require both imp statues to be activated before the single Stranded Graveyard barrier opens.
+Preserve the updated barrier placement and remove references to the deleted second barrier.
+Repair an invalid candle flame configuration associated with the Hadeon room-entry crash.
+
+Version 1.1.6
+Corrected Hadeon candle light presets to preserve their original exposure, volume and flicker settings.
+Removed unavailable supplemental-light effects from eight room candles; staged red illumination and all brazier/hallway controls remain unchanged.
+
+Version 1.1.5
+Hadeon room candles now follow the staged red lighting, gaze surges and post-eclipse fade.
+Candle models stay in place and flames remain continuous between brightness stages; hallway proximity controls remain separate.
+
+Version 1.1.4
+Make Hadeon's brazier lighting intensify with his remaining health and brief shifts of Nemesis's gaze.
+Hold the room bright after Hadeon's defeat, then dim it to darkness after the five-second crystal eclipse.
+Light every hallway candle after Hadeon's defeat and extinguish them when the crystal breaks.
+
+Version 1.1.3
+Give Erdtree's Favor +1 for defeating Hadeon and remove the custom +3 variant.
+Replace the Shunning-Grounds +1 pickup with one Darklight Arc, retaining the Ashen Leyndell +2.
+Restrict Blasphemy and Supremacy's forced protected landing to falls over 20 metres.
+
+Version 1.1.2
+Remember Rick's second phase after death and reload, starting retries directly against full-health Rick.
+Correct the first transformation's warp target and use Hoarah Loux's vocal with matching reveal timing.
+Keep transition weapon hit detection active while blocking incoming damage, status buildup and stagger.
+Add the normal Nemesis blessing visuals to the beginner rescue heal.
+
+Version 1.1.1
+Allow the Chapel door to open without collecting an item and remove the maiden ground message.
+Add the missing Nemesis player effects to opening eclipses and oath-entry flashes.
+Reword the existing Darklight Shards description.
+
+Version 1.1.0
+Replace the Chapel maiden's Wizened Finger reward with one existing Darklight Shard, preserving the door unlock.
+Move the Wizened Finger to Kale's shop for 100 runes, with one copy and independent stock.
+
+Version 1.0.9
+Give the opening areas a full rescue heal at 30% player HP with a 45-second cooldown until Hadeon is defeated.
+Grant Thorn Ward at both 75% and 50% Hadeon HP, retaining the 25% shriek.
+Separate the left imp gate from vanilla progression so existing vanilla saves encounter both Sovereign locks.
+Reduce the graveyard key knight's health, attack power, outgoing poise damage, poise and stance threshold.
+Play a three-second eclipse omen on the initial Chapel arrival and suppress the outside-door omen after crystal destruction.
+Require the player to remain outside during the exit omen's short delay.
+
+Version 1.0.8
+Give each imp statue its own one-key barrier layer and red guide torch, with both torches returning to normal after Hadeon's defeat.
+Add a Partisan Godrick Knight before Rick and grant one Stonesword Key from the knight and one from Rick's final defeat.
+Switch Hadeon's entrance guide torch from red to normal after his defeat.
+Add a brief eclipse omen with the existing Nemesis screech on the first outdoor reveal and on crystal destruction, without on-screen text or changing the crystal's hardcore consequences.
+
+Version 1.0.7
+Replace the arena's Guard Counters tutorial with Deflection, using the Guarding artwork and a two-second proximity delay.
+Suppress the other vanilla tutorial panels and control hints, including menu and DLC lessons.
+Update the accompanying About Deflection note with matching instructions.
+
+Version 1.0.6
+Prevent held wall-jump input from repeatedly entering ladder idle or resetting a pending jump, and cancel pending jumps on landing.
+Move Soldier of Godrick's transformation to 25% HP, wait for active criticals, and fix the encounter fade and Rick's position during the actor swap.
+Play the selected soldier vocal during the transformation and allow it to finish before revealing Rick with phase-two music.
+
+Version 1.0.5
+Added a 10000-rune base boss reward for defeating Crucible Lord Hadeon in solo and multiplayer.
+
+Version 1.0.4
+Increased Rick's base boss rune reward from 400 to 2000 for solo and multiplayer rewards.
+
+Version 1.0.3
+Added a Soldier of Godrick first phase that transforms at 20% HP into a fully healed, larger Rick, Soldier of God with Golden Eyes, Boss Modifier, and The Final Battle music.
+Restored Rick's defeat flag so both arena barriers and defeated-state cleanup complete.
+
+Version 1.0.2
+Ignore backstep requests when no Endure or Blasphemous Claw action is available, preventing the empty stationary animation before unlocking either ability.
+
 Version 1.0.1
 Added eight Profane Tomes with discovery-order numbering, merchant and world sources, and retained knowledge in NG+.
 Corrected tome collection, shop, and hat flags to valid saved ranges.

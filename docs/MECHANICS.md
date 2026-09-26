@@ -1,8 +1,82 @@
 # Mechanics evidence and release decisions
 
+Current 1.3.3 implementation: aid waits three continuous eligible seconds,
+then ramps over ten seconds in twenty five-point steps to 2x HP/FP/stamina maxima
+and outgoing damage. Guard stamina cost reaches 0.5x (twice the endurance per
+stamina point; approximately four times full-bar endurance with doubled stamina).
+Resource percentages, spending protection and ten-second withdrawal remain.
+Hadeon returns visibly to his original position facing the barrier; hallway
+lights wait one continuous second outside before switching off. See
+[implementation and verification](test-results/2026-09-25-opening-followup.md).
+Native/source checks are distinct from pending in-game acceptance.
+
+The [ground-stomp investigation](GROUND-STOMP-GOAL.md) records the approved
+jump-counter goal and implemented Hadeon entry lesson. The 2026-09-25 local trial
+sets guard disable and dodge-invulnerability bypass on shared NPC attack 2500182;
+damage and collision stay unchanged. The author confirmed the original stomp is
+jumpable, but the parameter definition warns that bypass overrides airborne
+avoidance. Jumpability and deflection rejection after the edit remain untested.
+
+Version 1.2.6 adds [Hadeon's arena aid](HADEON-AID-UPDATE.md): ten-second ramp
+to +50% resource maxima/damage and reciprocal guard stamina cost, proportional
+current resources, visual-only shard aura and a safe ten-second withdrawal on
+victory/departure. Beginner rescue uses effective maximum HP. Native/source
+checks pass; resource ordering and presentation still require game acceptance.
+
+The [Rick visible transition](RICK-ENCOUNTER-UPDATE.md) is now implemented locally
+and synced to editors, awaiting deployment/game testing: stance-break bait at 25%
+HP, two-second golden warning, one charged burst at 75% base attack power,
+Hoarah vocal and a visible actor swap. Every attempt starts with the soldier;
+only final victory persists. No percentage-HP damage or black fade is used.
+
+The approved [room follow-up](HADEON-LIGHTING-UPDATE.md) is implemented locally:
+ceiling Scions are suppressed, room illumination ignites in 26 staggered banks,
+and hallway proximity controls re-arm on exit. Event compilation and source
+simulation pass; deployment and game acceptance remain pending. Rick's visible transition is implemented as described above.
+
+Version 1.1.7 requires both statue activations for one shared imp barrier
+([gate ownership](GRAVEYARD-KEY-GATES.md)). It also removes the invalid unused
+light node from candle flame FXR 7506110, preserving all other decoded source
+fields. The [1.1.6 room-entry crash](test-results/2026-09-24-hadeon-room-entry-crash.md)
+requires a corrected in-game retest; static checks are not gameplay acceptance.
+
+Version 1.1.6 corrects the [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md):
+82 room candles use grouped red-light presets preserving their source settings.
+The 74 particle flames stay continuous; eight other assets use illumination only.
+Models and hallway controls remain unchanged; visual/performance playtests are pending.
+
+The 1.1.4 [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md) adds staged brazier
+illumination, brief gaze surges, victory/crystal hallway states and a five-second
+crystal cue followed by room dimming. In-game visual and performance checks are pending.
+
+Version 1.1.3 restores a later Favor upgrade: Hadeon grants +1, the Shunning-Grounds
+duplicate becomes one Darklight Arc, and Ashen Leyndell retains +2. The custom +3
+is removed without old Sovereign-save conversion. See [the progression update](FAVOR-PROGRESSION-UPDATE.md)
+for exact rows, unchanged collection flags and the included short-fall correction.
+
+The 1.1.2 [Rick follow-up](RICK-ENCOUNTER-UPDATE.md) adds saved phase-two retries,
+an explicit ground-level warp target, Hoarah Loux's transition vocal with a hidden
+sound carrier, hittable transition protection, and normal Nemesis visuals on the
+beginner rescue heal. Native/source checks do not establish gameplay acceptance.
+
+The 1.1.0 [Chapel reward update](CHAPEL-SHARD-UPDATE.md) replaces the maiden's
+Wizened Finger with one existing Darklight Shard and moves the finger to Kale for
+100 runes. The [1.1.1 Chapel fix](CHAPEL-POLISH-UPDATE.md) removes the remaining
+finger restriction and ground message, revises shard text, and completes omen VFX.
+
+The 1.0.9 [opening update](BEGINNER-OPENING-UPDATE.md) adds the 45-second
+beginner rescue, grants Hadeon Thorn Ward at both 75% and 50%, separates the left
+imp flag from vanilla, softens the key knight, adds the initial Chapel omen and
+suppresses the exit omen after crystal destruction. Gameplay acceptance is pending.
+
 Living feature intent and balance decisions are maintained in
 [DESIGN.md](DESIGN.md) and [BALANCE.md](BALANCE.md). This file records implementation
 evidence; an earlier review's proposed tuning is not an accepted design change.
+
+For the 2026-09-23 independent Stonesword Key gates, three torch pairs, Partisan
+Godrick Knight and final Rick key reward, see [the implementation record](GRAVEYARD-KEY-GATES.md).
+This supersedes the earlier keyless-entry proposal. Native checks and editor sync
+are distinct from gameplay acceptance and package deployment.
 
 Inspection baseline: 2026-09-09. These are static findings from local source,
 compiled events, parameters and map exports, not gameplay test results. Do not turn
@@ -32,7 +106,21 @@ valid tome flags, completion marker `69990`, independent dragon compensation
 receipts, pending-reward exclusion, prayerbook cleanup, and the Placidusax stock
 correction. Native/source checks pass; actual NG+ and reward tests remain pending.
 
+For the 2026-09-22 Soldier of Godrick / Rick two-phase encounter, see
+[RICK-ENCOUNTER-UPDATE](RICK-ENCOUNTER-UPDATE.md). The author approved reserving
+Golden Eyes for phase 2 and adding Boss Modifier, a full heal, 1.5x size, a fade
+and The Final Battle music. Native checks pass; gameplay acceptance remains Pending.
+
+For the 2026-09-23 tutorial replacement, see [TUTORIAL-UPDATE](TUTORIAL-UPDATE.md).
+Tutorial 1180 teaches deflection with Guarding image 16; the other 85 native rows
+are gated off. Popup timing, global suppression and pause behavior await game tests.
+
 ## Nemesis and the physical red crystal
+
+The [2026-09-23 omen update](NEMESIS-OMENS.md) adds cosmetic ten-second cues at the
+first outdoor reveal and crystal break, using existing Nemesis sounds without
+text. New effects 1627110/1627111 are separate from real eclipse state; both imp
+torches revert to normal on Hadeon defeat. Native checks do not establish gameplay.
 
 Updated 2026-09-10: **Implemented (static evidence), game tests pending**.
 See [the persistence and hardcore handoff](NEMESIS-PERSISTENCE.md) for accepted
@@ -91,7 +179,7 @@ Primary source: `event/src/m18_00_00_00.emevd.dcx.js`, events 5750290-5750309.
 - Event 5750300 initializes death reconciliation and, after completed defeat,
   removes Hadeon, his health bar/music and both barrier assets/SFX on reload.
   The encounter entry, bounds and delayed blessing workers have defeat guards.
-- Event 5750290 owns reward lot 6050 (Erdtree's Favor +3, accessory 1043). Its
+- Event 5750290 owns reward lot 6050 (Erdtree's Favor +1, accessory 1041). Its
   existing lot collection flag 1055420916 prevents repeat payout. A defeated but
   uncollected state is reconciled on load, including an interrupted reward delay.
 - The earlier actor correction to Hadeon 18002354 and asset corrections to entrance

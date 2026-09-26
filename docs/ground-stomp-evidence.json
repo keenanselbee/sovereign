@@ -1,0 +1,659 @@
+{
+  "status": "Initial static inventory; candidates are not approved edits or gameplay passes",
+  "regulationSha256": "41b42f86d3a692df7a30b56cef27a0500c374ee88a2cca34f3bf0c038707958d",
+  "namedCandidateCount": 68,
+  "airborneExemptionRowCount": 501,
+  "hadeonSharedRoute": {
+    "npc": 25000011,
+    "behaviorVariation": 25000,
+    "behavior": 225000180,
+    "bulletChain": [
+      2500180,
+      2500181,
+      2500182
+    ]
+  },
+  "hadeonAttackRows": [
+    {
+      "id": 2500180,
+      "name": "[Crucible Knight] Bullet - Stomp",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 2500181,
+      "name": "[Crucible Knight] Bullet",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 2500182,
+      "name": "[Crucible Knight] Bullet",
+      "atkPhys": 220,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    }
+  ],
+  "namedCandidates": [
+    {
+      "id": 21,
+      "name": "[AOW] Hoarfrost Stomp Bullet",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 2190260,
+      "name": "[Radagon] Stomp AoE Small",
+      "atkPhys": 170,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 2190261,
+      "name": "[Radagon] Stomp AoE Large",
+      "atkPhys": 130,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 2190420,
+      "name": "[Radagon] Bullet - Holy Stomp Attack",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 2190510,
+      "name": "[Radagon] Bullet - Hammer Shockwave",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 2190520,
+      "name": "[Radagon] Bullet - Hammer Holy Shockwave",
+      "atkPhys": 100,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 2500180,
+      "name": "[Crucible Knight] Bullet - Stomp",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 3150501,
+      "name": "[Night's Cavalry] Horse Summon Shockwave",
+      "atkPhys": 200,
+      "disableGuard": 1,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 3460180,
+      "name": "[Winged Misbegotten] Stomp",
+      "atkPhys": 40,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 3460201,
+      "name": "[Winged Misbegotten] Bullet - Jump Shockwave",
+      "atkPhys": 160,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4500200,
+      "name": "[Dragon] Stomp",
+      "atkPhys": 270,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4500210,
+      "name": "[Dragon] Stomp",
+      "atkPhys": 270,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4500220,
+      "name": "[Dragon] Flying Stomp",
+      "atkPhys": 400,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4500221,
+      "name": "[Dragon] Flying Stomp",
+      "atkPhys": 400,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4500270,
+      "name": "[Dragon] Stomp",
+      "atkPhys": 300,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4500280,
+      "name": "[Dragon] Stomp",
+      "atkPhys": 300,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4500310,
+      "name": "[Dragon] Forward Stomp",
+      "atkPhys": 300,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4550160,
+      "name": "[Giant Dog] Stomp",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4550161,
+      "name": "[Giant Dog] Stomp",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4550201,
+      "name": "[Giant Dog] Stomp",
+      "atkPhys": 100,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4550211,
+      "name": "[Giant Dog] Stomp",
+      "atkPhys": 120,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4550212,
+      "name": "[Giant Dog] Stomp",
+      "atkPhys": 120,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4550241,
+      "name": "[Giant Dog] Stomp",
+      "atkPhys": 100,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560150,
+      "name": "[Giant Crow] Stomp",
+      "atkPhys": 230,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560151,
+      "name": "[Giant Crow] Stomp AoE",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560160,
+      "name": "[Giant Crow] Stomp",
+      "atkPhys": 250,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560161,
+      "name": "[Giant Crow] Stomp AoE",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560180,
+      "name": "[Giant Crow] Stomp",
+      "atkPhys": 250,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560181,
+      "name": "[Giant Crow] Stomp AoE",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560200,
+      "name": "[Giant Crow] Stomp",
+      "atkPhys": 250,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560201,
+      "name": "[Giant Crow] Stomp AoE",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560210,
+      "name": "[Giant Crow] Stomp",
+      "atkPhys": 250,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560211,
+      "name": "[Giant Crow] Stomp AoE",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560510,
+      "name": "[Giant Crow] Stomp",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4560511,
+      "name": "[Giant Crow] Stomp AoE",
+      "atkPhys": 120,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4580100,
+      "name": "[Wormface 2] Stomp 4",
+      "atkPhys": 280,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4580110,
+      "name": "[Wormface 2] Stomp 5",
+      "atkPhys": 280,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4670210,
+      "name": "[Ancestor Spirit] Bullet - Stomp AoE",
+      "atkPhys": 300,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4670262,
+      "name": "[Ancestor Spirit] Front Stomp",
+      "atkPhys": 120,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4670291,
+      "name": "[Ancestor Spirit] Front Stomp",
+      "atkPhys": 390,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4670372,
+      "name": "[Ancestor Spirit] Front Stomp",
+      "atkPhys": 300,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4720112,
+      "name": "[SACRED][Godfrey] Bullet - Stomp",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 1,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4720281,
+      "name": "[SACRED][Godfrey] Bullet - Phase Shift Stomp",
+      "atkPhys": 280,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 1,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4721140,
+      "name": "[Hoarah Loux] Bullet - Stomp",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730223,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730224,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 240,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730225,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730226,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 240,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730233,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730234,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 240,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730235,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730236,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 240,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730351,
+      "name": "[Starscourge Radahn] Bullet - Magic Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730352,
+      "name": "[Starscourge Radahn] Bullet - Magic Shockwave",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730353,
+      "name": "[Starscourge Radahn] Bullet - Magic Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730354,
+      "name": "[Starscourge Radahn] Bullet - Magic Shockwave",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730367,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730368,
+      "name": "[Starscourge Radahn] Bullet - Shockwave",
+      "atkPhys": 240,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730372,
+      "name": "[Starscourge Radahn] Bullet - Weak Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730373,
+      "name": "[Starscourge Radahn] Bullet - Weak Shockwave",
+      "atkPhys": 210,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4730374,
+      "name": "[Starscourge Radahn] Bullet - Magic Shockwave",
+      "atkPhys": 0,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4730375,
+      "name": "[Starscourge Radahn] Bullet - Magic Shockwave",
+      "atkPhys": 150,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4760060,
+      "name": "[Fire Giant] Stomp",
+      "atkPhys": 320,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4760061,
+      "name": "[Fire Giant] Stomp",
+      "atkPhys": 320,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4760170,
+      "name": "[Fire Giant] Stomp",
+      "atkPhys": 320,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4770252,
+      "name": "[Valiant Gargoyle] Bullet - Stomp AoE",
+      "atkPhys": 210,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    },
+    {
+      "id": 4810250,
+      "name": "[Erdtree Avatar] Bullet - Stomp",
+      "atkPhys": 310,
+      "disableGuard": 0,
+      "isDisableParry": 0,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 1
+    },
+    {
+      "id": 4980600,
+      "name": "[Death Rite Bird] Stomp",
+      "atkPhys": 220,
+      "disableGuard": 0,
+      "isDisableParry": 1,
+      "isDisableNoDamage": 0,
+      "isInvalidatedByNoDamageInAir": 0
+    }
+  ]
+}

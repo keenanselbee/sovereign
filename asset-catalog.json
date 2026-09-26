@@ -69,7 +69,9 @@
       "package": "main",
       "recipe": "smithbox",
       "files": [
+        "map/MapStudio/m10_01_00_00.msb.dcx",
         "map/MapStudio/m18_00_00_00.msb.dcx",
+        "map/MapStudio/m60_42_36_00.msb.dcx",
         "map/MapStudio/m60_43_50_00.msb.dcx",
         "map/m12/m12_02_00_00/m12_02_00_00_0000.btl.dcx",
         "map/m18/m18_00_00_00/m18_00_00_00.nva.dcx",
@@ -343,6 +345,40 @@
       "patterns": [
         "**/*"
       ]
+    }
+  ],
+  "sourceRecipes": [
+    {
+      "source": "src/text/opening-dialogue-tutorial/item_dlc02.msgbnd.dcx.patch.json",
+      "output": "msg/engus/item_dlc02.msgbnd.dcx"
+    },
+    {
+      "source": "src/text/opening-dialogue-tutorial/menu.msgbnd.dcx.patch.json",
+      "output": "msg/engus/menu.msgbnd.dcx"
+    },
+    {
+      "source": "src/text/opening-dialogue-tutorial/menu_dlc01.msgbnd.dcx.patch.json",
+      "output": "msg/engus/menu_dlc01.msgbnd.dcx"
+    },
+    {
+      "source": "src/text/opening-dialogue-tutorial/menu_dlc02.msgbnd.dcx.patch.json",
+      "output": "msg/engus/menu_dlc02.msgbnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-followup/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/hadeon-followup/Program.cs",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/textures/deflection-tutorial/build.ps1",
+      "output": "menu/hi/00_solo.tpfbhd"
+    },
+    {
+      "source": "src/textures/deflection-tutorial/build.ps1",
+      "output": "menu/hi/00_solo.tpfbdt"
     }
   ],
   "externalFiles": [

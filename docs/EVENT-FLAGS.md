@@ -12,6 +12,67 @@ inspection tables below retain the before-change evidence.
 Base ownership and valid ranges
 -------------------------------
 
+Hadeon 1.2.5 reserves temporary flag 1055425042 for sustained player-death
+confirmation, written only by map event 5750402 after 0.5s of zero HP and outside
+beginner rescue protection. Recovery clears it. Lighting ignition now owns
+1055425100-1055425195 (1.2.8); the former 42 gates are retired. Native parameters and pre-change event sources contain no
+allocation conflict. See [the reset update](HADEON-RESET-1.2.5.md).
+
+Room lighting 1.2.8 uses temporary gates 1055425100-1055425195 for 96 individual
+positions; native mod/vanilla event and parameter checks found no collision.
+Former 1.2.4 gates 1055425000-1055425041 are retired; 1055422996 marks completion and 1055422997 activity. Initialization and
+death clear them. Former gates 1055423000-1055423041 were invalid and are no longer
+referenced. Earlier gates 1055422970-1055422995 and gaze/chance bits
+1055422960-1055422967 are retired and have no event readers/writers.
+1055422950-1055422953 still select 25/50/75/100% brightness. Crystal presentation
+flag 1055422945 and saved victory/crystal flags retain their existing roles.
+Native allocation checks cover current parameters plus mod and retained vanilla
+event instructions/ranges. See [the lighting update](HADEON-LIGHTING-UPDATE.md).
+
+Rick awakening flag 1055420926 is retired by the visible-transition follow-up.
+It is no longer read or written; do not reuse it for another purpose. Every
+attempt starts with Soldier of Godrick. Vanilla defeat 18000850 still persists;
+temporary presentation flags 18002851/18002852 reset on each attempt and abort.
+See [Rick implementation](RICK-ENCOUNTER-UPDATE.md).
+
+Ultimate tutorial uses saved receipt 1055420927, TutorialParam 5750 and event
+5750363, moved from common to the Graveyard map in 1.3.2. Jump to Evade adds saved
+receipt 1055420928, TutorialParam 5751 and map event/text 5750364. Native regulation
+members and 598 mod/retained-vanilla event files were checked for exact references
+and flag ranges before allocation. Neither receipt controls vanilla progression.
+See [the lesson order](GROUND-STOMP-GOAL.md).
+
+Chapel reward (1.1.0): shop stock reserves 1055424580-1055424589, starting at
+1055424580, for Kale's single Wizened Finger. This follows the existing spaced
+stock-counter convention. Pickup collection/door flag 60210 remains on lot
+10010000 after its reward changes to Goods 1291; it never controls the shop.
+
+Opening update (1.0.9): 1055420924 owns the left imp activation; 1055420925
+records the first Chapel omen. Both are saved journey flags. Vanilla 18000570 is
+left untouched and no longer drives any Sovereign statue, seal or torch. The
+original 45-second rescue cooldown was an event timer. In 1.2.4, non-extendable
+15/30-second SpEffects replace that timer; no saved cooldown flag is used. See
+[the opening update](BEGINNER-OPENING-UPDATE.md).
+
+Nemesis omens (1.0.8): saved journey bit 1055420923 records that the outdoor reveal
+started. Temporary bit 1055422944 requests the crystal-break presentation and is
+consumed by common event 5750360; already-broken crystals do not re-request it.
+These flags never control actual hardcore or periodic eclipse state. Existing
+1055420915 overrides both imp torches after Hadeon defeat. See [the omen
+record](NEMESIS-OMENS.md), including native allocation checks and pending NG+ tests.
+
+Graveyard gates (2026-09-23): 1055420920 owns the right statue activation;
+1055420921 and 1055420922 are knight/Rick key collection receipts. These are
+one-bit saved journey flags. Prompt flags 1055422940-1055422943 are four separate
+temporary bits, cleared before each prompt. The left statue used 18000570 until 1.0.9;
+Hadeon's guide torch reads existing defeat 1055420915. See
+[the gate record](GRAVEYARD-KEY-GATES.md). NG+ reset remains a game-test requirement.
+
+Tutorial update (1.0.7): `1055420990` is reserved as the disabled vanilla-tutorial
+display gate. It must remain OFF; no event enables it. All TutorialParam rows except
+1180 require it. The Deflection lesson retains vanilla flags `710180` (shown/display
+permission) and `69060` (tutorial note awarded). See [TUTORIAL-UPDATE](TUTORIAL-UPDATE.md).
+
 The sheet's
 [base flag registry](https://docs.google.com/spreadsheets/d/17sE1a1h87BhpiUwKUyJ9ZjKTeehXA4OuLwmQvTfwo_M/edit?gid=1464882376#gid=1464882376)
 lists `1055420000` at AG47 and **Sovereign** at AG48. Keep this existing base.

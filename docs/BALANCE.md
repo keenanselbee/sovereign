@@ -1,6 +1,32 @@
 Sovereign balance design
 =======================
 
+Current 1.3.3 implementation: aid waits three continuous eligible seconds,
+then ramps over ten seconds in twenty five-point steps to 2x HP/FP/stamina maxima
+and outgoing damage. Guard stamina cost reaches 0.5x (twice the endurance per
+stamina point; approximately four times full-bar endurance with doubled stamina).
+Resource percentages, spending protection and ten-second withdrawal remain.
+Hadeon returns visibly to his original position facing the barrier; hallway
+lights wait one continuous second outside before switching off. See
+[implementation and verification](test-results/2026-09-25-opening-followup.md).
+Native/source checks are distinct from pending in-game acceptance.
+
+Approved 1.2.6: [Hadeon aid](HADEON-AID-UPDATE.md) uses twenty 2.5-point steps
+over ten seconds, reaching 1.5x maximum/current-resource scaling and damage.
+Current bars retain their percentage and intervening resource spending.
+Guard cost is reciprocal (2/3 at full aid), giving 1.5x endurance per stamina
+point and approximately 2.25x full-bar endurance with the stamina increase.
+Ten-second withdrawal preserves at least 1 HP, including a partial blessing.
+This changes the opening player's support, not Hadeon's NPC stats. Runtime
+resource behavior and fight difficulty still require game testing.
+
+Approved 1.2.4: beginner rescue retains the 30% threshold and full heal, with a
+shared 30-second cooldown reduced to 15 seconds inside Hadeon's arena and a brief
+post-heal damage shield. Try lethal-hit interception without changing Oath healing.
+Generic Ultimates gain small launch back; Hadeon's local resistance permits that
+reaction, including from other attacks. Damage/poise damage remain unchanged.
+See [implementation and pending game checks](OPENING-SUPPORT-1.2.4.md).
+
 Living balance document, established 2026-09-11. Read [DESIGN.md](DESIGN.md) for
 feature intent and coverage. This document owns the working balance questions,
 confirmed author decisions and evaluation approach. It does not approve or apply
@@ -20,12 +46,17 @@ These decisions were supplied directly by the author in this conversation.
 
 | Date | Topic | Confirmed intent | Consequence |
 | --- | --- | --- | --- |
+| 2026-09-25 | Ground-stomp counters | Readable ground waves should require jumping instead of dodge invulnerability or deflection; the author confirmed the original Crucible stomp is jumpable | Two-field trial on shared attack 2500182; damage and geometry unchanged, gameplay pending. Jump to Evade after 3s in Hadeon's room supersedes three-death counting. See [investigation](GROUND-STOMP-GOAL.md). |
+| 2026-09-25 | Graveyard knight variant | Use sword and shield instead of the Partisan | NPC 43519000 preserves custom tuning and Stonesword Key lot; sword variant data and ThinkParam 43510000 replace the spear setup. |
+| 2026-09-24 | Rick transformation burst | 75% of normal charged Wrath attack power after a two-second stance-break bait; death resets to Soldier of Godrick | Supersedes percentage-HP damage and persistent phase-two retries. Implemented locally with author-approved animation 8700, 315 base holy attack and normal damage calculation. Damage and casting VFX still need game verification; see [implementation](RICK-ENCOUNTER-UPDATE.md). |
 | 2026-09-20 | Optional guidebooks | Teach existing tools without gating deflect charge; Kalé sells the opening volume for 500 runes; retain the original two Farum Azula placements | Eight [Profane Tomes](PROFANE-TOMES-UPDATE.md), one copy per subject across NG+; additional prices and the 5% Fire Monk roll are implemented starting values awaiting playtesting |
 | 2026-09-11 | Overall difficulty | The game is balanced around using Oaths and the powerful tools available | Evaluate expected tool use rather than treating an unbuffed vanilla-style run as the sole baseline |
 | 2026-09-19 | Opening deflect timing | Try one extra frame at 60 FPS for accessibility, retaining the repeat-attempt penalty | Opening window changed from 200 to 216.7 ms in 38 timeline events; [local implementation](DEFLECT-WINDOW-UPDATE.md), playtesting pending |
 | 2026-09-11 | Opening | "challenging" | Preserve a challenging start; this does not select exact multipliers or an early Oath acquisition change |
 | 2026-09-11 | Hadeon opening direction | Keyless dungeon access; mandatory Hadeon tuned for a new character using deflects; barrier and local travel lock until victory | Supersedes optional key-triggered commitment; retain existing barrier lifetime and investigate gate removal, travel, retries and local boss tuning |
-| 2026-09-19 | Hadeon combat | Keep changes minimal: heal at 75%, thorns at 50%, shriek plus 10% maximum-HP loss at 25%; genuine fall returns cost 5% maximum HP | Replace encounter RNG with once-per-attempt milestones; implemented in the [combat update](HADEON-COMBAT-UPDATE.md), game tests pending |
+| 2026-09-23 | Graveyard key gates | Two one-key statues, each opening its own layer and turning a guide torch red; a Partisan Godrick Knight and final Rick victory each supply a key | Supersedes the earlier keyless-entry direction; preserve normal torch offsets and existing boss behavior. See [implementation](GRAVEYARD-KEY-GATES.md); gameplay acceptance pending |
+| 2026-09-24 | Opening rescue and Hadeon | Full heal at <=30% player HP, 45-second cooldown, Chapel/Graveyard only until Hadeon dies; Thorn Ward at 75% and 50% boss HP; retain 25% shriek | Supersedes the earlier 75% boss-HP heal; see [opening update](BEGINNER-OPENING-UPDATE.md), game tests pending |
+| 2026-09-24 | Graveyard key knight | About 20% less HP, 10% lower attack rates, 20% less outgoing poise damage and 20% lower own poise/stance threshold | Local NPC 43519000 only; drop, AI, guard stamina damage and other knights unchanged |
 | 2026-09-19 | Hadeon deflect thorns | Only during this encounter, active thorns fire a short-range damaging burst on successful deflects without consuming charges or hurting the player | Dedicated burst with 0.5-second cooldown; ordinary Thorn Ward elsewhere remains unchanged; initial damage reuses the smallest thorn attack and needs playtesting |
 | 2026-09-11 | Nemesis release | Releasing Nemesis starts hardcore | Preserve the explicit crystal escalation and distinguish it from existing ordinary Nemesis pressure |
 | 2026-09-11 | Eclipse timers | The six-second waits were for testing; restore the commented intended waits and retain testing alternatives as comments | Restored the seven progression-dependent random waits in event 5750115; no other eclipse timing or eligibility changes |
@@ -106,13 +137,14 @@ Neither is established as an automatic opening reward. A blind player may miss
 both; no reliable hours-to-acquisition estimate has been measured in Sovereign.
 Evaluate discoverability before deciding whether either reward should move.
 
-The revised [mandatory Hadeon opening](HADEON-SEAL-PLAN.md) supersedes the optional
-key-triggered seal proposal. Hadeon must be balanced for a new character's deflects
+The [two-key opening](GRAVEYARD-KEY-GATES.md) now supersedes the earlier
+keyless-entry proposal in [the Hadeon plan](HADEON-SEAL-PLAN.md).
+Hadeon must be balanced for a new character's deflects
 and starting equipment before an Oath is assumed. The current 1000 base HP has
 substantial additional scaling: Stormveil-tier 7030 and two HP-doubling effects,
 with the general HKS base modifier also normally applied. Measure effective stats
 and trial Hadeon-local reductions rather than changing shared enemy modifiers.
-Keyless access and defeat-gated travel remain proposed implementation work; the
+Defeat-gated travel remains separate proposed work; the existing Hadeon encounter
 barrier lifetime already matches. Review route hazards, internal retries, existing
 player-support blessings and early access to the reward/Bindseal/crystal together.
 
@@ -138,6 +170,13 @@ state. Test this transition as a progression milestone. Do not attribute all suc
 pressure to the crystal that the player has not yet released.
 
 ### Eclipse pacing and hardcore
+
+**Author-approved 2026-09-23:** the first outdoor reveal after Hadeon's defeat and
+crystal destruction receive ten-second visual/audio omens. The new effects carry
+no healing penalty, enemy conversion, reward or travel restriction. Crystal
+hardcore remains a separate persistent consequence. Both imp torches return to
+normal after Hadeon. See [the implementation](NEMESIS-OMENS.md); timing and visual
+coexistence with real eclipses remain pending game tests.
 
 **Author-confirmed and restored:** the six-second initial waits were testing code.
 Event 5750115 now uses the intended random waits below, retaining each six-second

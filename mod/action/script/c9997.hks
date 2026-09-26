@@ -1,4 +1,4 @@
-﻿------------------------------------------
+------------------------------------------
 -- Fixed decompiled c9997.hks for ELDEN RING
 -- HKS file shared across all enemies
 -- Refined from decompiles by Vawser
@@ -35,6 +35,10 @@ GetEventFlag = 10003
 -- Nemesis
 ------------------------------------------
 function ModNemesis()
+    -- Rick's scripted second phase owns Golden Eyes, including during an eclipse.
+    if env(GetSpEffectID, 8041) == TRUE and env(GetSpEffectID, 7380) == TRUE then
+        return
+    end
     if env(GetSpEffectType, 7597) == TRUE and env(GetSpEffectType, 7589) == FALSE then
         if env(GetSpEffectType, 7599) == TRUE then
             if env(GetEventFlag, "1055420000") == 1 and env(GetSpEffectID, 1626912) == FALSE then
@@ -2205,7 +2209,7 @@ function ExecSaBreakDamage(damage_level, is_damaged)
         Replanning()
         Fire("W_Event20002")
         return TRUE
-    elseif IsExistAnime(ANIME_ID_SA_BREAK) == TRUE and env(HasBrokenSA) == TRUE then
+    elseif IsExistAnime(ANIME_ID_SA_BREAK) == TRUE and env(HasBrokenSA) == TRUE and env(GetSpEffectID, 1627117) == FALSE then
         SetVariable("IndexDamageDirection", 2)
         act(SetDamageAnimType, DAMAGE_FLAG_MIDDLE)
         Replanning()
@@ -4525,6 +4529,10 @@ function ExecStop()
 end
 
 function SetThrowFlag(attack, defense)
+    -- Only the marked tutorial actor (and protected Rick during the handoff).
+    if env(GetSpEffectID, 1627117) == TRUE then
+        defense = THROW_INVALID
+    end
     act(SetAllowedThrowAttackType, attack)
     act(SetAllowedThrowDefenseType, defense)
 end
@@ -4597,6 +4605,24 @@ function ExecPassiveTransition(judge_fall_type, is_weak, ignore_guard_block, ena
     end
     if env(GetSpEffectID, 6060) == TRUE and env(IsPlayerInRangeOfMount, 6) == FALSE then
         Fire("W_PhantomIdle")
+        return TRUE
+    end
+    -- Transition-only Rick marker: skip the draw animation and enter combat idle.
+    if env(GetSpEffectID, 1627120) == TRUE then
+        SetIdleType(AI_STATE_BATTLE)
+        if IsNodeActive("IdleBattle_CMSG") == FALSE then
+            Fire("W_IdleBattle")
+        end
+        return TRUE
+    end
+    -- Rick's charge enters the real stance-break state, once, without poise damage.
+    if env(GetSpEffectID, 1627117) == TRUE and env(GetSpEffectID, 1627118) == TRUE then
+        if env(GetSpEffectID, 1627119) == FALSE then
+            SetVariable("IndexDamageDirection", 2)
+            act(SetDamageAnimType, DAMAGE_FLAG_MIDDLE)
+            Replanning()
+            Fire("W_SABreak")
+        end
         return TRUE
     end
     if env(CheckForEventAnimPlaybackRequest) == TRUE then
@@ -5953,6 +5979,10 @@ function IdleDefault_onUpdate()
 end
 
 function IdleBattle_onUpdate()
+    if env(GetSpEffectID, 1627120) == TRUE then
+        ExecDeath()
+        return
+    end
     if IdleCommonFunction(STYLE_DEFAULT, ANIME_ID_IDLE_BATTLE) == TRUE then
         return
     end
@@ -7032,12 +7062,20 @@ function DamageMinimum_onUpdate()
 end
 
 function SABreak_onActivate()
+    if env(GetSpEffectID, 1627117) == TRUE and env(GetSpEffectID, 1627118) == TRUE then
+        act(AddSpEffect, 1627119)
+    end
     CallActionState(0)
     act(AddSpEffect, 5801)
     act(AddSpEffect, 5805)
 end
 
 function SABreak_onUpdate()
+    -- Preserve death handling, but suppress ordinary cancellation during the warning.
+    if env(GetSpEffectID, 1627117) == TRUE and env(GetSpEffectID, 1627118) == TRUE then
+        ExecDeath()
+        return
+    end
     act(AddSpEffect, 5801)
     if DamageCommonFunction(STYLE_DEFAULT, FALSE, JUDGE_FALL_TYPE_DIRECTION) == TRUE then
         return
@@ -11986,6 +12024,16 @@ function Update()
         Fire("W_TalkHeadBlend00")
     end
     -- SACRED Enemy Active Functions
+    -- Phase-one tutorial soldier: expose the paired critical state to the transition event.
+    -- 18480 is Malenia's existing neutral transition-blocking marker; no shared row is changed.
+    if env(GetSpEffectID, 1627117) == TRUE then
+        SetThrowDefInvalid()
+        if env(IsThrowing) == TRUE or env(HasThrowRequest) == TRUE then
+            act(AddSpEffect, 18480)
+        elseif env(GetSpEffectID, 18480) == TRUE then
+            act(Test_SpEffectDelete, 18480)
+        end
+    end
     local modEnemyFrameCount = g_FrameCount % 3
     if modEnemyFrameCount == 0 then
         SoulDropUp()

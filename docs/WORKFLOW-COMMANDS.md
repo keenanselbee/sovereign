@@ -437,3 +437,14 @@ python tools/sovereign.py check
 
 Requalify affected native routes after tool/library/options changes. Build receipts
 and fixture tests do not mark manual gameplay acceptance Passed.
+
+## Opening follow-up sources
+
+`src/recipes/hadeon-followup/Program.cs` owns the guarded native regulation/map
+patch. Build instructions and baseline requirements are in
+[its README](../src/recipes/hadeon-followup/README.md).
+`src/textures/deflection-tutorial/build.ps1` rebuilds the paired texture archive;
+see [its README](../src/textures/deflection-tutorial/README.md). The independent
+scene, reusable panel and icon remain in `images/mockups/deflection-v3/`.
+These catalog recipes identify ownership; they do not automatically rebuild,
+accept, deploy or replace arbitrary newer editor saves.

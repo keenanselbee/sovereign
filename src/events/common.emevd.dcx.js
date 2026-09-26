@@ -47,6 +47,9 @@ $Event(0, Default, function() {
     $InitializeEvent(0, 5750090);    
     $InitializeEvent(0, 5750100);
     $InitializeEvent(0, 5750101);
+    $InitializeEvent(0, 5750360);
+    $InitializeEvent(0, 5750361);
+    $InitializeEvent(0, 5750362);
     $InitializeEvent(0, 5750120);
     $InitializeEvent(0, 5750103);  
     $InitializeEvent(0, 5750115);  
@@ -10689,6 +10692,8 @@ $Event(5750100, Default, function() {
         SetEventFlagID(1055420002, OFF);
         SetEventFlagID(1055420003, ON);
         SetEventFlagID(1055420010, ON);
+        // Crystal break already requested the dedicated omen; avoid a doubled screech.
+        EndIf(EventFlag(1055422944) || CharacterHasSpEffect(10000, 1627110));
         SetSpEffect(10000, 1626982);
         SetSpEffect(10000, 1626990);
         PlaySE(10000, SoundType.SFX, 530181);
@@ -10706,6 +10711,7 @@ $Event(5750100, Default, function() {
     } else if (EventFlag(1055420003)) {
         WaitFor(!CharacterHasSpEffect(10000, 100690) && !CharacterHasSpEffect(10000, 9621))
         SetEventFlagID(1055420010, ON);
+        EndIf(EventFlag(1055422944) || CharacterHasSpEffect(10000, 1627110));
         SetSpEffect(10000, 1626982);
         SetSpEffect(10000, 1626990);
         PlaySE(10000, SoundType.SFX, 530181);
@@ -10713,6 +10719,113 @@ $Event(5750100, Default, function() {
         PlaySE(10000, SoundType.SFX, 450264);
         PlaySE(10000, SoundType.SFX, 450264);
     }
+    EndEvent();
+});
+
+// SACRED short Nemesis omens: host presentation only, independent of real eclipse state.
+$Event(5750360, Restart, function() {
+    DisableNetworkSync();
+    EndIf(!PlayerIsInOwnWorld());
+    SetEventFlagID(1055422945, OFF);
+    // Recover interrupted presentation on rest/reload without clearing any real eclipse.
+    ClearSpEffect(10000, 1627110);
+    ClearSpEffect(10000, 1627111);
+    ClearSpEffect(10000, 1627115);
+    WaitFor(EventFlag(1055422944)
+        || (!EventFlag(1055420923) && !EventFlag(1055420918)
+            && EventFlag(1055420915) && EventFlag(1042368540)
+            && PlayerInMap(60, 42, 36, 0) && InArea(10000, 1042362990)
+            && CharacterHPValue(10000) > 0));
+    if (EventFlag(1055422944)) {
+        SetEventFlagID(1055422945, ON);
+        SetEventFlagID(1055422944, OFF);
+        RestartIf(!PlayerInMap(18, 0, 0, 0) || CharacterHPValue(10000) <= 0);
+    } else {
+        // Let the vista register, but do not consume the cue after retreating inside.
+        WaitFixedTimeSeconds(2);
+        RestartIf(!PlayerInMap(60, 42, 36, 0) || CharacterHPValue(10000) <= 0
+            || !InArea(10000, 1042362990) || EventFlag(1055420918) || EventFlag(1055422944));
+        SetEventFlagID(1055420923, ON);
+    }
+    SetSpEffect(10000, 1627110);
+    SetSpEffect(10000, 1627111);
+    SetSpEffect(10000, 1627115);
+    // Reuse the existing Nemesis shriek, with no message, banner, BGM or control lock.
+    PlaySE(10000, SoundType.SFX, 530181);
+    WaitFixedTimeSeconds(0.1);
+    PlaySE(10000, SoundType.SFX, 450264);
+    PlaySE(10000, SoundType.SFX, 450264);
+    if (EventFlag(1055422945)) {
+        // Crystal cue: five seconds total, including the sound lead-in.
+        WaitFor(ElapsedSeconds(4.9) || CharacterHPValue(10000) <= 0 || !PlayerInMap(18, 0, 0, 0));
+    } else {
+        WaitFor(ElapsedSeconds(9.9) || CharacterHPValue(10000) <= 0
+            || (!PlayerInMap(18, 0, 0, 0) && !PlayerInMap(60, 42, 36, 0)));
+    }
+    ClearSpEffect(10000, 1627110);
+    ClearSpEffect(10000, 1627111);
+    ClearSpEffect(10000, 1627115);
+    SetEventFlagID(1055422945, OFF);
+    RestartEvent();
+});
+
+// SACRED beginner rescue eligibility. HKS atomically consumes both cooldowns and
+// heals; this worker only supplies short-lived permission and the presentation.
+$Event(5750361, Restart, function() {
+    DisableNetworkSync();
+    EndIf(!PlayerIsInOwnWorld());
+    ClearSpEffect(10000, 1627122);
+    ClearSpEffect(10000, 1627123);
+    EndIf(EventFlag(1055420915));
+    if (!CharacterHasSpEffect(10000, 100690) && !CharacterHasSpEffect(10000, 9621)
+        && ((PlayerInMap(10, 1, 0, 0) && EventFlag(10010020) && !EventFlag(9021))
+            || (PlayerInMap(18, 0, 0, 0) && EventFlag(101) && !EventFlag(18002851)
+                && !InArea(10000, 18002367)))) {
+        SetSpEffect(10000, 1627122);
+        if (PlayerInMap(18, 0, 0, 0) && InArea(10000, 18000359)) {
+            SetSpEffect(10000, 1627123);
+        }
+    }
+    if (CharacterHasSpEffect(10000, 1627124)) {
+        ClearSpEffect(10000, 1627124);
+        SetSpEffect(10000, 1626986);
+        SetSpEffect(10000, 1626991);
+        SetSpEffect(10000, 1626993);
+        SpawnOneshotSFX(TargetEntityType.Character, 10000, 220, 7505981);
+        PlaySE(10000, SoundType.SFX, 523875);
+    }
+    WaitFixedTimeSeconds(0.1);
+    RestartEvent();
+});
+
+// SACRED opening omen: first Chapel arrival only, after the native opening cutscene.
+$Event(5750362, Restart, function() {
+    DisableNetworkSync();
+    EndIf(!PlayerIsInOwnWorld());
+    ClearSpEffect(10000, 1627113);
+    ClearSpEffect(10000, 1627111);
+    ClearSpEffect(10000, 1627115);
+    ClearSpEffect(10000, 1627121);
+    EndIf(EventFlag(1055420925) || EventFlag(101));
+    WaitFor(EventFlag(101) || (PlayerInMap(10, 1, 0, 0) && EventFlag(10010020)
+        && CharacterHPValue(10000) > 0 && !EventFlag(9021)
+        && !CharacterHasSpEffect(10000, 100690) && !CharacterHasSpEffect(10000, 9621)));
+    EndIf(EventFlag(101));
+    RestartIf(!PlayerInMap(10, 1, 0, 0) || CharacterHPValue(10000) <= 0 || EventFlag(9021)
+        || CharacterHasSpEffect(10000, 100690) || CharacterHasSpEffect(10000, 9621));
+    SetEventFlagID(1055420925, ON);
+    SetSpEffect(10000, 1627113);
+    // Opening-only landing request: no player Nemesis aura or actual fall.
+    SetSpEffect(10000, 1627121);
+    PlaySE(10000, SoundType.SFX, 530181);
+    WaitFixedTimeSeconds(0.1);
+    PlaySE(10000, SoundType.SFX, 450264);
+    PlaySE(10000, SoundType.SFX, 450264);
+    WaitFor(ElapsedSeconds(2.9) || CharacterHPValue(10000) <= 0 || !PlayerInMap(10, 1, 0, 0));
+    ClearSpEffect(10000, 1627113);
+    ClearSpEffect(10000, 1627111);
+    ClearSpEffect(10000, 1627115);
+    ClearSpEffect(10000, 1627121);
     EndEvent();
 });
 
@@ -10761,8 +10874,9 @@ $Event(5750103, Restart, function() {
         if (!CharacterHasSpEffect(10000, 1626955)) {
             SetSpEffect(10000, 1626955);
             SetSpEffect(10000, 1626958);
-            SetSpEffect(10000, 1626986);
         }
+        // Every oath-entry eclipse flash includes its short player presentation.
+        SetSpEffect(10000, 1626986);
         SetSpEffect(10000, 1626998);
         SetSpEffect(10000, 1626992);
         WaitFixedTimeSeconds(1.5);

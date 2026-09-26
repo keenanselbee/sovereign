@@ -53,7 +53,6 @@ function encounter() {
       state.grants.push([id, effect]);
       if (effect === 1627100) state.hp.set(id, Math.max(0, state.hp.get(id) - 50));
       if (effect === 1627101) state.hp.set(id, Math.max(0, state.hp.get(id) - 100));
-      if (effect === 1626935) state.hp.set(id, 1000);
     },
     ClearSpEffect: (id, effect) => state.effects.delete(`${id}:${effect}`),
     WarpCharacterAndCopyFloor: id => {
@@ -100,19 +99,19 @@ test('milestones catch skipped thresholds and cannot repeat at the same HP', () 
   const e = encounter(); const worker = e.event(5750306);
   worker.advance(); assert.equal(e.state.grants.length, 0);
   e.state.hp.set(boss, 200); worker.advance();
-  assert.equal(e.count(1626935), 1);
-  assert.equal(e.count(1626916), 1);
+  assert.equal(e.count(1626916), 2); // 75% and 50% both refresh Thorn Ward.
   assert.equal(e.count(1626976), 1);
   assert.equal(e.count(1627101), 1);
   assert.equal(e.state.hp.get(boss), 100);
-  worker.advance(); assert.equal(e.count(1627101), 1);
+  worker.advance(); assert.equal(e.count(1627101), 1); assert.equal(e.count(1626916), 2);
 });
 
-test('full-health heal still consumes its milestone', () => {
+test('full-health player receives Thorn Ward without a scripted heal', () => {
   const e = encounter(); e.state.hp.set(player, 1000); e.state.hp.set(boss, 750);
   const worker = e.event(5750306); worker.advance();
   e.state.hp.set(player, 100); worker.advance();
-  assert.equal(e.count(1626935), 1); assert.equal(e.state.hp.get(player), 100);
+  assert.equal(e.count(1626916), 1); assert.equal(e.state.flags.has(1055422930), true);
+  assert.equal(e.state.hp.get(player), 100);
 });
 
 test('leaving during shriek sound delay prevents damage and preserves eligibility', () => {
@@ -141,7 +140,7 @@ test('other recovery regions and dead players do not cause fall damage', () => {
   dead.event(5750304).advance(); assert.equal(dead.count(1627100), 0);
 });
 
-test('presence stops on exit; death clears milestones; retreat does not', () => {
+test('presence stops on exit; only confirmed death clears milestones', () => {
   const e = encounter(); e.state.flags.add(1055422930);
   const worker = e.event(5750305); worker.advance(1);
   assert.equal(e.state.effects.has(`${player}:1627102`), true);
@@ -149,6 +148,8 @@ test('presence stops on exit; death clears milestones; retreat does not', () => 
   assert.equal(e.state.effects.has(`${player}:1627102`), false);
   assert.equal(e.state.flags.has(1055422930), true);
   e.state.hp.set(player, 0); worker.advance();
+  assert.equal(e.state.flags.has(1055422930), true);
+  e.state.flags.add(1055425042); worker.advance();
   assert.equal(e.state.flags.has(1055422930), false);
 });
 

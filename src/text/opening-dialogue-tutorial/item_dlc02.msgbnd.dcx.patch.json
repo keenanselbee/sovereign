@@ -1,0 +1,8 @@
+[
+  {
+    "file": "GoodsCaption.fmg",
+    "id": 9106,
+    "before": "Tap Guard just before an attack connects to deflect it. You can guard with a shield or a weapon held in both hands.\n\nTime each block carefully and watch your stamina. Successful deflections also charge your weapon's ultimate.\n\n<?keyicon@24?> just before impact: Deflect",
+    "after": "Tap Guard just before an attack connects to deflect it. Guard with a shield or a weapon held in both hands.\n\nDeflect in quick succession to build up to four charges and greatly increase guard-counter damage. Successful deflections also charge your weapon's ultimate.\n\n<?keyicon@24?> just before impact: Deflect\n<?keyicon@23?> after blocking: Guard Counter"
+  }
+]

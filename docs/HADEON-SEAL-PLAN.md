@@ -1,9 +1,11 @@
 Hadeon mandatory opening encounter
 ==================================
 
-Status: revised design direction under investigation, 2026-09-11. The latest
-request supersedes the earlier optional key-triggered commitment proposal.
-Keyless access and travel gating remain unimplemented; combat assistance has a
+Status: historical 2026-09-11 proposal. On 2026-09-23 the author replaced keyless
+entry with [two independent one-key barrier layers](GRAVEYARD-KEY-GATES.md),
+with keys from a Godrick Knight and Rick's final defeat. Do not implement the
+gate-removal recommendation below; retain it as design history.
+Travel gating remains unimplemented; combat assistance has a
 separate [implemented update](HADEON-COMBAT-UPDATE.md), with game tests pending.
 
 The 2026-09-19 [combat investigation](HADEON-ENCOUNTER-REVIEW.md) traces
@@ -111,8 +113,8 @@ Recommended implementation
    this first encounter, and teach the actual deflect input before requiring it.
 6. **Review the whole mandatory route and early rewards.** Check any remaining
    poison, chariots, encounters and traversal requirements on the route, not just
-   Hadeon. His current reward is Erdtree's Favor +3 (1043), whose inspected fields
-   are HP x1.045, stamina x1.115 and equip load x1.095. Victory also exposes the
+   Hadeon. As of 1.1.3, his reward is Erdtree's Favor +1 (1041), with
+   HP x1.035, stamina x1.085 and equip load x1.065. Victory also exposes the
    Bindseal rite and crystal choice. Confirm those early rewards are desired;
    do not silently move or weaken them.
 

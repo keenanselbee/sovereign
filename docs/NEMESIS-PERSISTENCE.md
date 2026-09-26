@@ -111,7 +111,7 @@ rerun a scratch editing or deployment script over subsequent user work.
 
 1. Fresh journey: defeat Hadeon; verify entrance wall 18002379 and barrier 18002347
    clear, boss identity/banner/music are correct, and crystal becomes available.
-2. Quit during the death-to-reward delay; reload alive. Confirm one Erdtree's Favor +3
+2. Quit during the death-to-reward delay; reload alive. Confirm one Erdtree's Favor +1
    payout, then rest/warp/reload again with no boss, barrier or duplicate reward.
 3. With crystal intact, verify ordinary passive Nemesis still occurs. Perform the
    ritual and equip the seal; confirm protection. Remove it and confirm ordinary

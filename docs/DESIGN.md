@@ -1,6 +1,65 @@
 Sovereign feature design
 =======================
 
+Current 1.3.3 implementation: aid waits three continuous eligible seconds,
+then ramps over ten seconds in twenty five-point steps to 2x HP/FP/stamina maxima
+and outgoing damage. Guard stamina cost reaches 0.5x (twice the endurance per
+stamina point; approximately four times full-bar endurance with doubled stamina).
+Resource percentages, spending protection and ten-second withdrawal remain.
+Hadeon returns visibly to his original position facing the barrier; hallway
+lights wait one continuous second outside before switching off. See
+[implementation and verification](test-results/2026-09-25-opening-followup.md).
+Native/source checks are distinct from pending in-game acceptance.
+
+Approved 1.2.6: [Nemesis's aid](HADEON-AID-UPDATE.md) visibly builds over ten
+seconds on Hadeon arena entry, reaches +50% resource maxima/damage/guard
+endurance, holds during the encounter and withdraws over ten seconds after
+victory or departure. Withdrawal must not kill a living player; it is not a
+repeated resource refill. The sustained shard aura is cosmetic. Actual player
+death clears the aid; Oath healing remains outside this change.
+
+The [1.2.5 Hadeon correction](HADEON-RESET-1.2.5.md) confirms sustained zero HP
+before encounter/lighting/milestone resets, cancels recovered retreat requests,
+and removes the light ignition flashes. Native/source checks pass; game retest
+is still required.
+
+The author-approved [1.2.4 opening support update](OPENING-SUPPORT-1.2.4.md)
+restores movement scaling with bounded diagnostics, corrects room ignition flags,
+adds the Ultimate lesson and an ordinary lethal-hit beginner rescue. Generic
+Ultimates, including Obliterator's generic fallback, gain launch back; custom
+signature paths remain unchanged. Game acceptance is pending.
+
+The [Rick visible transition](RICK-ENCOUNTER-UPDATE.md) is now implemented locally
+and synced to editors, awaiting deployment/game testing: stance-break bait at 25%
+HP, two-second golden warning, one charged burst at 75% base attack power,
+Hoarah vocal and a visible actor swap. Every attempt starts with the soldier;
+only final victory persists. No percentage-HP damage or black fade is used.
+
+Approved room follow-up: remove the two ceiling Grafted Scions; illuminate the
+boss room through a short randomized ignition sequence, then retain HP-based
+brightness and Nemesis gaze pulses. Hallway candles switch off outside their own
+boxes while Hadeon lives, remain on after victory, and switch off after crystal
+destruction. See [the implementation record](HADEON-LIGHTING-UPDATE.md).
+
+Version 1.1.6 corrects the [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md):
+82 room candles use grouped red-light presets preserving their source settings.
+The 74 particle flames stay continuous; eight other assets use illumination only.
+Models and hallway controls remain unchanged; visual/performance playtests are pending.
+
+The 1.1.4 [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md) adds staged brazier
+illumination, brief gaze surges, victory/crystal hallway states and a five-second
+crystal cue followed by room dimming. In-game visual and performance checks are pending.
+
+The 1.1.0 [Chapel reward update](CHAPEL-SHARD-UPDATE.md) replaces the maiden's
+Wizened Finger with one existing Darklight Shard and moves the finger to Kale for
+100 runes. The [1.1.1 Chapel fix](CHAPEL-POLISH-UPDATE.md) removes the remaining
+finger restriction and ground message, revises shard text, and completes omen VFX.
+
+The 1.0.9 [opening update](BEGINNER-OPENING-UPDATE.md) adds the 45-second
+beginner rescue, grants Hadeon Thorn Ward at both 75% and 50%, separates the left
+imp flag from vanilla, softens the key knight, adds the initial Chapel omen and
+suppresses the exit omen after crystal destruction. Gameplay acceptance is pending.
+
 Living design document, established 2026-09-11. Sovereign's author designed its
 custom mechanics and is the authority on their intent. This document records that
 intent alongside implementation evidence; it does not make every current value or
@@ -8,17 +67,38 @@ earlier recommendation an approved design decision.
 
 Use [BALANCE.md](BALANCE.md) for numerical baselines, tuning questions and evaluation.
 Use [MECHANICS.md](MECHANICS.md) and its linked investigations for implementation
-proof. The [older player guide](../README.md) contains valuable design history but
+proof. The [older player guide](../readme.md) contains valuable design history but
 also outdated names, unlocks and values.
 
 
 Design foundation
 -----------------
 
+**Confirmed 2026-09-24:** Sovereign should teach several deliberate defensive
+responses. Deflection is not the universal answer. Readable ground-stomp shockwaves
+should generally require a timed jump within their area of effect, defeating dodge
+invulnerability and deflection while remaining reliably jumpable. Review attacks
+individually across the game, including shared projectile chains and exceptions;
+do not apply this rule blindly to every attack labelled stomp. Hadeon is the first
+teaching encounter. The 2026-09-25 decision moves Jump to Evade to three seconds
+after room entry instead of after three failed attempts, with Deflection before
+the earlier added knight (18002658, two-second delay) and Ultimate Attacks at
+Soldier of Godrick (one second after admission). This sequence is implemented
+in 1.3.2; the two-field stomp trial is not yet verified jump-only behavior. See
+[the ground-stomp goal and investigation](GROUND-STOMP-GOAL.md).
+
+**Confirmed 2026-09-23:** Reserve tutorial popups for important Sovereign mechanics.
+The first replacement teaches deflection near Soldier of Godrick, using the Guarding
+artwork and the existing guard-counter proximity trigger after two seconds. Suppress
+all other vanilla tutorial panels and control hints. Existing-save tutorial migration
+is out of scope. See [the tutorial update](TUTORIAL-UPDATE.md) for the complete map
+and pending gameplay checks.
+
 **Confirmed by the author:** Sovereign is balanced around using Oaths and the
 powerful tools available to the player. Its difficulty is deliberate. The opening
 can nevertheless be excessively difficult, particularly with Nemesis enemies.
-Releasing Nemesis through the crystal starts the deliberate hardcore mode.
+Defeating Hadeon releases Nemesis narratively; breaking the crystal separately
+starts the deliberate hardcore mode.
 
 The design task is to preserve this demanding game and its extraordinary rewards
 while making the intended tools, commitments and counters understandable. Strong
@@ -166,6 +246,12 @@ here includes discoverable controls, not just lower damage.
 **Confirmed intent:** preserve the author's heavily modified Claw mechanics unless
 evidence establishes something clearly broken. The author will test the mechanics.
 
+On 2026-09-22, the author chose to ignore unavailable backstep actions instead of
+restoring the vanilla hop. Both guarded and unguarded inputs now require an
+Endure/Claw effect to activate before entering the stationary replacement. A fresh
+character with neither ability therefore skips the empty pause. Claw alone still
+requires 9 FP; Endure retains its existing low-FP fallback and combined branches.
+
 **Implementation evidence:** `ModEndureBlasphemousClawBackstep` handles Endure and
 Claw states, with a combined branch at 15 FP, individual branches at 9 FP and an
 Endure fallback. Effects 1626601/1626602 and 1626624 lead to the current defensive
@@ -275,14 +361,20 @@ and what recovery follows failure as well as success.
 
 ### Hadeon, the shrine and crystal release
 
-**Author-confirmed location and latest design direction:** Nemesis is sealed in
-the Stranded Graveyard starting dungeon. Replace the earlier optional key-triggered
-proposal with keyless access and a mandatory Hadeon encounter tuned for a new
-character using deflects. The exit barrier and local fast-travel prohibition last
-until Hadeon's defeat. Barrier lifetime already matches; keyless access, travel
-gating and new-character tuning are under investigation, not implemented by the
-design review. See [the revised implementation plan](HADEON-SEAL-PLAN.md).
-Preserve crystal destruction as the separate hardcore decision after Hadeon.
+**Author-confirmed 2026-09-23:** Nemesis is sealed in the Stranded Graveyard.
+Two statues each consume one Stonesword Key and open their own barrier layer,
+turning their corresponding guide torch red. A Partisan Godrick Knight before
+Rick and Rick's final defeat each supply one guaranteed key per journey.
+Hadeon's defeat changes his entrance guide torch and both imp torches back to
+normal. The imp torches remain normal thereafter, regardless of statue state.
+The first outdoor reveal after victory and crystal destruction each produce a
+brief eclipse with the existing Nemesis screech and no text. These cosmetic cues
+leave ordinary eclipse behavior and optional crystal hardcore intact. See the
+[implemented omen update](NEMESIS-OMENS.md); gameplay acceptance is pending.
+This supersedes keyless entry; see [the gate implementation](GRAVEYARD-KEY-GATES.md).
+Existing Hadeon encounter barriers and crystal destruction remain separate.
+Earlier local travel gating and new-character tuning remain unimplemented
+proposals in [the opening plan](HADEON-SEAL-PLAN.md), not part of this gate change.
 
 **Accepted combat change, 2026-09-19:** replace random encounter boons with a
 one-time heal at 75% HP, Thorn Ward at 50%, and shriek plus 10% maximum-HP damage
@@ -294,7 +386,8 @@ Implemented in the repo; gameplay and deployment remain pending. See the
 [investigation](HADEON-ENCOUNTER-REVIEW.md) retains historical findings and superseded
 deflection-credit proposals; no extra deflect meter is part of the accepted change.
 
-**Confirmed intent:** releasing Nemesis starts hardcore. The existing accepted
+**Confirmed intent:** Hadeon's defeat releases Nemesis into the world in the
+narrative; deliberately breaking the crystal starts hardcore. The existing accepted
 implementation uses destruction of crystal entity 18002346 after Hadeon as the
 persistent choice. Following Nemesis suppresses that state; leaving the follower
 state restores it when the crystal has been broken.
@@ -302,7 +395,7 @@ state restores it when the crystal has been broken.
 Hadeon is the shrine encounter that gates the rite and crystal access. His defeat
 and reward are separate persistent states. The owed reward should survive an
 interrupted payout, while an already collected reward should not duplicate.
-Erdtree's Favor +3 is the inspected reward, not the Bindseal itself.
+Erdtree's Favor +1 is the inspected reward, not the Bindseal itself.
 
 The accepted journey policy is a fresh Hadeon/crystal choice in NG+, with no forced
 automatic hardcore transition. Runtime tests for flag reset, active enemies,
@@ -310,6 +403,24 @@ follower transitions, host/client ownership and crystal targeting remain pending
 See [NEMESIS-PERSISTENCE](NEMESIS-PERSISTENCE.md).
 
 ### Exceptional bosses
+
+**Rick encounter, confirmed 2026-09-22:** phase 1 is normal-size Soldier of Godrick
+with the existing non-golden boosts. At 25% HP, fade and replace him with a fully
+healed, 1.5x Rick using existing Golden Eyes 5250 plus Boss Modifier 7380 and The
+Final Battle music. This reserves golden eyes for phase 2; phase 1 becomes easier
+than the previous Rick, while phase 2 doubles that Rick's maximum HP without a new
+attack multiplier. The author approved this simple existing-effect approach.
+The 2026-09-23 follow-up waits for an active critical before fading, plays soldier
+vocal 431008102, and reveals Rick at the outgoing soldier's position. The entrance
+trigger must not gate the mid-fight fade.
+See [implementation and pending acceptance](RICK-ENCOUNTER-UPDATE.md).
+
+**Rick follow-up, confirmed 2026-09-24:** after reaching phase two, deaths/reloads
+start subsequent attempts directly against full-health Rick at his normal arena
+placement. The first transformation uses the soldier's last position and Hoarah
+Loux vocal 472108006; it should remain hittable without taking damage or staggering.
+Awakening lasts for the journey. The beginner rescue should use the normal Nemesis
+blessing visuals without changing its existing heal, cooldown or eligibility.
 
 **Confirmed intent, 2026-09-11:** Malenia is defeated through mastery of deflecting
 her attacks, which should award her no healing. Maliketh and Destined Death are
@@ -485,6 +596,11 @@ attack bonuses, resource recovery and a chain that removes blessings, Vow and Wa
 Supremacy is also applied by the Sacred Spear's ultimate. Record duration,
 exclusions, trigger, rescue and post-rescue state as one feature, rather than adding
 its attack bonus to a hypothetical stack with every Oath.
+
+The approved short-fall correction limits these two buffs' forced medium landing
+to falls over 20 metres, matching their existing `IsLandDead` protection threshold.
+Smaller drops use ordinary landing selection; vanilla state 266 retains its existing
+landing override. This is implemented for testing, with gameplay acceptance pending.
 
 The desired strength and duration are open. Divinity's confirmed preservation
 design changes how sustained-buff tests should be interpreted; long duration during

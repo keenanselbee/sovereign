@@ -24,6 +24,9 @@ File ownership
   They are not editing or packaging inputs.
 - External Smithbox, Script, DSAnimStudio and SFX directories remain working copies.
   A saved editor file is accepted deliberately, not selected by timestamp.
+- `src/text/opening-dialogue-tutorial/` retains guarded recipes for the accepted
+  English opening dialogue and Deflection text. The packed binders are already
+  updated; these recipes support qualified rebuilds from earlier inputs.
 - The verified stage selected in `.vdb/selected.json` supplies the release ZIP.
   Vortex owns deployment. Live game files are outputs and diagnostic evidence.
 

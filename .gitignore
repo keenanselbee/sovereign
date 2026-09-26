@@ -24,3 +24,7 @@ nexus-automation.local.json
 
 # Separate local texture payload after layout migration.
 /packages/textures/mod/menu/hi/
+
+# Native authoring recipe build output.
+/src/recipes/**/bin/
+/src/recipes/**/obj/

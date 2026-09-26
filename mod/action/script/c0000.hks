@@ -1,4 +1,4 @@
-﻿------------------------------------------
+------------------------------------------
 -- Fixed decompiled c0000.hks for ELDEN RING
 -- Refined from decompiles by Vawser
 -- Curated at: https://github.com/ividyon/EldenRingHKS
@@ -75,6 +75,7 @@ currentMagicSlot = 0
 -- HP State Info
 currentHP = 0
 lastHP = 9999
+lastEffectiveHPMax = nil
 maxHP = 0
 hpEffectMap = {
     hpMap = {
@@ -156,20 +157,25 @@ torrentbuttonHold = 0
 ------------------------------------------
 function ModHPStateInfo()
     currentHP = env(GetHP)
-    if lastHP == currentHP then
+    local effectiveMaximum = ModGetEffectiveHPMax()
+    if effectiveMaximum == nil or effectiveMaximum <= 0 then return end
+    local hpChanged = lastHP ~= currentHP
+    if not hpChanged and lastEffectiveHPMax == effectiveMaximum then
         return
     end
     lastHP = currentHP
+    lastEffectiveHPMax = effectiveMaximum
 
+    -- Preserve the base maximum used by the existing Oath healing formulas.
     maxHP = ModGetHPMax()
 
     -- Calculate HP % (round down to nearest 10)
-    hpPercentage = math.floor((currentHP / maxHP) * 10) * 10
+    hpPercentage = math.floor((currentHP / effectiveMaximum) * 10) * 10
 
     hpDefaultEffectID = hpEffectMap.hpMap[hpPercentage] or hpEffectMap.hpMap[90]
     act(AddSpEffect, hpDefaultEffectID)
 
-    ModFrenziedFlameCurse()
+    if hpChanged then ModFrenziedFlameCurse() end
 end
 
 -- Helper function for fetching maximum HP
@@ -579,7 +585,11 @@ function ModEndureBlasphemousClawBackstep()
         act(AddSpEffect, 1626601)
     elseif env(GetStateChangeType, 7705) == TRUE then
         act(AddSpEffect, 1626602)
+    else
+        -- Do not enter the stationary replacement when no defensive action is available.
+        return FALSE
     end
+    return TRUE
 end
 
 ------------------------------------------
@@ -611,17 +621,20 @@ function ModJump()
         ModPlungingAttackDamage()
 		doubleJumpFrameCount = doubleJumpFrameCount + 1
         -- Wall Jump
-        if (wallJumpFrameCount + 1) < doubleJumpFrameCount then
-            wallJumpFrameCount = 9999
-            wallJumpCount = wallJumpCount + 1
-            act(AddSpEffect, 221)
-            act(AddSpEffect, 223)
-            act(AddSpEffect, 224)
-            act(AddSpEffect, 228)
-            if buttonHold < 2 then
-                buttonHold = 2
+        if wallJumpFrameCount ~= 9999 then
+            -- Keep the original request until its delay expires; held input must not reschedule it.
+            if (wallJumpFrameCount + 1) < doubleJumpFrameCount then
+                wallJumpFrameCount = 9999
+                wallJumpCount = wallJumpCount + 1
+                act(AddSpEffect, 221)
+                act(AddSpEffect, 223)
+                act(AddSpEffect, 224)
+                act(AddSpEffect, 228)
+                if buttonHold < 2 then
+                    buttonHold = 2
+                end
+                ExecModJump()
             end
-            ExecModJump()
         elseif env(ActionDuration, ACTION_ARM_CHANGE_STYLE) > 10 and env(IsHitWall) > 0 and buttonHold < 15 and wallJumpCount < 2 
         and env(GetStateChangeType, 7704) == FALSE and modHeight < DISABLEJUMP_FALLDIST and doubleJumpFrameCount > 10
         and (env(GetSpEffectID, 503520) == FALSE or (env(GetSpEffectID, 503520) == TRUE and env(GetSpEffectID, 1626080) == TRUE)) then 
@@ -726,7 +739,14 @@ function ModJump()
             end
         end
 	end
-	if env(IsLanding) == TRUE then
+    	if env(IsLanding) == TRUE then
+        -- Landing cancels a pending wall jump and releases only its temporary ladder pose.
+        if wallJumpFrameCount ~= 9999 and env(GetHP) > 0 and env(IsOnMount) == FALSE
+        and IsNodeActive("LadderIdleLeft_CMSG", "LadderIdleRight_CMSG") == TRUE then
+            if MoveStart(ALLBODY, Event_Move, FALSE) == FALSE then
+                ExecEventAllBody("W_Idle")
+            end
+        end
 		doubleJumpFrameCount = 0
 		doubleJumpCount = 0
         jumpCastCount = 0
@@ -912,20 +932,24 @@ end
 -- Core: Functions
 ------------------------------------------
 function ExecEvent(state)
+    ModMotionTrace("event", state)
     ResetRequest()
     hkbFireEvent(state)
 end
 
 function ExecEventSync(state)
+    ModMotionTrace("event", state)
     ResetRequest()
     act(PlayEventSync, state)
 end
 
 function ExecEventNoReset(state)
+    ModMotionTrace("event", state)
     hkbFireEvent(state)
 end
 
 function ExecEventSyncNoReset(state)
+    ModMotionTrace("event", state)
     act(PlayEventSync, state)
 end
 
@@ -943,6 +967,7 @@ end
 
 function ExecEventHalfBlend(event_table, blend_type)
     if blend_type == ALLBODY then
+        ModMotionTrace("zeroBy", "ExecEventHalfBlend")
         SetVariable("MoveSpeedLevelReal", 0)
         local lower_event = event_table[1]
         local upper_event = lower_event .. "_Upper"
@@ -996,6 +1021,7 @@ function ExecEventHalfBlendNoReset(event_table, blend_type)
 end
 
 function ExecEventAllBody(event)
+    ModMotionTrace("zeroBy", "ExecEventAllBody")
     SetVariable("MoveSpeedLevelReal", 0)
     ExecEvent(event)
 end
@@ -1012,6 +1038,7 @@ function IsNodeActive(...)
 end
 
 function ResetEventState()
+    ModMotionTrace("zeroBy", "ResetEventState")
     SetVariable("MoveSpeedLevelReal", 0)
     ResetRequest()
 end
@@ -1474,13 +1501,16 @@ function ExecStopHalfBlend(event, to_idle)
 end
 
 function MoveStart(blend_type, event, gen_hand)
+    ModMotionTrace("moveStart", "entered")
     -- 100200 "[HKS] Gesture Anim"
 
     if GetVariable("MoveSpeedLevel") <= 0 then
+        ModMotionTrace("moveStart", "no_input")
         return FALSE
     end
 
     if env(GetSpEffectID, 100200) == TRUE then
+        ModMotionTrace("moveStart", "gesture_block")
         return FALSE
     end
 
@@ -1503,10 +1533,12 @@ function MoveStart(blend_type, event, gen_hand)
     end
 
     if GetLocomotionState() ~= PLAYER_STATE_MOVE then
+        ModMotionTrace("zeroBy", "MoveStart")
         SetVariable("MoveSpeedLevelReal", 0)
         SpeedUpdate()
     end
 
+    ModMotionTrace("moveStart", "requested")
     ExecEventHalfBlend(event, blend_type)
 
     return TRUE
@@ -5731,16 +5763,18 @@ function GetEvasionRequest()
             end
         elseif env(ActionRequest, ACTION_ARM_BACKSTEP) == TRUE then
             -- SACRED Endure / Blasphemous Claw Backstep
-            ModEndureBlasphemousClawBackstep()
-            return ATTACK_REQUEST_BACKSTEP
+            if ModEndureBlasphemousClawBackstep() == TRUE then
+                return ATTACK_REQUEST_BACKSTEP
+            end
             -- SACRED
         else
             return ATTACK_REQUEST_INVALID
         end
     elseif env(ActionRequest, ACTION_ARM_BACKSTEP) == TRUE then
         -- SACRED Endure / Blasphemous Claw Backstep
-        ModEndureBlasphemousClawBackstep()
-        return ATTACK_REQUEST_BACKSTEP
+        if ModEndureBlasphemousClawBackstep() == TRUE then
+            return ATTACK_REQUEST_BACKSTEP
+        end
         -- SACRED
     end
     return ATTACK_REQUEST_INVALID
@@ -6230,9 +6264,11 @@ end
 function ExecPassiveAction(is_parry, fall_type, is_attackwhileguard)
     if env(HasThrowRequest) == TRUE then
         ResetDamageCount()
+        ModMotionTrace("gate", "ExecPassiveAction:env(HasThrowRequest)")
         return TRUE
     end
     if ExecDeath() == TRUE then
+        ModMotionTrace("gate", "ExecPassiveAction:ExecDeath()")
         return TRUE
     end
     if env(ActionRequest, ACTION_ARM_BUDDY_DISAPPEAR) == TRUE then
@@ -6241,21 +6277,26 @@ function ExecPassiveAction(is_parry, fall_type, is_attackwhileguard)
     end
     if ExecTalk() == TRUE then
         ResetDamageCount()
+        ModMotionTrace("gate", "ExecPassiveAction:ExecTalk()")
         return TRUE
     end
     if ExecMovableEventAnim() == TRUE then
         ResetDamageCount()
+        ModMotionTrace("gate", "ExecPassiveAction:ExecMovableEventAnim()")
         return TRUE
     end
     if env(CheckForEventAnimPlaybackRequest) == TRUE then
         ResetDamageCount()
+        ModMotionTrace("gate", "ExecPassiveAction:env(CheckForEventAnimPlaybackRequest)")
         return TRUE
     end
     if ExecDamage(is_parry, is_attackwhileguard) == TRUE then
+        ModMotionTrace("gate", "ExecPassiveAction:ExecDamage(is_parry,_is_attackwhileguard)")
         return TRUE
     end
     if ExecFallStart(fall_type) == TRUE then
         ResetDamageCount()
+        ModMotionTrace("gate", "ExecPassiveAction:ExecFallStart(fall_type)")
         return TRUE
     end
     return FALSE
@@ -6324,11 +6365,183 @@ function IsLandDead(height)
     return FALSE
 end
 
+-- Hadeon aid is driven by a short-lived, host-only arena permission effect.
+-- Max HP at 0x13C includes current SpEffect changes and HP caps; 0x144 is base HP.
+function ModGetEffectiveHPMax()
+    return env(TraversePointerChain, CHR_INS_BASE, SIGNED_INT, CHR_MODULES, DATA_MODULE, 0x13C)
+end
+
+sovereignAidPermissionGrace = 0
+sovereignAidCalls = 0
+sovereignAidStage = -1
+sovereignAidTimer = 0
+sovereignAidDirection = 0
+sovereignAidInterval = 0.5
+sovereignAidPending = false
+sovereignAidFractions = {0, 0, 0}
+
+function ModAidResources()
+    return {env(GetHP), env(GetFP), env(GetStamina)},
+        {ModGetEffectiveHPMax(),
+         env(TraversePointerChain, CHR_INS_BASE, SIGNED_INT, CHR_MODULES, DATA_MODULE, FP_MAX),
+         env(GetMaxStamina)}
+end
+
+function ModHadeonAid()
+    sovereignAidCalls = sovereignAidCalls + 1
+    if sovereignAidStage == -1 then
+        sovereignAidStage = 0
+        -- Recover an existing tier if the script instance was recreated mid-buff.
+        for stage = 1, 20 do
+            if env(GetSpEffectID, 1627140 + stage) == TRUE then sovereignAidStage = stage end
+        end
+        if sovereignAidStage == 0 then act(ClearSpEffect, 1627131) end
+    end
+    local eligible = env(GetSpEffectID, 1627130) == TRUE
+    -- Bridge brief permission-expiry gaps without restarting the half-second ramp.
+    if eligible then
+        sovereignAidPermissionGrace = 0.2
+    elseif sovereignAidPermissionGrace > 0 then
+        sovereignAidPermissionGrace = math.max(0, sovereignAidPermissionGrace - GetDeltaTime())
+        eligible = sovereignAidPermissionGrace > 0
+    end
+    -- Outside the arena, skip resource reads and timers once withdrawal is complete.
+    if not eligible and sovereignAidStage == 0 and not sovereignAidPending then
+        return
+    end
+    if env(GetHP) <= 0 then
+        -- The native effects clear on actual death. Never resurrect from a saved snapshot.
+        sovereignAidPermissionGrace = 0
+        sovereignAidPending = false
+        return
+    end
+    if sovereignAidStage > 0 and not sovereignAidPending
+        and env(GetSpEffectID, 1627140 + sovereignAidStage) == FALSE then
+        sovereignAidStage = 0
+        sovereignAidTimer = 0
+        sovereignAidFractions = {0, 0, 0}
+        act(ClearSpEffect, 1627131)
+    end
+
+    local dt = GetDeltaTime()
+    sovereignAidTimer = sovereignAidTimer + dt
+    if sovereignAidPending then
+        local pending = sovereignAidPending
+        pending.time = pending.time + dt
+        local current, maximum = ModAidResources()
+        -- Wait for native maximum recalculation, including deferred effect application.
+        -- Reject a transient stacked maximum or unrelated equipment/cap change.
+        if maximum[1] == nil or math.abs(maximum[1] - pending.expectedMaximum[1]) > 2 then
+            if pending.time < 0.3 then return end
+            sovereignAidPending = false
+            sovereignAidFractions = {0, 0, 0}
+            return
+        end
+        for resource = 1, 3 do
+            if maximum[resource] ~= nil and maximum[resource] > 0 and pending.maximum[resource] > 0
+                and math.abs(maximum[resource] - pending.expectedMaximum[resource]) <= 2 then
+                -- Native max changes leave current resources alone except upper clamping.
+                -- Preserve intervening damage, casts, healing and stamina expenditure.
+                local clampedBefore = math.min(pending.current[resource], maximum[resource])
+                local delta = current[resource] - clampedBefore
+                local scaled = (pending.current[resource] + sovereignAidFractions[resource])
+                    * maximum[resource] / pending.maximum[resource] + delta
+                local floorValue = 0
+                if resource == 1 then floorValue = 1 end
+                local target = math.max(floorValue, math.min(maximum[resource], math.floor(scaled + 0.00001)))
+                sovereignAidFractions[resource] = math.max(0, math.min(0.99999, scaled - target))
+                if target == maximum[resource] or scaled < floorValue then sovereignAidFractions[resource] = 0 end
+                if resource == 1 then
+                    act(ChangeHP, target - current[resource])
+                elseif resource == 2 then
+                    -- Installed Script Exposer's bounded current-FP write; no maximum/base edits.
+                    act(10000, CHR_INS_BASE, SIGNED_INT, target, CHR_MODULES, DATA_MODULE, FP)
+                else
+                    act(10000, CHR_INS_BASE, SIGNED_INT, target, CHR_MODULES, DATA_MODULE, 0x154)
+                end
+            else
+                -- An unrelated max-FP/stamina change is not part of this blessing step.
+                sovereignAidFractions[resource] = 0
+            end
+        end
+        sovereignAidPending = false
+        if sovereignAidStage == 0 then
+            sovereignAidFractions = {0, 0, 0}
+            act(ClearSpEffect, 1627131)
+        end
+    end
+
+    local direction = -1
+    if eligible then direction = 1 end
+    if direction ~= sovereignAidDirection then
+        sovereignAidDirection = direction
+        sovereignAidTimer = 0
+        sovereignAidInterval = 0.5
+        -- Partial blessings also withdraw over ten seconds, rather than abruptly disappearing.
+        if direction == -1 and sovereignAidStage > 0 then sovereignAidInterval = 10 / sovereignAidStage end
+    end
+    if eligible and env(GetSpEffectID, 1627131) == FALSE then act(AddSpEffect, 1627131) end
+    if (eligible and sovereignAidStage == 20) or (not eligible and sovereignAidStage == 0) then
+        sovereignAidTimer = 0
+        if not eligible and env(GetSpEffectID, 1627131) == TRUE then act(ClearSpEffect, 1627131) end
+        return
+    end
+    if sovereignAidTimer < sovereignAidInterval then return end
+    sovereignAidTimer = sovereignAidTimer - sovereignAidInterval
+    local current, maximum = ModAidResources()
+    if maximum[1] == nil or maximum[1] <= 0 or maximum[2] == nil or maximum[2] <= 0
+        or maximum[3] == nil or maximum[3] <= 0 then return end
+    local nextStage = sovereignAidStage + direction
+    local ratio = (1 + nextStage * 0.05) / (1 + sovereignAidStage * 0.05)
+    sovereignAidPending = {current = current, maximum = maximum, time = 0,
+        expectedMaximum = {maximum[1] * ratio, maximum[2] * ratio, maximum[3] * ratio}}
+    -- Add before removing the old tier to avoid a transient fall to unbuffed maximums.
+    -- Only the new tier remains after these commands; tiers never accumulate.
+    if nextStage > 0 then act(AddSpEffect, 1627140 + nextStage) end
+    if sovereignAidStage > 0 then act(ClearSpEffect, 1627140 + sovereignAidStage) end
+    sovereignAidStage = nextStage
+end
+
+
+-- Beginner rescue: cooldowns begin before HP changes, so the update and death
+-- paths cannot both consume a charge. These effects cannot be extended by Divinity.
+function ModBeginnerRescue(lethal)
+    if env(GetSpEffectID, 1627122) == FALSE then return FALSE end
+    if env(GetSpEffectID, 1627126) == TRUE then return FALSE end
+    if env(GetSpEffectID, 1627127) == TRUE and env(GetSpEffectID, 1627123) == FALSE then return FALSE end
+    if env(GetSpEffectID, 100690) == TRUE or env(GetSpEffectID, 9621) == TRUE
+        or env(GetSpEffectID, 19700) == TRUE or env(GetSpEffectID, 102351) == TRUE
+        or env(GetSpEffectID, 9913) == TRUE or env(IsOnLadder) == TRUE
+        or env(IsOnMount) == TRUE or env(GetReceivedDamageType) == DAMAGE_TYPE_DEATH_FALLING
+        or env(GetStateChangeType, CONDITION_TYPE_STONE) == TRUE
+        or env(GetStateChangeType, CONDITION_TYPE_CRYSTAL) == TRUE
+        or env(GetDamageSpecialAttribute, 3) == TRUE then return FALSE end
+    -- The fatal-fall handler and the Chapel's scripted one-HP defeat stay native.
+    if env(GetFallHeight) >= 2000 then return FALSE end
+    local hp = env(GetHP)
+    local maximum = ModGetEffectiveHPMax()
+    if maximum == nil or maximum <= 0 then return FALSE end
+    if lethal == TRUE then
+        if hp > 0 or env(HasReceivedAnyDamage) == FALSE then return FALSE end
+    elseif hp <= 1 or hp > maximum * 0.30 then
+        return FALSE
+    end
+    act(AddSpEffect, 1627126)
+    act(AddSpEffect, 1627127)
+    act(AddSpEffect, 1627125)
+    act(ChangeHP, maximum - hp)
+    act(AddSpEffect, 1627124)
+    sovereignLastRescueTime = sovereignDiagnosticTime or 0
+    return TRUE
+end
+
 function ExecDeath()
     if env(GetReceivedDamageType) == DAMAGE_TYPE_DEATH or env(GetHP) <= 0 then
         if env(GetSpEffectID, 560) == TRUE then
             return FALSE
         end
+
+        if ModBeginnerRescue(TRUE) == TRUE then return FALSE end
 
         -- SACRED Bloodflame Blasphemy Cheat Death
         if env(GetSpEffectID, 1626360) == TRUE and env(GetSpEffectID, 1626120) == FALSE then
@@ -7011,7 +7224,9 @@ function FallCommonFunction(is_enable_falling_death, is_jump, fall_style)
         IS_ATTACKED_JUMPMAGIC = FALSE
 
         -- SACRED Bloodflame Blasphemy Cheat Death
-        if env(GetStateChangeType, 266) == TRUE or env(GetSpEffectID, 1626360) == TRUE or env(GetSpEffectID, 1626370) == TRUE then
+        -- Match IsLandDead: only lethal-height falls need the custom protected landing.
+        if env(GetStateChangeType, 266) == TRUE or (height > 20 and
+        (env(GetSpEffectID, 1626360) == TRUE or env(GetSpEffectID, 1626370) == TRUE)) then
             Replanning()
             SetVariable("LandIndex", LAND_MIDDLE)
             ExecEventAllBody("W_Land")
@@ -7751,39 +7966,51 @@ function IdleCommonFunction()
     SetEnableAimMode()
 
     if ExecPassiveAction(FALSE, FALL_TYPE_DEFAULT, FALSE) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecPassiveAction(FALSE,_FALL_TYPE_DEFAULT,_FALSE)")
         return TRUE
     end
     if LadderStart() == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:LadderStart()")
         return TRUE
     end
     if c_IsStealth == FALSE and ExecQuickTurn(ALLBODY, TURN_TYPE_DEFAULT) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:c_IsStealth_==_FALSE_and_ExecQuickTurn(ALLBODY,_TURN_TYPE_DEFAULT)")
         return TRUE
     end
     if ExecJump() == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecJump()")
         return TRUE
     end
     if ExecHandChange(HAND_RIGHT, FALSE, ALLBODY) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecHandChange(HAND_RIGHT,_FALSE,_ALLBODY)")
         return TRUE
     end
     if ExecGuard(Event_GuardStart, ALLBODY) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecGuard(Event_GuardStart,_ALLBODY)")
         return TRUE
     end
     if ExecWeaponChange(ALLBODY) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecWeaponChange(ALLBODY)")
         return TRUE
     end
     if ExecEvasion(FALSE, ESTEP_NONE, FALSE) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecEvasion(FALSE,_ESTEP_NONE,_FALSE)")
         return TRUE
     end
     if ExecItem(QUICKTYPE_NORMAL, ALLBODY) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecItem(QUICKTYPE_NORMAL,_ALLBODY)")
         return TRUE
     end
     if ExecMagic(QUICKTYPE_NORMAL, ALLBODY, FALSE) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecMagic(QUICKTYPE_NORMAL,_ALLBODY,_FALSE)")
         return TRUE
     end
     if ExecArtsStance(ALLBODY) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecArtsStance(ALLBODY)")
         return TRUE
     end
     if ExecRide() == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecRide()")
         return TRUE
     end
 
@@ -7801,13 +8028,16 @@ function IdleCommonFunction()
     end
     if c_IsStealth == TRUE then
         if MoveStart(ALLBODY, Event_Stealth_Move, FALSE) == TRUE then
+            ModMotionTrace("gate", "IdleCommonFunction:MoveStart(ALLBODY,_Event_Stealth_Move,_FALSE)")
             return TRUE
         end
     elseif MoveStart(ALLBODY, Event_Move, FALSE) == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:MoveStart(ALLBODY,_Event_Move,_FALSE)")
         return TRUE
     end
 
     if ExecGesture() == TRUE then
+        ModMotionTrace("gate", "IdleCommonFunction:ExecGesture()")
         return TRUE
     end
     return FALSE
@@ -8579,6 +8809,7 @@ function QuickItemCommonFunction(g_r1, g_r2, g_l1, g_l2, g_b1, g_b2, blend_type,
 end
 
 function StopCommonFunction(is_dash_stop)
+    ModMotionTrace("callback", "StopCommonFunction")
     act(Wait)
 
     if is_dash_stop == TRUE then
@@ -8596,39 +8827,51 @@ function StopCommonFunction(is_dash_stop)
     SetEnableAimMode()
 
     if ExecPassiveAction(FALSE, FALL_TYPE_DEFAULT, FALSE) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecPassiveAction(FALSE,_FALL_TYPE_DEFAULT,_FALSE)")
         return TRUE
     end
     if LadderStart() == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:LadderStart()")
         return TRUE
     end
     if is_dash_stop == FALSE and c_IsStealth == FALSE and ExecQuickTurn(ALLBODY, TURN_TYPE_DEFAULT) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:is_dash_stop_==_FALSE_and_c_IsStealth_==_FALSE_and_ExecQuickTurn(ALLBODY,_TURN_TYPE_DEFAULT)")
         return TRUE
     end
     if ExecJump() == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecJump()")
         return TRUE
     end
     if ExecHandChange(HAND_RIGHT, FALSE, ALLBODY) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecHandChange(HAND_RIGHT,_FALSE,_ALLBODY)")
         return TRUE
     end
     if ExecGuard(Event_GuardStart, ALLBODY) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecGuard(Event_GuardStart,_ALLBODY)")
         return TRUE
     end
     if ExecWeaponChange(ALLBODY) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecWeaponChange(ALLBODY)")
         return TRUE
     end
     if ExecEvasion(FALSE, ESTEP_NONE, FALSE) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecEvasion(FALSE,_ESTEP_NONE,_FALSE)")
         return TRUE
     end
     if ExecItem(QUICKTYPE_NORMAL, ALLBODY) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecItem(QUICKTYPE_NORMAL,_ALLBODY)")
         return TRUE
     end
     if ExecMagic(QUICKTYPE_NORMAL, ALLBODY, FALSE) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecMagic(QUICKTYPE_NORMAL,_ALLBODY,_FALSE)")
         return TRUE
     end
     if ExecArtsStance(ALLBODY) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecArtsStance(ALLBODY)")
         return TRUE
     end
     if ExecRide() == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecRide()")
         return TRUE
     end
 
@@ -8647,48 +8890,60 @@ function StopCommonFunction(is_dash_stop)
     if env(GetSpEffectID, 100170) == TRUE then
         act(LockonFixedAngleCancel)
         if ExecDashTurn() == TRUE then
+            ModMotionTrace("gate", "StopCommonFunction:ExecDashTurn()")
             return TRUE
         end
     end
 
     if c_IsStealth == TRUE then
         if MoveStart(ALLBODY, Event_Stealth_Move, FALSE) == TRUE then
+            ModMotionTrace("gate", "StopCommonFunction:MoveStart(ALLBODY,_Event_Stealth_Move,_FALSE)")
             return TRUE
         end
     elseif MoveStart(ALLBODY, Event_Move, FALSE) == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:MoveStart(ALLBODY,_Event_Move,_FALSE)")
         return TRUE
     end
 
     if ExecGesture() == TRUE then
+        ModMotionTrace("gate", "StopCommonFunction:ExecGesture()")
         return TRUE
     end
     return FALSE
 end
 
 function MoveCommonFunction(blend_type)
+    ModMotionTrace("callback", "MoveCommonFunction")
     act(Wait)
     act(AllowBuddyWarp)
     SetEnableAimMode()
 
     if ExecPassiveAction(FALSE, FALL_TYPE_DEFAULT, FALSE) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecPassiveAction(FALSE,_FALL_TYPE_DEFAULT,_FALSE)")
         return TRUE
     end
     if LadderStart() == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:LadderStart()")
         return TRUE
     end
     if ExecJump() == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecJump()")
         return TRUE
     end
     if ExecHandChange(HAND_RIGHT, FALSE, blend_type) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecHandChange(HAND_RIGHT,_FALSE,_blend_type)")
         return TRUE
     end
     if ExecWeaponChange(blend_type) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecWeaponChange(blend_type)")
         return TRUE
     end
     if ExecEvasion(FALSE, ESTEP_NONE, FALSE) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecEvasion(FALSE,_ESTEP_NONE,_FALSE)")
         return TRUE
     end
     if ExecGuard(Event_GuardStart, blend_type) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecGuard(Event_GuardStart,_blend_type)")
         return TRUE
     end
 
@@ -8696,28 +8951,35 @@ function MoveCommonFunction(blend_type)
 
     if speed == 2 then
         if ExecItem(QUICKTYPE_DASH, blend_type) == TRUE then
+            ModMotionTrace("gate", "MoveCommonFunction:ExecItem(QUICKTYPE_DASH,_blend_type)")
             return TRUE
         end
     elseif speed == 1 then
         if ExecItem(QUICKTYPE_RUN, blend_type) == TRUE then
+            ModMotionTrace("gate", "MoveCommonFunction:ExecItem(QUICKTYPE_RUN,_blend_type)")
             return TRUE
         end
     elseif ExecItem(QUICKTYPE_NORMAL, blend_type) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecItem(QUICKTYPE_NORMAL,_blend_type)")
         return TRUE
     end
 
     if speed == 2 then
         if ExecMagic(QUICKTYPE_DASH, blend_type, FALSE) == TRUE then
+            ModMotionTrace("gate", "MoveCommonFunction:ExecMagic(QUICKTYPE_DASH,_blend_type,_FALSE)")
             return TRUE
         end
     elseif ExecMagic(QUICKTYPE_NORMAL, blend_type, FALSE) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecMagic(QUICKTYPE_NORMAL,_blend_type,_FALSE)")
         return TRUE
     end
 
     if ExecArtsStance(blend_type) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecArtsStance(blend_type)")
         return TRUE
     end
     if ExecRide() == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecRide()")
         return TRUE
     end
 
@@ -8736,12 +8998,15 @@ function MoveCommonFunction(blend_type)
         b1 = "W_AttackBothLightStealth"
     end
     if ExecAttack(r1, r2, "W_AttackLeftLight1", "W_AttackLeftHeavy1", b1, b2, FALSE, UPPER, FALSE, FALSE, FALSE) == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecAttack(r1,_r2,_'W_AttackLeftLight1',_'W_AttackLeftHeavy1',_b1,_b2,_FALSE,_UPPER,_FALSE,_FALSE,_FALSE)")
         return TRUE
     end
     if ExecGesture() == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecGesture()")
         return TRUE
     end
     if ExecStop() == TRUE then
+        ModMotionTrace("gate", "MoveCommonFunction:ExecStop()")
         return TRUE
     end
     return FALSE
@@ -9406,6 +9671,8 @@ function ArrowLowerCommonFunction(event, lower_state, to_idle_on_cancel)
 end
 
 function Idle_onActivate()
+    ModMotionTrace("callback", "Idle_onActivate")
+    ModMotionTrace("zeroBy", "Idle_onActivate")
     SetVariable("MoveSpeedLevelReal", 0)
     ClearAttackQueue()
     act(Wait)
@@ -9414,6 +9681,7 @@ function Idle_onActivate()
 end
 
 function Idle_onUpdate()
+    ModMotionTrace("callback", "Idle_onUpdate")
     SetEnableMimicry()
 
     if IdleCommonFunction() == TRUE then
@@ -9697,6 +9965,7 @@ function Move_onActivate()
 end
 
 function Move_onUpdate()
+    ModMotionTrace("callback", "Move_onUpdate")
     act(SwitchMotion, TRUE)
 
     local move_speed = GetVariable("MoveSpeedIndex")
@@ -15619,6 +15888,7 @@ function QuickItemEnchantDash_Upper_onUpdate()
     end
     if env(GetSpEffectID, 100220) == FALSE
         and HalfBlendLowerCommonFunction(Event_StopHalfBlendDashStop, lower_state, FALSE) == TRUE then
+        ModMotionTrace("zeroBy", "QuickItemEnchantDash_Upper_onUpdate")
         SetVariable("MoveSpeedLevelReal", 0)
         return
     end
@@ -17791,6 +18061,7 @@ end
 
 function Throw_Activate()
     ResetRequest()
+    ModMotionTrace("zeroBy", "Throw_Activate")
     SetVariable("MoveSpeedLevelReal", 0)
     SetThrowInvalid()
     local id = env(GetThrowAnimID)
@@ -19762,6 +20033,8 @@ function SpeedUpdate()
     end
 
     local speed = GetMoveSpeed(stick_level)
+    ModMotionTrace("speedInput", stick_level)
+    ModMotionTrace("speedResult", speed)
     SetVariable("MoveSpeedLevelReal", speed)
 
     if env(GetStamina) <= 0 then
@@ -19940,8 +20213,138 @@ end
 -------------------------------
 -- Main Update
 -------------------------------
+-- Temporary player-only diagnostics. These functions issue no gameplay writes.
+-- Keep movement at 5 Hz for ten minutes and aid at 2 Hz for five minutes.
+sovereignMovementTrace = {path = "Sovereign-movement.log", limit = 3000, enabled = false, time = 0, next = 0, samples = 0, buffer = ""}
+sovereignAidTrace = {path = "Sovereign-hadeon-aid.log", limit = 600, time = 0, next = 0, samples = 0, buffer = ""}
+sovereignDiagnosticTime = 0
+sovereignLastRescueTime = -1
+sovereignUpdateCheckpoint = "not started"
+
+-- Capture only while the bounded living-player trace is active; no file/native calls here.
+sovereignMotion = {}
+function ModMotionTrace(field, value)
+    if not sovereignMovementTrace.enabled then return end
+    sovereignMotion[field] = value
+    sovereignMotion[field .. "At"] = sovereignDiagnosticTime
+end
+
+-- A bad optional probe must not discard the other fields or stop the trace.
+function ModDiagnosticField(name, read, ...)
+    local ok, value, reason = pcall(read, ...)
+    if not ok then return " " .. name .. "=ERROR[" .. tostring(value) .. "]" end
+    if value == nil and reason ~= nil then
+        return " " .. name .. "=ERROR[" .. tostring(reason) .. "]"
+    end
+    return " " .. name .. "=" .. tostring(value)
+end
+
+function ModDiagnosticSample(trace, interval, buildLine)
+    if trace.samples >= trace.limit then return end
+    trace.time = trace.time + GetDeltaTime()
+    if trace.time < trace.next then return end
+    trace.next = trace.time + interval
+    trace.samples = trace.samples + 1
+    if trace.file == nil then
+        if io == nil or io.open == nil then trace.samples = trace.limit; return end
+        local file, reason = io.open(trace.path, "w")
+        if file == nil then error("Open " .. trace.path .. ": " .. tostring(reason)) end
+        trace.file = file
+        -- Commit proof that Update is reached before any optional engine/native probe.
+        file:write("[Sovereign 1.3.1] diagnostic started; detail=death-aid-motion; living player; checkpoint=" .. tostring(sovereignUpdateCheckpoint) .. "\n")
+        file:flush()
+    end
+    local ok, line = pcall(buildLine)
+    if not ok then line = " diagnosticError=" .. tostring(line) end
+    trace.buffer = trace.buffer .. "t=" .. tostring(trace.time)
+        .. " checkpoint=" .. tostring(sovereignUpdateCheckpoint) .. line .. "\n"
+    if trace.samples == 1 or trace.samples % 5 == 0 or trace.samples == trace.limit then
+        trace.file:write(trace.buffer)
+        trace.file:flush()
+        trace.buffer = ""
+    end
+    if trace.samples == trace.limit then trace.file:close(); trace.file = nil end
+end
+
+function ModMovementDiagnosticFields()
+    return ModDiagnosticField("input", GetVariable, "MoveSpeedLevel")
+        .. ModDiagnosticField("speed", GetVariable, "MoveSpeedLevelReal")
+        .. ModDiagnosticField("state", GetLocomotionState)
+        .. ModDiagnosticField("lower", function() local blend, lower = GetHalfBlendInfo(); return lower end)
+        .. ModDiagnosticField("moveCancel", env, IsMoveCancelPossible)
+        .. ModDiagnosticField("gesture", env, GetGestureRequestNumber)
+        .. " action=" .. tostring(c_HasActionRequest)
+        .. ModDiagnosticField("force4101", env, GetSpEffectID, 4101)
+        .. ModDiagnosticField("nemesisWalk", env, GetSpEffectID, 1626974)
+        .. ModDiagnosticField("gestureEffect", env, GetSpEffectID, 100200)
+        .. ModDiagnosticField("opening", env, GetSpEffectID, 1627121)
+        .. ModDiagnosticField("hp", env, GetHP)
+        .. " rescueAt=" .. tostring(sovereignLastRescueTime)
+        .. " callback=" .. tostring(sovereignMotion.callback) .. " callbackAt=" .. tostring(sovereignMotion.callbackAt)
+        .. " gate=" .. tostring(sovereignMotion.gate) .. " gateAt=" .. tostring(sovereignMotion.gateAt)
+        .. " event=" .. tostring(sovereignMotion.event) .. " eventAt=" .. tostring(sovereignMotion.eventAt)
+        .. " zeroBy=" .. tostring(sovereignMotion.zeroBy) .. " zeroByAt=" .. tostring(sovereignMotion.zeroByAt)
+        .. " moveStart=" .. tostring(sovereignMotion.moveStart) .. " moveStartAt=" .. tostring(sovereignMotion.moveStartAt)
+        .. " speedInput=" .. tostring(sovereignMotion.speedInput) .. " speedInputAt=" .. tostring(sovereignMotion.speedInputAt)
+        .. " speedResult=" .. tostring(sovereignMotion.speedResult) .. " speedResultAt=" .. tostring(sovereignMotion.speedResultAt)
+        .. ModDiagnosticField("eventAnim", env, GetEventID)
+        .. ModDiagnosticField("eventRequest", env, CheckForEventAnimPlaybackRequest)
+        .. ModDiagnosticField("falling", env, IsFalling)
+        .. ModDiagnosticField("moveIndex", GetVariable, "MoveSpeedIndex")
+end
+
+function ModHadeonAidDiagnosticFields()
+    return " calls=" .. tostring(sovereignAidCalls or 0)
+        .. ModDiagnosticField("permission", env, GetSpEffectID, 1627130)
+        .. ModDiagnosticField("aura", env, GetSpEffectID, 1627131)
+        .. " stage=" .. tostring(sovereignAidStage)
+        .. " permissionGrace=" .. tostring(sovereignAidPermissionGrace)
+        .. " direction=" .. tostring(sovereignAidDirection)
+        .. " timer=" .. tostring(sovereignAidTimer)
+        .. " pending=" .. tostring(sovereignAidPending and sovereignAidPending.time)
+        .. ModDiagnosticField("grace", env, GetSpEffectID, 100690)
+        .. ModDiagnosticField("scripted", env, GetSpEffectID, 9621)
+        .. ModDiagnosticField("hp", env, GetHP)
+        .. ModDiagnosticField("hpMax", ModGetEffectiveHPMax)
+        .. ModDiagnosticField("fp", env, GetFP)
+        .. ModDiagnosticField("fpMax", env, TraversePointerChain, CHR_INS_BASE, SIGNED_INT, CHR_MODULES, DATA_MODULE, FP_MAX)
+        .. ModDiagnosticField("stamina", env, GetStamina)
+        .. ModDiagnosticField("staminaMax", env, GetMaxStamina)
+end
+
+function ModPlayerDiagnostics()
+    if pcall == nil then return end
+    if sovereignMovementTrace.samples >= sovereignMovementTrace.limit and sovereignAidTrace.samples >= sovereignAidTrace.limit then return end
+    local ok, player = pcall(function()
+        return env(IsCOMPlayer) == FALSE and env(IsGhost) == FALSE and env(GetHP) > 0
+    end)
+    sovereignMovementTrace.enabled = ok and player and sovereignMovementTrace.samples < sovereignMovementTrace.limit
+    if not ok or not player then return end
+    for index, trace in ipairs({sovereignMovementTrace, sovereignAidTrace}) do
+        local interval, fields = 0.2, ModMovementDiagnosticFields
+        if index == 2 then interval, fields = 0.5, ModHadeonAidDiagnosticFields end
+        local success, reason = pcall(ModDiagnosticSample, trace, interval, fields)
+        if not success then
+            -- Preserve the actual error where possible; never throw into gameplay Update.
+            if trace.file ~= nil then
+                pcall(function() trace.file:write("diagnosticError=" .. tostring(reason) .. "\n"); trace.file:flush() end)
+                pcall(function() trace.file:close() end)
+                trace.file = nil
+            end
+            trace.samples = trace.limit
+            pcall(act, 10001, "[Sovereign diagnostic] " .. trace.path .. ": " .. tostring(reason))
+        end
+    end
+    if sovereignMovementTrace.samples >= sovereignMovementTrace.limit then sovereignMovementTrace.enabled = false end
+    sovereignDiagnosticTime = sovereignMovementTrace.time
+end
+
+
 function Update()
+    ModPlayerDiagnostics()
+    sovereignUpdateCheckpoint = "GetConstVariable"
     GetConstVariable()
+    sovereignUpdateCheckpoint = "native update"
     SetStyleSpecialEffect()
 
     act(SwitchMotion, FALSE)
@@ -20048,22 +20451,46 @@ function Update()
     end
 
     -- SACRED Active Functions
+    sovereignUpdateCheckpoint = "ModJump"
     ModJump()
+    sovereignUpdateCheckpoint = "ModUltimateAttack"
     ModUltimateAttack()
+    sovereignUpdateCheckpoint = "ModAnimationControl"
     ModAnimationControl()
+    sovereignUpdateCheckpoint = "ModMovementMultiplier"
     ModMovementMultiplier()
+    sovereignUpdateCheckpoint = "ModDisableMaleniaDeflectLifesteal"
     ModDisableMaleniaDeflectLifesteal()
+    sovereignUpdateCheckpoint = "ModHadeonAid"
+    ModHadeonAid()
+    sovereignUpdateCheckpoint = "ModBeginnerRescue"
+    ModBeginnerRescue(FALSE)
     local modFrameCount = g_FrameCount % 3
     if modFrameCount == 0 then
+        sovereignUpdateCheckpoint = "ModHPStateInfo"
         ModHPStateInfo()
     elseif modFrameCount == 1 then
+        sovereignUpdateCheckpoint = "ModDefaultMagicSlot"
         ModDefaultMagicSlot()
     else
+        sovereignUpdateCheckpoint = "ModButtonHold"
         ModButtonHold()
     end
     -- SACRED
 
+    sovereignUpdateCheckpoint = "opening request"
+    -- Consume the Chapel-only request once; ordinary landing rules are unchanged.
+    if env(GetSpEffectID, 1627121) == TRUE then
+        act(ClearSpEffect, 1627121)
+        if env(GetHP) > 0 and env(IsOnMount) == FALSE then
+            Replanning()
+            SetVariable("LandIndex", LAND_HEAVY)
+            ExecEventAllBody("W_Land")
+        end
+    end
+
     g_FrameCount = g_FrameCount + 1
+    sovereignUpdateCheckpoint = "complete"
 end
 
 function CopyLocalMatrix(source, dest)

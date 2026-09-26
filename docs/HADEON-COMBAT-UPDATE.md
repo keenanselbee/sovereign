@@ -13,8 +13,8 @@ Encounter behavior
 
 | Trigger | Result |
 | --- | --- |
-| First reaches 75% HP | Existing full heal, including its existing follow-on recovery effect, even if the player is already full |
-| First reaches 50% HP | Existing three-stage Thorn Ward and its normal damage retaliation |
+| First reaches 75% HP | Three-stage Thorn Ward (1.0.9 replaces the earlier boss-HP heal) |
+| First reaches 50% HP | Refresh the three-stage Thorn Ward and its normal damage retaliation |
 | First reaches 25% HP | Existing shriek sounds/AoE plus a direct pulse removing 10% of Hadeon's maximum HP |
 | Genuine below-arena fall followed by a return | One pulse removing 5% of Hadeon's maximum HP after arrival |
 
@@ -22,6 +22,9 @@ Threshold comparisons use `<=`, so an attack or fall that skips a threshold stil
 qualifies. Each boon occurs once per attempt. Death and map/rest initialization
 clear the milestone flags. Ordinary fall returns and retreat/re-entry preserve
 milestones while the existing encounter retains damage; retreat cannot farm boons.
+A separate 1.0.9 beginner rescue heals a living player at <=30% HP in the Chapel
+or Stranded Graveyard, with a 45-second cooldown, until Hadeon is defeated. It uses
+instant heal 1627112 with no follow-on recovery bonus. See [the opening update](BEGINNER-OPENING-UPDATE.md).
 No random encounter boon rolls or initial 30-second boon delay remain. Existing
 flavor sounds may still vary. Shared follower/Oath boon events are unchanged.
 
@@ -119,3 +122,39 @@ Manual acceptance is recorded as Pending in ER-042 through ER-046 of
 Verify native percentage-damage application, deflect burst damage/range/cooldown,
 guard chip interactions, interruption cleanup and victory in game. No test was
 marked Passed from source inspection or native rebuilding.
+
+
+Rune reward follow-up, 1.0.5
+---------------------------
+
+On 2026-09-22, the author approved a 10000-rune base reward for Hadeon. Previously,
+NPC 25000011 had `getSoul = 0`, `isSoulGetByBoss = 1`, and there was no matching
+GameAreaParam entry for entity 18002354. The separate reward lot 6050 grants
+Erdtree's Favor +3, not runes.
+
+The update adds GameAreaParam row 18002354, matching the existing
+`HandleBossDefeatAndDisplayBanner(18002354, ...)` call in event 5750303. Both
+`bonusSoul_single` and `bonusSoul_multi` are 10000. The row uses Hadeon's existing
+saved defeat flag 1055420915 and map actor position in m18_00_00_00; no new flag,
+NPC rune drop or event-side rune award is introduced. Unrelated template purpose
+list/discovery text references are cleared. Existing encounter and reward events,
+NPC stats, effects and the talisman lot remain unchanged.
+
+The intended first-journey payout is 10000 before player rune bonuses. Hadeon does
+not have Rick's Golden Eyes 3x reward modifier; his existing NG+ effect remains
+available to the normal boss reward path. Actual payout, multiplayer distribution,
+NG+ scaling and interrupted-victory behavior require game testing (ER-061).
+Already-defeated saves do not receive a retroactive grant.
+
+The native candidate was reopened and verified against the exact intended new row.
+All 216 existing GameAreaParam rows and their order are preserved, all 193 other
+table payloads are byte-identical, and binder/member metadata is unchanged. The
+repo and saved Smithbox regulation matched before editing. Before-copy, writer,
+new-row export and verification receipt are in
+`.codex-temp/hadeon-reward-10000-20260922/`. This verification does not mark gameplay
+tests Passed.
+
+Version 1.0.5 was synced to Smithbox and finalized through VDB across all game
+profiles. Enabled-profile deployment is verified, and repo, editor and live
+regulation hashes match. Build: `8c083e10234e6bc12b14a21d`; propagation receipt:
+`.sovereign/propagation/d4769f5148584ca9915b8cdc5ae932a5/receipt.json`.
