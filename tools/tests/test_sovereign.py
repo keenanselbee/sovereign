@@ -76,6 +76,22 @@ class WorkflowTests(unittest.TestCase):
             self.assertIn('2 files inspected: 1 match, 1 need review', output.getvalue())
             self.assertEqual('same.bin' in output.getvalue(), bool(extra))
 
+    def test_source_completeness_requires_durable_recipe_documentation(self):
+        recipe = 'src/text/opening.patch.json'
+        self.write('asset-catalog.json', json.dumps({'schemaVersion': 1, 'runtimeRoot': 'mod',
+            'groups': [{'id': 'text', 'scope': 'text', 'package': 'main', 'files': ['msg/menu.dcx']}],
+            'sources': [], 'sourceRecipes': [{'source': recipe, 'output': 'msg/menu.dcx'}]}).encode())
+        self.write(recipe, b'[]')
+        self.write('docs/WORKFLOW-COMMANDS.md',
+                   (recipe + '\nHistorical evidence: .codex-temp/old/menu.patch.json').encode())
+        self.assertEqual(workflow.source_completeness_issues(self.root), [])
+        self.write('docs/WORKFLOW-COMMANDS.md', b'.codex-temp/old/menu.patch.json')
+        issues = workflow.source_completeness_issues(self.root)
+        self.assertTrue(any('not documented' in issue for issue in issues))
+        (self.root / recipe).unlink()
+        issues = workflow.source_completeness_issues(self.root)
+        self.assertTrue(any('Missing declared recipe' in issue for issue in issues))
+
     def test_package_has_only_runtime_payload_and_verified_receipt(self):
         self.write('regulation.bin')
         self.write('event/common.dcx')

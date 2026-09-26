@@ -14,6 +14,13 @@
         "root": "smithbox",
         "stripPrefix": "",
         "base": ""
+      },
+      "editing": {
+        "mode": "editor-binary",
+        "inputs": [
+          "mod/regulation.bin"
+        ],
+        "note": "Smithbox regulation is edited directly; row-name JSON is metadata and recipes are scoped changes."
       }
     },
     {
@@ -29,6 +36,13 @@
         "root": "scripts",
         "stripPrefix": "action/script",
         "base": ""
+      },
+      "editing": {
+        "mode": "runtime-text",
+        "inputs": [
+          "mod/action/script"
+        ],
+        "note": "HKS files are directly editable runtime text, synchronized to Script."
       }
     },
     {
@@ -39,7 +53,15 @@
       "files": [
         "action/eventnameid.txt",
         "action/statenameid.txt"
-      ]
+      ],
+      "editing": {
+        "mode": "runtime-text",
+        "inputs": [
+          "mod/action/eventnameid.txt",
+          "mod/action/statenameid.txt"
+        ],
+        "note": "Coordinate these directly editable lists with player assets."
+      }
     },
     {
       "id": "events",
@@ -61,6 +83,13 @@
         "root": "scripts",
         "stripPrefix": "event",
         "base": "src"
+      },
+      "editing": {
+        "mode": "source",
+        "inputs": [
+          "src/events"
+        ],
+        "note": "Edit JavaScript and compile coordinated event outputs before acceptance."
       }
     },
     {
@@ -81,6 +110,13 @@
         "root": "smithbox",
         "stripPrefix": "",
         "base": ""
+      },
+      "editing": {
+        "mode": "editor-binary",
+        "inputs": [
+          "mod/map"
+        ],
+        "note": "Edit saved Smithbox map/light/navigation binaries; recipes only cover their declared changes."
       }
     },
     {
@@ -96,6 +132,13 @@
         "root": "smithbox",
         "stripPrefix": "",
         "base": ""
+      },
+      "editing": {
+        "mode": "editor-binary",
+        "inputs": [
+          "mod/msg/engus"
+        ],
+        "note": "Edit binary FMGs through Smithbox or guarded native patches; recovered FMGs track accepted packed outputs."
       }
     },
     {
@@ -106,7 +149,14 @@
       "files": [
         "msg/engus/menu.msgbnd.dcx",
         "msg/engus/menu_dlc01.msgbnd.dcx"
-      ]
+      ],
+      "editing": {
+        "mode": "repo-binary",
+        "inputs": [
+          "mod/msg/engus"
+        ],
+        "note": "Use guarded binary FMG edits; no editor mapping. Recovered FMGs are reviewed snapshots."
+      }
     },
     {
       "id": "animations",
@@ -122,6 +172,14 @@
         "root": "animations",
         "stripPrefix": "chr",
         "base": ""
+      },
+      "editing": {
+        "mode": "mixed",
+        "inputs": [
+          "src/player/c0000-anibnd-dcx-wanibnd",
+          "src/player/c0000-behbnd-dcx"
+        ],
+        "note": "Main animation/behavior loose trees are qualified inputs; recovered a0x members are snapshots requiring reviewed native rebuilds."
       }
     },
     {
@@ -133,7 +191,16 @@
         "chr/c2500.chrbnd.dcx",
         "chr/c2500_h.texbnd.dcx",
         "chr/c2500_l.texbnd.dcx"
-      ]
+      ],
+      "editing": {
+        "mode": "recovered-overlay",
+        "inputs": [
+          "src/models/c2500-chrbnd-dcx",
+          "src/textures/c2500_h-texbnd-dcx",
+          "src/textures/c2500_l-texbnd-dcx"
+        ],
+        "note": "Packed binaries remain accepted authority until a changed loose-source rebuild is qualified. DDS edits must be reflected in their containing TPF."
+      }
     },
     {
       "id": "material",
@@ -142,7 +209,14 @@
       "recipe": "bnd",
       "files": [
         "material/allmaterial.matbinbnd.dcx"
-      ]
+      ],
+      "editing": {
+        "mode": "recovered-overlay",
+        "inputs": [
+          "src/materials"
+        ],
+        "note": "Preserve vanilla members; qualify modified MATBIN overlay rebuilds before acceptance."
+      }
     },
     {
       "id": "parts",
@@ -181,7 +255,14 @@
         "parts/wp_a_0615_l.partsbnd.dcx",
         "parts/wp_a_0868.partsbnd.dcx",
         "parts/wp_a_1338.partsbnd.dcx"
-      ]
+      ],
+      "editing": {
+        "mode": "recovered-overlay",
+        "inputs": [
+          "src/models"
+        ],
+        "note": "Preserve unaffected members; qualify model/texture serialization before accepting packed output."
+      }
     },
     {
       "id": "menu",
@@ -192,7 +273,14 @@
         "menu/01_060_caption.gfx",
         "menu/05_900_logo_fromsoft.gfx",
         "menu/05_901_logo_bne.gfx"
-      ]
+      ],
+      "editing": {
+        "mode": "recovered-binary",
+        "inputs": [
+          "src/menu"
+        ],
+        "note": "Recovered GFX are compiled binaries, not original authoring projects; accepted runtime is the recorded baseline."
+      }
     },
     {
       "id": "talk",
@@ -210,7 +298,14 @@
         "script/talk/m11_10_00_00.talkesdbnd.dcx",
         "script/talk/m60_00_00_00.talkesdbnd.dcx",
         "script/talk/m61_00_00_00.talkesdbnd.dcx"
-      ]
+      ],
+      "editing": {
+        "mode": "source-overlay",
+        "inputs": [
+          "src/talk"
+        ],
+        "note": "Qualified DSL/ESD overlays preserve unowned baseline state groups."
+      }
     },
     {
       "id": "sfx",
@@ -224,6 +319,13 @@
         "root": "sfx",
         "stripPrefix": "sfx",
         "base": ""
+      },
+      "editing": {
+        "mode": "source-overlay",
+        "inputs": [
+          "src/sfx"
+        ],
+        "note": "Qualified FXR/model/DDS overlay plus complete editor baseline; update both through existing SFX workflow."
       }
     },
     {
@@ -235,7 +337,15 @@
         "menu/hi/00_solo.tpfbdt",
         "menu/hi/00_solo.tpfbhd",
         "menu/hi/01_common.tpf.dcx"
-      ]
+      ],
+      "editing": {
+        "mode": "source-overlay",
+        "inputs": [
+          "src/textures",
+          "images/mockups/deflection-v3"
+        ],
+        "note": "Qualified reviewed DDS or image recipe changes preserve untouched texture members; paired archives remain coordinated."
+      }
     }
   ],
   "sources": [
@@ -443,5 +553,11 @@
   ],
   "packageRoots": {
     "textures": "packages/textures/mod"
+  },
+  "recoveredSources": {
+    "manifest": "src/extracted-members.json",
+    "authority": "accepted-runtime-with-reviewed-source-reconciliation",
+    "refresh": "scoped-handoff",
+    "note": "Snapshot freshness is enforced. Independently edited loose files must match the reviewed packed member; extraction is not rebuild qualification."
   }
 }

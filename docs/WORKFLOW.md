@@ -27,6 +27,12 @@ File ownership
 - `src/text/opening-dialogue-tutorial/` retains guarded recipes for the accepted
   English opening dialogue and Deflection text. The packed binders are already
   updated; these recipes support qualified rebuilds from earlier inputs.
+- `src/extracted-members.json` records recovered member snapshots. Existing
+  handoffs reconcile affected snapshots and protect independent source edits;
+  `check` and package preparation enforce freshness. Group `editing` metadata
+  identifies authoritative inputs. See [source ownership](../src/README.md).
+- Archived vanilla candidates remain in `Z:/Backup`, with repo-held version-label,
+  provenance and relevant-file hash records in [the inventory](BASELINE-INVENTORY.md).
 - The verified stage selected in `.vdb/selected.json` supplies the release ZIP.
   Vortex owns deployment. Live game files are outputs and diagnostic evidence.
 
@@ -130,6 +136,9 @@ python tools/sovereign.py build-events --require-equivalent
 Run affected format qualifications when changing tools/options. `check` also rejects
 runtime copies recreated at retired root paths. It does not establish game compatibility.
 Event builds keep `common_func` authoring-only; they never add an unqualified runtime override.
+
+Source freshness, handoff recovery and archived baseline checks are recorded in
+[the source-maintenance verification](test-results/2026-09-25-source-maintenance.md).
 
 The pre-work full backup, accepted asset copies, source handoffs, VDB version switching,
 shortcut backups, layout map and validation receipts are listed in the checkpoint.

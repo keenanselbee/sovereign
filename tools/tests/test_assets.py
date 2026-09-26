@@ -61,6 +61,19 @@ class AssetTests(unittest.TestCase):
         rows = assets.status(self.root, self.settings, 'maps')
         self.assertEqual(rows[1]['comparisons']['repoVsSavedEditor'], 'Missing repo')
 
+    def test_source_inventory_checks_declared_inputs_and_recipes_only(self):
+        self.data['sources'] = [{'id': 'text-source', 'scope': 'text', 'repo': 'src/text',
+                                 'patterns': ['*.json']}]
+        self.data['sourceRecipes'] = [{'source': 'src/text/opening.patch.json', 'output': 'event/a.dcx'}]
+        self.write('asset-catalog.json', json.dumps(self.data).encode())
+        self.assertEqual(len(assets.source_inventory_issues(self.root)), 2)
+        self.write('src/text/opening.patch.json', b'[]')
+        self.assertEqual(assets.source_inventory_issues(self.root), [])
+        self.data['sourceRecipes'][0]['output'] = 'event/unknown.dcx'
+        self.write('asset-catalog.json', json.dumps(self.data).encode())
+        self.assertIn('Recipe output is not catalogued: event/unknown.dcx',
+                      assets.source_inventory_issues(self.root))
+
     def test_source_status_compares_saved_editor_without_build(self):
         self.data['sources'] = [{'id': 'event-source', 'scope': 'maps', 'repo': 'src/events',
                                  'editorRoot': 'editor', 'editor': 'src', 'patterns': ['*.js']}]

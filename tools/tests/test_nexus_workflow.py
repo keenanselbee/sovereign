@@ -59,6 +59,16 @@ class NexusWorkflowTests(unittest.TestCase):
         self.assertEqual(len(receipt['excluded']), 2)
         self.assertEqual(receipt['sha256'], workflow.core.digest(archive))
 
+    def test_zip_creation_checks_recovered_sources_before_writing(self):
+        import recovered_sources
+        self.write('source/mod/regulation.bin')
+        run = self.root / 'output'
+        run.mkdir()
+        with mock.patch.object(recovered_sources, 'require_fresh', side_effect=ValueError('stale sources')):
+            with self.assertRaisesRegex(ValueError, 'stale sources'):
+                workflow.write_vortex_package(self.root / 'source', self.manifest, run, '0.0.0-test')
+        self.assertEqual(list(run.iterdir()), [])
+
     def test_package_rejects_drift_and_release_without_gates(self):
         self.write('source/mod/regulation.bin')
         run = self.root / 'output'

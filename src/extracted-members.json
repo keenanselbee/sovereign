@@ -1,0 +1,4827 @@
+{
+  "schemaVersion": 1,
+  "baseline": "Z:/Backup/Elden Ring/ER Base Files/1.17",
+  "date": "2026-09-25",
+  "note": "Exact recovered member snapshots, not automatic rebuild inputs. Missing archived base files are recorded explicitly. Preserve baseline members and packing metadata when rebuilding; qualify any rebuild separately. GFX binaries do not recover original authoring projects.",
+  "archives": [
+    {
+      "runtime": "mod/msg/engus/item_dlc02.msgbnd.dcx",
+      "sha256": "00afc4cf9e6597e041e06c8cfce7a0b74b3611ba016fd03f660d1a1b1bcf3ee9",
+      "baseSha256": "9e8ce62da854a7f6aef51da5e37c0e9bb26d7a40d88898b7076ce7081d209d96",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/msg/engUS/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 78,
+      "members": [
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsName.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsName.fmg",
+          "id": 10,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "bb939eb4f2459aecbfa5f4b29d0bf95596917097736e61c95fa06239d8473122",
+          "size": 120954,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/WeaponName.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponName.fmg",
+          "id": 11,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9dc8bac6068cfc8111fbe7fe1c923b67afcf81baa3c90f16148ec72e66fee6ca",
+          "size": 248558,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/ProtectorName.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorName.fmg",
+          "id": 12,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "c82622e6ed42b399e56064417d60213554122f2f96dd333cd51bce1c6e4ac688",
+          "size": 42312,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/AccessoryName.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryName.fmg",
+          "id": 13,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "190790ab1d5e3c4b7af9359de42a325dfe30d06aa8c752063a8951607529911f",
+          "size": 11606,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/NpcName.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NpcName.fmg",
+          "id": 18,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "827b890832b195b0188fc2047962418e0d3663e1eccd5c9dfe8dc5a1bcd16c3c",
+          "size": 22896,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsInfo.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsInfo.fmg",
+          "id": 20,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "62c5d35e8883e0c771cd56f9a2cccda362ad0a93a8061c291e43da0c2da441fc",
+          "size": 171364,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/WeaponInfo.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponInfo.fmg",
+          "id": 21,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "25e8b66b4d5c61d11b174d45b4beea2d0ba113e814e17581595855019ad7a0d8",
+          "size": 4204,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/ProtectorInfo.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorInfo.fmg",
+          "id": 22,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "739fe526b69d3d37c968609ffe475f35c6d5dd1896b1f225fa80662263cf6e33",
+          "size": 59558,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/AccessoryInfo.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryInfo.fmg",
+          "id": 23,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d71de43fc57f48a7d3adda7cff35ff28fbdcafc32a660b97819dcdd02d0e7d63",
+          "size": 15686,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsCaption.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsCaption.fmg",
+          "id": 24,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "16f6803e9c997ec8525af069cccb0ee0958db6a0bd3c094b8fd6ecbe12fce038",
+          "size": 1097876,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/WeaponCaption.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponCaption.fmg",
+          "id": 25,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "7f8c06f055a4746d1ba8fe2cfed6877447f7d084a2db81be1abf4e548567525c",
+          "size": 1386022,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/ProtectorCaption.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorCaption.fmg",
+          "id": 26,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "da9cd0afa364ba07cc4627399658889d17e387f5940f6075a4ca0b664dc42f2c",
+          "size": 280674,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/AccessoryCaption.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryCaption.fmg",
+          "id": 27,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "27ade890e2c8168cc9db475160d65d512f8461ac222b5cf43945c116f5d3bef2",
+          "size": 72310,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GemInfo.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemInfo.fmg",
+          "id": 36,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "2d9879d2cf2f02f2ca2230aa4785aeb77cc212d0f6d0dd309396b0722315504a",
+          "size": 12214,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GemCaption.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemCaption.fmg",
+          "id": 37,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9d39a1e7c4f70fe7fc45d40c8211d2480869c0eea720e437da5a65cd68276600",
+          "size": 58434,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsDialog.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsDialog.fmg",
+          "id": 41,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "26f22913f09ae34739de1b47c6ad1d7499190b971b1482c466cacb20c6d8d4ed",
+          "size": 3860,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/ArtsName.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ArtsName.fmg",
+          "id": 42,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "60c8cb11e1d5239c328356cca451bf0ae1ea3848a45136275d47cece08de900b",
+          "size": 7736,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/ArtsCaption.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ArtsCaption.fmg",
+          "id": 43,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "aa41862272e53ece2271cf9ff64b932b2bcd494685e7cba3773e3bcfaf4c3881",
+          "size": 70768,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/WeaponEffect.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponEffect.fmg",
+          "id": 44,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d774e3fe2f5099c39b5e9fcb42168760a0f06ef71a97c024e1b95a100b888f5b",
+          "size": 5818,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsInfo2.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsInfo2.fmg",
+          "id": 46,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "e65a7a355c025e0e52f69906186e2d866e02ff256e687a51f9495d6c79675288",
+          "size": 40522,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/WeaponInfo_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponInfo_dlc01.fmg",
+          "id": 311,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "8445af7c2f836d11acdfb526aeefaa6b567fa773d09b32079d9dbd4cbef109cb",
+          "size": 488,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/AccessoryCaption_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryCaption_dlc01.fmg",
+          "id": 318,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d867cb4483b3483fc6542c1ed83efe3ac08e04126d4e98bc5579b9331e8ef012",
+          "size": 26640,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsName_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsName_dlc01.fmg",
+          "id": 319,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3183febfc7a456425a1198184f5e591939fb3b0680b278647cedd5dd044451c2",
+          "size": 33908,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsInfo_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsInfo_dlc01.fmg",
+          "id": 320,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "f4994c40941045123c737e127b917f2d989ee2ed3aff81229303205cd51692bd",
+          "size": 52910,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsCaption_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsCaption_dlc01.fmg",
+          "id": 321,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "e155a9a84a65d6f57d63ac1e0eb55ddaba4ebb71f9fdf8454d252efdfd20a70f",
+          "size": 342240,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/ArtsName_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ArtsName_dlc01.fmg",
+          "id": 331,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "367a3d4aa99351ca6379687eecb6ebd36efaa73a7da54047af94d7c27fac31f1",
+          "size": 8762,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/ArtsCaption_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ArtsCaption_dlc01.fmg",
+          "id": 332,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3e2fc77733c2ee8edaa23b8be42ad4b66739742210f4da02a2f0b8390580fd9c",
+          "size": 38846,
+          "textures": []
+        },
+        {
+          "source": "src/text/item_dlc02-msgbnd-dcx/GoodsInfo2_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsInfo2_dlc01.fmg",
+          "id": 335,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "25043b1ef6187153ff8905d140a4bd54235dd60ff990311a18c04673ccaa6f81",
+          "size": 15318,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/msg/engus/menu_dlc02.msgbnd.dcx",
+      "sha256": "4b53d010d9a9725d673d03511a1915d8932c4581351c386c154e5419d8437b94",
+      "baseSha256": "1ccfff5fcddd3809c6983c4e05138163835ed84db90886be710ee9cfd6cc55fe",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/msg/engUS/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 50,
+      "members": [
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/TalkMsg.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TalkMsg.fmg",
+          "id": 1,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3758e2425c04bea3d1bdc9a9856be746b779af5dff58eb16b6167e773342cc50",
+          "size": 1237498,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/EventTextForTalk.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "id": 33,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "0b74baed6659279c98c68de89807a7d42879b774be8001f5315cf04a476448cf",
+          "size": 48894,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/EventTextForMap.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "id": 34,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "94f2a07dc66a01b495f79a73a3ad5d2848e78ff22973885af002e568fd38f483",
+          "size": 18264,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/GR_MenuText.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "5c04e15f5d652a4fc8218add1a35da1a74884900337a442aefee65aa10edbb7b",
+          "size": 92710,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/GR_Dialogues.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues.fmg",
+          "id": 204,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "b1c5bf229be5e9604c1b52db08560dd83400be6f3f2d112ceb1869e54f34297f",
+          "size": 41710,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/TutorialTitle.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialTitle.fmg",
+          "id": 207,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9ee7c42bd6d5a721a377fd333f76c95c7c1cfd7920d703a379a1b6332251f494",
+          "size": 8198,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/TutorialBody.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialBody.fmg",
+          "id": 208,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "bf57757d321c4cdf9433aafaa7f04402d6aabb13aba1b569bb8a8cb47779807c",
+          "size": 43020,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/EventTextForTalk_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk_dlc01.fmg",
+          "id": 366,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "f00bcb688b68a7a0fd1ffa91a54b6fa5b0c86a92f1c05b7a40abd16f68240502",
+          "size": 12718,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/GR_MenuText_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText_dlc01.fmg",
+          "id": 368,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "2531e5aace8d1738fad69550a79c7169f50c1900e20aab1ba8e10abaceabeaa8",
+          "size": 4078,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/GR_LineHelp_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp_dlc01.fmg",
+          "id": 369,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "2fda8f89f74dc85b4a3b100fdbc0a8a19f77ef8af69b3c0dd6020358beffd0e1",
+          "size": 1160,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc02-msgbnd-dcx/GR_Dialogues_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues_dlc01.fmg",
+          "id": 372,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "59f7cd0057958114efebc60085940a0a374dafc68677b039b367d675aa919e2c",
+          "size": 1130,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/msg/engus/menu.msgbnd.dcx",
+      "sha256": "63b5308a5b87937785e40d4cd89049d1eac05fd5cd19634845b0a8cb8ccbe1f0",
+      "baseSha256": "3a10b9db325819e777a26e52c7049a7f33313f9c4872600dace6cbd3fa9e661f",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/msg/engUS/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 18,
+      "members": [
+        {
+          "source": "src/text/menu-msgbnd-dcx/TalkMsg.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TalkMsg.fmg",
+          "id": 1,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3758e2425c04bea3d1bdc9a9856be746b779af5dff58eb16b6167e773342cc50",
+          "size": 1237498,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu-msgbnd-dcx/EventTextForTalk.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "id": 33,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "0b74baed6659279c98c68de89807a7d42879b774be8001f5315cf04a476448cf",
+          "size": 48894,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu-msgbnd-dcx/EventTextForMap.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "id": 34,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "94f2a07dc66a01b495f79a73a3ad5d2848e78ff22973885af002e568fd38f483",
+          "size": 18264,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu-msgbnd-dcx/GR_MenuText.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "5c04e15f5d652a4fc8218add1a35da1a74884900337a442aefee65aa10edbb7b",
+          "size": 92710,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu-msgbnd-dcx/GR_Dialogues.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues.fmg",
+          "id": 204,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "b1c5bf229be5e9604c1b52db08560dd83400be6f3f2d112ceb1869e54f34297f",
+          "size": 41710,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu-msgbnd-dcx/TutorialTitle.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialTitle.fmg",
+          "id": 207,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9ee7c42bd6d5a721a377fd333f76c95c7c1cfd7920d703a379a1b6332251f494",
+          "size": 8198,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu-msgbnd-dcx/TutorialBody.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialBody.fmg",
+          "id": 208,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "bf57757d321c4cdf9433aafaa7f04402d6aabb13aba1b569bb8a8cb47779807c",
+          "size": 43020,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/msg/engus/menu_dlc01.msgbnd.dcx",
+      "sha256": "b8a0b63e882c4fc7d1706963aadfef2396812a80a582769e35d3a622a7d954eb",
+      "baseSha256": "0a06647e7cb308b87a6058049ec986befb66fc6cebefc1707ee48665f3bfd574",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/msg/engUS/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 34,
+      "members": [
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/TalkMsg.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TalkMsg.fmg",
+          "id": 1,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3758e2425c04bea3d1bdc9a9856be746b779af5dff58eb16b6167e773342cc50",
+          "size": 1237498,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/EventTextForTalk.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk.fmg",
+          "id": 33,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "0b74baed6659279c98c68de89807a7d42879b774be8001f5315cf04a476448cf",
+          "size": 48894,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/EventTextForMap.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap.fmg",
+          "id": 34,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "94f2a07dc66a01b495f79a73a3ad5d2848e78ff22973885af002e568fd38f483",
+          "size": 18264,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/GR_MenuText.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText.fmg",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "5c04e15f5d652a4fc8218add1a35da1a74884900337a442aefee65aa10edbb7b",
+          "size": 92710,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/GR_Dialogues.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues.fmg",
+          "id": 204,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "b1c5bf229be5e9604c1b52db08560dd83400be6f3f2d112ceb1869e54f34297f",
+          "size": 41710,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/TutorialTitle.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialTitle.fmg",
+          "id": 207,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9ee7c42bd6d5a721a377fd333f76c95c7c1cfd7920d703a379a1b6332251f494",
+          "size": 8198,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/TutorialBody.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialBody.fmg",
+          "id": 208,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "bf57757d321c4cdf9433aafaa7f04402d6aabb13aba1b569bb8a8cb47779807c",
+          "size": 43020,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/EventTextForTalk_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk_dlc01.fmg",
+          "id": 366,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "f00bcb688b68a7a0fd1ffa91a54b6fa5b0c86a92f1c05b7a40abd16f68240502",
+          "size": 12718,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/GR_MenuText_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText_dlc01.fmg",
+          "id": 368,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "2531e5aace8d1738fad69550a79c7169f50c1900e20aab1ba8e10abaceabeaa8",
+          "size": 4078,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/GR_LineHelp_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp_dlc01.fmg",
+          "id": 369,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "2fda8f89f74dc85b4a3b100fdbc0a8a19f77ef8af69b3c0dd6020358beffd0e1",
+          "size": 1160,
+          "textures": []
+        },
+        {
+          "source": "src/text/menu_dlc01-msgbnd-dcx/GR_Dialogues_dlc01.fmg",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues_dlc01.fmg",
+          "id": 372,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "59f7cd0057958114efebc60085940a0a374dafc68677b039b367d675aa919e2c",
+          "size": 1130,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/chr/c0000_a0x.anibnd.dcx",
+      "sha256": "c94e2a3dd54cab4e4bc93624e1302e0ea1abc3863b94fc232c53ee5048752131",
+      "baseSha256": "74f7d940d63cb06da8cb36fac209e6117d4e8980a2f050ac114fba9556b08d48",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/chr/c0000/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 576,
+      "members": [
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000000.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000000.hkx",
+          "id": 1005000000,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "f522797d271ab96b019e77171ed23421dca94ff342e515301b06e3713f9a81bc",
+          "size": 38484,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000001.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000001.hkx",
+          "id": 1005000001,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "4f7d6c6449f9b4e24d45be0a374c83d624bf7a8c6d5ddea6e4ea8e5759c966fa",
+          "size": 39412,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000002.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000002.hkx",
+          "id": 1005000002,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "61016fa9bd3cd8c4b61f0e678e6098f7a157771245f1d72574e1b8dc9a9eb015",
+          "size": 38916,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000003.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000003.hkx",
+          "id": 1005000003,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "601410cf61b73b2d1983c5b18572b01d908013032eb98210758c0dffe1a1464b",
+          "size": 38340,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000004.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000004.hkx",
+          "id": 1005000004,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "2fccbe00b49d7532bc3b6bb4701cbeff7587809ea9267e9c821b7c2d981e3898",
+          "size": 38884,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000005.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000005.hkx",
+          "id": 1005000005,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "e30d73a13c944f87f38c4e9731a36aaca991e0e4d5b1123fbbc497b5465317d2",
+          "size": 43348,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000006.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000006.hkx",
+          "id": 1005000006,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "0dda97c9d08e5499e58f1ba7f7bfcd503f584bb05fc646e424a7c1645c0087f9",
+          "size": 43764,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000007.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000007.hkx",
+          "id": 1005000007,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "e242219176d01947aa3e13a9db09a3647851c27d6fe4eb327833558e83f27ded",
+          "size": 43556,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000008.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000008.hkx",
+          "id": 1005000008,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "87662d16a9ba70e59829afa13d2f82660f6f88c3432e808d178ce84db116c102",
+          "size": 43412,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000009.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000009.hkx",
+          "id": 1005000009,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "5ce5fec1f37c3dfa0054324795bd5db47bafedeb6ad5787ea763b84dc2ebae25",
+          "size": 56556,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000010.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000010.hkx",
+          "id": 1005000010,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "1ff8ccfe90b1017f9cf9446d962add0652af4dd2788dd2a4e50ae187f234e762",
+          "size": 34404,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000011.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000011.hkx",
+          "id": 1005000011,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "53aadc7091bf73c85992db65a81a05e0ba602ade9ec965aeae0493d1c2becc21",
+          "size": 50668,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000012.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000012.hkx",
+          "id": 1005000012,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "8333b8333ff3784e6b1e416906f479e93bf68490c114250cc108bad8c78a1544",
+          "size": 53884,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000013.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000013.hkx",
+          "id": 1005000013,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "dc9906c99faccc1f18090ccb64d114a315108c6e6d4f306554c14253a65db8e9",
+          "size": 51372,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a005_000018.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a005_000018.hkx",
+          "id": 1005000018,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "03d1f5e654cd34d9e86d5e52b310c31fbc5a35261879e60ca631c958d1e1d447",
+          "size": 46092,
+          "textures": []
+        },
+        {
+          "source": "src/player/c0000_a0x-anibnd-dcx/hkx/a0x_compendium/a984_032400.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c0000\\hkx\\a0x_compendium\\a984_032400.hkx",
+          "id": 1984032400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "4fb867da18d718af1863b340fb308cb42c7d245a41ef78f09a7756996b5fe488",
+          "size": 50404,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/chr/c2500.chrbnd.dcx",
+      "sha256": "b83219b444a56a90ab2e1570412d24fff16857e86cfa939382f6703404d06a1d",
+      "baseSha256": "39e72759f0e745e620295cb81dfe12030c0d06cdfdfe13ea40976a2a4d54d867",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/chr/c2500/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/c2500-chrbnd-dcx/c2500.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c2500\\c2500.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "470191626b72493ddb9cc88bd10ec5a2bb2360efcb7d2be9ae6520028a7153ff",
+          "size": 13190384,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/chr/c2500_h.texbnd.dcx",
+      "sha256": "5972406b17b92a8920a6911c6c9acf44c18c54ce61dc36b7853863c8a11be571",
+      "baseSha256": "4c4e888726c5c2499f3372baa8a7abbee8c1a28c08780449f2431947a5a7f726",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/chr/c2500/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 1,
+      "members": [
+        {
+          "source": "src/textures/c2500_h-texbnd-dcx/c2500_h.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c2500\\c2500_h.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "6d50a28060f21355effde0d2e30b08378fd8e73dd9c3e89390b521dd18983970",
+          "size": 15180464,
+          "textures": [
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_AM_a.dds",
+              "name": "c2600_AM_a",
+              "sha256": "1788b2b8eee38cc6ae274dc10a5056783fc4b7e991661083808b25126fc00153",
+              "size": 174924,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_AM_m.dds",
+              "name": "c2600_AM_m",
+              "sha256": "6a6ce26145825051853521a5e397dd6d309b2254513052d98c36a6be98489218",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_AM_n.dds",
+              "name": "c2600_AM_n",
+              "sha256": "57c1c949922f16aed610067d362e1a1e31d3b232c4045b4ee8fbbab8e5ef0dfb",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_arm_claw_a.dds",
+              "name": "c2600_arm_claw_a",
+              "sha256": "ff723dbbcfa3a7e75a197597c6c820d542c9040b0667c3907f6057e451e63e14",
+              "size": 87548,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_arm_claw_m.dds",
+              "name": "c2600_arm_claw_m",
+              "sha256": "22021cff6d4434fd1b8fa92ea939eb057b07bc6119ff9d05e1aa6bf5ff04b643",
+              "size": 87528,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_arm_claw_n.dds",
+              "name": "c2600_arm_claw_n",
+              "sha256": "f857ff45a713eb749247ce619eddcca3ce6440a8c561ef6f27240438006ba607",
+              "size": 174948,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_H_a.dds",
+              "name": "c2600_BD_H_a",
+              "sha256": "6633e7ab7229a3edf13b44b48f2830e643295519a983b0e9143ee0c491409734",
+              "size": 87548,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_H_m.dds",
+              "name": "c2600_BD_H_m",
+              "sha256": "1a8533a32ff4569788eabbe8fc910024bce4e5ae7af81790409b5a8f27880cf0",
+              "size": 21992,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_H_n.dds",
+              "name": "c2600_BD_H_n",
+              "sha256": "eba77f2b2830f2d7344da3b82c5654f10f20ca3aca0b0f9a84e7bf8cf324369f",
+              "size": 174948,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_NH_a.dds",
+              "name": "c2600_BD_NH_a",
+              "sha256": "2505653d1aeec36f11c843d09b12fba7f2e51e6b396bac3eef569011e3e2b316",
+              "size": 349692,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_NH_m.dds",
+              "name": "c2600_BD_NH_m",
+              "sha256": "f39471808f4b750f4de7dbe88e9374acdf2a3ef07d5ea0c78be5b2baab158ee0",
+              "size": 87528,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_NH_n.dds",
+              "name": "c2600_BD_NH_n",
+              "sha256": "14128fa37eec737a6d8212fb092dd7bc167e7fac907ff333c7ec2b99733536a1",
+              "size": 699236,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_N_a.dds",
+              "name": "c2600_BD_N_a",
+              "sha256": "fc01ffbdc734a96cb109b476b6ce40a4d2585a8fe8cedb6dbd88d55c99cc1fdf",
+              "size": 174948,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_N_m.dds",
+              "name": "c2600_BD_N_m",
+              "sha256": "02ac1000f0bab171b49a500a613326f9a193a237ca843fde0ac3de5f13d8a627",
+              "size": 21992,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_BD_N_n.dds",
+              "name": "c2600_BD_N_n",
+              "sha256": "22afe69be53b8a7d8e940db40dc174c21520f6fa71fe39af00eb9658444fa229",
+              "size": 174948,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_Fade_Pattern_a.dds",
+              "name": "c2600_Fade_Pattern_a",
+              "sha256": "f641b72130e39e520e3d10e807aa1bc8568d322616845ce38393f2dcc6c15761",
+              "size": 43852,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_feather_a.dds",
+              "name": "c2600_feather_a",
+              "sha256": "b5eb4397057832e580b7a0860e2722cec33429b4cab615f0625d1d34ffc6732b",
+              "size": 349700,
+              "format": 102,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_feather_color_a.dds",
+              "name": "c2600_feather_color_a",
+              "sha256": "8e31b9926cf354e990c21c5e65b16fc3d0beb8350f289ff263bb549fcb4ef431",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_feather_n.dds",
+              "name": "c2600_feather_n",
+              "sha256": "81acdb7411f648a619ad1938d746e7c1d027c92abffe1a45289560e4bdc69303",
+              "size": 349700,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_HD_H_a.dds",
+              "name": "c2600_HD_H_a",
+              "sha256": "a10c3328b553155a22ed605976ee2226cc02a0acde4bcf0d610f720672c21c42",
+              "size": 43852,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_HD_H_m.dds",
+              "name": "c2600_HD_H_m",
+              "sha256": "a33b38f0dd561a49327aab9769113a518561ff093eaac9ee33b2c77951bfb344",
+              "size": 11064,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_HD_H_n.dds",
+              "name": "c2600_HD_H_n",
+              "sha256": "ed084e2a95b6e497c3ae4beca4e2c16a007fe84def5725b451a5e81e7d391764",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_HD_N_a.dds",
+              "name": "c2600_HD_N_a",
+              "sha256": "b9dedb02d2c948367d58384209b6173e2f3ce1287034a6385b4d45807da9ae69",
+              "size": 43852,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_HD_N_m.dds",
+              "name": "c2600_HD_N_m",
+              "sha256": "8c61375e293a1f86da2878520743911e6ba65a9928d0a9b8420e2634d07137f9",
+              "size": 11064,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_HD_N_n.dds",
+              "name": "c2600_HD_N_n",
+              "sha256": "faecf130f25826eeaed964083cbbb2e60ad2e7b34ffa43937739dce7f6aa419b",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_LG_a.dds",
+              "name": "c2600_LG_a",
+              "sha256": "94c6be1feb3eac4f4b269dff407da5f3c90624176465cb8a5aa95bcdd8bc07c8",
+              "size": 87548,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_LG_m.dds",
+              "name": "c2600_LG_m",
+              "sha256": "cbc7571cb5eb6a848a75a1beae94e68f2dac0f81a56ff7d27f96e544460025ca",
+              "size": 21992,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_LG_n.dds",
+              "name": "c2600_LG_n",
+              "sha256": "be26e404cf2f4c0fbcc7517a63f08a996ad3be134c15e32e2b5bd0219cf4efd7",
+              "size": 174948,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_pounch_a.dds",
+              "name": "c2600_pounch_a",
+              "sha256": "1dfd6438ecf45eff3ed411a84bb5d268bfbe203b7391804000b935aa22a4449b",
+              "size": 349700,
+              "format": 102,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_pounch_m.dds",
+              "name": "c2600_pounch_m",
+              "sha256": "bc8af6939919441eef558ef2749643f37738e3d271bc85d83bb66fed29064864",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_pounch_n.dds",
+              "name": "c2600_pounch_n",
+              "sha256": "e207214641b31909dbf7d2e2e3784a7cfd3e2d70d49e86ca5ed640218899adcb",
+              "size": 349700,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_shoulder_horn_a.dds",
+              "name": "c2600_shoulder_horn_a",
+              "sha256": "93d64caeea25483af4e0eb6f1b440e92bfdebca1c524e5ccaf05c9923747fb80",
+              "size": 174924,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_shoulder_horn_m.dds",
+              "name": "c2600_shoulder_horn_m",
+              "sha256": "d8a5a08467a703d9dad934b6ccbd999ddb15c0d945816780fa7f6c4510d54d8c",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_shoulder_horn_n.dds",
+              "name": "c2600_shoulder_horn_n",
+              "sha256": "0dce4b5a6276a1fcd830704ea1cfdef87817600525ba0e504415cef184bd64fb",
+              "size": 349700,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_tale_a.dds",
+              "name": "c2600_tale_a",
+              "sha256": "84f8944caa8ba1f42c85f4bef844c2c1e35d61bffd30e5da85832747427ce42c",
+              "size": 174940,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_tale_m.dds",
+              "name": "c2600_tale_m",
+              "sha256": "6bd8e35ec973c50eccd44dbf7eb1fa4c952b54adfd497d8f2adb86b418c3b939",
+              "size": 174920,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_tale_n.dds",
+              "name": "c2600_tale_n",
+              "sha256": "376c14e3ce217911e10ab5eb7cbbaea3c0d8e9348fb95b03144bf92ef554f45d",
+              "size": 349732,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_0613_a.dds",
+              "name": "c2600_WP_A_0613_a",
+              "sha256": "e468e812664e1fabfa12e1b699e5f9db556f208ee15ea63676a7da7872400331",
+              "size": 87548,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_0613_m.dds",
+              "name": "c2600_WP_A_0613_m",
+              "sha256": "3b6e5d72b98607de002567206f1b03438a57de5fec3ace936ecfcbe1d8313e80",
+              "size": 21992,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_0613_n.dds",
+              "name": "c2600_WP_A_0613_n",
+              "sha256": "981eab01c98011a6b1559efd80cdaab3645f531c97c7f3a4482db273e6d1efd6",
+              "size": 174948,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_0929_a.dds",
+              "name": "c2600_WP_A_0929_a",
+              "sha256": "b6e5e18fc25bd77c0a2172e1a262d2a926770dd1b829322385b36b4618840a45",
+              "size": 174924,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_0929_m.dds",
+              "name": "c2600_WP_A_0929_m",
+              "sha256": "68609c4e8885ce5f35109bba0f13050d20a8b969e5b926d750cfb7b6fb9174b3",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_0929_n.dds",
+              "name": "c2600_WP_A_0929_n",
+              "sha256": "3364eb853b72846ec9a7d0192a7455a40be98727500d2596271761f20b0b80af",
+              "size": 349700,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_2013_a.dds",
+              "name": "c2600_WP_A_2013_a",
+              "sha256": "bf5691d7303a13343130ff90f85f515b051db36d3c41b4da55d30c9b6655fb99",
+              "size": 174924,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_2013_m.dds",
+              "name": "c2600_WP_A_2013_m",
+              "sha256": "62de2887b1f79ac09101765228fe3261e24b17e7bfd1dda5dc8d80f376f39fdf",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_h-texbnd-dcx/c2500_h-tpf/c2600_WP_A_2013_n.dds",
+              "name": "c2600_WP_A_2013_n",
+              "sha256": "b34a534b37ff027de1e2dc6dbe22ba3047f2a1b02ee548923dd366edb555115f",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "mod/chr/c2500_l.texbnd.dcx",
+      "sha256": "bb1c570aa1e1663f08e00e73b29370ab6439f638d2538e46f819665a0d8125ab",
+      "baseSha256": "a322595a13bad5c5d8bc61eea504614d0d5f01a59d306e3ad9c8e168c29be53e",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/chr/c2500/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 1,
+      "members": [
+        {
+          "source": "src/textures/c2500_l-texbnd-dcx/c2500_l.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\chr\\c2500\\c2500_l.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "c899eb9ac5b035d83453bbdfceaacf0d9c1fee408110ebf17d35b1a522ee4a19",
+          "size": 967712,
+          "textures": [
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_AM_a_l.dds",
+              "name": "c2600_AM_a_l",
+              "sha256": "8beb92aaedff14fa1c4948ec937c21d1a68c1d8c3797ca0f66faeaf76e72bc00",
+              "size": 11084,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_AM_m_l.dds",
+              "name": "c2600_AM_m_l",
+              "sha256": "6d17e22a6565ba4fec941f423b3070f750a190b9df500b9e9c2af3210a487631",
+              "size": 2872,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_AM_n_l.dds",
+              "name": "c2600_AM_n_l",
+              "sha256": "c5fcf9706dd8102fd8883bcfa1deb7b80c2b404a4b9bdeea64795cbcfc00c97c",
+              "size": 22020,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_arm_claw_a_l.dds",
+              "name": "c2600_arm_claw_a_l",
+              "sha256": "c4fba49293642bc567c1e7adb15da39d488f3f74cb5cdcc0ee3a6bb37c64396a",
+              "size": 5628,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_arm_claw_m_l.dds",
+              "name": "c2600_arm_claw_m_l",
+              "sha256": "2dd6204ac6e91385aa409f57a24550150bcfa3b3f6096af5ec9d6bdfd0c49c6f",
+              "size": 5608,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_arm_claw_n_l.dds",
+              "name": "c2600_arm_claw_n_l",
+              "sha256": "ee36837fdf918b74ba8762c243b9376a5196e8ea89e1665cacae5d8736bb78e4",
+              "size": 11108,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_H_a_l.dds",
+              "name": "c2600_BD_H_a_l",
+              "sha256": "fa1f226ea0a3c19fffc391fe3c87a810c40eeb36a17ec6cc5402da15dd3cd0d3",
+              "size": 5628,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_H_m_l.dds",
+              "name": "c2600_BD_H_m_l",
+              "sha256": "019046429dcc25b601b5070630f16bdb7729a2466e25d21478502038d35e1f51",
+              "size": 1512,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_H_n_l.dds",
+              "name": "c2600_BD_H_n_l",
+              "sha256": "5695dcb8ee7736d7f6bc43acc8c2475316401ea256c320c63d335281974e699f",
+              "size": 11108,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_NH_a_l.dds",
+              "name": "c2600_BD_NH_a_l",
+              "sha256": "56b486223b04eade76113fb823d74d8c947d45a2de96936887f4fb987a5031d4",
+              "size": 22012,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_NH_m_l.dds",
+              "name": "c2600_BD_NH_m_l",
+              "sha256": "7f46033184e2a8472717dcb7d8c6d41c4f11684946df9b067d52b72c824d00d1",
+              "size": 5608,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_NH_n_l.dds",
+              "name": "c2600_BD_NH_n_l",
+              "sha256": "ec3915bee076441015018fa7a82fec3cd0a6d8dd728a309855ec012da6170f27",
+              "size": 43876,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_N_a_l.dds",
+              "name": "c2600_BD_N_a_l",
+              "sha256": "ed708e3b1232d529d6b8a877d452006820488eac32c1c537d83cad71adb24e1f",
+              "size": 11108,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_N_m_l.dds",
+              "name": "c2600_BD_N_m_l",
+              "sha256": "269c72388361393a7ef34b3453aab8fc062acf3ec9796b112987e55fa2a24d2a",
+              "size": 1512,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_BD_N_n_l.dds",
+              "name": "c2600_BD_N_n_l",
+              "sha256": "3645502bb822e23dd46c5cafd6d2dd95eb88318ed0eca134b3a07e72f0fc4c59",
+              "size": 11108,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_Fade_Pattern_a_l.dds",
+              "name": "c2600_Fade_Pattern_a_l",
+              "sha256": "e5deef73fe262a4ebb7d4b822aa20a268ab69842eac94d5fe8f38b97a4052062",
+              "size": 2892,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_feather_a_l.dds",
+              "name": "c2600_feather_a_l",
+              "sha256": "cbcafce9e7f6251c2d1a7e6517162d71d2c52183f0133ec74a10a34d7fdd5985",
+              "size": 22020,
+              "format": 102,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_feather_color_a_l.dds",
+              "name": "c2600_feather_color_a_l",
+              "sha256": "f8c422b3c85c0e0ac6899b5b4ee96a55cad85654fe376346c678dce95d81a150",
+              "size": 11084,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_feather_n_l.dds",
+              "name": "c2600_feather_n_l",
+              "sha256": "37afd448acdc50e5902c51c8fd2001610ac155047f38ff7d8a68ea7f3b1a1ee6",
+              "size": 22020,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_HD_H_a_l.dds",
+              "name": "c2600_HD_H_a_l",
+              "sha256": "ffcf6247df23d110dcc07dfb3c8b432ec3c27f23b131f3d45bd639404a17bbb6",
+              "size": 2892,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_HD_H_m_l.dds",
+              "name": "c2600_HD_H_m_l",
+              "sha256": "9dfb93f2b953b63f7abd7a64a960d5dfedde6c5f30a923d1e41a55f04f2c6fb6",
+              "size": 824,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 6,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_HD_H_n_l.dds",
+              "name": "c2600_HD_H_n_l",
+              "sha256": "8ce001479f71aeeb58abbcda528b3510c91dad80f0cdff40f88383796407c7e3",
+              "size": 5636,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_HD_N_a_l.dds",
+              "name": "c2600_HD_N_a_l",
+              "sha256": "59adc4988583a841f6093cd01b32173e19cdbc1059c1eb91c887eabbf41a57aa",
+              "size": 2892,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_HD_N_m_l.dds",
+              "name": "c2600_HD_N_m_l",
+              "sha256": "ec5a362d7bdb494d58889baf282d3a9a7e91d0958d1ea8e2837a6b2a03b177a9",
+              "size": 824,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 6,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_HD_N_n_l.dds",
+              "name": "c2600_HD_N_n_l",
+              "sha256": "ce4ad4e3f2ec8f1e4a5691e0323c914b66c773a72fdcf482e7c62bc51985a716",
+              "size": 5636,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_LG_a_l.dds",
+              "name": "c2600_LG_a_l",
+              "sha256": "65cf163e0dd4ba6997aa4c614fbdd5a3f9763faa0544d9ea3ae9cb565eda803e",
+              "size": 5628,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_LG_m_l.dds",
+              "name": "c2600_LG_m_l",
+              "sha256": "ffa3444093d3438dd8028034159a63d259320c5ce63c5e665f6cfc8119ad5692",
+              "size": 1512,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_LG_n_l.dds",
+              "name": "c2600_LG_n_l",
+              "sha256": "eab1ba414dec0fb8529d4d1d44ec11584c48663ea91d64aeb920232d7e340b13",
+              "size": 11108,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_pounch_a_l.dds",
+              "name": "c2600_pounch_a_l",
+              "sha256": "95568c504c4d7aa9c53cc27ec320474f9dded3017cfa35b2bfe9a3974a779a23",
+              "size": 22020,
+              "format": 102,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_pounch_m_l.dds",
+              "name": "c2600_pounch_m_l",
+              "sha256": "4c342dba81c0b4b5b8a1958e44d7c1b57e7d701ebc29255bf4c3466bbf3ab5dd",
+              "size": 2872,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_pounch_n_l.dds",
+              "name": "c2600_pounch_n_l",
+              "sha256": "4af2988bb9ea3f1e8a2c679ef4896e91fc5995a9032e259d1039857db178da7c",
+              "size": 22020,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_shoulder_horn_a_l.dds",
+              "name": "c2600_shoulder_horn_a_l",
+              "sha256": "7418fecd251ad7d9c7f520dc165c030f7b376763df4992eb5ab08ad9dff02452",
+              "size": 11084,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_shoulder_horn_m_l.dds",
+              "name": "c2600_shoulder_horn_m_l",
+              "sha256": "58678645f6cd5dd61f0ea366264f85c34cf2673dbbc25359646b8a1c8f0fc25d",
+              "size": 2872,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_shoulder_horn_n_l.dds",
+              "name": "c2600_shoulder_horn_n_l",
+              "sha256": "a3f994be118aaf304eedabfaa118b71ce68daa36989019459e11afb3c1b52dc6",
+              "size": 22020,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_tale_a_l.dds",
+              "name": "c2600_tale_a_l",
+              "sha256": "493da38d8e6738a0181fdf8cc9b9bfc673780486b6e74c3851e422112c5eb37f",
+              "size": 11100,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_tale_m_l.dds",
+              "name": "c2600_tale_m_l",
+              "sha256": "254c8996729e8290972d369113c78da1e6cab205018b21c2043d4586cd619fbd",
+              "size": 11080,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_tale_n_l.dds",
+              "name": "c2600_tale_n_l",
+              "sha256": "2eebbe64cf577ad00b6affd85e430bc7da8b1a5fb3aded0821d595a767c9adb4",
+              "size": 22052,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_0613_a_l.dds",
+              "name": "c2600_WP_A_0613_a_l",
+              "sha256": "5ed1f3bb81a7f40d259aaf697eee155e48efcca6fbf2fcd0bb747f80eda60cb9",
+              "size": 5628,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_0613_m_l.dds",
+              "name": "c2600_WP_A_0613_m_l",
+              "sha256": "eb2ea82a4963068d98ce3cb06ec5f380eba8b53600cecfbe229388e034df36f2",
+              "size": 1512,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_0613_n_l.dds",
+              "name": "c2600_WP_A_0613_n_l",
+              "sha256": "2b1b6e60c8ffa706b4db5294ce1d72516ec59429da582200f412a4c44e0df0c1",
+              "size": 11108,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_0929_a_l.dds",
+              "name": "c2600_WP_A_0929_a_l",
+              "sha256": "e1630eae524fd528ad216659e701398c62b6e4bc525190eea1cc043115eba6d0",
+              "size": 11084,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_0929_m_l.dds",
+              "name": "c2600_WP_A_0929_m_l",
+              "sha256": "425c3c5b191f0d9e73c3bdeb40750bee22d7aa93260a700c4dec328892edbd01",
+              "size": 2872,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_0929_n_l.dds",
+              "name": "c2600_WP_A_0929_n_l",
+              "sha256": "c18afb9e53f8e9b9976da8506ec7f9f37b65571510707293bab3eb408fee5b0a",
+              "size": 22020,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_2013_a_l.dds",
+              "name": "c2600_WP_A_2013_a_l",
+              "sha256": "02cf87d725a2d2cec375f451a8a73c9c84b512695eb7c6681e4375a09e16077b",
+              "size": 11084,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_2013_m_l.dds",
+              "name": "c2600_WP_A_2013_m_l",
+              "sha256": "3e2ed0cf73005d89b94c1a665604a4eef4b8dc315bf069e398a315e33aa95a45",
+              "size": 2872,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 7,
+              "flags": 0
+            },
+            {
+              "source": "src/textures/c2500_l-texbnd-dcx/c2500_l-tpf/c2600_WP_A_2013_n_l.dds",
+              "name": "c2600_WP_A_2013_n_l",
+              "sha256": "87ca6128bdcbb5be4277116b708576de59bd64c9dbdef318446b4e8e9a997632",
+              "size": 22020,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 8,
+              "flags": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "mod/material/allmaterial.matbinbnd.dcx",
+      "sha256": "6d790dc6936d74cc0b27cd541690ded68470aefa8deb6d17c7c8cb90158b5b9e",
+      "baseSha256": "06c3d2470036e65a9809ca379d6241700fc955f63d8502759caaec598cd8818c",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/material/matbin/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9_15"
+      },
+      "totalMembers": 15211,
+      "members": [
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Belt.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Belt.matbin",
+          "id": 2954,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "f6709f51c85288100bfa2a2728a6f60b0bb4b232f25c350550ad02c060c61f22",
+          "size": 6783,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Body.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Body.matbin",
+          "id": 2955,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "b8c5857799d042369eed1d81c6e9f4c14a73a27543ab024a48cacbbf0406a7c6",
+          "size": 7523,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Body_Fur.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Body_Fur.matbin",
+          "id": 2956,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d2130548f5dd3a45a9041fa3521bf08f865846c0056b726602d96e71b7e28611",
+          "size": 5235,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Burn.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Burn.matbin",
+          "id": 2957,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "af627d33821d06ca88b94b6d2baafd01791e15510f02b96acec3130a5d18b0db",
+          "size": 5395,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Fur_Long.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Fur_Long.matbin",
+          "id": 2958,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "8f4320f901d3f1cfe5634af1a060e2e5c9e7d612fe118267b0f1c1b05377ec17",
+          "size": 5620,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Fur_Long2.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Fur_Long2.matbin",
+          "id": 2959,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "7f7de94177116ecaa26bbf9812da4dcbba25539fca0c0c141f25aa4bcf988031",
+          "size": 5622,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Fur_Long2_cloth.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Fur_Long2_cloth.matbin",
+          "id": 2960,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9b23ebfa3871a991ce81b1d2b9956ad61e5dfc332f78295355dfc7c0740da087",
+          "size": 5788,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Fur_Long_cloth.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Fur_Long_cloth.matbin",
+          "id": 2961,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "736d8767b2706d92eae569498ce3f54cd0643494ed198f34fb11b6713db2d8c1",
+          "size": 5786,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Fur_noblur.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Fur_noblur.matbin",
+          "id": 2962,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "e76a3b2994310ae2cf34d4777a122c2fdc2b03b69e4b2608798140a723099445",
+          "size": 4532,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Fur_noblur_cloth.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Fur_noblur_cloth.matbin",
+          "id": 2963,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d717a12604b8cdccdb35fa71a6800d372b2fa2a69790cb5eee5ed9fc841203e8",
+          "size": 4698,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Hair.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Hair.matbin",
+          "id": 2964,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "f907763cf2ef72e86731edd2374b185bbb386b2db81ee0defb757a2966935768",
+          "size": 3117,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Hair_Cloth.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Hair_Cloth.matbin",
+          "id": 2965,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "b99c5f653c7c1de2453ba50b7ccb51226695bd029ef446e1591272a40867093e",
+          "size": 3204,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Rope.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Rope.matbin",
+          "id": 2966,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "cedeaee572aadf18e27e58cea10a475b4c3661fd8178b039f17736aee7f1f1a8",
+          "size": 2843,
+          "textures": []
+        },
+        {
+          "source": "src/materials/allmaterial-matbinbnd-dcx-wmatbinbnd/Chr/matxml/C[c8000]_Saddle.matbin",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\material\\matbin\\Chr\\matxml\\C[c8000]_Saddle.matbin",
+          "id": 2967,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d98ee0cd10ba129901306ce9cc7b74c74cca4c12afd428171d706dfc9fc18d38",
+          "size": 8005,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/am_m_1122.partsbnd.dcx",
+      "sha256": "cb36e3d9560cc134a6da16b0742afd2c8a039c67a1ee0f3461c1b010314ff2f5",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/AM_M_1122/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/am_m_1122-partsbnd-dcx/AM_M_1122.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1122\\AM_M_1122.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "5b7410e7cee9be10d7660a2678f4a1a08a8d917754e539f287617fdaf5e55aec",
+          "size": 568604,
+          "textures": [
+            {
+              "source": "src/models/am_m_1122-partsbnd-dcx/AM_M_1122-tpf/AM_M_1122_a.dds",
+              "name": "AM_M_1122_a",
+              "sha256": "f093d19e1d5f6080b22acfd43d50554c7909009956de99c2d504870026c5eab9",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1122-partsbnd-dcx/AM_M_1122-tpf/AM_M_1122_m.dds",
+              "name": "AM_M_1122_m",
+              "sha256": "44df862145047ca410fa399d72e9b51335f96e93425bfdc77a715b857bbbf24e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1122-partsbnd-dcx/AM_M_1122-tpf/AM_M_1122_n.dds",
+              "name": "AM_M_1122_n",
+              "sha256": "41fd42bccbaab3cc98c86ee870ee5a3b3f4d63fca7c6cdd2838c27f6dcac39f5",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/am_m_1122-partsbnd-dcx/AM_M_1122.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1122\\AM_M_1122.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "e796e5a7a8778a80574ab47e58d7115961dcd7c8a107a8c2b636403e89679006",
+          "size": 389376,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/am_m_1124.partsbnd.dcx",
+      "sha256": "1d78fb9c7caa4f9603a8c85fafc299dc357161f8815a9e13f9910a7c4ff85b33",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/AM_M_1124/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/am_m_1124-partsbnd-dcx/AM_M_1124.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1124\\AM_M_1124.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "fbf3807e1b52bc3be209b51c52ca5fb7b456383cd40f228d4c74e9ecdb59614f",
+          "size": 568604,
+          "textures": [
+            {
+              "source": "src/models/am_m_1124-partsbnd-dcx/AM_M_1124-tpf/AM_M_1124_a.dds",
+              "name": "AM_M_1124_a",
+              "sha256": "d6ae4b03f9ad3803abbdd6f3db5add21f2c64d8f1122296053aa72d3691554b5",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1124-partsbnd-dcx/AM_M_1124-tpf/AM_M_1124_m.dds",
+              "name": "AM_M_1124_m",
+              "sha256": "44df862145047ca410fa399d72e9b51335f96e93425bfdc77a715b857bbbf24e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1124-partsbnd-dcx/AM_M_1124-tpf/AM_M_1124_n.dds",
+              "name": "AM_M_1124_n",
+              "sha256": "41fd42bccbaab3cc98c86ee870ee5a3b3f4d63fca7c6cdd2838c27f6dcac39f5",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/am_m_1124-partsbnd-dcx/AM_M_1124.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1124\\AM_M_1124.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "98cc82e434d02aca417d62ac03868903496679e7dcd5c645dc4431364d2efdf9",
+          "size": 389376,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/am_m_1125.partsbnd.dcx",
+      "sha256": "1bb59a7aaa51fc7cf8ab630281bfaf961f839d3602a374ed2548fe0692e14950",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/AM_M_1125/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/am_m_1125-partsbnd-dcx/AM_M_1125.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1125\\AM_M_1125.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "fbf3807e1b52bc3be209b51c52ca5fb7b456383cd40f228d4c74e9ecdb59614f",
+          "size": 568604,
+          "textures": [
+            {
+              "source": "src/models/am_m_1125-partsbnd-dcx/AM_M_1125-tpf/AM_M_1124_a.dds",
+              "name": "AM_M_1124_a",
+              "sha256": "d6ae4b03f9ad3803abbdd6f3db5add21f2c64d8f1122296053aa72d3691554b5",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1125-partsbnd-dcx/AM_M_1125-tpf/AM_M_1124_m.dds",
+              "name": "AM_M_1124_m",
+              "sha256": "44df862145047ca410fa399d72e9b51335f96e93425bfdc77a715b857bbbf24e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1125-partsbnd-dcx/AM_M_1125-tpf/AM_M_1124_n.dds",
+              "name": "AM_M_1124_n",
+              "sha256": "41fd42bccbaab3cc98c86ee870ee5a3b3f4d63fca7c6cdd2838c27f6dcac39f5",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/am_m_1125-partsbnd-dcx/AM_M_1125.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1125\\AM_M_1125.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "98cc82e434d02aca417d62ac03868903496679e7dcd5c645dc4431364d2efdf9",
+          "size": 389376,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/am_m_1126.partsbnd.dcx",
+      "sha256": "7799a4a00d941ec191b2c8becb1c20d68d1965d2a50749c353efd4e0e1ea9883",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/AM_M_1126/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/am_m_1126-partsbnd-dcx/AM_M_1126.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1126\\AM_M_1126.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "cbbc8634425b43766f7e1eeaab1dfa492f3c9bf4eb452058daac7ebc7fdbd952",
+          "size": 568604,
+          "textures": [
+            {
+              "source": "src/models/am_m_1126-partsbnd-dcx/AM_M_1126-tpf/AM_M_1126_a.dds",
+              "name": "AM_M_1126_a",
+              "sha256": "6e7deed2345f97466efe387b28981f4889bf14ed89b9973f8ab7eaf52e571e7d",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1126-partsbnd-dcx/AM_M_1126-tpf/AM_M_1126_m.dds",
+              "name": "AM_M_1126_m",
+              "sha256": "44df862145047ca410fa399d72e9b51335f96e93425bfdc77a715b857bbbf24e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1126-partsbnd-dcx/AM_M_1126-tpf/AM_M_1126_n.dds",
+              "name": "AM_M_1126_n",
+              "sha256": "41fd42bccbaab3cc98c86ee870ee5a3b3f4d63fca7c6cdd2838c27f6dcac39f5",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/am_m_1126-partsbnd-dcx/AM_M_1126.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1126\\AM_M_1126.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "feac991f7130e8b26677cf5be59736111e36af3f829c3e2569ab6b64a6f6162d",
+          "size": 389376,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/am_m_1127.partsbnd.dcx",
+      "sha256": "138380e7d27fdd0c26f387ee887fcc27ab9389c3847c66369f0ae102206a459e",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/AM_M_1127/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/am_m_1127-partsbnd-dcx/AM_M_1127.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1127\\AM_M_1127.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "cbbc8634425b43766f7e1eeaab1dfa492f3c9bf4eb452058daac7ebc7fdbd952",
+          "size": 568604,
+          "textures": [
+            {
+              "source": "src/models/am_m_1127-partsbnd-dcx/AM_M_1127-tpf/AM_M_1126_a.dds",
+              "name": "AM_M_1126_a",
+              "sha256": "6e7deed2345f97466efe387b28981f4889bf14ed89b9973f8ab7eaf52e571e7d",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1127-partsbnd-dcx/AM_M_1127-tpf/AM_M_1126_m.dds",
+              "name": "AM_M_1126_m",
+              "sha256": "44df862145047ca410fa399d72e9b51335f96e93425bfdc77a715b857bbbf24e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1127-partsbnd-dcx/AM_M_1127-tpf/AM_M_1126_n.dds",
+              "name": "AM_M_1126_n",
+              "sha256": "41fd42bccbaab3cc98c86ee870ee5a3b3f4d63fca7c6cdd2838c27f6dcac39f5",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/am_m_1127-partsbnd-dcx/AM_M_1127.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1127\\AM_M_1127.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "feac991f7130e8b26677cf5be59736111e36af3f829c3e2569ab6b64a6f6162d",
+          "size": 389376,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/am_m_1128.partsbnd.dcx",
+      "sha256": "3f153236b3063e3f2f6ed63615670cb372db9a18363e330d7600a69eccb92ab9",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/AM_M_1128/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/am_m_1128-partsbnd-dcx/AM_M_1128.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1128\\AM_M_1128.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "35458232703d7a5217d97781e3d6fa4977b8acbe08fce63af6ab09c3487b0c0d",
+          "size": 568604,
+          "textures": [
+            {
+              "source": "src/models/am_m_1128-partsbnd-dcx/AM_M_1128-tpf/AM_M_1128_a.dds",
+              "name": "AM_M_1128_a",
+              "sha256": "167c57986505e201f8a2c2bce336538b26733f7dcd07d8c033f898723f79a92a",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1128-partsbnd-dcx/AM_M_1128-tpf/AM_M_1128_m.dds",
+              "name": "AM_M_1128_m",
+              "sha256": "44df862145047ca410fa399d72e9b51335f96e93425bfdc77a715b857bbbf24e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1128-partsbnd-dcx/AM_M_1128-tpf/AM_M_1128_n.dds",
+              "name": "AM_M_1128_n",
+              "sha256": "41fd42bccbaab3cc98c86ee870ee5a3b3f4d63fca7c6cdd2838c27f6dcac39f5",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/am_m_1128-partsbnd-dcx/AM_M_1128.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1128\\AM_M_1128.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "ba2d9739948dc21a236c21a2034eb5a997e7ff62f501885cf72ad071d27e6f62",
+          "size": 389376,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/am_m_1129.partsbnd.dcx",
+      "sha256": "03e71334e2ceced686de1274396ef204bc56355539e253cdc50647655d8ac233",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/AM_M_1129/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/am_m_1129-partsbnd-dcx/AM_M_1129.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1129\\AM_M_1129.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "35458232703d7a5217d97781e3d6fa4977b8acbe08fce63af6ab09c3487b0c0d",
+          "size": 568604,
+          "textures": [
+            {
+              "source": "src/models/am_m_1129-partsbnd-dcx/AM_M_1129-tpf/AM_M_1128_a.dds",
+              "name": "AM_M_1128_a",
+              "sha256": "167c57986505e201f8a2c2bce336538b26733f7dcd07d8c033f898723f79a92a",
+              "size": 174924,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1129-partsbnd-dcx/AM_M_1129-tpf/AM_M_1128_m.dds",
+              "name": "AM_M_1128_m",
+              "sha256": "44df862145047ca410fa399d72e9b51335f96e93425bfdc77a715b857bbbf24e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/am_m_1129-partsbnd-dcx/AM_M_1129-tpf/AM_M_1128_n.dds",
+              "name": "AM_M_1128_n",
+              "sha256": "41fd42bccbaab3cc98c86ee870ee5a3b3f4d63fca7c6cdd2838c27f6dcac39f5",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/am_m_1129-partsbnd-dcx/AM_M_1129.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\AM_M_1129\\AM_M_1129.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "ba2d9739948dc21a236c21a2034eb5a997e7ff62f501885cf72ad071d27e6f62",
+          "size": 389376,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1122.partsbnd.dcx",
+      "sha256": "c274b5b2dfd4f212eff7a6d016e8776d1b90f650a3edf3fd1ef05cd7532f4e35",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1122/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1122\\BD_M_1122.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "b981a65d7e88fe70d257fbcd2cc50ee3b39341cacdf129d7fb52c7fe9a6233bd",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122-tpf/BD_M_1122_a.dds",
+              "name": "BD_M_1122_a",
+              "sha256": "a7ba0f00200846337fb59dd6205a61c42532aa5b5d21f2630d081f4f8c261d06",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122-tpf/BD_M_1122_Far_a.dds",
+              "name": "BD_M_1122_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122-tpf/BD_M_1122_Far_n.dds",
+              "name": "BD_M_1122_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122-tpf/BD_M_1122_m.dds",
+              "name": "BD_M_1122_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122-tpf/BD_M_1122_n.dds",
+              "name": "BD_M_1122_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1122\\BD_M_1122.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "2a1aaeb54fc523342d6ca4c83fceba74b95b31dddc7788814ad61b40464a900f",
+          "size": 2022480,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1122\\BD_M_1122.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "576a7ce7058b8adb2d2370bdfc0e488636da2c4ba2fdb463081ab960017524ca",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1122\\BD_M_1122_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "4dee6d7393dd472d622192a084664b7c641e7f2d7fd77996224c7f512d66255b",
+          "size": 368,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1122-partsbnd-dcx/BD_M_1122_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1122\\BD_M_1122_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "7c9b90c73c1df4a714aa0dddf234f6a4d0657d9e7d44b05d6648a21ae1f7ac10",
+          "size": 465644,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1123.partsbnd.dcx",
+      "sha256": "76e7896c9aa0b0de9505207f1cad01d732a4f963e82196ebc2d5f05417dda2c3",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1123/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1123\\BD_M_1123.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "b981a65d7e88fe70d257fbcd2cc50ee3b39341cacdf129d7fb52c7fe9a6233bd",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123-tpf/BD_M_1122_a.dds",
+              "name": "BD_M_1122_a",
+              "sha256": "a7ba0f00200846337fb59dd6205a61c42532aa5b5d21f2630d081f4f8c261d06",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123-tpf/BD_M_1122_Far_a.dds",
+              "name": "BD_M_1122_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123-tpf/BD_M_1122_Far_n.dds",
+              "name": "BD_M_1122_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123-tpf/BD_M_1122_m.dds",
+              "name": "BD_M_1122_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123-tpf/BD_M_1122_n.dds",
+              "name": "BD_M_1122_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1123\\BD_M_1123.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "32546cabcc6e59f0652a996752a392506b248a2a511f76311c73b4ed0d34b841",
+          "size": 1830656,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1123\\BD_M_1123.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "cf02264e63b15273689c07d6834ae15606767896b8e09ea7365a42b16e4f544f",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1123\\BD_M_1123_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "82028dcc77baf81a51277a3251edb2b02c010391935baa03683c28e9a3204a43",
+          "size": 312,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1123-partsbnd-dcx/BD_M_1123_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1123\\BD_M_1123_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "369c84027f8c8bc05ae3262b70219475610a70898732503cce10851a54bc1605",
+          "size": 334896,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1124.partsbnd.dcx",
+      "sha256": "7f1893f183986060091d6eee9aaf446084e4ae805df1342283cf8dbb52303c36",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1124/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1124\\BD_M_1124.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "05a1f49a51a1610a7dead1fb094b7fcd239f697eb035327d631ddfcb107317cf",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124-tpf/BD_M_1124_a.dds",
+              "name": "BD_M_1124_a",
+              "sha256": "8aab1ec79930a6dcb815a90d1188671afa72ec9f1af11e9da6b6cdec6cb0a1a2",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124-tpf/BD_M_1124_Far_a.dds",
+              "name": "BD_M_1124_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124-tpf/BD_M_1124_Far_n.dds",
+              "name": "BD_M_1124_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124-tpf/BD_M_1124_m.dds",
+              "name": "BD_M_1124_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124-tpf/BD_M_1124_n.dds",
+              "name": "BD_M_1124_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1124\\BD_M_1124.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "175f5cc51b1487df4ec99d6630c78e933bc78ff4c8ec6f312d4323e912fbd299",
+          "size": 2022480,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1124\\BD_M_1124.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "576a7ce7058b8adb2d2370bdfc0e488636da2c4ba2fdb463081ab960017524ca",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1124\\BD_M_1124_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "4dee6d7393dd472d622192a084664b7c641e7f2d7fd77996224c7f512d66255b",
+          "size": 368,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1124-partsbnd-dcx/BD_M_1124_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1124\\BD_M_1124_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "7c9b90c73c1df4a714aa0dddf234f6a4d0657d9e7d44b05d6648a21ae1f7ac10",
+          "size": 465644,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1125.partsbnd.dcx",
+      "sha256": "a25bd20acd80c9a93451b6c97a106823f512e50e8da09d62e51e559829798ce2",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1125/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1125\\BD_M_1125.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "05a1f49a51a1610a7dead1fb094b7fcd239f697eb035327d631ddfcb107317cf",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125-tpf/BD_M_1124_a.dds",
+              "name": "BD_M_1124_a",
+              "sha256": "8aab1ec79930a6dcb815a90d1188671afa72ec9f1af11e9da6b6cdec6cb0a1a2",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125-tpf/BD_M_1124_Far_a.dds",
+              "name": "BD_M_1124_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125-tpf/BD_M_1124_Far_n.dds",
+              "name": "BD_M_1124_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125-tpf/BD_M_1124_m.dds",
+              "name": "BD_M_1124_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125-tpf/BD_M_1124_n.dds",
+              "name": "BD_M_1124_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1125\\BD_M_1125.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d3b7af89c598bf6ce7027248daec7a284f9af0b36307086338095779ad9de70f",
+          "size": 1830656,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1125\\BD_M_1125.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "cf02264e63b15273689c07d6834ae15606767896b8e09ea7365a42b16e4f544f",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1125\\BD_M_1125_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "82028dcc77baf81a51277a3251edb2b02c010391935baa03683c28e9a3204a43",
+          "size": 312,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1125-partsbnd-dcx/BD_M_1125_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1125\\BD_M_1125_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "369c84027f8c8bc05ae3262b70219475610a70898732503cce10851a54bc1605",
+          "size": 334896,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1126.partsbnd.dcx",
+      "sha256": "715ccbc10380ae87c8fe2027dc602759cd0bfe649d34673d5863137bc9ba1fee",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1126/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1126\\BD_M_1126.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "77bc9ee40940c71bd7d1fe1cc25d07e290d7fb9737341e4e2d32a72c0174ccc0",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126-tpf/BD_M_1126_a.dds",
+              "name": "BD_M_1126_a",
+              "sha256": "0855ac2a02d1b3a1f4c646d6d22564b5938d3d8fc75270bfb7c393dade071ed9",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126-tpf/BD_M_1126_Far_a.dds",
+              "name": "BD_M_1126_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126-tpf/BD_M_1126_Far_n.dds",
+              "name": "BD_M_1126_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126-tpf/BD_M_1126_m.dds",
+              "name": "BD_M_1126_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126-tpf/BD_M_1126_n.dds",
+              "name": "BD_M_1126_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1126\\BD_M_1126.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "0c15f933cbbe6a8b9b0c26bd75fa07fcebed7a2dcbb67aeb2187e50893f592ff",
+          "size": 2022480,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1126\\BD_M_1126.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "576a7ce7058b8adb2d2370bdfc0e488636da2c4ba2fdb463081ab960017524ca",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1126\\BD_M_1126_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "4dee6d7393dd472d622192a084664b7c641e7f2d7fd77996224c7f512d66255b",
+          "size": 368,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1126-partsbnd-dcx/BD_M_1126_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1126\\BD_M_1126_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "7c9b90c73c1df4a714aa0dddf234f6a4d0657d9e7d44b05d6648a21ae1f7ac10",
+          "size": 465644,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1127.partsbnd.dcx",
+      "sha256": "18ac5876f8635ec9ab2aa18110b5c48ffa282c2322db5e0c6afbfb28eda0e26e",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1127/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1127\\BD_M_1127.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "77bc9ee40940c71bd7d1fe1cc25d07e290d7fb9737341e4e2d32a72c0174ccc0",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127-tpf/BD_M_1126_a.dds",
+              "name": "BD_M_1126_a",
+              "sha256": "0855ac2a02d1b3a1f4c646d6d22564b5938d3d8fc75270bfb7c393dade071ed9",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127-tpf/BD_M_1126_Far_a.dds",
+              "name": "BD_M_1126_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127-tpf/BD_M_1126_Far_n.dds",
+              "name": "BD_M_1126_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127-tpf/BD_M_1126_m.dds",
+              "name": "BD_M_1126_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127-tpf/BD_M_1126_n.dds",
+              "name": "BD_M_1126_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1127\\BD_M_1127.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "fec25aa1c8436f84584c538d186e6f2d1048f1cc7ba209967c101edea642a89f",
+          "size": 1830656,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1127\\BD_M_1127.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "cf02264e63b15273689c07d6834ae15606767896b8e09ea7365a42b16e4f544f",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1127\\BD_M_1127_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "82028dcc77baf81a51277a3251edb2b02c010391935baa03683c28e9a3204a43",
+          "size": 312,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1127-partsbnd-dcx/BD_M_1127_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1127\\BD_M_1127_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "369c84027f8c8bc05ae3262b70219475610a70898732503cce10851a54bc1605",
+          "size": 334896,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1128.partsbnd.dcx",
+      "sha256": "61c0f66bfb814d1fad8747e195e1da382245f9074bde980edf4a4c5377f64ab7",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1128/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1128\\BD_M_1128.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "927856190bb5865ec11f84acc72bb1f53ea29b5f2c04891c06fd58fdbacf0297",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128-tpf/BD_M_1128_a.dds",
+              "name": "BD_M_1128_a",
+              "sha256": "0701f7161f931e97b6d0513d52576d4e0c7d96ec2b1f411f93809ad1c4430625",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128-tpf/BD_M_1128_Far_a.dds",
+              "name": "BD_M_1128_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128-tpf/BD_M_1128_Far_n.dds",
+              "name": "BD_M_1128_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128-tpf/BD_M_1128_m.dds",
+              "name": "BD_M_1128_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128-tpf/BD_M_1128_n.dds",
+              "name": "BD_M_1128_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1128\\BD_M_1128.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "d7d4c7eea4ab4d29195b6f61b2b42720c4bdab036693e225d6e83c2e11ce7d9c",
+          "size": 2022480,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1128\\BD_M_1128.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "576a7ce7058b8adb2d2370bdfc0e488636da2c4ba2fdb463081ab960017524ca",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1128\\BD_M_1128_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "4dee6d7393dd472d622192a084664b7c641e7f2d7fd77996224c7f512d66255b",
+          "size": 368,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1128-partsbnd-dcx/BD_M_1128_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1128\\BD_M_1128_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "7c9b90c73c1df4a714aa0dddf234f6a4d0657d9e7d44b05d6648a21ae1f7ac10",
+          "size": 465644,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/bd_m_1129.partsbnd.dcx",
+      "sha256": "41d5623d455f0052fb05102228b890c51a0dc9e5578b4a0d9f949b326e13ee0e",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/BD_M_1129/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 5,
+      "members": [
+        {
+          "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1129\\BD_M_1129.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "927856190bb5865ec11f84acc72bb1f53ea29b5f2c04891c06fd58fdbacf0297",
+          "size": 17608404,
+          "textures": [
+            {
+              "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129-tpf/BD_M_1128_a.dds",
+              "name": "BD_M_1128_a",
+              "sha256": "0701f7161f931e97b6d0513d52576d4e0c7d96ec2b1f411f93809ad1c4430625",
+              "size": 11184972,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 13,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129-tpf/BD_M_1128_Far_a.dds",
+              "name": "BD_M_1128_Far_a",
+              "sha256": "14589ac60c7a490184d8f10bd6e1ec23e1d38c56527fd82fc4397e946d900b2d",
+              "size": 43852,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129-tpf/BD_M_1128_Far_n.dds",
+              "name": "BD_M_1128_Far_n",
+              "sha256": "0ba9c8c46bce8cda253aeca6ea1ef16dbcb185e97f46d48cbabafdbe90128b0c",
+              "size": 87556,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129-tpf/BD_M_1128_m.dds",
+              "name": "BD_M_1128_m",
+              "sha256": "c53a3c6f8cdcca9aace3f6b02c8f325692c54dedee7fa2ff47bd81aa282e0ce6",
+              "size": 699192,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129-tpf/BD_M_1128_n.dds",
+              "name": "BD_M_1128_n",
+              "sha256": "af9e4ef418d4a256e6d2654a243ee13dd820e160ccae7bac99f257f88c4abf64",
+              "size": 5592580,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1129\\BD_M_1129.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "ead22a454a9428c7d3766f16541e03d9ad5cf9f81e27592369a0dcc17b69cb90",
+          "size": 1830656,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129.anibnd",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1129\\BD_M_1129.anibnd",
+          "id": 400,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "cf02264e63b15273689c07d6834ae15606767896b8e09ea7365a42b16e4f544f",
+          "size": 21020,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1129\\BD_M_1129_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "82028dcc77baf81a51277a3251edb2b02c010391935baa03683c28e9a3204a43",
+          "size": 312,
+          "textures": []
+        },
+        {
+          "source": "src/models/bd_m_1129-partsbnd-dcx/BD_M_1129_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\BD_M_1129\\BD_M_1129_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "369c84027f8c8bc05ae3262b70219475610a70898732503cce10851a54bc1605",
+          "size": 334896,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/hd_m_1122.partsbnd.dcx",
+      "sha256": "b5e967b9fd4d2d45cf894e633e6968e1caa6e55f51655a1c0e01e03ac1542ceb",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/HD_M_1122/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/hd_m_1122-partsbnd-dcx/HD_M_1122.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\HD_M_1122\\HD_M_1122.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "8a9f4caa8ae3aacd45bc75fee21d3d20c9668066b60528ff9bd6c35fa68dae98",
+          "size": 743380,
+          "textures": [
+            {
+              "source": "src/models/hd_m_1122-partsbnd-dcx/HD_M_1122-tpf/HD_M_1122_a.dds",
+              "name": "HD_M_1122_a",
+              "sha256": "7b26d77bbc380819f88ba5084423201e84cf1c2411b520ee3e49d4bd6ccbac71",
+              "size": 349700,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/hd_m_1122-partsbnd-dcx/HD_M_1122-tpf/HD_M_1122_m.dds",
+              "name": "HD_M_1122_m",
+              "sha256": "40659e54796b84e7193a84bdab6e8f54b182e5ac266fd74a13d092c8ed41680e",
+              "size": 43832,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 9,
+              "flags": 0
+            },
+            {
+              "source": "src/models/hd_m_1122-partsbnd-dcx/HD_M_1122-tpf/HD_M_1122_n.dds",
+              "name": "HD_M_1122_n",
+              "sha256": "7d09d092896e79b1b10d1956b8dd4b073b6f3d627f4dc87586422d51b33a8d0d",
+              "size": 349700,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/hd_m_1122-partsbnd-dcx/HD_M_1122.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\HD_M_1122\\HD_M_1122.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "12bdb06f2a254b0f9d29839367cfa1fd7c1a79da95cecd21572f05efedd6bcc4",
+          "size": 391936,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/hd_m_1140.partsbnd.dcx",
+      "sha256": "d4f28cfd9f37e040b80e7690a1228cf25125ece8eb52e8173be048ab05883c05",
+      "baseSha256": "9ceead418b8b62d4c4cedf2df2d8da844b20cbf373a01117f886834c8f84fe44",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/HD_M_1140/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 4,
+      "members": [
+        {
+          "source": "src/models/hd_m_1140-partsbnd-dcx/HD_M_1140.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\HD_M_1140\\HD_M_1140.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "00ba96d6ac4c4de8583b8d64d4c01d429f177dad5f1f90a5892c02a5555c4e78",
+          "size": 2097592,
+          "textures": [
+            {
+              "source": "src/models/hd_m_1140-partsbnd-dcx/HD_M_1140-tpf/HD_M_1140_a.dds",
+              "name": "HD_M_1140_a",
+              "sha256": "554b67c194ed77d57aa9631d5dfcaf5c664b8c0dea8262e2285be4b13391ff64",
+              "size": 699212,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/hd_m_1150.partsbnd.dcx",
+      "sha256": "8632c453e6ccbcdf612afcc8ab5d8c6562e742416ad7f92d1c48628d0ba54425",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/HD_M_1150/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 4,
+      "members": [
+        {
+          "source": "src/models/hd_m_1150-partsbnd-dcx/HD_M_1150.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\HD_M_1150\\HD_M_1150.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "574fe5f865736bc32f646f6816c29cfe362044582f61d50ea07aa2c38ba27598",
+          "size": 2097592,
+          "textures": [
+            {
+              "source": "src/models/hd_m_1150-partsbnd-dcx/HD_M_1150-tpf/HD_M_1150_a.dds",
+              "name": "HD_M_1150_a",
+              "sha256": "5aed836896c99f1a3aad1228004ef9e6e10d928ec524513dfae8b83fc82de350",
+              "size": 699212,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/hd_m_1150-partsbnd-dcx/HD_M_1150-tpf/HD_M_1150_n.dds",
+              "name": "HD_M_1150_n",
+              "sha256": "c32e7011b5f9758d49ec51769c44a337afdb4e0ce2c3ce9b43c3549396fda8fb",
+              "size": 1398276,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/hd_m_1150-partsbnd-dcx/HD_M_1150.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\HD_M_1150\\HD_M_1150.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "1c5bd1dba13607430b5ef0f529560a09cc2fcc1f41355d1ac1b2e48173ca0ed4",
+          "size": 821216,
+          "textures": []
+        },
+        {
+          "source": "src/models/hd_m_1150-partsbnd-dcx/HD_M_1150_c.clm2",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\HD_M_1150\\HD_M_1150_c.clm2",
+          "id": 700,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3eff1fb6366ae9bf58ad7cb7b418149cb908d88f6ae4c79e4c6b9f6a2f7d57a7",
+          "size": 240,
+          "textures": []
+        },
+        {
+          "source": "src/models/hd_m_1150-partsbnd-dcx/HD_M_1150_c.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\HD_M_1150\\HD_M_1150_c.hkx",
+          "id": 900,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "77d22fa491985ba2a9ac95919f280f1a56322eeb3e297ea900c268b8f8f7e800",
+          "size": 130948,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1120.partsbnd.dcx",
+      "sha256": "3fb5dba03e9fa8bd8a895a0d86efd1e6498d49cf25861ea3aa910cf0bcc8fe4c",
+      "baseSha256": "401bdfcd89d8d90721ac1a4af526745a8191b4bc22176aef6fb3558ce94dad21",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1120/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1120-partsbnd-dcx/LG_M_1120.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1120\\LG_M_1120.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "702a9097619ddcbf071fa3a1a431efcbb8f2fe605b80909062cec44e4c1e53b0",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1120-partsbnd-dcx/LG_M_1120-tpf/LG_M_1120_a.dds",
+              "name": "LG_M_1120_a",
+              "sha256": "e68e12f154a9682e21b889e32c1dfa7aa9a2950417145ae35d53237ae10d20db",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1120-partsbnd-dcx/LG_M_1120-tpf/LG_M_1351_a.dds",
+              "name": "LG_M_1351_a",
+              "sha256": "a3ab91462b07f6c959827070961e67ba5aca4f9f1c936990a7a8afcfaa8a221b",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1120-partsbnd-dcx/LG_M_1120-tpf/LG_M_1351_m.dds",
+              "name": "LG_M_1351_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1120-partsbnd-dcx/LG_M_1120-tpf/LG_M_1351_n.dds",
+              "name": "LG_M_1351_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1120-partsbnd-dcx/LG_M_1120.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1120\\LG_M_1120.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "371182eb0ca6dc5c48fb90f3b0bf6170a635ed485f506f53caaf7f0a7680fa5f",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1122.partsbnd.dcx",
+      "sha256": "a49d2ad94666b1bd3be298d14b84c373350b43b7d800fed83e90949ab8a44c32",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1122/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1122\\LG_M_1122.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3e1e6ccafc846ed6940f5f10f736ac6dc03682e53a2f6741bf1a89251ce3621d",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122-tpf/LG_M_1122_a.dds",
+              "name": "LG_M_1122_a",
+              "sha256": "940efc3acd2bef9448a4ed117162d72e643617aa5b5248ca772837add623da16",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122-tpf/LG_M_1122_m.dds",
+              "name": "LG_M_1122_m",
+              "sha256": "f46cb979b06fcb10c926ee022081f8a474f3bd161cd4be0c52c1c25b4557b06a",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122-tpf/LG_M_1122_n.dds",
+              "name": "LG_M_1122_n",
+              "sha256": "39dc63a6102d9c874ab4c5c8b8538817714b681609c00dfb34db6eea77332d07",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122-tpf/LG_M_1352_a.dds",
+              "name": "LG_M_1352_a",
+              "sha256": "2e0aede835f58d80ea93c552543ab1f820e3ad637ab996e94bf453a973dac77b",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122-tpf/LG_M_1352_m.dds",
+              "name": "LG_M_1352_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122-tpf/LG_M_1352_n.dds",
+              "name": "LG_M_1352_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1122-partsbnd-dcx/LG_M_1122.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1122\\LG_M_1122.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "5f72132d380e6c559fddf71858a1db64d4e4f54b3918d7bfaface55035ef9d80",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1124.partsbnd.dcx",
+      "sha256": "d0df0d48c8e5a00899ceb7ba417c4267bf141f04f16b763a7f0cf05fdec4f873",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1124/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1124\\LG_M_1124.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "a9d4560430a3c60b84ed61a62a447f21b42ba9ae3240f6257788acdb95193c4d",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124-tpf/LG_M_1124_a.dds",
+              "name": "LG_M_1124_a",
+              "sha256": "522ed8745cf883d662dbe17593c62191257a5b08c9900037fb4e8d72a1bb5090",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124-tpf/LG_M_1124_m.dds",
+              "name": "LG_M_1124_m",
+              "sha256": "f46cb979b06fcb10c926ee022081f8a474f3bd161cd4be0c52c1c25b4557b06a",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124-tpf/LG_M_1124_n.dds",
+              "name": "LG_M_1124_n",
+              "sha256": "39dc63a6102d9c874ab4c5c8b8538817714b681609c00dfb34db6eea77332d07",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124-tpf/LG_M_1354_a.dds",
+              "name": "LG_M_1354_a",
+              "sha256": "b12246425bda8db5388dcc9cad983df8c498e9c5eebaac232ac28ce66d27eac8",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124-tpf/LG_M_1354_m.dds",
+              "name": "LG_M_1354_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124-tpf/LG_M_1354_n.dds",
+              "name": "LG_M_1354_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1124-partsbnd-dcx/LG_M_1124.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1124\\LG_M_1124.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9ec854a966c246f4582aacc4e0e7bae607507a4dd687b2b00d710fa758d14767",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1125.partsbnd.dcx",
+      "sha256": "06e63a891d25ef78012bc83cef1eaa9e6fc69aa69a5d36899734457dbddaf049",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1125/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1125\\LG_M_1125.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "a9d4560430a3c60b84ed61a62a447f21b42ba9ae3240f6257788acdb95193c4d",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125-tpf/LG_M_1124_a.dds",
+              "name": "LG_M_1124_a",
+              "sha256": "522ed8745cf883d662dbe17593c62191257a5b08c9900037fb4e8d72a1bb5090",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125-tpf/LG_M_1124_m.dds",
+              "name": "LG_M_1124_m",
+              "sha256": "f46cb979b06fcb10c926ee022081f8a474f3bd161cd4be0c52c1c25b4557b06a",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125-tpf/LG_M_1124_n.dds",
+              "name": "LG_M_1124_n",
+              "sha256": "39dc63a6102d9c874ab4c5c8b8538817714b681609c00dfb34db6eea77332d07",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125-tpf/LG_M_1354_a.dds",
+              "name": "LG_M_1354_a",
+              "sha256": "b12246425bda8db5388dcc9cad983df8c498e9c5eebaac232ac28ce66d27eac8",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125-tpf/LG_M_1354_m.dds",
+              "name": "LG_M_1354_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125-tpf/LG_M_1354_n.dds",
+              "name": "LG_M_1354_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1125-partsbnd-dcx/LG_M_1125.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1125\\LG_M_1125.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9ec854a966c246f4582aacc4e0e7bae607507a4dd687b2b00d710fa758d14767",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1126.partsbnd.dcx",
+      "sha256": "393ccc444ab3fb73bde59412b3573527b91f530ec29523dcef2aad3ce88ddcb9",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1126/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1126\\LG_M_1126.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "a09dc06331a86165e4bd99827d3cc2598644b3d896e63cd04cd48884a504d3b0",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126-tpf/LG_M_1126_a.dds",
+              "name": "LG_M_1126_a",
+              "sha256": "a711c9c488a95c01a5163a82dc2e1d0ffd0ab0c5a6956d01692c428292042558",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126-tpf/LG_M_1126_m.dds",
+              "name": "LG_M_1126_m",
+              "sha256": "f46cb979b06fcb10c926ee022081f8a474f3bd161cd4be0c52c1c25b4557b06a",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126-tpf/LG_M_1126_n.dds",
+              "name": "LG_M_1126_n",
+              "sha256": "39dc63a6102d9c874ab4c5c8b8538817714b681609c00dfb34db6eea77332d07",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126-tpf/LG_M_1356_a.dds",
+              "name": "LG_M_1356_a",
+              "sha256": "7e979a2e709ce8fbb655372f45a54ed893316fb950532c7c2e3c50e907c5b84b",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126-tpf/LG_M_1356_m.dds",
+              "name": "LG_M_1356_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126-tpf/LG_M_1356_n.dds",
+              "name": "LG_M_1356_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1126-partsbnd-dcx/LG_M_1126.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1126\\LG_M_1126.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3176df146b852917fbb13ef967a72a3348942b98bd6aa59126d245c4919d3704",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1127.partsbnd.dcx",
+      "sha256": "e86218333b34e0eb4e093ebcf6fe2483d63ad7bf9531bf2c6977a70d7b1cee28",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1127/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1127\\LG_M_1127.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "a09dc06331a86165e4bd99827d3cc2598644b3d896e63cd04cd48884a504d3b0",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127-tpf/LG_M_1126_a.dds",
+              "name": "LG_M_1126_a",
+              "sha256": "a711c9c488a95c01a5163a82dc2e1d0ffd0ab0c5a6956d01692c428292042558",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127-tpf/LG_M_1126_m.dds",
+              "name": "LG_M_1126_m",
+              "sha256": "f46cb979b06fcb10c926ee022081f8a474f3bd161cd4be0c52c1c25b4557b06a",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127-tpf/LG_M_1126_n.dds",
+              "name": "LG_M_1126_n",
+              "sha256": "39dc63a6102d9c874ab4c5c8b8538817714b681609c00dfb34db6eea77332d07",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127-tpf/LG_M_1356_a.dds",
+              "name": "LG_M_1356_a",
+              "sha256": "7e979a2e709ce8fbb655372f45a54ed893316fb950532c7c2e3c50e907c5b84b",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127-tpf/LG_M_1356_m.dds",
+              "name": "LG_M_1356_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127-tpf/LG_M_1356_n.dds",
+              "name": "LG_M_1356_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1127-partsbnd-dcx/LG_M_1127.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1127\\LG_M_1127.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3176df146b852917fbb13ef967a72a3348942b98bd6aa59126d245c4919d3704",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1128.partsbnd.dcx",
+      "sha256": "95cee59fef3e153a9444176c8760fed47363f0d9cfc35f73bf4c4efb5e377ebf",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1128/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1128\\LG_M_1128.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "ab9f34e5ac162c4218fdf1eef58adcd1b3e9c38643168283cf4f1bf7c5057eec",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128-tpf/LG_M_1128_a.dds",
+              "name": "LG_M_1128_a",
+              "sha256": "00a3fc456dc59cdca5bd670828a4d2b7429a382c5ee38e6626ca0b116bcc1dc9",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128-tpf/LG_M_1128_m.dds",
+              "name": "LG_M_1128_m",
+              "sha256": "f46cb979b06fcb10c926ee022081f8a474f3bd161cd4be0c52c1c25b4557b06a",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128-tpf/LG_M_1128_n.dds",
+              "name": "LG_M_1128_n",
+              "sha256": "39dc63a6102d9c874ab4c5c8b8538817714b681609c00dfb34db6eea77332d07",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128-tpf/LG_M_1358_a.dds",
+              "name": "LG_M_1358_a",
+              "sha256": "a2999570622cdedfd63e855bb19748295ffea918a98cf048e94da232f72e861d",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128-tpf/LG_M_1358_m.dds",
+              "name": "LG_M_1358_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128-tpf/LG_M_1358_n.dds",
+              "name": "LG_M_1358_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1128-partsbnd-dcx/LG_M_1128.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1128\\LG_M_1128.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "226e310970e8249b2036ac0f54cd8485803ef83071b6ea4ac8c62f8ee3199e95",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/lg_m_1129.partsbnd.dcx",
+      "sha256": "a67f1ec434557ae02e2cc6a3282486d6f24bb2952bfde62f411a2324dc00210f",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/FullBody/LG_M_1129/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1129\\LG_M_1129.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "ab9f34e5ac162c4218fdf1eef58adcd1b3e9c38643168283cf4f1bf7c5057eec",
+          "size": 9088936,
+          "textures": [
+            {
+              "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129-tpf/LG_M_1128_a.dds",
+              "name": "LG_M_1128_a",
+              "sha256": "00a3fc456dc59cdca5bd670828a4d2b7429a382c5ee38e6626ca0b116bcc1dc9",
+              "size": 1398268,
+              "format": 1,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129-tpf/LG_M_1128_m.dds",
+              "name": "LG_M_1128_m",
+              "sha256": "f46cb979b06fcb10c926ee022081f8a474f3bd161cd4be0c52c1c25b4557b06a",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129-tpf/LG_M_1128_n.dds",
+              "name": "LG_M_1128_n",
+              "sha256": "39dc63a6102d9c874ab4c5c8b8538817714b681609c00dfb34db6eea77332d07",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129-tpf/LG_M_1358_a.dds",
+              "name": "LG_M_1358_a",
+              "sha256": "a2999570622cdedfd63e855bb19748295ffea918a98cf048e94da232f72e861d",
+              "size": 1398268,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129-tpf/LG_M_1358_m.dds",
+              "name": "LG_M_1358_m",
+              "sha256": "c4dcdae24ed2467b72d35607861a9feb375f055b8ccf937dee91b2b8050b99fb",
+              "size": 349672,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129-tpf/LG_M_1358_n.dds",
+              "name": "LG_M_1358_n",
+              "sha256": "45e23472394d88ae7804253ebbcfd2da87e09fe4207e13d16b13fd2f06852769",
+              "size": 2796388,
+              "format": 107,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/lg_m_1129-partsbnd-dcx/LG_M_1129.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\FullBody\\LG_M_1129\\LG_M_1129.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "226e310970e8249b2036ac0f54cd8485803ef83071b6ea4ac8c62f8ee3199e95",
+          "size": 622880,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/wp_a_0213.partsbnd.dcx",
+      "sha256": "4852cd945dbbbb472606f68fbef5e3130e2e576d0dc3f9c4767290ea31d13ba5",
+      "baseSha256": "64cb39eeaf5efa163a7d3c61df8b59e5100420dbb8af916afb9fdf4d7b5836c8",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/Weapon/WP_A_0213/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 3,
+      "members": [
+        {
+          "source": "src/models/wp_a_0213-partsbnd-dcx/WP_A_0213.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\Weapon\\WP_A_0213\\WP_A_0213.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "48601205de731dd056e867f902bcb0c9d021b2d355fa00ac8413d1bbc8d21573",
+          "size": 1534128,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/wp_a_0615.partsbnd.dcx",
+      "sha256": "12249e6ea10001cb237210026df72841659493a33430d158285d1e01fb8c0980",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/Weapon/WP_A_0615/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_DFLT_11000_44_9"
+      },
+      "totalMembers": 3,
+      "members": [
+        {
+          "source": "src/models/wp_a_0615-partsbnd-dcx/WP_A_0615.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\Weapon\\WP_A_0615\\WP_A_0615.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "9006d879c4d410f5ef10eb1076209f885579d5ee770e5b6e2524ecb47ac43a44",
+          "size": 2971684,
+          "textures": [
+            {
+              "source": "src/models/wp_a_0615-partsbnd-dcx/WP_A_0615-tpf/WP_A_0615_a.dds",
+              "name": "WP_A_0615_a",
+              "sha256": "ad8bff0950f9da246e0d89eb41cc167264afeccbe2f8c0788d1cf0e3faf56aef",
+              "size": 1398308,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            },
+            {
+              "source": "src/models/wp_a_0615-partsbnd-dcx/WP_A_0615-tpf/WP_A_0615_m.dds",
+              "name": "WP_A_0615_m",
+              "sha256": "d0ab428125667de8ce74dc1934741c472ce72f9ba8e046e8fdbd41014fe65980",
+              "size": 174920,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/wp_a_0615-partsbnd-dcx/WP_A_0615-tpf/WP_A_0615_n.dds",
+              "name": "WP_A_0615_n",
+              "sha256": "f8b3c9c39c5a15da5813a69846df75129eace7682d2dd2c9ad1210d2e5e540b3",
+              "size": 1398308,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 12,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/wp_a_0615-partsbnd-dcx/WP_A_0615.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\Weapon\\WP_A_0615\\WP_A_0615.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "dbf42a03df727eab79a9acb5cff43d2faf92b3d27c794e072376b3a82c356ee0",
+          "size": 189024,
+          "textures": []
+        },
+        {
+          "source": "src/models/wp_a_0615-partsbnd-dcx/WP_A_0615_collidable.hkx",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\Weapon\\WP_A_0615\\WP_A_0615_collidable.hkx",
+          "id": 800,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "3959e0c0e047cacefa80a6ac345547397017f35fb0b39c989d47c2e12dddf6ff",
+          "size": 13176,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/wp_a_0615_l.partsbnd.dcx",
+      "sha256": "59eada40a10f082c6690215a75ade0280efc72a08f8faa41aebe5cb841472421",
+      "baseSha256": null,
+      "baselineAvailable": false,
+      "kind": "extracted members",
+      "completeMemberSet": true,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/Weapon/WP_A_0615/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/wp_a_0615_l-partsbnd-dcx/WP_A_0615_L.tpf",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\Weapon\\WP_A_0615\\WP_A_0615_L.tpf",
+          "id": 100,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "adcdd0ef782980d1876a31aed03bd7d2e827dc1523a38063abecb0a7a9335c1c",
+          "size": 568680,
+          "textures": [
+            {
+              "source": "src/models/wp_a_0615_l-partsbnd-dcx/WP_A_0615_L-tpf/WP_A_0611_a_l.dds",
+              "name": "WP_A_0611_a_l",
+              "sha256": "e08405ed66e67e2af494bb3a998e905eab18d11066b91056e159009fcbe177da",
+              "size": 174940,
+              "format": 0,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            },
+            {
+              "source": "src/models/wp_a_0615_l-partsbnd-dcx/WP_A_0615_L-tpf/WP_A_0611_m_l.dds",
+              "name": "WP_A_0611_m_l",
+              "sha256": "873a329a656897e501444b5b21543d9a2d9e76ce9c2d5e382de29cf044b6d338",
+              "size": 43848,
+              "format": 103,
+              "type": "Texture",
+              "mipmaps": 10,
+              "flags": 0
+            },
+            {
+              "source": "src/models/wp_a_0615_l-partsbnd-dcx/WP_A_0615_L-tpf/WP_A_0611_n_l.dds",
+              "name": "WP_A_0611_n_l",
+              "sha256": "f73ad35357894d8181f0123b1e2511c3a1d27715cd60d2368bbaf1a7b6a4332e",
+              "size": 349732,
+              "format": 106,
+              "type": "Texture",
+              "mipmaps": 11,
+              "flags": 0
+            }
+          ]
+        },
+        {
+          "source": "src/models/wp_a_0615_l-partsbnd-dcx/WP_A_0615_L.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\Weapon\\WP_A_0615\\WP_A_0615_L.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "e67e3cd2c7d5c6bfeca8375c7176f3f64490f92ac6ce58f3e9b254a87b45d66d",
+          "size": 189024,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/parts/wp_a_1338.partsbnd.dcx",
+      "sha256": "8549db71c7111afb587731d21143ea7201950c568f0b792b0b94a0ee83f15521",
+      "baseSha256": "99a58b5e480b9a4eea1b741181de36d061ebaac574bb26087bb6e7929e5480e6",
+      "baselineAvailable": true,
+      "kind": "extracted members",
+      "completeMemberSet": false,
+      "archiveRoot": "N:/GR/data/INTERROOT_win64/parts/Weapon/WP_A_1338/",
+      "header": {
+        "Version": "07D7R6",
+        "Format": "IDs, Names1, Names2, Compression",
+        "BigEndian": false,
+        "BitBigEndian": false,
+        "Unicode": true,
+        "Extended": 4,
+        "Unk04": false,
+        "Unk05": false,
+        "Compression": "DCX_KRAK"
+      },
+      "totalMembers": 2,
+      "members": [
+        {
+          "source": "src/models/wp_a_1338-partsbnd-dcx/WP_A_1338.flver",
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\parts\\Weapon\\WP_A_1338\\WP_A_1338.flver",
+          "id": 200,
+          "flags": "Flag1",
+          "compression": "Zlib",
+          "sha256": "414608a6daa272dbf87d7530a35162be071202e092550d4b06bcdfcd96019e91",
+          "size": 362432,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "runtime": "mod/menu/01_060_caption.gfx",
+      "sha256": "7b424af59fb25852f4be399e608fce4fcb085d1dd630b5897d516b2e8022cb08",
+      "baseSha256": "387b83792acaacb73a390f4e8f017e4c8172ab5a5cc557c7dff29ee105cb0d06",
+      "baselineAvailable": true,
+      "kind": "direct GFX binary; original authoring project unavailable",
+      "outputs": [
+        {
+          "source": "src/menu/01_060_caption.gfx",
+          "sha256": "7b424af59fb25852f4be399e608fce4fcb085d1dd630b5897d516b2e8022cb08",
+          "size": 8952
+        }
+      ]
+    },
+    {
+      "runtime": "mod/menu/05_900_logo_fromsoft.gfx",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "baseSha256": "df9b697880ba3b8e2998313e971de6f9482bb2428d23a511a8b4581bec4d71b1",
+      "baselineAvailable": true,
+      "kind": "direct GFX binary; original authoring project unavailable",
+      "outputs": [
+        {
+          "source": "src/menu/05_900_logo_fromsoft.gfx",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size": 0
+        }
+      ]
+    },
+    {
+      "runtime": "mod/menu/05_901_logo_bne.gfx",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "baseSha256": "7530549a0831e9c02748c8eddcc5d718c9e1d77ba9312444220e37cb6e1123b6",
+      "baselineAvailable": true,
+      "kind": "direct GFX binary; original authoring project unavailable",
+      "outputs": [
+        {
+          "source": "src/menu/05_901_logo_bne.gfx",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size": 0
+        }
+      ]
+    }
+  ]
+}

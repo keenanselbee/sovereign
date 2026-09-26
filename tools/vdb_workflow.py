@@ -150,6 +150,10 @@ def prepare(root, settings, package, version, source_role, scope=None):
         raise ValueError('New runtime membership requires a verified selected stage and acceptance of every added file')
     if source_role == 'repo':
         sources.update({name: assets.safe_path(assets.runtime_root(root, package), name[4:]) for name in replacement_names})
+        import recovered_sources
+        findings = recovered_sources.issues(root, [sources[name] for name in replacement_names])
+        if findings:
+            raise ValueError('Source freshness blocks package preparation: ' + '; '.join(findings))
     elif source_role != 'vortex':
         raise ValueError('Choose repo or vortex as the explicit stage source')
     expected = {name: {'size': path.stat().st_size, 'sha256': assets.checksum(path)} for name, path in sources.items()}
@@ -175,9 +179,34 @@ def prepare(root, settings, package, version, source_role, scope=None):
     if inventory(source_package, root, package) != baseline or any(
             assets.checksum(src) != expected[name]['sha256'] for name, src in sources.items()):
         raise ValueError('Stage input changed; reject the prepared candidate')
+    if source_role == 'repo':
+        findings = recovered_sources.issues(root, [sources[name] for name in replacement_names])
+        if findings:
+            raise ValueError('Sources changed during package preparation: ' + '; '.join(findings))
     receipt['status'] = 'prepared'
     assets.save(directory / 'receipt.json', receipt)
     return directory / 'receipt.json'
+
+
+def prepared_catalog_matches(root, path, receipt):
+    data = assets.catalog(root)
+    if receipt['catalogHash'] == assets.fingerprint(data):
+        return True
+    # Source documentation added after an already queued finish must not strand
+    # its immutable payload. Runtime membership, mappings and recipes still match
+    # the old catalog exactly; settings and payload verification remain mandatory.
+    if not receipt.get('finishReceipt') or not receipt.get('requestId'):
+        return False
+    finish_path = assets.safe_path(root, Path(receipt['finishReceipt']).relative_to(root))
+    if not finish_path.is_relative_to(root / '.vdb/finalizations') or not finish_path.is_file():
+        return False
+    finish = assets.read(finish_path)
+    if finish.get('requestId') != receipt['requestId'] or str(path) not in finish.get('stages', []):
+        return False
+    previous = {key: value for key, value in data.items() if key != 'recoveredSources'}
+    previous['groups'] = [{key: value for key, value in group.items() if key != 'editing'}
+                          for group in data['groups']]
+    return receipt['catalogHash'] == assets.fingerprint(previous)
 
 
 def load_prepared(root, settings, path):
@@ -188,7 +217,7 @@ def load_prepared(root, settings, path):
     path = assets.safe_path(base, path.relative_to(base))
     receipt = assets.read(path)
     if (receipt['schemaVersion'] != 1 or not receipt_project_matches(project(root), receipt)
-            or (receipt['status'] == 'prepared' and (receipt['catalogHash'] != assets.fingerprint(assets.catalog(root))
+            or (receipt['status'] == 'prepared' and (not prepared_catalog_matches(root, path, receipt)
                 or receipt['settingsHash'] != assets.fingerprint(settings)))):
         raise ValueError('Stage configuration changed since preparation')
     if inventory(path.parent / 'payload', root, receipt['packageId'])['files'] != receipt['files']:

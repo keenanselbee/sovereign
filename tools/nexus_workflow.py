@@ -104,6 +104,8 @@ def build_vortex_package(source, manifest, run, version, draft=True, settings=No
 
 
 def write_vortex_package(source, manifest, run, version, draft=True, package_id="main"):
+    import recovered_sources
+    recovered_sources.require_fresh(ROOT, package_id)
     if not core.re.fullmatch(r'[0-9]+(?:\.[0-9]+){1,3}(?:-[A-Za-z0-9.-]+)?', version):
         raise ValueError('Use an explicit numeric version with optional prerelease suffix')
     if not draft and (not manifest.get('releaseReady') or manifest.get('version') != version
@@ -127,6 +129,7 @@ def write_vortex_package(source, manifest, run, version, draft=True, package_id=
                 raise ValueError(f'ZIP content differs from Vortex snapshot: {name}')
     if package_inventory(source, manifest, package_id) != before:
         raise ValueError('Vortex files changed during packaging; reject this candidate')
+    recovered_sources.require_fresh(ROOT, package_id)
     receipt = {**before, 'kind': 'vortex-package', 'packageId': package_id, 'draft': draft, 'version': version,
                'archive': archive.name, 'sha256': core.digest(archive),
                'createdAt': datetime.now(timezone.utc).isoformat(), 'gameplayVerified': False}

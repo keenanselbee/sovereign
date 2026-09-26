@@ -21,6 +21,13 @@ not automatically qualified rebuild inputs. Their README files state that limit.
 Older message XML exports remain under `reference/message-exports`; accepted message
 binders are still in `mod/msg/engus` and the configured Smithbox workspace.
 
+The [2026-09-25 recovered source inventory](../src/README.md) adds missing packed
+members and nested texture images to those existing folders. Its manifest retains
+archive/member identities and explicitly marks missing archived baselines. These
+snapshots supplement the qualified catalog. Recorded members now refresh within
+the existing reviewed handoff; their extraction does not qualify a rebuild or
+create new editor mappings.
+
 Nexus helpers read `mod.json`'s `descriptionDirectory`, now `docs`, and select explicit
 filenames. Promotional icons use `icon-` prefixes, including alternate-set names;
 ReShade artwork uses `reshade-` prefixes to avoid collisions. No media was discarded.

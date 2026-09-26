@@ -81,6 +81,47 @@ class VdbTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'changed'):
             vdb.load_prepared(self.root, self.settings, receipt)
 
+    def test_repo_prepare_rejects_stale_sources_before_creating_payload(self):
+        import recovered_sources
+        with mock.patch.object(recovered_sources, 'issues', return_value=['missing recovered source']):
+            with self.assertRaisesRegex(ValueError, 'Source freshness blocks'):
+                vdb.prepare(self.root, self.settings, 'main', '0.0.0-test', 'repo')
+        self.assertFalse((self.root / '.vdb/prepared').exists())
+
+    def test_repo_prepare_rechecks_sources_after_copy(self):
+        import recovered_sources
+        with mock.patch.object(recovered_sources, 'issues', side_effect=[[], ['source edited while copying']]):
+            with self.assertRaisesRegex(ValueError, 'Sources changed during'):
+                vdb.prepare(self.root, self.settings, 'main', '0.0.0-test', 'repo')
+        receipt = next((self.root / '.vdb/prepared').glob('*/receipt.json'))
+        self.assertEqual(assets.read(receipt)['status'], 'preparing')
+
+    def test_source_metadata_does_not_strand_existing_queued_finish(self):
+        path = vdb.prepare(self.root, self.settings, 'main', '0.0.0-test', 'repo')
+        receipt = assets.read(path)
+        finish = self.root / '.vdb/finalizations/existing/receipt.json'
+        receipt.update(requestId='existing-request', finishReceipt=str(finish))
+        assets.save(path, receipt)
+        finish.parent.mkdir(parents=True)
+        assets.save(finish, {'requestId': 'existing-request', 'stages': [str(path)]})
+        data = assets.catalog(self.root)
+        data['recoveredSources'] = {'manifest': 'src/extracted-members.json'}
+        data['groups'][0]['editing'] = {'mode': 'editor-binary'}
+        assets.save(self.root / 'asset-catalog.json', data)
+        vdb.load_prepared(self.root, self.settings, path)
+        data['groups'][0]['files'].append('unreviewed-new-runtime.bin')
+        assets.save(self.root / 'asset-catalog.json', data)
+        with self.assertRaisesRegex(ValueError, 'configuration changed'):
+            vdb.load_prepared(self.root, self.settings, path)
+
+    def test_unsubmitted_preparation_still_rejects_changed_catalog(self):
+        path = vdb.prepare(self.root, self.settings, 'main', '0.0.0-test', 'repo')
+        data = assets.catalog(self.root)
+        data['groups'][0]['editing'] = {'mode': 'editor-binary'}
+        assets.save(self.root / 'asset-catalog.json', data)
+        with self.assertRaisesRegex(ValueError, 'configuration changed'):
+            vdb.load_prepared(self.root, self.settings, path)
+
     def test_missing_texture_companion_and_unknown_main_file_rejected(self):
         (self.root / 'textures/mod/menu/hi/data').unlink()
         with self.assertRaisesRegex(ValueError, 'companion'):

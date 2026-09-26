@@ -1,0 +1,1177 @@
+{
+  "schemaVersion": 1,
+  "catalog": "asset-catalog.json",
+  "catalogSha256": "64d7b88d4b33faf2f25dd5a48d8e1070d7eaae3a9f560ec8ebe1b205a012f848",
+  "archiveRoot": "Z:/Backup/Elden Ring/ER Base Files",
+  "archiveLabels": [
+    "1.16",
+    "1.17"
+  ],
+  "method": "For each catalog group file, test exact relative path beneath each archive label; hash present regular files with SHA-256 and record byte size.",
+  "provenance": "Folder labels only; game build and clean vanilla state independently unverified.",
+  "files": [
+    {
+      "package": "main",
+      "group": "regulation",
+      "path": "regulation.bin",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "player-scripts",
+      "path": "action/script/c0000.hks",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 1268976,
+          "sha256": "e0f9ba5978ccfc68409b5d1b5982afdef0b3e0ecf9e70eba71d80839f2ce915f"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 1274080,
+          "sha256": "88c445e48da9051d6e06af995ba4294b5abb0c42cf68669519db4456bb27742b"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "player-scripts",
+      "path": "action/script/c9997.hks",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 650464,
+          "sha256": "c1beebaea3fc81dcc1b78b2bb650980c2f9f9fc25fbf3298a9509c312a54c349"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 650464,
+          "sha256": "c1beebaea3fc81dcc1b78b2bb650980c2f9f9fc25fbf3298a9509c312a54c349"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "player-names",
+      "path": "action/eventnameid.txt",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 85088,
+          "sha256": "73180f7784c95335cce047e3243fa9bf194615760b3dd583e64f3dd12141fd30"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 85136,
+          "sha256": "2f5fc18e604ba44fcb2251bda57e56d239635db9388eef67599e7288bab86328"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "player-names",
+      "path": "action/statenameid.txt",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 64032,
+          "sha256": "242911f60312d83a4d90a01d95c5532fcccad34c96fae20c5e04219c3e7174a5"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 64064,
+          "sha256": "e15b46df4ae23ee2132ffec71763f08d25aec0cc62df008349e1eac679ee0c80"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/common.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 35168,
+          "sha256": "5a05fce894e719eeb679a3f8cfa839f82e305ffe2df8792d5a51a08597babc13"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 35376,
+          "sha256": "099adfdfb209d8f464d3568f018cf90f9dc9a323d81cb3d19fb7c3c3f4b10b67"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m11_10_00_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 6032,
+          "sha256": "9739c8bafc4971ea28d7ee33bbb825a197c546b2a730190c8fa4cca1e202d1ae"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 6032,
+          "sha256": "9739c8bafc4971ea28d7ee33bbb825a197c546b2a730190c8fa4cca1e202d1ae"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m12_03_00_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 5584,
+          "sha256": "a56aadd2475c28c3571fcdacf1e2c64460f754517060bfb21319a56df5e0ade2"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 5584,
+          "sha256": "a56aadd2475c28c3571fcdacf1e2c64460f754517060bfb21319a56df5e0ade2"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m13_00_00_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 6368,
+          "sha256": "fcbbea6b4e8e8efb6309f17bb01c3b85aea0c7ee496226b1dfba2fcf7b3e0268"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 6368,
+          "sha256": "fcbbea6b4e8e8efb6309f17bb01c3b85aea0c7ee496226b1dfba2fcf7b3e0268"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m18_00_00_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 4032,
+          "sha256": "475f299403cc93e802869b7230de19f413d2ce6cb19eb682c4caafa915305b09"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 4032,
+          "sha256": "475f299403cc93e802869b7230de19f413d2ce6cb19eb682c4caafa915305b09"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m60_41_52_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 1280,
+          "sha256": "c7fb8f4f84bae3854e4ceb38f545cf24edd2e07953b494c7881af6bc540d93a3"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 1280,
+          "sha256": "c7fb8f4f84bae3854e4ceb38f545cf24edd2e07953b494c7881af6bc540d93a3"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m60_43_50_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 320,
+          "sha256": "7721772d874872b01306d883eb5a108d7eaa60581aec05cfbc5d06f361934b5c"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 320,
+          "sha256": "7721772d874872b01306d883eb5a108d7eaa60581aec05cfbc5d06f361934b5c"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m61_45_44_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 1424,
+          "sha256": "0762304f8d754053bf7d35f732e3c9c8a875f9f1e5d50da6c750196e079e1d02"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 1424,
+          "sha256": "0762304f8d754053bf7d35f732e3c9c8a875f9f1e5d50da6c750196e079e1d02"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "events",
+      "path": "event/m61_54_39_00.emevd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 2992,
+          "sha256": "7db67b665715b72cf863fadc251c23d019ca8894c9afbe3ed1e9dd49bf22d6a0"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 2992,
+          "sha256": "7db67b665715b72cf863fadc251c23d019ca8894c9afbe3ed1e9dd49bf22d6a0"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "maps",
+      "path": "map/MapStudio/m10_01_00_00.msb.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 58016,
+          "sha256": "0805b6bf88a4ad2bd6201345c0a5586469eb53473cdd6360a5ab931d777ae5ab"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 58016,
+          "sha256": "0805b6bf88a4ad2bd6201345c0a5586469eb53473cdd6360a5ab931d777ae5ab"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "maps",
+      "path": "map/MapStudio/m18_00_00_00.msb.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 159152,
+          "sha256": "f8260b5ec057f8a60cc65cbee77f5c721efde671b34af47d73ceca503956bae1"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 159152,
+          "sha256": "f8260b5ec057f8a60cc65cbee77f5c721efde671b34af47d73ceca503956bae1"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "maps",
+      "path": "map/MapStudio/m60_42_36_00.msb.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 35216,
+          "sha256": "8c81077cb9a3f5d59a10bb7fccd582925c63a028c8b4d6a37e756dafb9857b5f"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 35216,
+          "sha256": "8c81077cb9a3f5d59a10bb7fccd582925c63a028c8b4d6a37e756dafb9857b5f"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "maps",
+      "path": "map/MapStudio/m60_43_50_00.msb.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 18240,
+          "sha256": "8c4274e917e89a2c57466d388e66f491b78d14e4fce69e9d91ab7a4795b0314d"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 18240,
+          "sha256": "8c4274e917e89a2c57466d388e66f491b78d14e4fce69e9d91ab7a4795b0314d"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "maps",
+      "path": "map/m12/m12_02_00_00/m12_02_00_00_0000.btl.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 14097,
+          "sha256": "f37b19c07f4d0f6e9ce46906372d6481c3a2c36ccd5d415126459027197f91e1"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 14097,
+          "sha256": "f37b19c07f4d0f6e9ce46906372d6481c3a2c36ccd5d415126459027197f91e1"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "maps",
+      "path": "map/m18/m18_00_00_00/m18_00_00_00.nva.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 11312,
+          "sha256": "f1bfda1609775d7482a1eed7d98a2e8088d0b80fcca500808e57d50b3f997c23"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 11312,
+          "sha256": "f1bfda1609775d7482a1eed7d98a2e8088d0b80fcca500808e57d50b3f997c23"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "maps",
+      "path": "map/m18/m18_00_00_00/m18_00_00_00_0000.btl.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 6251,
+          "sha256": "b31c3e88578de3f822e6cf3bbd0209c8a12d25ef2015d97f205bf4be03bc8f78"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 6251,
+          "sha256": "b31c3e88578de3f822e6cf3bbd0209c8a12d25ef2015d97f205bf4be03bc8f78"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "current-text",
+      "path": "msg/engus/item_dlc02.msgbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 320512,
+          "sha256": "0e0e906aa3b82b3efdd671fcebf478991779f12543294d31a4a3dc7bd9f4630d"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 322448,
+          "sha256": "9e8ce62da854a7f6aef51da5e37c0e9bb26d7a40d88898b7076ce7081d209d96"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "current-text",
+      "path": "msg/engus/menu_dlc02.msgbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 530912,
+          "sha256": "3ea6f340e88c847cef328fea2a8444356672cfe3bf6f94229febdce1fb6aac30"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 530672,
+          "sha256": "1ccfff5fcddd3809c6983c4e05138163835ed84db90886be710ee9cfd6cc55fe"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "older-text",
+      "path": "msg/engus/menu.msgbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 494960,
+          "sha256": "157cb80eb9becdba8f4ce9168a6287ed62ff24756d02b735950413ed96627440"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 495184,
+          "sha256": "3a10b9db325819e777a26e52c7049a7f33313f9c4872600dace6cbd3fa9e661f"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "older-text",
+      "path": "msg/engus/menu_dlc01.msgbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 530576,
+          "sha256": "d6b978a3b65be958da7ac4bf5d0a827f97b908a1083fa9ef68b09495c15bb2d7"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 531088,
+          "sha256": "0a06647e7cb308b87a6058049ec986befb66fc6cebefc1707ee48665f3bfd574"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "animations",
+      "path": "chr/c0000.anibnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 6872288,
+          "sha256": "2760d1e1bece52c47003c30a4ca6d4d141f702ccf0610541f43897ea58b1788d"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 6899216,
+          "sha256": "408e801ded2852f3dfb14b8f4d819ae866ea8b05069114f120025da63ee347e7"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "animations",
+      "path": "chr/c0000.behbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 528192,
+          "sha256": "062e4bdd8ede6188b62254318838871e5bf63ffcc33297543d449a1825fb87d5"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 540192,
+          "sha256": "7999c2a205790bd902224856694b008a6b882d64193d4fecd882192766f7b3bb"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "animations",
+      "path": "chr/c0000_a0x.anibnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 2543232,
+          "sha256": "74f7d940d63cb06da8cb36fac209e6117d4e8980a2f050ac114fba9556b08d48"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 2543232,
+          "sha256": "74f7d940d63cb06da8cb36fac209e6117d4e8980a2f050ac114fba9556b08d48"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "hadeon-model",
+      "path": "chr/c2500.chrbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 3757360,
+          "sha256": "39e72759f0e745e620295cb81dfe12030c0d06cdfdfe13ea40976a2a4d54d867"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 3757360,
+          "sha256": "39e72759f0e745e620295cb81dfe12030c0d06cdfdfe13ea40976a2a4d54d867"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "hadeon-model",
+      "path": "chr/c2500_h.texbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 5911936,
+          "sha256": "4c4e888726c5c2499f3372baa8a7abbee8c1a28c08780449f2431947a5a7f726"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 5911936,
+          "sha256": "4c4e888726c5c2499f3372baa8a7abbee8c1a28c08780449f2431947a5a7f726"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "hadeon-model",
+      "path": "chr/c2500_l.texbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 422080,
+          "sha256": "a322595a13bad5c5d8bc61eea504614d0d5f01a59d306e3ad9c8e168c29be53e"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 422080,
+          "sha256": "a322595a13bad5c5d8bc61eea504614d0d5f01a59d306e3ad9c8e168c29be53e"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "material",
+      "path": "material/allmaterial.matbinbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 2747312,
+          "sha256": "54207900b5b16119130a470c529597552b9716917ab64f2d252ea2a8be7741e4"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 2749136,
+          "sha256": "06c3d2470036e65a9809ca379d6241700fc955f63d8502759caaec598cd8818c"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/am_m_1122.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/am_m_1124.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/am_m_1125.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/am_m_1126.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/am_m_1127.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/am_m_1128.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/am_m_1129.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1122.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1123.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1124.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1125.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1126.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1127.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1128.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/bd_m_1129.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/hd_m_1122.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/hd_m_1140.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 1950816,
+          "sha256": "9ceead418b8b62d4c4cedf2df2d8da844b20cbf373a01117f886834c8f84fe44"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 1950816,
+          "sha256": "9ceead418b8b62d4c4cedf2df2d8da844b20cbf373a01117f886834c8f84fe44"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/hd_m_1150.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1120.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 3751568,
+          "sha256": "401bdfcd89d8d90721ac1a4af526745a8191b4bc22176aef6fb3558ce94dad21"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 3751568,
+          "sha256": "401bdfcd89d8d90721ac1a4af526745a8191b4bc22176aef6fb3558ce94dad21"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1122.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1124.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1125.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1126.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1127.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1128.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/lg_m_1129.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/wp_a_0213.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 2645856,
+          "sha256": "64cb39eeaf5efa163a7d3c61df8b59e5100420dbb8af916afb9fdf4d7b5836c8"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 2645856,
+          "sha256": "64cb39eeaf5efa163a7d3c61df8b59e5100420dbb8af916afb9fdf4d7b5836c8"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/wp_a_0615.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/wp_a_0615_l.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/wp_a_0868.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "missing"
+        },
+        "1.17": {
+          "status": "missing"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "parts",
+      "path": "parts/wp_a_1338.partsbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 2018464,
+          "sha256": "99a58b5e480b9a4eea1b741181de36d061ebaac574bb26087bb6e7929e5480e6"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 2018464,
+          "sha256": "99a58b5e480b9a4eea1b741181de36d061ebaac574bb26087bb6e7929e5480e6"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "menu",
+      "path": "menu/01_060_caption.gfx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 5760,
+          "sha256": "387b83792acaacb73a390f4e8f017e4c8172ab5a5cc557c7dff29ee105cb0d06"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 5760,
+          "sha256": "387b83792acaacb73a390f4e8f017e4c8172ab5a5cc557c7dff29ee105cb0d06"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "menu",
+      "path": "menu/05_900_logo_fromsoft.gfx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 6208,
+          "sha256": "df9b697880ba3b8e2998313e971de6f9482bb2428d23a511a8b4581bec4d71b1"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 6208,
+          "sha256": "df9b697880ba3b8e2998313e971de6f9482bb2428d23a511a8b4581bec4d71b1"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "menu",
+      "path": "menu/05_901_logo_bne.gfx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 3040,
+          "sha256": "7530549a0831e9c02748c8eddcc5d718c9e1d77ba9312444220e37cb6e1123b6"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 3040,
+          "sha256": "7530549a0831e9c02748c8eddcc5d718c9e1d77ba9312444220e37cb6e1123b6"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "talk",
+      "path": "script/talk/m00_00_00_00.talkesdbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 28096,
+          "sha256": "f91eb33ca002b6d24fbaa2a92e580091b878a492984192fbca643b55e04b7558"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 30128,
+          "sha256": "c3cd272429919951495a71d7a5012705e0a96703ee31d395f90f52d00dbe2085"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "talk",
+      "path": "script/talk/m11_00_00_00.talkesdbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 45440,
+          "sha256": "e5f85620cac46bda0ae7437ed148e05064d5da1376c75a97f1d4a157c1d87e2b"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 45440,
+          "sha256": "e5f85620cac46bda0ae7437ed148e05064d5da1376c75a97f1d4a157c1d87e2b"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "talk",
+      "path": "script/talk/m11_10_00_00.talkesdbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 95264,
+          "sha256": "c7e915f301cd0ab7a2d37ab600cef59ab369dafa8c0b5625105f9ac7b573773c"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 95264,
+          "sha256": "c7e915f301cd0ab7a2d37ab600cef59ab369dafa8c0b5625105f9ac7b573773c"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "talk",
+      "path": "script/talk/m60_00_00_00.talkesdbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 559904,
+          "sha256": "13919fd1a3f1e45ef32e9b198dea05555ff7932df98954ba436ec6ac8db01818"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 559904,
+          "sha256": "13919fd1a3f1e45ef32e9b198dea05555ff7932df98954ba436ec6ac8db01818"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "talk",
+      "path": "script/talk/m61_00_00_00.talkesdbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 111776,
+          "sha256": "1899e7868a4e6d0f97efa66bba347b3f79ce6c318c8877b98885d4d15512d1c2"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 111776,
+          "sha256": "1899e7868a4e6d0f97efa66bba347b3f79ce6c318c8877b98885d4d15512d1c2"
+        }
+      }
+    },
+    {
+      "package": "main",
+      "group": "sfx",
+      "path": "sfx/sfxbnd_commoneffects.ffxbnd.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 88064464,
+          "sha256": "5663ff680c24dfd0ffb340d3e6c0be7ff6542c9051ac8dcdd411c8a22255fe67"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 88068880,
+          "sha256": "d9c645c885962e6728b1407276a0c2dd47468596ffde802103695c5c603ca18a"
+        }
+      }
+    },
+    {
+      "package": "textures",
+      "group": "icons",
+      "path": "menu/hi/00_solo.tpfbdt",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 1400748280,
+          "sha256": "03fa92a43d221147711664750a9dd120148f7a5bfc9bd0a88564f2787cc15c75"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 1409097256,
+          "sha256": "91cb2fac5093114f98da6719fe4b2ed50e8581ac234d1c5d6a8b342efc6aa8e3"
+        }
+      }
+    },
+    {
+      "package": "textures",
+      "group": "icons",
+      "path": "menu/hi/00_solo.tpfbhd",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 362480,
+          "sha256": "c957798a401c893dfdf2a948ce6d9b6a1ba1defcbddb6913459fd4363bb59a34"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 366016,
+          "sha256": "dfc451b5f938c0d0933bc8dc714692c905ece68b882e2d38dfafd2ecc449f7df"
+        }
+      }
+    },
+    {
+      "package": "textures",
+      "group": "icons",
+      "path": "menu/hi/01_common.tpf.dcx",
+      "archives": {
+        "1.16": {
+          "status": "present",
+          "sizeBytes": 65135584,
+          "sha256": "b27ea4570ba78e861d2547818ca03a2622acd171fcfc64c99d729d5ccfa3f6c4"
+        },
+        "1.17": {
+          "status": "present",
+          "sizeBytes": 67434496,
+          "sha256": "055798ad5d526a3394a13d63c8f9e5f9ffde01716cd7b0eb25dfe67528aa4ede"
+        }
+      }
+    }
+  ]
+}

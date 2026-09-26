@@ -132,6 +132,17 @@ def status_rows(root, settings, scope='all'):
     return rows
 
 
+def source_completeness_issues(root):
+    issues = assets.source_inventory_issues(root)
+    import recovered_sources
+    issues.extend(recovered_sources.issues(root))
+    commands = (Path(root) / 'docs/WORKFLOW-COMMANDS.md').read_text(encoding='utf-8')
+    for recipe in assets.catalog(root).get('sourceRecipes', []):
+        if recipe['source'] not in commands:
+            issues.append(f"Recipe is not documented in WORKFLOW-COMMANDS.md: {recipe['source']}")
+    return issues
+
+
 def emit(value, as_json=False):
     if as_json:
         print(json.dumps(value, indent=2))
@@ -495,6 +506,9 @@ def main():
             raise ValueError('Unexpected manifest schema/game.')
         files = runtime_files(ROOT, manifest)
         if (ROOT / 'asset-catalog.json').is_file():
+            issues = source_completeness_issues(ROOT)
+            if issues:
+                raise ValueError('Source completeness check failed: ' + '; '.join(issues))
             findings = assets.inventory_review(ROOT, config(args))
             unknown = [row for row in findings if row['location'].startswith('repo') and row['state'] == 'Uncatalogued']
             if unknown:

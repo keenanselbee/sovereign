@@ -145,6 +145,25 @@ def status(root, settings, scope='all', include_sources=False):
     return rows
 
 
+def source_inventory_issues(root):
+    """Check declared repository inputs without requiring workstation paths."""
+    data = catalog(root)
+    issues = []
+    for group in data['sources']:
+        base = safe_path(root, group['repo'])
+        if not base.is_dir() or not any(path.is_file() for pattern in group['patterns']
+                                         for path in base.glob(pattern)):
+            issues.append(f"Missing declared source files: {group['repo']}")
+    outputs = {name for group in data['groups'] for name in group['files']}
+    for recipe in data.get('sourceRecipes', []):
+        path = safe_path(root, recipe['source'])
+        if recipe['output'] not in outputs:
+            issues.append(f"Recipe output is not catalogued: {recipe['output']}")
+        if not path.is_file():
+            issues.append(f"Missing declared recipe: {recipe['source']}")
+    return issues
+
+
 def inventory_review(root, settings):
     data = catalog(root)
     stages = comparison_stages(root, settings)
@@ -374,17 +393,26 @@ def prepare_handoff(root, settings, scope, source, qualification=None, resolve_c
                             'destination': str(dst), 'before': before, 'after': after})
     if not resolve_conflicts:
         check_sync_conflicts(root, settings, scope, source)
+    if source == 'editor' and not guards:
+        raise ValueError('No configured editor files in this scope; select the repository explicitly')
+    directory = safe_path(root, '.sovereign/handoffs/' + uuid.uuid4().hex)
+    directory.mkdir(parents=True)
+    import recovered_sources
+    recovery = recovered_sources.plan(root, settings, scope, source, directory)
+    if recovery:
+        entries.extend(recovery['entries'])
+        guards.extend(recovery['guards'])
     if not guards:
         raise ValueError('No configured handoff files in this scope')
     if not entries and not allow_unchanged:
         raise ValueError('No differing files with a configured handoff destination in this scope')
-    directory = safe_path(root, '.sovereign/handoffs/' + uuid.uuid4().hex)
-    directory.mkdir(parents=True)
     document = {'schemaVersion': 1, 'status': 'planned', 'scope': scope, 'sourceRole': source,
                 'root': str(Path(root).resolve()), 'catalogHash': fingerprint(data),
                 'settingsHash': fingerprint(settings), 'entries': entries, 'guards': guards,
                 'qualification': proof, 'resolveConflicts': resolve_conflicts,
                 'note': 'Exact-byte source acceptance only; inspect semantics and build evidence before applying. No stage/live writes.'}
+    if recovery:
+        document['recoveredSources'] = recovery
     save(directory / 'receipt.json', document)
     return directory / 'receipt.json'
 
@@ -433,6 +461,10 @@ def validate_receipt(root, settings, path, restoring=False):
                if matches_scope(data, scope, row)
                and source in row['paths'] and destination in row['paths']}
     pairs = {(src, dst) for src, dst, _, _ in allowed}
+    import recovered_sources
+    recovered_allowed, recovered_pairs = recovered_sources.validate_plan(root, settings, path, document)
+    allowed.update(recovered_allowed)
+    pairs.update(recovered_pairs)
     seen = set()
     guard_rows = {(r['source'], r['destination'], r['before'], r['after']) for r in document['guards']}
     for row in document['entries']:
@@ -462,6 +494,8 @@ def apply_handoff(root, settings, path):
         path, document = validate_receipt(root, settings, path)
         if document['status'] != 'planned':
             raise ValueError('Handoff is no longer planned; inspect its receipt before retrying')
+        import recovered_sources
+        recovered_sources.check_inputs(document)
         for row in document['guards']:
             if checksum(row['source']) != row['after'] or checksum(row['destination']) != row['before']:
                 raise ValueError('Source/destination changed since plan: ' + row['destination'])
@@ -502,7 +536,8 @@ def apply_handoff(root, settings, path):
                    for row in document['guards']):
                 raise ValueError('Source/companion changed before handoff verification finished')
             validate_receipt(root, settings, path)
-            record_sync_guards(root, document['guards'], document['sourceRole'])
+            recovered_sources.check_inputs(document)
+            record_sync_guards(root, [g for g in document['guards'] if not g.get('recovered')], document['sourceRole'])
             document['status'] = 'complete'
         except Exception as error:
             document.update(status='interrupted', error=str(error))

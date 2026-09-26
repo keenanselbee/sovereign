@@ -16,6 +16,98 @@ Run(args);
 
 static void Run(string[] args) {
     var options = new JsonSerializerOptions { IncludeFields = true };
+    if (args.Length == 4 && args[0] == "tracked-members") {
+        var input = Path.GetFullPath(args[1]);
+        var destination = Path.GetFullPath(args[3]);
+        if (Directory.Exists(destination) || File.Exists(destination))
+            throw new IOException("Tracked output directory must be new: " + destination);
+        var archive = JsonNode.Parse(File.ReadAllText(args[2]))?.AsObject()
+            ?? throw new ArgumentException("Expected one archive object");
+        var runtime = archive["runtime"]?.GetValue<string>()
+            ?? throw new ArgumentException("Archive spec lacks runtime");
+        if (Path.GetFileName(input) != runtime.Replace('\\', '/').Split('/').Last())
+            throw new ArgumentException("Runtime binary does not match archive spec: " + runtime);
+        var inputHash = HashFile(input);
+        var files = new JsonArray();
+        var pending = new List<byte[]>();
+        void Record(JsonObject item, byte[] bytes) {
+            var source = item["source"]?.GetValue<string>();
+            if (string.IsNullOrWhiteSpace(source)) throw new ArgumentException("Tracked source path is required");
+            var name = pending.Count.ToString("D6");
+            var hash = Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant();
+            item["sha256"] = hash;
+            item["size"] = bytes.Length;
+            files.Add(new JsonObject { ["source"] = source, ["candidate"] = name,
+                ["sha256"] = hash, ["size"] = bytes.Length });
+            pending.Add(bytes);
+        }
+        if (archive["members"] is JsonArray members) {
+            var (binder, compression) = ReadBinder(input);
+            var available = binder.Files.ToList();
+            var used = new HashSet<BinderFile>();
+            var untrackedTextures = new JsonArray();
+            foreach (var entry in members) {
+                var member = entry?.AsObject() ?? throw new ArgumentException("Invalid tracked member");
+                var name = member["archiveName"]?.GetValue<string>()
+                    ?? throw new ArgumentException("Tracked member lacks archiveName");
+                var matches = available.Where(f => f.Name == name).ToList();
+                if (matches.Count > 1 && member["id"] != null)
+                    matches = matches.Where(f => f.ID == member["id"]!.GetValue<int>()).ToList();
+                if (matches.Count != 1 || !used.Add(matches[0]))
+                    throw new InvalidOperationException("Tracked member is absent or ambiguous: " + name);
+                var matchedFile = matches[0];
+                member["id"] = matchedFile.ID;
+                member["flags"] = matchedFile.Flags.ToString();
+                member["compression"] = matchedFile.CompressionType.ToString();
+                var bytes = matchedFile.Bytes.ToArray();
+                Record(member, bytes);
+                if (member["textures"] is not JsonArray textures || textures.Count == 0) continue;
+                var tpf = TPF.Read(bytes);
+                var availableTextures = tpf.Textures.ToList();
+                var usedTextures = new HashSet<string>(StringComparer.Ordinal);
+                foreach (var textureEntry in textures) {
+                    var texture = textureEntry?.AsObject() ?? throw new ArgumentException("Invalid tracked texture");
+                    var textureName = texture["name"]?.GetValue<string>()
+                        ?? throw new ArgumentException("Tracked texture lacks name");
+                    var textureMatches = availableTextures.Where(t => t.Name == textureName).ToList();
+                    if (textureMatches.Count != 1 || !usedTextures.Add(textureName))
+                        throw new InvalidOperationException("Tracked texture is absent or ambiguous: " + textureName);
+                    var found = textureMatches[0];
+                    texture["format"] = found.Format;
+                    texture["type"] = found.Type.ToString();
+                    texture["mipmaps"] = found.Mipmaps;
+                    texture["flags"] = found.Flags1;
+                    Record(texture, found.Bytes);
+                }
+                foreach (var extra in availableTextures.Where(t => !usedTextures.Contains(t.Name)))
+                    untrackedTextures.Add(new JsonObject { ["member"] = name, ["name"] = extra.Name });
+            }
+            var untracked = available.Where(f => !used.Contains(f)).ToList();
+            if (archive["completeMemberSet"]?.GetValue<bool>() == true && untracked.Count != 0)
+                throw new InvalidOperationException("Complete tracked member set changed: " + untracked.Count + " untracked members");
+            archive["sha256"] = inputHash;
+            archive["totalMembers"] = available.Count;
+            archive["header"] = JsonSerializer.SerializeToNode(new { binder.Version, Format = binder.Format.ToString(),
+                binder.BigEndian, binder.BitBigEndian, binder.Unicode, binder.Extended,
+                binder.Unk04, binder.Unk05, Compression = compression.ToString() }, options);
+            archive["untrackedMembers"] = new JsonArray(untracked.Select(f => (JsonNode?)new JsonObject {
+                ["archiveName"] = f.Name, ["id"] = f.ID }).ToArray());
+            archive["untrackedTextures"] = untrackedTextures;
+        } else if (archive["outputs"] is JsonArray outputs) {
+            if (outputs.Count != 1) throw new ArgumentException("Direct archive spec needs exactly one output");
+            Record(outputs[0]?.AsObject() ?? throw new ArgumentException("Invalid direct output"), File.ReadAllBytes(input));
+            archive["sha256"] = inputHash;
+        } else {
+            throw new ArgumentException("Archive spec needs members or outputs");
+        }
+        if (HashFile(input) != inputHash) throw new IOException("Runtime binary changed during tracked extraction");
+        Directory.CreateDirectory(destination);
+        for (var i = 0; i < pending.Count; i++)
+            File.WriteAllBytes(Path.Combine(destination, i.ToString("D6")), pending[i]);
+        if (HashFile(input) != inputHash) throw new IOException("Runtime binary changed during tracked extraction");
+        Console.WriteLine(new JsonObject { ["archive"] = archive, ["files"] = files }.ToJsonString());
+        return;
+    }
     if (args.Length == 6 && args[0] == "merge-esd-groups") {
         // Compile both DSL versions, then transplant only explicitly owned groups.
         // Original expressions, metadata and unrelated dialogue remain in the template.
@@ -117,25 +209,7 @@ static void Run(string[] args) {
         return;
     }
     if (args.Length == 2 && args[0] is "binder-json" or "text-json" or "dialogue-json") {
-        BND4 binder;
-        object compression;
-        try {
-            binder = BND4.Read(args[1]);
-            compression = binder.Compression;
-        } catch (FormatException) {
-            // Qualified read-only support for this mod's historical Witchy DFLT envelope.
-            var bytes = File.ReadAllBytes(args[1]);
-            if (bytes.Length < 78 || !DCX.Is(bytes) || System.Text.Encoding.ASCII.GetString(bytes, 40, 4) != "DFLT"
-                || BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(16, 4)) != 68
-                || BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(32, 4)) != bytes.Length - 76) throw;
-            int expected = BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(28, 4));
-            using var stream = new ZLibStream(new MemoryStream(bytes, 76, bytes.Length - 76), CompressionMode.Decompress);
-            using var output = new MemoryStream();
-            stream.CopyTo(output);
-            if (output.Length != expected) throw new FormatException("Invalid DFLT decoded length");
-            binder = BND4.Read(output.ToArray());
-            compression = "Witchy DFLT " + Convert.ToHexString(bytes.AsSpan(0, 28)) + Convert.ToHexString(bytes.AsSpan(36, 40));
-        }
+        var (binder, compression) = ReadBinder(args[1]);
         var entries = binder.Files.Select(f => new {
             f.ID, f.Name, f.Flags, f.CompressionType,
             Payload = args[0] == "text-json"
@@ -151,7 +225,7 @@ static void Run(string[] args) {
         return;
     }
     if (args.Length != 2 || args[0] != "event-json")
-        throw new ArgumentException("Usage: Inspect event-json|binder-json|text-json|dialogue-json <file>; edit-fmgs <directory> <patch.json>");
+        throw new ArgumentException("Usage: Inspect event-json|binder-json|text-json|dialogue-json <file>; edit-fmgs <directory> <patch.json>; tracked-members <runtime-binary> <archive-spec-json> <new-output-dir>");
     var file = EMEVD.Read(args[1]);
     // Serialize public event data, including instructions, parameter bindings,
     // rest behavior, linked-file offsets, string data and format metadata.
@@ -159,4 +233,29 @@ static void Run(string[] args) {
     var data = JsonSerializer.SerializeToNode(file, options)!.AsObject();
     data.Remove("Compression");
     Console.WriteLine(data.ToJsonString());
+}
+
+static string HashFile(string path) {
+    using var stream = File.OpenRead(path);
+    return Convert.ToHexString(SHA256.HashData(stream)).ToLowerInvariant();
+}
+
+static (BND4 Binder, object Compression) ReadBinder(string path) {
+    try {
+        var binder = BND4.Read(path);
+        return (binder, binder.Compression);
+    } catch (FormatException) {
+        // Qualified read-only support for this mod's historical Witchy DFLT envelope.
+        var bytes = File.ReadAllBytes(path);
+        if (bytes.Length < 78 || !DCX.Is(bytes) || System.Text.Encoding.ASCII.GetString(bytes, 40, 4) != "DFLT"
+            || BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(16, 4)) != 68
+            || BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(32, 4)) != bytes.Length - 76) throw;
+        int expected = BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(28, 4));
+        using var stream = new ZLibStream(new MemoryStream(bytes, 76, bytes.Length - 76), CompressionMode.Decompress);
+        using var output = new MemoryStream();
+        stream.CopyTo(output);
+        if (output.Length != expected) throw new FormatException("Invalid DFLT decoded length");
+        var binder = BND4.Read(output.ToArray());
+        return (binder, "Witchy DFLT " + Convert.ToHexString(bytes.AsSpan(0, 28)) + Convert.ToHexString(bytes.AsSpan(36, 40)));
+    }
 }
