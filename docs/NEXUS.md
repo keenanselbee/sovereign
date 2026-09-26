@@ -90,7 +90,7 @@ and package verification remain separate from that description save.
 
 ## Description workflow (Grailwright conventions)
 
-`mod.json` selects `_/nexus-page` as the description directory. These are the three
+`mod.json` selects `docs` as the description directory. These are the three
 authoritative files; do not create competing copies at the repository root.
 
 | File | Nexus destination | Editorial rule |
@@ -99,7 +99,8 @@ authoritative files; do not create competing copies at the repository root.
 | `nexus-file-desc.txt` | File-row description for main group `7949853` | At most 255 characters and shorter than the summary; a distinct, persuasive pitch |
 | `nexus-full-desc.txt` | Main page description | Detailed features, requirements, installation and compatibility in Nexus BBCode |
 
-`description-bbcode.txt` is the historical reference, not a second publishing source.
+`reference/nexus-description-legacy.txt` is the historical reference, not a second
+publishing source. Promotional media is directly under `images/`.
 `nexus-changelog.txt` holds completed release changes separately from the pitches.
 Never repeat the full description in README or use the file pitch as a changelog.
 

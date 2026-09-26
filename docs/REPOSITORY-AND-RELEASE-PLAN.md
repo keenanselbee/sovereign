@@ -312,7 +312,7 @@ Sovereign/
   packages/textures/      Separate texture package definition/owned assets
   tools/                  Sovereign commands and format helpers
   docs/                   Evidence, workflows, receipts and manual results
-  _/nexus-page/           Existing authoritative publishing copy
+  docs/           Existing authoritative publishing copy
   archive/                Ignored former archive location; current archive is on Z:
   .codex-temp/            Disposable extraction/build/cache output
   .vdb/                   Ignored durable staging identity and recovery records

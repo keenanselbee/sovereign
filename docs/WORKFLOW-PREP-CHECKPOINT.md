@@ -4,7 +4,7 @@ Workflow preparation checkpoint
 Updated 2026-09-11 after VDB switching/rollback, installed-shortcut qualification and
 layout migration. This covers S1-S6 preparation, not gameplay changes or publication.
 No commits were made. Earlier implementation history is in
-[WORKFLOW-PREP-HISTORY](WORKFLOW-PREP-HISTORY.md).
+[WORKFLOW-PREP-HISTORY](../reference/WORKFLOW-PREP-HISTORY.md).
 
 
 Implemented state

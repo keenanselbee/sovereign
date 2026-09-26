@@ -2,7 +2,7 @@ Historical workflow preparation notes
 =====================================
 
 These are chronological implementation notes and superseded gates. See
-[the current checkpoint](WORKFLOW-PREP-CHECKPOINT.md) for the final layout and status.
+[the current checkpoint](../docs/WORKFLOW-PREP-CHECKPOINT.md) for the final layout and status.
 Old receipt paths are retained as recorded; the archive now lives under
 `Z:/Backup/Elden Ring/archive`.
 
@@ -10,7 +10,7 @@ Old receipt paths are retained as recorded; the archive now lives under
 
 The active goal covers repository/workflow stages S1-S6, not gameplay implementation
 or publication. The full pre-work repository backup is recorded in the
-[repository plan](REPOSITORY-AND-RELEASE-PLAN.md). No commits were made.
+[repository plan](../docs/REPOSITORY-AND-RELEASE-PLAN.md). No commits were made.
 
 ## Completed local work
 
@@ -29,7 +29,7 @@ or publication. The full pre-work repository backup is recorded in the
 - Added the shared VDB client adapter and stage-only main/texture packages.
 - Added fresh-scratch BND/FMG, ESD and SFX adapters alongside the event builder.
 - Recorded final armor conversion and per-journey Hewg reward decisions in the
-  [feature plan](FEATURE-CORRECTNESS-PLAN.md); those mechanics are not implemented here.
+  [feature plan](../docs/FEATURE-CORRECTNESS-PLAN.md); those mechanics are not implemented here.
 
 The current package comparison reads the selected VDB main stage: 70 files,
 347,720,188 bytes, no differing repo runtime files. The extra main file is the

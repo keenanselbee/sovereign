@@ -7,7 +7,10 @@
   "releaseReady": false,
   "package": {
     "source": "vortex",
-    "excludeDirectories": ["src", ".smithbox"],
+    "excludeDirectories": [
+      "src",
+      ".smithbox"
+    ],
     "note": "Use the verified selected VDB stage, preserving mod/ and mods/. Legacy Vortex source is used only before a stage is selected. Exclude propagated authoring directories."
   },
   "nexus": {
@@ -21,7 +24,7 @@
       "shortUniqueFileId": "qdbCxL2mS"
     },
     "apiSpecUrl": "https://api.nexusmods.com/openapi.yaml",
-    "descriptionDirectory": "_/nexus-page"
+    "descriptionDirectory": "docs"
   },
   "runtimePatterns": [
     "regulation.bin",

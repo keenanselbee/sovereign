@@ -1,5 +1,14 @@
-Unassigned map reference copies
-==============================
+Historical reference material
+=============================
+
+This directory preserves old descriptions (`readme-legacy.md` and
+`nexus-description-legacy.txt`), historical workflow reports, the pre-1.0 changelog,
+unqualified message exports and the map copies below. These are not publishing,
+build or automatic editor-sync inputs. Historical paths and claims may be stale;
+use the [current layout guide](../docs/REPOSITORY-LAYOUT.md) and active mechanics docs.
+
+Unassigned map copies
+---------------------
 
 These two files were retained from the former root `MapStudio` folder during the
 layout migration. They are not package inputs or active authoring sources. Their

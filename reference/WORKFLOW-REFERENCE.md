@@ -7,36 +7,36 @@ are historical snapshots, not current operating instructions.
 
 # Sovereign development workflow
 
-See the [repository and release plan](REPOSITORY-AND-RELEASE-PLAN.md) for the current
+See the [repository and release plan](../docs/REPOSITORY-AND-RELEASE-PLAN.md) for the current
 review, Vortex Development Bridge integration, proposed layout migration and release gates.
 
 The 2026-09-10 refresh records the verified full repository backup and stages S0-S8.
-S1 ownership findings are recorded in the [file ownership review](FILE-OWNERSHIP-REVIEW.md).
+S1 ownership findings are recorded in the [file ownership review](../docs/FILE-OWNERSHIP-REVIEW.md).
 The a0x/Hadeon handoffs, VDB switching/rollback and layout migration are complete; see the
-[implementation checkpoint](WORKFLOW-PREP-CHECKPOINT.md) and
-[current commands](WORKFLOW-COMMANDS.md) for the new catalog, handoff and format tools.
+[implementation checkpoint](../docs/WORKFLOW-PREP-CHECKPOINT.md) and
+[current commands](../docs/WORKFLOW-COMMANDS.md) for the new catalog, handoff and format tools.
 The installed shortcuts now use VDB, with main files under `mod/`, sources under `src/`,
 and separate texture files under `packages/textures/mod/`. The
-[feature plan](FEATURE-CORRECTNESS-PLAN.md) records the agreed Hewg handoff and
+[feature plan](../docs/FEATURE-CORRECTNESS-PLAN.md) records the agreed Hewg handoff and
 Rykard eligibility decisions separately from remaining choices and game tests.
 
 Prepared 2026-09-09. This repository now supports inspection, isolated event builds,
-Vortex-backed packaging and Nexus review/update tooling. It is not marked release-ready. See [mechanics](MECHANICS.md)
+Vortex-backed packaging and Nexus review/update tooling. It is not marked release-ready. See [mechanics](../docs/MECHANICS.md)
 and the [manual test matrix](../TEST-MATRIX.md) before changing release claims.
 The completed event/text compatibility work is recorded in
-[PATCH-UPDATE-PLAN.md](PATCH-UPDATE-PLAN.md), including the verified Vortex/live hardlinks
+[PATCH-UPDATE-PLAN.md](../docs/PATCH-UPDATE-PLAN.md), including the verified Vortex/live hardlinks
 and the author's existing three-destination propagation workflow.
 The later effects, icons and older-menu handoff is recorded in
-[EASY-COMPATIBILITY-UPDATE.md](EASY-COMPATIBILITY-UPDATE.md). Icons retain their separate
+[EASY-COMPATIBILITY-UPDATE.md](../docs/EASY-COMPATIBILITY-UPDATE.md). Icons retain their separate
 `Sovereign - Textures` Vortex package; they are not included by the main NEXUS packager.
 The completed Grace/Torrent dialogue merge and synchronized talk authoring files
-are recorded in [TORRENT-DIALOGUE-UPDATE.md](TORRENT-DIALOGUE-UPDATE.md).
+are recorded in [TORRENT-DIALOGUE-UPDATE.md](../docs/TORRENT-DIALOGUE-UPDATE.md).
 The applied TAE animation merge, qualified writer route and archived DSAnimStudio
-project handoff are recorded in [ANIMATION-UPDATE.md](ANIMATION-UPDATE.md).
+project handoff are recorded in [ANIMATION-UPDATE.md](../docs/ANIMATION-UPDATE.md).
 The coordinated HKS, behavior and name-ID merge and authoring handoff are recorded
-in [PLAYER-BEHAVIOR-UPDATE.md](PLAYER-BEHAVIOR-UPDATE.md). Its game checks remain pending.
+in [PLAYER-BEHAVIOR-UPDATE.md](../docs/PLAYER-BEHAVIOR-UPDATE.md). Its game checks remain pending.
 The recovered custom effects and archived visual alternatives are recorded in
-[SFX-RECOVERY.md](SFX-RECOVERY.md). Both active SFX source and repo modified files are synchronized.
+[SFX-RECOVERY.md](../docs/SFX-RECOVERY.md). Both active SFX source and repo modified files are synchronized.
 The historical archive home is `Z:\Backup\Elden Ring\archive`. Its `README.md` and
 `CATALOG.md` describe the backups and restoration records. The user manages the
 relocation; verify each entry's actual location and any historical restore paths
@@ -110,8 +110,8 @@ current catalog. Do not run archived legacy scripts or modify an immutable VDB s
 ## Historical workflow observations
 
 The following observations document the pre-VDB investigation. Counts, old script
-behavior and capability tables are snapshots. Use [current commands](WORKFLOW-COMMANDS.md)
-and the [editing guide](EDITING-GUIDE.md) for current operations and file paths.
+behavior and capability tables are snapshots. Use [current commands](../docs/WORKFLOW-COMMANDS.md)
+and the [editing guide](../docs/EDITING-GUIDE.md) for current operations and file paths.
 
 ### Former Elden Ring workflows
 
@@ -191,7 +191,7 @@ The local reader is not a general-purpose binary writer.
 
 ## Nexus conventions adopted from Grailwright
 
-Keep `_/nexus-page/nexus-full-desc.txt` as the editable full description and retain
+Keep `docs/nexus-full-desc.txt` as the editable full description and retain
 `description-bbcode.txt` as the previous reference. The full draft still contains older
 mechanical claims; formatting conversion is not feature verification. Keep short and
 file descriptions distinct, with the file pitch shorter and at most 255 characters;
@@ -208,7 +208,7 @@ release files and feature claims. `nexus-check` only checks local files, metadat
 basic tag balance; it cannot validate rendering, links or remote state. The page and
 file-group IDs in `mod.json` are configured and verified; the release version remains
 unset. `nexus-status` checks remote identity and active file versions. See
-[NEXUS.md](NEXUS.md) for the API contract, observed file history and audit findings.
+[NEXUS.md](../docs/NEXUS.md) for the API contract, observed file history and audit findings.
 
 If the released file is already current, publish an explicitly requested description
 update without duplicating the upload. A future upload must use the exact reviewed
@@ -216,7 +216,7 @@ archive hash, remote-state comparison, operation lock, prior-state backup and re
 Grailwright's publisher assumes its own metadata, helpers and package shape; copying a
 single publishing script or its BepInEx build behavior is not an Elden Ring workflow.
 Standalone description review/save, API publishing and a combined audit now live in
-this repo. See [NEXUS.md](NEXUS.md) for commands, setup and qualification limits.
+this repo. See [NEXUS.md](../docs/NEXUS.md) for commands, setup and qualification limits.
 
 ## Draft packaging and release gates
 
