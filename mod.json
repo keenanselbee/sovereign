@@ -11,7 +11,7 @@
       "src",
       ".smithbox"
     ],
-    "note": "Use the verified selected VDB stage, preserving mod/ and mods/. Legacy Vortex source is used only before a stage is selected. Exclude propagated authoring directories."
+    "note": "Use the verified selected VDB stage, preserving mod/ and mods/. A verified selected stage is required with the current workstation configuration. Exclude propagated authoring directories."
   },
   "nexus": {
     "url": "https://www.nexusmods.com/games/eldenring/mods/201",

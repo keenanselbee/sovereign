@@ -5,6 +5,8 @@ menu/hi/01_common.tpf.dcx
 
 tools/eldenring-paths.local.json
 **/__pycache__/
+tools/**/bin/
+tools/**/obj/
 
 # Local game-update history.
 /archive/

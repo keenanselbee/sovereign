@@ -2,13 +2,15 @@
 
 Implemented during the 2026-09-10/11 workflow goal. Main runtime files are in `mod/`,
 authoring sources in `src/`, and separate texture payloads in `packages/textures/mod/`.
-The nine external propagation entry points now use the VDB launcher. Switching,
-rollback and an installed shortcut passed real tests; see [the checkpoint](WORKFLOW-PREP-CHECKPOINT.md).
+The nine external propagation entry points now perform validated sync only. Build
+and deployment are separate requested operations. Historical VDB switching/rollback
+evidence remains in [the checkpoint](WORKFLOW-PREP-CHECKPOINT.md).
 
 ## Inspect and choose a baseline
 
 ```powershell
 python tools/sovereign.py doctor
+python tools/sovereign.py path-check
 python tools/sovereign.py status --scope events --sources
 python tools/sovereign.py propagation-plan --scope maps
 ```
@@ -21,12 +23,19 @@ that the repository is outdated. The regulation row-name equivalence applies onl
 the two inspected SHA-256 hashes. An unlisted runtime file fails `check`.
 
 Status and doctor use each package's verified selected VDB stage for their Vortex
-comparison. They use its legacy folder only before that package has a selection;
-an invalid or modified selected stage fails rather than falling back silently.
+comparison. With `roots.vortexStaging`, a missing selection fails explicitly;
+an invalid or modified selected stage never falls back silently. Historical configs
+can import an explicitly configured, existing legacy package before selection.
+`path-check` also checks expected editor files and shortcut destinations. See the
+[layout and workstation guide](REPOSITORY-LAYOUT.md).
 
 Status lists differences and a count by default. Add `--verbose` to list matching
 files too; `--json` retains every file, path and hash. Source comparisons perform
-one scan rather than a separate runtime scan followed by the source scan.
+one scan rather than a separate runtime scan followed by the source scan. Each
+catalogued row reports repo versus selected build (when packaged) and repo versus
+saved editor (when mapped); a missing side is named explicitly. Source rows have
+repo/editor comparisons, not a build comparison. Hash agreement is not gameplay
+verification, and an unsaved editor buffer is outside this comparison.
 
 Propagation also checks `.sovereign/editor-sync.json`, which records the last
 verified shared hash for each repo/editor pair. A one-sided edit may propagate
@@ -53,7 +62,7 @@ python tools/release_workflow.py target-version
 ```
 
 `mod.json` owns the intended public version. `changelog.txt` must begin with the same
-`Version X.Y.Z` and keep older blocks newest first. Future propagation labels derive
+`Version X.Y.Z` and keep older blocks newest first. Explicit package build labels derive
 from that target; retained builds keep their original versions. See
 [VDB-RELEASE-PARITY](VDB-RELEASE-PARITY.md) before preparing the 1.0.0 release.
 Stage submission now reserves a fixed payload for every package/version and reuses
@@ -98,6 +107,21 @@ Both values are required; JSON null, empty text, whitespace, Unicode and literal
 replaces existing text only; additions/deletions require an explicitly extended and
 tested patch route. Do not hand-edit FMG/XML outside this patch route and then accept
 a build based on partial comparison. The full decoded expected result must match.
+
+The accepted Cave of Knowledge dialogue and Deflection wording has four durable,
+guarded recipes. `asset-catalog.json` maps them to their binder outputs; these
+recipes are authoring inputs and are not automatic editor handoff companions:
+
+- `src/text/opening-dialogue-tutorial/item_dlc02.msgbnd.dcx.patch.json`
+- `src/text/opening-dialogue-tutorial/menu.msgbnd.dcx.patch.json`
+- `src/text/opening-dialogue-tutorial/menu_dlc01.msgbnd.dcx.patch.json`
+- `src/text/opening-dialogue-tutorial/menu_dlc02.msgbnd.dcx.patch.json`
+
+Their `before` values guard the pre-edit binder text. Current accepted outputs
+already contain the `after` values, so do not reapply the patches to those outputs.
+For a later rebuild from qualifying earlier inputs, unpack each matching binder,
+apply its own patch through `format_workflow.py build --patch`, review the complete
+decoded result, then qualify and accept the source/output under the normal workflow.
 
 Basic BND edits produce a complete decoded inventory for review. Intentional member
 changes still need a preservation specification. The wrapper rejects output/member
@@ -182,7 +206,7 @@ manual cleanup; do not replay an interrupted operation blindly.
 Configure `vdb.local.json` from `vdb.local.example.json`, or set
 `VORTEX_DEVELOPMENT_BRIDGE_ROOT`. The adapter loads the bundled client named by the
 shared tool's verified `dist/latest.json`, verifies its hash and accepts client
-protocol 1, 2 or 3. New propagation requires `profile-finish-v3` and can queue while
+protocol 1, 2 or 3. Explicit combined deployment requires `profile-finish-v3` and can queue while
 Vortex is closed. Existing low-level stage/deploy operations still use protocol 1
 and require a fresh extension snapshot.
 It does not vendor the extension or alter the Vortex database directly.
@@ -233,6 +257,43 @@ archived legacy implementations, or edit an immutable VDB stage in place.
 
 ## Verification
 
+For ordinary propagation, use sync only:
+
+```powershell
+.\tools\Propagate-Sovereign.ps1 -Scope maps
+.\tools\Propagate-Sovereign.ps1 -Scope sfx
+python tools/propagate_workflow.py sync --scope events --from editor
+```
+
+The launcher defaults to editor input. `-Source repo` reverses direction;
+`-Qualification` supplies an existing native proof. It has no version, package,
+profile, stage-only, wait or receipt options. Sync neither checks release metadata
+nor requires a selected VDB build/client. It never prepares a package or calls Vortex.
+Save the editor files first. Only catalogued runtime files and tracked companions
+are accepted; maps/regulation/text use byte/conflict checks, not gameplay validation.
+
+Sync records are under `.sovereign/sync/<id>/receipt.json`. They link to guarded
+handoff receipts under `.sovereign/handoffs/` containing exact before/after hashes,
+qualifications and independent recovery copies. Unchanged inputs still validate and
+produce a successful "Already synchronized" result. Missing files, unknown divergent
+pairs, stale sources, independent destination edits and input drift stop acceptance.
+Logs remain under `.sovereign/propagation-logs/`. Inspect interrupted sync and child
+receipts before retry/restore; use the existing handoff `restore` for reviewed recovery.
+Do not pass a sync receipt to deployment `resume`.
+
+Events verify saved sources against compiled outputs. Player shortcuts keep HKS,
+names, graphs, animations and their sources coordinated, even when the shortcut name
+mentions only one file. SFX sync retains the local WitchyBND build/save, backup and
+full-extraction guards; that asset repack is separate from creating a Vortex build.
+SFX source drift after acceptance leaves an interrupted sync with its completed
+handoff still available for inspection/recovery.
+
+Build/deploy only on a separate request. Collect all current repo-owned runtime files
+for each affected package and preserve verified external dependencies. Use one new
+version/changelog for the accepted batch; do not overlay only the last synced scope
+onto an older selected stage. The commands below remain explicit preparation and
+deployment/recovery tools, rather than the propagation-shortcut path.
+
 To compose source acceptance and scoped stage preparation, use
 `python tools/propagate_workflow.py plan --scope <scope> --from editor --version <version>`
 (with `--qualification` for player/dialogue), review its receipt, then run
@@ -264,12 +325,13 @@ python tools/propagate_workflow.py apply --receipt <printed-propagation-receipt>
 
 Review the plan before applying. Apply accepts the chosen repo/editor direction and
 prepares a package, without staging or deployment. The familiar propagation shortcuts
-remain explicit complete deploy actions. SFX local preparation still uses its documented
+perform sync only. SFX local preparation still uses its documented
 build/save step; it does not silently rebuild the editor extraction during planning.
 
-For the normal authorized completion of runtime edits, use the combined command
-after versioning and verification. A separate propagation request is no longer
-required. Explicit local-only/stage-only requests still override this default:
+For an explicitly requested scoped deployment with a verified current baseline,
+the existing combined command remains available after versioning and verification.
+Its scoped overlay does not collect unrelated repo changes. Use full-package
+preparation for a batch of separately synced scopes. Existing requests resume here:
 
 ```powershell
 python tools/propagate_workflow.py run --scope maps --from editor --profile SkC-QjDMc
@@ -324,28 +386,27 @@ reuse the original immutable stage/request; changed bytes require a new version 
 matching changelog block. Historical development receipts remain resumable and retain
 their selected-build reuse behavior. No new development labels are generated.
 
-The PowerShell launcher provides the same workflow from any working directory:
+The sync-only PowerShell launcher works from any working directory:
 
 ```powershell
-.\tools\Propagate-Sovereign.ps1 -Scope maps -Profile SkC-QjDMc
-.\tools\Propagate-Sovereign.ps1 -Scope sfx -Profile SkC-QjDMc
-.\tools\Propagate-Sovereign.ps1 -Receipt <propagation-receipt> -Profile SkC-QjDMc
+.\tools\Propagate-Sovereign.ps1 -Scope maps
+.\tools\Propagate-Sovereign.ps1 -Scope sfx
+python tools/propagate_workflow.py resume --receipt <existing-deployment-receipt> --profile SkC-QjDMc
 ```
 
-It defaults to editor input and the checked regular target, currently `1.0.1`.
-Use `-Source repo`, `-Package textures`, `-Version`, or `-Qualification` explicitly when
-needed. It preserves failure/pending exit codes. The installed external VBS shortcuts call this launcher. Logs, including the receipt
-needed to resume a pending run, are under `.sovereign/propagation-logs/`.
+The installed VBS shortcuts call this launcher and report synchronization success
+or failure. Existing queued deployments are unaffected; explicitly resume their
+original receipts through Python with the original profile/stage-only mode.
 
 The installed item shortcut uses `-Scope item-text`, an alias for Python scope
 `file:msg/engus/item_dlc02.msgbnd.dcx`. It accepts only that binder and preserves
-the selected stage's menu binder. `-Scope text` explicitly accepts the whole text
+the repository's menu binders. `-Scope text` explicitly accepts the whole text
 scope. Python `file:<runtime-relative-path>` selection is limited to catalog-owned
 FMG binders; it cannot bypass coordinated player or other format qualifications.
 
-All nine installed shortcuts omit `-Profile`, using the current all-profile
-finalization default. A deliberate single-profile launch still supports `-Profile`.
-The 2026-09-20 shortcut backups and verification hashes are retained in
+All nine shortcuts are sync-only. Their current scopes and validation limits are
+listed in [the sync-only update](PROPAGATION-SYNC-UPDATE.md).
+The historical 2026-09-20 shortcut backups and verification hashes are retained in
 `.sovereign/shortcuts/9f5e33dc2a924ea197a823224eca7917/receipt.json`.
 
 ## One-time layout migration

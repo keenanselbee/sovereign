@@ -35,7 +35,7 @@ class PipelineTests(unittest.TestCase):
         for name, text in {'nexus-short-desc.txt': 'Short', 'nexus-full-desc.txt': '[b]Full[/b]',
                            'nexus-file-desc.txt': 'Main pitch', 'nexus-textures-file-desc.txt': 'Textures pitch',
                            'nexus-changelog.txt': 'TargetVersion=1.0.0\nBaselineVersion=0.1.0\nCompleted change.'}.items():
-            self.write('_/nexus-page/' + name, text.encode())
+            self.write('docs/' + name, text.encode())
         self.archives = {}
         self.stage_paths = {}
         self.remote = {}

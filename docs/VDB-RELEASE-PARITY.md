@@ -1,20 +1,39 @@
 VDB and versioned release workflow
 =================================
 
-Current completion policy, 2026-09-20: each completed batch of changed packaged
-files includes a version bump, verified manual-editor sync, and queued VDB
-finalization. Enabled mods deploy when active and safe; closed Vortex processes
-the queue next launch. Disabled/absent packages remain so. Explicit stage-only
-requests override the default. Documentation/tooling outside the package and
-identical retries do not produce another mod version. The agent updates version
-and changelog before using the existing launcher, which does not author them.
-Main 1.0.1 is staged, enabled, and deployed with verified live bytes in the Elden
-Ring Default profile; textures retain their unchanged 1.0.0 payload. The existing
+Repository path cleanup: current workstation settings use `roots.vortexStaging` and
+require verified selected stages for VDB/package operations. Sync-only propagation
+does not require a selection. Older fallback behavior described in the historical
+notes below remains only for explicit legacy configurations. See
+[the layout guide](REPOSITORY-LAYOUT.md).
+
+Current completion policy, 2026-09-23: propagation validates saved editor files,
+checks for conflicting changes, syncs the scoped repository sources/outputs and
+records a recoverable receipt. It does not check release metadata, bump a version,
+prepare a package or call Vortex. The nine shortcuts use this sync-only path.
+Build and deployment are separate requested work. See the
+[sync-only update](PROPAGATION-SYNC-UPDATE.md) and [command reference](WORKFLOW-COMMANDS.md).
+
+For a requested build, collect all current repo-owned runtime files for each affected
+package and preserve verified external dependencies. Assign the next unused regular
+version and matching changelog once for that batch before staging. Do not overlay
+only the last synced scope onto an older selected build. Documentation/tooling outside
+the package and identical retries do not produce another mod version.
+
+For a requested deployment, protocol-3 finalization preserves disabled/absent package
+states and waits for safe active-profile deployment. If Vortex is closed, leave the
+request queued for its next launch. Existing requests remain resumable through the
+explicit Python command; sync does not resubmit or refresh them.
+
+Historical completion policy, 2026-09-20 (superseded): completed runtime batches
+automatically included versioning, editor sync and queued VDB finalization. Under
+that policy, main 1.0.1 was staged, enabled, and deployed with verified live bytes in
+the Elden Ring Default profile; textures retained their unchanged 1.0.0 payload. The existing
 protocol-3 finalization reused build `47e326a49d8cc47e85a274b8` without restaging
 different contents or bumping its version. Its completed receipt is
 `.vdb/finalizations/default-completion-1.0.1/receipt.json`, request
-`c21404b1-9f88-43d8-a58e-f2c1c0638033`. The verified build is now the selected
-packaging source. This is deployment verification, not gameplay acceptance.
+`c21404b1-9f88-43d8-a58e-f2c1c0638033`. The verified build became the selected
+packaging source at that time. This is deployment verification, not gameplay acceptance.
 
 Seven existing finalization tests passed after the policy update, including
 closed-Vortex submission, resume without duplicate submission, disabled-profile
@@ -31,28 +50,28 @@ The Hadeon encounter changes and one-frame opening deflect adjustment are includ
 gameplay acceptance remains pending and `releaseReady` remains false.
 Both packages were subsequently [deployed and verified locally](DEPLOYMENT-1.0.0.md).
 
-Current policy: propagation uses
-the checked regular target without a development suffix. Bump `mod.json` and add
+Separately requested package preparation uses the checked regular target without
+a development suffix. Bump `mod.json` and add
 a matching changelog block before staging changed bytes under a used version.
 Identical package/version retries reuse their immutable build. The old `dev-version`
 command remains a compatibility alias for `target-version`, returning the regular
 target. Existing development stages and recovery receipts retain their original
 identities. This metadata change does not stage, deploy, publish or establish acceptance.
-The client check accepts protocol 1, 2 and 3. New propagation requires
+The client check accepts protocol 1, 2 and 3. Explicit combined deployment requires
 `profile-finish-v3` and queues all game profiles by default, with explicit profile
 and stage-only modes. Disabled selections remain disabled; absent packages stay
 absent. The bridge resumes pending profile work automatically. Refreshing the local
-propagation receipt selects the verified packaging stage after completion.
+deployment receipt selects the verified packaging stage after completion.
 
 The following review records the earlier 1.0.0 baseline, superseded by that policy.
 Reviewed 2026-09-11 against the local Grailwright implementation. Sovereign's VDB
-development workflow is operational. The initial authored release target is now
+development workflow was operational. The initial authored release target was
 **1.0.0**, with `releaseReady: false`. This is a local target, not a published release
 or a claim that pending game tests passed.
 
 
-Current comparison
-------------------
+Historical comparison, 2026-09-11
+--------------------------------
 
 | Area | Grailwright | Sovereign |
 |---|---|---|
@@ -73,8 +92,8 @@ history. Preserve Elden Ring's `mod/` plus `mods/` layout; Grailwright's BepInEx
 package-folder layout and assembly checks do not apply here.
 
 
-Observed health and changes made
--------------------------------
+Historical observations, 2026-09-11
+----------------------------------
 
 The live bridge reported client/extension 0.1.0, protocol 1, and the existing Elden
 Ring Default profile `SkC-QjDMc`. Current selected builds are main
@@ -110,9 +129,9 @@ by this exact Nexus metadata correction; other configuration drift still fails.
 Unsubmitted old candidates must be prepared again. Existing stages and receipts
 are not rewritten, registered, deployed or promoted by the correction.
 
-The current selected main build keeps its original `0.0.0-dev.20260911-gameplay`
-label. Retained stages were not renamed or changed. Future ordinary propagation
-uses `1.0.0-dev.<UTC timestamp>` until the authored target changes. No new stage,
+The selected main build at that review kept its original `0.0.0-dev.20260911-gameplay`
+label. Retained stages were not renamed or changed. The then-planned propagation
+labels were `1.0.0-dev.<UTC timestamp>`; that policy has since been retired. No new stage,
 deployment, upload, or collection mutation was performed for this workflow review.
 
 Verification passed: 82 workflow tests, repository check, local Nexus structure and
@@ -128,7 +147,8 @@ Version and changelog rules
 Use `mod.json` as the one authored release-version source. Match Grailwright's
 numbering: `MAJOR.MINOR.PATCH`, with one-digit minor and patch components. Thus
 1.0.0, 1.0.1 through 1.0.9, then 1.1.0; 1.9.9 rolls to 2.0.0. Major may exceed nine.
-New propagation uses that regular target directly. Historical development labels
+Explicit package preparation uses that regular target directly; sync-only propagation
+does not use a version. Historical development labels
 remain readable; do not rename retained stages or generate new timestamped labels.
 
 Keep root `changelog.txt` newest first:
@@ -153,7 +173,7 @@ python tools/release_workflow.py target-version
 python tools/sovereign.py nexus-check
 ```
 
-The separate `_/nexus-page/nexus-changelog.txt` is the reviewed upload payload,
+The separate `docs/nexus-changelog.txt` is the reviewed upload payload,
 not the full history. Consolidate every unpublished local version into final-state
 change lines under matching target/baseline headers. Never copy intermediate version
 headings into that payload. Keep short and file pitches stable unless the mod's
@@ -201,22 +221,23 @@ manual matrix; VDB byte agreement does not settle those questions.
 Freezing an accepted main release
 --------------------------------
 
-Normal builds remain isolated and explicit test propagation retains unique development
-labels. Stage submission reserves each package/version under `.vdb/staged-versions/`
+Builds remain isolated until explicitly submitted and use regular version labels.
+Sync-only propagation creates no package or version. Stage submission reserves each
+package/version under `.vdb/staged-versions/`
 before contacting VDB. Identical retries reuse the original request/build; changed
 contents require a new label. Older stage receipts are checked too. Missing or altered
 retained payloads and uncertain submissions require inspection, never a fresh submission
 under the same label. Keep reservations and prepared receipts across scratch cleanup.
 
 After game acceptance, freeze the verified selected bytes under the authored release
-version. For the current 1.0.0 target, the explicit sequence is:
+version. Substitute the reviewed release version in this explicit sequence:
 
 ```powershell
-python tools/vdb_workflow.py prepare --package main --version 1.0.0 --from vortex
+python tools/vdb_workflow.py prepare --package main --version <release-version> --from vortex
 python tools/vdb_workflow.py stage --receipt <prepared-receipt>
 python tools/vdb_workflow.py wait --receipt <prepared-receipt>
 python tools/vdb_workflow.py select --receipt <completed-receipt>
-python tools/nexus_workflow.py package --release --version 1.0.0
+python tools/nexus_workflow.py package --release --version <release-version>
 ```
 
 Do not use the legacy-folder fallback for a release freeze: a verified selected tested

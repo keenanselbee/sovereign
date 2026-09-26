@@ -131,11 +131,8 @@ def prepare(root, settings, package, version, source_role, scope=None):
         raise ValueError('Pass an explicit semantic development/release version')
     project_data = project(root)
     data = assets.catalog(root)
-    runtime = Path(settings['roots']['vortex' if package == 'main' else 'vortexTextures'])
-    if runtime.name.casefold() != 'mod':
-        raise ValueError('Configured Vortex runtime must end in mod')
     selected_package = selected_source(root, settings, package)
-    source_package = selected_package or runtime.parent
+    source_package = selected_package or package_source(root, settings, package)
     baseline = inventory(source_package, root, package)
     owned = {'mod/' + name for group in data['groups'] if group['package'] == package for name in group['files']}
     baseline_runtime = {name for name in baseline['files'] if name.startswith('mod/')}
@@ -298,7 +295,11 @@ def staged_source(root, settings, path):
     if not confirmations:
         raise ValueError('Missing matching completed VDB stage acknowledgement')
     key = 'vortex' if receipt['packageId'] == 'main' else 'vortexTextures'
-    stage_root = Path(settings['roots'][key]).resolve().parent.parent
+    if 'vortexStaging' in settings['roots']:
+        stage_root = Path(settings['roots']['vortexStaging']).resolve()
+    else:
+        # Historical local configurations identify the same staging parent this way.
+        stage_root = Path(settings['roots'][key]).resolve().parent.parent
     name = f"vdb-sovereign-{receipt['packageId']}-{receipt['buildId']}"
     source = assets.safe_path(stage_root, name)
     if inventory(source, root, receipt['packageId'])['files'] != receipt['files']:
@@ -325,6 +326,21 @@ def selected_source(root, settings, package):
     if selected['buildId'] != receipt['buildId'] or Path(selected['source']) != source:
         raise ValueError('Selected Vortex identity is inconsistent')
     return source
+
+
+def package_source(root, settings, package):
+    """Use the verified selection; legacy imports require an explicit existing source."""
+    selected = selected_source(root, settings, package)
+    if selected is not None:
+        return selected
+    key = 'vortex' if package == 'main' else 'vortexTextures'
+    legacy = settings['roots'].get(key)
+    if 'vortexStaging' not in settings['roots'] and legacy:
+        runtime = Path(legacy)
+        if runtime.name.casefold() == 'mod' and runtime.is_dir():
+            return runtime.parent
+    raise ValueError(f'No verified selected VDB stage for {package}; select a completed '
+                     'retained stage with tools/vdb_workflow.py select before packaging or propagation')
 
 
 def deployment_context(root, profile, operation='deploy'):

@@ -7,12 +7,16 @@ acceptance and Nexus publication. See the [checkpoint](WORKFLOW-PREP-CHECKPOINT.
 [command reference](WORKFLOW-COMMANDS.md), [editing guide](EDITING-GUIDE.md), and
 [remaining feature plan](FEATURE-CORRECTNESS-PLAN.md).
 
+The [repository layout and path guide](REPOSITORY-LAYOUT.md) records the completed
+cleanup, descriptive editor shortcuts and stable `roots.vortexStaging` setting.
+Run `python tools/sovereign.py path-check` to verify those paths without deploying.
+
 
 File ownership
 --------------
 
-- `mod/` contains the main package's 70 accepted runtime files.
-- `src/` contains 1,123 owned source/metadata files. SFX and dialogue are partial
+- `mod/` contains the main package's accepted runtime files.
+- `src/` contains owned source/metadata files. SFX and dialogue are partial
   overlays; player sources include the accepted loose animation and behavior folders.
 - `packages/textures/mod/` contains the separate package's three local icon archives.
   These remain Git-ignored. Their header/data pair stays together.
@@ -38,54 +42,52 @@ Normal edit and propagation
    and stops on stale sources or independently changed destinations.
 2. Edit with the appropriate tool, build an isolated candidate, and inspect decoded
    differences. Build success alone does not prove intended gameplay.
-3. For the completed batch of changed packaged files, advance `mod.json` to the next
-   unused regular version, update the changelog and dependent target metadata, and run
-   `version-check`. Bump once per cohesive batch; identical retries and documentation
-   or tooling changes outside the package do not need another mod version.
-4. Accept matching source/output together, then sync the affected catalogued files
+3. Accept matching source/output together, then sync the affected catalogued files
    back to their configured manual editor workspaces by default. The author has
    authorized these scoped syncs without another confirmation. Use the guarded,
    recoverable `accept-plan --from repo` / `accept` workflow and each format's
    qualification; resolve independent editor edits first. Reload old editor buffers
    after handoffs. Report any sync that could not complete.
-5. As the default completion step, prepare the affected immutable package and queue
-   protocol-3 VDB finalization across all game profiles. This has standing author
-   authorization; do not wait for another staging/deployment request. Enabled versions
-   deploy when active and safe; disabled selections update without enabling/deploying;
-   absent packages stay absent. If Vortex is closed, leave the durable request queued
-   for its next launch instead of launching Vortex merely to process it. Combine all
-   affected scopes in one package before staging a version, rather than staging
-   different intermediate payloads under the same version.
-   After completion, refresh the local receipt to select the verified packaging stage.
-   Report queued work as queued, with its receipt; resume that request later.
+4. Propagation ends after validated repository/editor sync. It records changed files,
+   before/after hashes and linked recovery copies, without checking release metadata,
+   preparing a package, selecting a VDB build or contacting Vortex. Save editor files
+   first; unsaved buffers cannot be propagated. Unchanged files still receive the
+   applicable consistency checks and a successful "Already synchronized" result.
+5. Build/deploy only when separately requested. Collect all current repo-owned runtime
+   files for each affected package, preserving verified external dependencies. Do not
+   overlay only the last synced scope onto an older selected build. Assign the next
+   unused regular version and changelog once for the batch before staging. Use the
+   protocol-3 finalization queue; disabled/absent states remain preserved. If Vortex is
+   closed, leave the authorized request queued rather than launching it. Resume its
+   existing receipt and select the verified build after completion.
 6. Record actual gameplay results in TEST-MATRIX only after an observed game test.
 
-Explicit stage-only, local-only, audit, or DNE instructions override the normal
-completion behavior. This default does not authorize Nexus publication or commits.
+Propagation does not authorize build/deployment, Nexus publication or commits.
+Audit and DNE requests remain read-only.
 
 ```powershell
 python tools/sovereign.py status --scope maps
 python tools/sovereign.py status --scope events --sources
+python tools/sovereign.py status --scope text --json
 python tools/vdb_workflow.py doctor
 .\tools\Propagate-Sovereign.ps1 -Scope maps
-.\tools\Propagate-Sovereign.ps1 -Scope maps -Profile SkC-QjDMc
-.\tools\Propagate-Sovereign.ps1 -Scope maps -StageOnly
-.\tools\Propagate-Sovereign.ps1 -Receipt <pending-receipt> -Profile SkC-QjDMc
+python tools/propagate_workflow.py sync --scope events --from editor
+python tools/propagate_workflow.py resume --receipt <existing-deployment-receipt> --profile SkC-QjDMc
 ```
 
-Omit `-Profile` to update all game profiles, including disabled selections. The
-example explicit profile is this workstation's Elden Ring Default. It need not be
-active to queue work. `-StageOnly` stages without changing profiles or selecting a
-packaging source. The launcher defaults to editor input and the checked regular version from
-`mod.json`, currently `1.0.1`; `-Source repo` selects accepted repo input explicitly.
-The launcher does not itself author changelog entries or bump the version; the agent
-must complete step 3 before invoking it. It does not generate development labels.
-Once a version is staged, changed package bytes require a new target and changelog.
+The PowerShell launcher defaults to editor input; `-Source repo` reverses the sync.
+Its only other option is `-Qualification`. It has no profile, version, package, wait,
+stage-only or resume options. Existing deployment receipts use the explicit Python
+`resume` command above, with their original profile/stage-only mode. Do not replay
+the shortcut to recover a pending deployment.
+Once a version is staged, changed package bytes require a new target and changelog
+at the next requested build, not at each source sync.
 See [release numbering and Grailwright parity](VDB-RELEASE-PARITY.md) for the initial
 1.0.0 changelog, release checks and remaining promotion work.
-The nine familiar external VBS filenames now call this launcher. They no longer purge
-folders or copy directly into legacy Vortex/live paths. Logs and resume instructions
-are under `.sovereign/propagation-logs/`. Never run archived old implementations.
+The nine familiar external VBS filenames call this sync-only launcher. They do not
+purge folders or copy into Vortex/live paths. Logs are under `.sovereign/propagation-logs/`;
+sync receipts are under `.sovereign/sync/`, with linked handoff backups. Interrupted
+syncs require inspecting those receipts before retry/restore. Never run archived old implementations.
 The item shortcut uses `-Scope item-text`, accepting only `item_dlc02.msgbnd.dcx`.
 Use `-Scope text` explicitly when all catalogued message binders are intended.
 
@@ -140,7 +142,7 @@ Nexus and remaining release work
 
 Use the existing shared Nexus Automation workflow in [NEXUS](NEXUS.md). `NEXUS` is an
 audit; publishing and remote saves require the applicable explicit instruction.
-Descriptions remain under `_/nexus-page/`. Keep page summary, file pitch, detailed BBCode
+Descriptions remain under `docs/`. Keep page summary, file pitch, detailed BBCode
 and changelog distinct; verify mechanics before updating public claims.
 
 Draft packaging uses the selected immutable main Vortex stage, preserving `mod/` and
@@ -154,6 +156,6 @@ selection, payload or archive. See [the release workflow](VDB-RELEASE-PARITY.md)
 The subsequent [gameplay update](GAMEPLAY-CORRECTNESS-UPDATE.md) implements the armor
 and Hewg/per-journey decisions. Manual game tests, dependency provenance, clean installation, release metadata
 and accurate descriptions remain in stages S7/S8 of the [release plan](REPOSITORY-AND-RELEASE-PLAN.md).
-Earlier investigation prose is retained in [WORKFLOW-REFERENCE](WORKFLOW-REFERENCE.md)
-and [WORKFLOW-PREP-HISTORY](WORKFLOW-PREP-HISTORY.md); those snapshots do not supersede
+Earlier investigation prose is retained in [WORKFLOW-REFERENCE](../reference/WORKFLOW-REFERENCE.md)
+and [WORKFLOW-PREP-HISTORY](../reference/WORKFLOW-PREP-HISTORY.md); those snapshots do not supersede
 current commands or the editing guide.

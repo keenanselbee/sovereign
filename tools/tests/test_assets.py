@@ -50,6 +50,27 @@ class AssetTests(unittest.TestCase):
         self.assertNotIn('editor', rows[-1]['paths'])
         self.assertEqual(len(rows), 3)
 
+    def test_status_names_build_editor_and_missing_sides(self):
+        self.write('live/event/a.dcx', b'new-a')
+        self.write('vortex/event/a.dcx', b'new-a')
+        rows = assets.status(self.root, self.settings, 'maps')
+        self.assertEqual(rows[0]['comparisons'], {'repoVsSelectedBuild': 'Match',
+                                                   'repoVsSavedEditor': 'Differ'})
+        self.assertEqual(rows[1]['comparisons']['repoVsSelectedBuild'], 'Missing selected build')
+        (self.root / 'mod/event/b.dcx').unlink()
+        rows = assets.status(self.root, self.settings, 'maps')
+        self.assertEqual(rows[1]['comparisons']['repoVsSavedEditor'], 'Missing repo')
+
+    def test_source_status_compares_saved_editor_without_build(self):
+        self.data['sources'] = [{'id': 'event-source', 'scope': 'maps', 'repo': 'src/events',
+                                 'editorRoot': 'editor', 'editor': 'src', 'patterns': ['*.js']}]
+        self.write('asset-catalog.json', json.dumps(self.data).encode())
+        self.write('src/events/common.js', b'repository source')
+        self.write('editor/src/common.js', b'saved editor source')
+        source = next(row for row in assets.status(self.root, self.settings, 'maps', include_sources=True)
+                      if row['kind'] == 'source')
+        self.assertEqual(source['comparisons'], {'repoVsSavedEditor': 'Differ'})
+
     def test_accept_and_restore_do_not_modify_hardlink_peer(self):
         os.link(self.root / 'editor/a.dcx', self.root / 'live-peer')
         receipt = self.plan()

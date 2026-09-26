@@ -10,6 +10,11 @@ These instructions apply to Sovereign.
 Repository-Specific Notes
 -------------------------
 
+- See `docs/REPOSITORY-LAYOUT.md` for the cleaned layout: Nexus text directly in
+  `docs/`, promotional media directly in `images/`, runtime in `mod/`. Do not recreate
+  the former `_` tree or root game folders. Moved partial asset overlays are not
+  qualified rebuild sources. Run `python tools/sovereign.py path-check` for the
+  configured editor/tool paths, selected VDB stages and descriptive folder shortcuts.
 - This is the Sovereign Elden Ring mod. Read `docs/WORKFLOW.md` before nontrivial work,
   `docs/MECHANICS.md` before gameplay edits or player-facing mechanic claims, and
   `TEST-MATRIX.md` before verification or release preparation.
@@ -29,10 +34,12 @@ Repository-Specific Notes
   `qualify-talk` and its unchanged input/tool/companion receipt before `accept-plan`.
   Never choose a source-only group to bypass coordinated handoff requirements.
 - VDB `stage` never activates. Wait for its completed receipt before selecting a build.
-  Completing authorized runtime changes now includes versioning, manual-editor sync,
-  and normal VDB finalization by default, without a separate propagation request.
-  Use the existing protocol-3 finish queue, not low-level stage-only as the default.
-  Normal propagation uses protocol-3 finish, defaulting to all game profiles;
+  Completing authorized runtime changes includes qualified manual-editor sync.
+  Propagation is sync-only: validate saved files, reject conflicts, accept the scoped
+  sources/outputs and record a receipt. Do not bump versions, prepare packages or call
+  Vortex as part of propagation. Build and deployment are separate requested work.
+  For an explicitly requested deployment, use the existing protocol-3 finish queue,
+  not low-level stage-only by default. Finalization defaults to all game profiles;
   `--profile` narrows scope and `--stage-only` changes no profile or packaging selection.
   Enabled versions deploy when active and safe; disabled selections update without
   enabling/deploying; absent packages stay absent. The bridge continues queued work
@@ -46,23 +53,25 @@ Repository-Specific Notes
   `docs/VDB-RELEASE-PARITY.md`. `mod.json` owns the release target; `changelog.txt`
   keeps newest-first `Version X.Y.Z` blocks and plain change lines. Match Grailwright's
   single-digit minor/patch numbering and rollover. Run `version-check` after changes.
-  Each completed batch of changed packaged files gets the next unused regular version
-  and an accurate changelog before staging. Bump once for the cohesive batch, not for
+  Each batch of changed packaged files selected for a build gets the next unused regular
+  version and an accurate changelog before staging. Bump once for the cohesive batch, not for
   every edit or retry. Documentation/tooling-only changes outside the package do not
   create a mod version. Stage only affected packages, combining their changed scopes
   before reserving a version; never stage different intermediate payloads at one version.
-  Ordinary propagation uses the checked regular version from `mod.json`.
+  Explicit package preparation uses the checked regular version from `mod.json`.
+  Sync-only propagation does not require release metadata or a selected VDB build.
   Do not generate new development labels. Bump the target and changelog
   before staging changed bytes under a previously used version. Propagation never
-  bumps the target or implies publication. Keep `releaseReady` false until acceptance.
+  bumps the target or implies deployment/publication. Keep `releaseReady` false until acceptance.
   Every staged package/version owns one fixed payload. Identical retries reuse the
   original build/request; changed contents require a new version. Preserve version
   reservations under `.vdb/staged-versions/`, including interrupted requests.
-  Historical development receipts remain resumable. Regular propagation and
+  Historical development receipts remain resumable. Explicit combined deployment and
   explicit release freezes retain their requested version. Preparation
   may resume after source acceptance only with matching recorded accepted-input guards.
-  Status/doctor compare verified selected VDB stages; configured legacy folders are
-  fallback sources only when that package has no selection. Never hide stage drift.
+  Status/doctor compare verified selected VDB stages beneath `roots.vortexStaging`.
+  This configuration requires a selection and never falls back to a missing legacy
+  package folder. Never hide stage drift.
 - External editor workspaces currently propagate into this repo. Resolve scoped
   editor/repo differences before editing gameplay; a repo-only edit can be overwritten
   by the user's next propagation. Never choose a baseline by timestamp alone.
@@ -75,9 +84,11 @@ Repository-Specific Notes
   preserve unrelated files and account for open editor buffers. Report a blocked
   sync rather than claiming completion. This author instruction overrides the shared
   external-write restriction for those configured workspaces only. Audits and DNE
-  requests remain read-only unless separately authorized. For completed runtime work,
-  the author also authorizes VDB staging and deployment when the mod is already enabled.
-  Queue finalization if Vortex is closed; do not launch it merely to drain the queue.
+  requests remain read-only unless separately authorized. Runtime edits and propagation
+  alone do not request a build/deployment. When build/deployment is requested, collect
+  all current repo-owned runtime files for each affected package; do not overlay just
+  the last synced scope onto an older stage. Preserve verified external dependencies.
+  Queue authorized finalization if Vortex is closed; do not launch it merely to drain the queue.
   Preserve disabled/absent package states and wait for safe active-profile deployment.
   Report completed versus queued work with its existing receipt, and resume that
   request rather than resubmitting. Explicit stage-only/local-only requests override
@@ -148,11 +159,11 @@ Repository-Specific Notes
   Use `release_pipeline.py promote --archive <zip>` for promotion-only retry; pending
   requests are waited on, never resubmitted. Use its read-only `readiness` command
   before collection updates; unavailable or local builds are not ready.
-- Nexus description sources are `_/nexus-page/nexus-short-desc.txt` (page summary,
+- Nexus description sources are `docs/nexus-short-desc.txt` (page summary,
   max 350 characters), `nexus-file-desc.txt` (distinct file-row pitch, max 255 and
   shorter than the summary), and `nexus-full-desc.txt` (detailed BBCode page).
-  Keep ordinary release notes in `nexus-changelog.txt`; retain `description-bbcode.txt`
-  as the historical reference. Follow the description workflow in `docs/NEXUS.md`.
+  Keep ordinary release notes in `docs/nexus-changelog.txt`; the historical reference
+  is `reference/nexus-description-legacy.txt`. Follow `docs/NEXUS.md`.
   Run `nexus-check --descriptions-only` for copy edits without inventing a release
   version. A passing format check does not verify the full draft's mechanics.
   Report each remote description independently; saving page copy does not save the
@@ -204,10 +215,13 @@ Editing And Archive Routing
 - Read `docs/EDITING-GUIDE.md` before format-specific edits or archive work. It retains
   the full event, binary FMG, texture, ESD, TAE, HKS/graph and archive safeguards formerly
   embedded here. Read the matching detailed update report linked by that guide.
-- Use `tools/Propagate-Sovereign.ps1` or `propagate_workflow.py run/resume` for explicit
-  scoped propagation. A pending request is resumed, not submitted again. Qualification
-  and editor-source consistency are required even when packed files appear unchanged.
-- The nine external VBS filenames are preserved but their implementations now use VDB.
+- Use `tools/Propagate-Sovereign.ps1` or `propagate_workflow.py sync` for explicit
+  scoped sync-only propagation. Sync records/backups link through `.sovereign/sync/`.
+  Qualification and editor-source consistency are required even when packed files
+  appear unchanged. Existing deployment receipts remain recoverable through the
+  explicit Python `resume --receipt` command with their original profile/mode;
+  never resubmit them. `plan/apply/run` remain explicit build/deployment tools.
+- The nine external VBS filenames are preserved and call the sync-only launcher.
   They no longer purge trees or copy into immutable stages/live files themselves.
 - Never restore old layout paths or replay historical handoff receipts blindly. The
   layout receipt maps old paths to current ones; see the checkpoint for recovery records.

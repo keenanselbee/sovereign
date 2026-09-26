@@ -1,16 +1,75 @@
-"""Compose reviewed source acceptance and a scoped VDB candidate without legacy copies."""
+"""Sync saved assets; retain explicit VDB preparation/deployment and receipt recovery."""
 from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
+import subprocess
 import sys
 import time
 import uuid
+import xml.etree.ElementTree as ET
 
 import asset_workflow as assets
 import sovereign as core
 import vdb_workflow as vdb
+
+
+def sync(root, settings, scope, role, qualification=None):
+    """Accept saved assets without release metadata, package preparation or Vortex."""
+    if role not in ('repo', 'editor'):
+        raise ValueError('Choose repo or editor as the source')
+    data = assets.catalog(root)
+    if scope == 'all' or not any(assets.matches_scope(data, scope,
+            {'scope': g['scope'], 'group': g['id'], 'kind': 'runtime', 'file': name})
+            for g in data['groups'] for name in g['files']):
+        raise ValueError('Choose a specific catalog runtime scope')
+    # Reject conflicts before qualification or SFX saves can mutate editor output.
+    assets.check_sync_conflicts(root, settings, scope, role, require_known=True)
+    scopes = data.get('coordinatedScopes', {}).get(scope, [scope])
+    path = assets.safe_path(root, '.sovereign/sync/' + uuid.uuid4().hex + '/receipt.json')
+    path.parent.mkdir(parents=True)
+    doc = {'schemaVersion': 1, 'kind': 'repository-sync', 'status': 'validating',
+           'scope': scope, 'sourceRole': role, 'handoff': None, 'sfxEditorSave': None,
+           'note': 'Saved-file synchronization only. Build and deployment remain separate.'}
+    assets.save(path, doc)
+    print(f'Sync receipt: {path}', flush=True)
+    try:
+        if not qualification and any(s in ('animations', 'hks') for s in scopes):
+            import player_workflow
+            print('Qualifying coordinated player sources and packed outputs...', flush=True)
+            qualification = str(player_workflow.qualify(root, settings, role))
+        elif not qualification and 'talk' in scopes:
+            if role != 'repo':
+                raise ValueError('Dialogue synchronization currently requires the accepted repo source')
+            import format_workflow
+            qualification = str(format_workflow.qualify_talk(root, settings))
+        if 'sfx' in scopes and role == 'editor':
+            import sfx_workflow
+            doc['sfxEditorSave'] = str(sfx_workflow.build_and_save(root, settings))
+            assets.save(path, doc)
+            sfx_workflow.validate_saved(root, settings, doc['sfxEditorSave'])
+        # Qualification also runs for unchanged files; events qualify in the handoff.
+        assets.check_sync_conflicts(root, settings, scope, role, require_known=True)
+        handoff = assets.prepare_handoff(root, settings, scope, role, qualification, allow_unchanged=True)
+        doc.update(status='planned', handoff=str(handoff))
+        assets.save(path, doc)
+        if doc['sfxEditorSave']:
+            sfx_workflow.validate_saved(root, settings, doc['sfxEditorSave'])
+        accepted = assets.apply_handoff(root, settings, handoff)
+        if doc['sfxEditorSave']:
+            sfx_workflow.validate_saved(root, settings, doc['sfxEditorSave'])
+        doc.update(status='complete', changedFiles=[entry['destination'] for entry in accepted['entries']],
+                   qualification=accepted['qualification'])
+        assets.save(path, doc)
+    except (ValueError, OSError, KeyError, subprocess.TimeoutExpired, ET.ParseError) as error:
+        doc.update(status='interrupted', error=str(error))
+        assets.save(path, doc)
+        raise
+    count = len(doc['changedFiles'])
+    print(f'Synced {count} file(s).' if count else 'Already synchronized.', flush=True)
+    print('Build and deployment remain separate.', flush=True)
+    return path
 
 
 def scoped_inputs(root, settings, data, scope):
@@ -246,6 +305,10 @@ def drive(root, settings, receipt, profile, wait_seconds, stage_only=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
+    synchronize = sub.add_parser('sync', help='Validate and sync saved files only; no build or deployment')
+    synchronize.add_argument('--scope', required=True)
+    synchronize.add_argument('--from', dest='source', choices=('repo', 'editor'), required=True)
+    synchronize.add_argument('--qualification')
     for name in ('plan', 'run'):
         plan = sub.add_parser(name)
         plan.add_argument('--scope', required=True)
@@ -269,7 +332,9 @@ def main():
     if args.command in ('plan', 'run') and not args.version:
         import release_workflow
         args.version = release_workflow.check(core.ROOT)['targetVersion']
-    if args.command == 'plan':
+    if args.command == 'sync':
+        sync(core.ROOT, settings, args.scope, args.source, args.qualification)
+    elif args.command == 'plan':
         scopes = assets.catalog(core.ROOT).get('coordinatedScopes', {}).get(args.scope, [args.scope])
         if not args.qualification and any(s in ('animations', 'hks') for s in scopes):
             import player_workflow
@@ -325,6 +390,6 @@ def main():
 if __name__ == '__main__':
     try:
         sys.exit(main())
-    except (ValueError, OSError, KeyError) as error:
+    except (ValueError, OSError, KeyError, subprocess.TimeoutExpired, ET.ParseError) as error:
         print(f'ERROR: {error}', file=sys.stderr)
         sys.exit(1)

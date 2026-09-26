@@ -1,8 +1,15 @@
 from pathlib import Path
+import io
+import json
+import os
+import runpy
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
 from unittest import mock
+import xml.etree.ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import asset_workflow as assets
@@ -10,6 +17,185 @@ import propagate_workflow as propagate
 
 
 class PropagateTests(unittest.TestCase):
+    @unittest.skipUnless(os.name == 'nt', 'PowerShell launcher runs on Windows')
+    def test_powershell_launcher_dispatches_sync_only_and_preserves_failure(self):
+        directory = self.root / 'tools'
+        directory.mkdir()
+        launcher = directory / 'Propagate-Sovereign.ps1'
+        shutil.copyfile(propagate.core.ROOT / 'tools/Propagate-Sovereign.ps1', launcher)
+        # Isolated runner records dispatch; it cannot touch real editor/Vortex data.
+        (directory / 'propagate_workflow.py').write_text(
+            'import json, sys\nfrom pathlib import Path\n'
+            'root = Path(__file__).parent\n'
+            '(root / "arguments.json").write_text(json.dumps(sys.argv[1:]))\n'
+            'sys.exit(5 if "repo" in sys.argv else 0)\n')
+        command = ['powershell.exe', '-NoProfile', '-File', str(launcher)]
+        for arguments, expected, code in [
+                (['-Scope', 'maps'], ['sync', '--scope', 'maps', '--from', 'editor'], 0),
+                (['-Scope', 'item-text', '-Source', 'repo', '-Qualification', 'proof with spaces'],
+                 ['sync', '--scope', 'file:msg/engus/item_dlc02.msgbnd.dcx', '--from', 'repo',
+                  '--qualification', 'proof with spaces'], 5)]:
+            result = subprocess.run(command + arguments, cwd=self.root / 'editor', capture_output=True,
+                                    text=True, creationflags=subprocess.CREATE_NO_WINDOW)
+            self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+            self.assertEqual(json.loads((directory / 'arguments.json').read_text()), expected)
+        (directory / 'arguments.json').unlink()
+        result = subprocess.run(command + ['-Scope', 'maps', '-Profile', 'old-profile'],
+                                capture_output=True, text=True, creationflags=subprocess.CREATE_NO_WINDOW)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse((directory / 'arguments.json').exists())
+
+    def test_sync_cli_has_no_release_or_vortex_dependency_and_records_recoverable_changes(self):
+        import finish_workflow
+        import release_workflow
+        (self.root / 'tools').mkdir()
+        assets.save(self.root / 'tools/eldenring-paths.local.json', self.settings)
+        (self.root / 'mod.json').write_text('release metadata deliberately unavailable')
+        (self.root / 'changelog.txt').write_text('unchanged changelog')
+        (self.root / 'editor/regulation.bin').write_bytes(b'saved editor change')
+        with mock.patch.object(propagate.core, 'ROOT', self.root), \
+                mock.patch.object(sys, 'argv', ['propagate_workflow.py', 'sync', '--scope', 'params', '--from', 'editor']), \
+                mock.patch.object(release_workflow, 'check', side_effect=AssertionError('release check')), \
+                mock.patch.object(finish_workflow, 'compatible_client', side_effect=AssertionError('Vortex client')), \
+                mock.patch.object(propagate.vdb, 'prepare', side_effect=AssertionError('package build')), \
+                mock.patch.object(propagate.vdb, 'selected_source', side_effect=AssertionError('selected build')), \
+                mock.patch.object(propagate.vdb, 'project', side_effect=AssertionError('VDB configuration')):
+            self.assertEqual(propagate.main(), 0)
+        doc = assets.read(next((self.root / '.sovereign/sync').glob('*/receipt.json')))
+        self.assertEqual(doc['status'], 'complete')
+        self.assertEqual(doc['changedFiles'], [str(self.root / 'mod/regulation.bin')])
+        self.assertNotIn('version', doc)
+        self.assertFalse((self.root / '.vdb').exists())
+        self.assertEqual((self.root / 'mod.json').read_text(), 'release metadata deliberately unavailable')
+        self.assertEqual((self.root / 'changelog.txt').read_text(), 'unchanged changelog')
+        self.assertEqual((self.root / 'mod/regulation.bin').read_bytes(), b'saved editor change')
+        assets.check_sync_conflicts(self.root, self.settings, 'params', 'repo', require_known=True)
+        assets.restore_handoff(self.root, self.settings, doc['handoff'])
+        self.assertEqual((self.root / 'mod/regulation.bin').read_bytes(), b'accepted')
+
+    def test_sync_unchanged_still_records_verified_guards(self):
+        path = propagate.sync(self.root, self.settings, 'params', 'editor')
+        doc = assets.read(path)
+        self.assertEqual(doc['changedFiles'], [])
+        handoff = assets.read(doc['handoff'])
+        self.assertEqual(handoff['status'], 'complete')
+        self.assertEqual(len(handoff['guards']), 1)
+        self.assertEqual(handoff['guards'][0]['before'], handoff['guards'][0]['after'])
+
+    def test_sync_rejects_missing_inputs_even_when_both_sides_are_missing(self):
+        for folder in ('mod', 'editor'):
+            (self.root / folder / 'regulation.bin').unlink()
+        with self.assertRaisesRegex(ValueError, 'Missing editor source'):
+            propagate.sync(self.root, self.settings, 'params', 'editor')
+
+    def test_sync_rejects_unknown_divergence_and_independent_repo_changes(self):
+        (self.root / 'editor/regulation.bin').write_bytes(b'editor edit')
+        (self.root / 'mod/regulation.bin').write_bytes(b'repo edit')
+        with self.assertRaisesRegex(ValueError, 'both sides changed'):
+            propagate.sync(self.root, self.settings, 'params', 'editor')
+        (self.root / '.sovereign/editor-sync.json').unlink()
+        with self.assertRaisesRegex(ValueError, 'No shared sync baseline'):
+            propagate.sync(self.root, self.settings, 'params', 'editor')
+        self.assertEqual((self.root / 'mod/regulation.bin').read_bytes(), b'repo edit')
+
+    def test_sync_rejects_source_drift_after_plan(self):
+        original = assets.apply_handoff
+        def drift(*args):
+            (self.root / 'editor/regulation.bin').write_bytes(b'late edit')
+            return original(*args)
+        with mock.patch.object(assets, 'apply_handoff', side_effect=drift):
+            with self.assertRaisesRegex(ValueError, 'changed since plan'):
+                propagate.sync(self.root, self.settings, 'params', 'editor')
+        self.assertEqual((self.root / 'mod/regulation.bin').read_bytes(), b'accepted')
+        doc = assets.read(next((self.root / '.sovereign/sync').glob('*/receipt.json')))
+        self.assertEqual(doc['status'], 'interrupted')
+        self.assertTrue(Path(doc['handoff']).is_file())
+
+    def test_sync_interrupted_replacement_retains_restorable_handoff(self):
+        (self.root / 'editor/regulation.bin').write_bytes(b'editor edit')
+        original = assets.os.replace
+        def fail_destination(src, dst):
+            if Path(dst) == self.root / 'mod/regulation.bin':
+                raise OSError('simulated copy failure')
+            return original(src, dst)
+        with mock.patch.object(assets.os, 'replace', side_effect=fail_destination):
+            with self.assertRaisesRegex(OSError, 'simulated copy failure'):
+                propagate.sync(self.root, self.settings, 'params', 'editor')
+        doc = assets.read(next((self.root / '.sovereign/sync').glob('*/receipt.json')))
+        self.assertEqual(doc['status'], 'interrupted')
+        handoff = assets.read(doc['handoff'])
+        self.assertEqual(handoff['status'], 'interrupted')
+        self.assertTrue((Path(doc['handoff']).parent / handoff['entries'][0]['backup']).is_file())
+        assets.restore_handoff(self.root, self.settings, doc['handoff'])
+        self.assertEqual((self.root / 'mod/regulation.bin').read_bytes(), b'accepted')
+
+    def test_sync_unchanged_events_cannot_skip_qualification(self):
+        import event_workflow
+        self.data['groups'][0]['scope'] = 'events'
+        assets.save(self.root / 'asset-catalog.json', self.data)
+        with mock.patch.object(event_workflow, 'qualify', side_effect=ValueError('stale event binary')) as qualify:
+            with self.assertRaisesRegex(ValueError, 'stale event binary'):
+                propagate.sync(self.root, self.settings, 'events', 'editor')
+        qualify.assert_called_once()
+
+    def test_sync_player_qualification_and_coordinated_scope_are_preserved(self):
+        import player_workflow
+        self.data['groups'][0]['scope'] = 'hks'
+        self.data['coordinatedScopes'] = {'hks': ['hks', 'animations']}
+        assets.save(self.root / 'asset-catalog.json', self.data)
+        with mock.patch.object(player_workflow, 'qualify', return_value='proof') as qualify, \
+                mock.patch.object(assets, 'validate_player_qualification', side_effect=ValueError('invalid player proof')):
+            with self.assertRaisesRegex(ValueError, 'invalid player proof'):
+                propagate.sync(self.root, self.settings, 'hks', 'editor')
+        qualify.assert_called_once_with(self.root, self.settings, 'editor')
+
+    def test_sync_cli_records_native_timeouts_and_xml_errors_as_interrupted(self):
+        import player_workflow
+        self.data['groups'][0]['scope'] = 'hks'
+        self.data['coordinatedScopes'] = {'hks': ['hks', 'animations']}
+        assets.save(self.root / 'asset-catalog.json', self.data)
+        (self.root / 'tools').mkdir()
+        assets.save(self.root / 'tools/eldenring-paths.local.json', self.settings)
+        for failure in (subprocess.TimeoutExpired('HKLib', 240), ET.ParseError('malformed graph XML')):
+            with self.subTest(error=type(failure).__name__):
+                previous = set((self.root / '.sovereign/sync').glob('*/receipt.json'))
+                stderr = io.StringIO()
+                with mock.patch.object(propagate.core, 'ROOT', self.root), \
+                        mock.patch.object(sys, 'argv', ['propagate_workflow.py', 'sync', '--scope', 'hks', '--from', 'editor']), \
+                        mock.patch.object(player_workflow, 'qualify', side_effect=failure), \
+                        mock.patch.object(sys, 'stdout', io.StringIO()), mock.patch.object(sys, 'stderr', stderr):
+                    with self.assertRaises(SystemExit) as exit_result:
+                        runpy.run_path(propagate.__file__, run_name='__main__')
+                self.assertEqual(exit_result.exception.code, 1)
+                self.assertEqual(stderr.getvalue(), f'ERROR: {failure}\n')
+                created = set((self.root / '.sovereign/sync').glob('*/receipt.json')) - previous
+                self.assertEqual(len(created), 1)
+                doc = assets.read(created.pop())
+                self.assertEqual(doc['status'], 'interrupted')
+                self.assertEqual(doc['error'], str(failure))
+                self.assertIsNone(doc['handoff'])
+                self.assertEqual((self.root / 'mod/regulation.bin').read_bytes(), b'accepted')
+                self.assertFalse((self.root / '.vdb').exists())
+
+    def test_sync_sfx_checks_conflicts_before_repacking_and_guards_full_source_after_acceptance(self):
+        import sfx_workflow
+        self.data['groups'][0]['scope'] = 'sfx'
+        assets.save(self.root / 'asset-catalog.json', self.data)
+        (self.root / 'mod/regulation.bin').write_bytes(b'repo edit')
+        with mock.patch.object(sfx_workflow, 'build_and_save') as build:
+            with self.assertRaisesRegex(ValueError, 'selected source is stale'):
+                propagate.sync(self.root, self.settings, 'sfx', 'editor')
+            build.assert_not_called()
+        (self.root / 'mod/regulation.bin').write_bytes(b'accepted')
+        with mock.patch.object(sfx_workflow, 'build_and_save', return_value='saved-proof'), \
+                mock.patch.object(sfx_workflow, 'validate_saved', side_effect=[None, None, ValueError('SFX source drift')]):
+            with self.assertRaisesRegex(ValueError, 'SFX source drift'):
+                propagate.sync(self.root, self.settings, 'sfx', 'editor')
+        doc = assets.read(next((self.root / '.sovereign/sync').glob('*/receipt.json')))
+        self.assertEqual(doc['status'], 'interrupted')
+        self.assertEqual(doc['sfxEditorSave'], 'saved-proof')
+        self.assertEqual(assets.read(doc['handoff'])['status'], 'complete')
+
     def test_plan_defaults_to_checked_regular_version(self):
         assets.save(self.root / 'mod.json', {'version': '1.0.1', 'releaseReady': False})
         (self.root / 'changelog.txt').write_text('Version 1.0.1\nUse regular versions.\n')

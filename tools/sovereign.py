@@ -438,6 +438,7 @@ def main():
     sub.add_parser('check', help='Validate local preparation and runtime manifest')
     sub.add_parser('version-check', help='Check the release target against changelog.txt; no writes')
     sub.add_parser('doctor', help='Check catalogued files and configured tools without writing')
+    sub.add_parser('path-check', help='Check workspace paths, selected stages and Windows shortcuts; no writes')
     handoff = sub.add_parser('accept-plan', help='Prepare a hash-checked repo/editor handoff receipt; never deploy')
     handoff.add_argument('--scope', required=True)
     handoff.add_argument('--from', dest='source', choices=('repo', 'editor'), required=True)
@@ -479,7 +480,10 @@ def main():
                 differences = [f'missing {key}' if value is None else f'differs {key}'
                                for key, value in row['hashes'].items()
                                if value != row['hashes']['repo'] or value is None]
-                print(f"{row['state']:6} {row['file']}" + (f" ({', '.join(differences)})" if differences else ''))
+                comparisons = row.get('comparisons', {})
+                pairs = ', '.join(f'{name}: {value}' for name, value in comparisons.items())
+                details = ', '.join(part for part in (', '.join(differences), pairs) if part)
+                print(f"{row['state']:6} {row['file']}" + (f' ({details})' if details else ''))
             matching = sum(row['state'] == 'Match' for row in rows)
             print(f'{len(rows)} files inspected: {matching} match, {len(rows) - matching} need review. No files changed.')
             if args.command == 'status' and not args.verbose:
@@ -504,6 +508,12 @@ def main():
     elif args.command == 'version-check':
         import release_workflow
         emit(release_workflow.check(ROOT, manifest), True)
+    elif args.command == 'path-check':
+        import workspace_paths
+        report = workspace_paths.check(ROOT, config(args))
+        emit(report, True)
+        if report['findings']:
+            raise ValueError('Workspace path check failed; inspect the findings above')
     elif args.command == 'doctor':
         settings = config(args)
         rows = assets.status(ROOT, settings)

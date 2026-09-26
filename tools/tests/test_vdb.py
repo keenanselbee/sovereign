@@ -12,6 +12,21 @@ import vdb_workflow as vdb
 
 
 class VdbTests(unittest.TestCase):
+    def test_stable_staging_root_resolves_old_completed_receipt(self):
+        receipt, target = self.completed_stage()
+        settings = {'roots': {'vortexStaging': str(self.root)}}
+        self.assertEqual(vdb.staged_source(self.root, settings, receipt)[0], target)
+        vdb.select(self.root, settings, receipt)
+        self.assertEqual(vdb.package_source(self.root, settings, 'main'), target)
+        (target / 'mod/regulation.bin').write_bytes(b'drift')
+        with self.assertRaisesRegex(ValueError, 'differs'):
+            vdb.package_source(self.root, settings, 'main')
+
+    def test_stable_staging_requires_selection_even_if_legacy_folder_exists(self):
+        settings = {'roots': {**self.settings['roots'], 'vortexStaging': str(self.root)}}
+        with self.assertRaisesRegex(ValueError, 'No verified selected VDB stage'):
+            vdb.package_source(self.root, settings, 'main')
+
     def test_doctor_accepts_compatible_client_versions_and_rejects_unknown_protocol(self):
         for protocol in (1, 2, 3, 4):
             data = {'protocolVersion': protocol, 'clientVersion': '0.1.1',

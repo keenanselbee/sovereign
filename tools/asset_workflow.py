@@ -73,8 +73,9 @@ def locations(root, settings, data, include_sources=False):
         stage_key = 'vortex' if group['package'] == 'main' else 'vortexTextures'
         for name in group['files']:
             paths = {'repo': safe_path(runtime, name),
-                     'vortex': safe_path(settings['roots'][stage_key], name),
                      'live': safe_path(settings['roots']['live'], name)}
+            if stage_key in settings['roots']:
+                paths['vortex'] = safe_path(settings['roots'][stage_key], name)
             if editor := group.get('editor'):
                 tail = Path(name).relative_to(editor['stripPrefix']) if editor['stripPrefix'] else Path(name)
                 paths['editor'] = safe_path(settings['roots'][editor['root']], Path(editor['base']) / tail)
@@ -96,10 +97,14 @@ def locations(root, settings, data, include_sources=False):
                                                   'editor': safe_path(editor_dir, name)}}
 
 
-def comparison_stages(root, settings):
+def comparison_stages(root, settings, packages=('main', 'textures')):
     """Resolve verified selected stages once per audit; never hide selected-stage drift."""
+    if 'vortexStaging' in settings['roots']:
+        import vdb_workflow
+        return {package: vdb_workflow.package_source(Path(root), settings, package) / 'mod'
+                for package in sorted(packages)}
     stages = {package: Path(settings['roots'][key]) for package, key in
-              [('main', 'vortex'), ('textures', 'vortexTextures')]}
+              [('main', 'vortex'), ('textures', 'vortexTextures')] if package in packages}
     if (Path(root) / '.vdb/selected.json').is_file():
         import vdb_workflow
         for package in stages:
@@ -111,11 +116,11 @@ def comparison_stages(root, settings):
 
 def status(root, settings, scope='all', include_sources=False):
     data = catalog(root)
-    stages = comparison_stages(root, settings)
+    selected = [row for row in locations(root, settings, data, include_sources)
+                if scope in ('all', row['scope'], row['group'])]
+    stages = comparison_stages(root, settings, {row['package'] for row in selected if row['kind'] == 'runtime'})
     rows = []
-    for row in locations(root, settings, data, include_sources):
-        if scope not in ('all', row['scope'], row['group']):
-            continue
+    for row in selected:
         if row['kind'] == 'runtime':
             row['paths']['vortex'] = safe_path(stages[row['package']], row['file'])
         hashes = {key: checksum(path) for key, path in row['paths'].items()}
@@ -125,8 +130,18 @@ def status(root, settings, scope='all', include_sources=False):
                             and set(hashes.values()) <= set(item['hashes'])), None)
         if state == 'Review' and equivalence:
             state = equivalence['state']
+        comparisons = {}
+        for key, label in (('vortex', 'repoVsSelectedBuild'), ('editor', 'repoVsSavedEditor')):
+            if key not in hashes:
+                continue
+            if hashes['repo'] is None:
+                comparisons[label] = 'Missing repo'
+            elif hashes[key] is None:
+                comparisons[label] = 'Missing selected build' if key == 'vortex' else 'Missing saved editor'
+            else:
+                comparisons[label] = 'Match' if hashes['repo'] == hashes[key] else 'Differ'
         rows.append({**row, 'paths': {key: str(path) for key, path in row['paths'].items()},
-                     'hashes': hashes, 'state': state})
+                     'hashes': hashes, 'comparisons': comparisons, 'state': state})
     return rows
 
 
@@ -237,6 +252,8 @@ def validate_player_qualification(root, settings, source, qualification):
 
 
 def matches_scope(data, scope, row):
+    if isinstance(scope, list):
+        return any(matches_scope(data, item, row) for item in scope)
     if scope.startswith('file:'):
         name = scope[5:]
         owners = [group for group in data['groups'] if name in group['files']]
@@ -318,7 +335,7 @@ def record_sync_baseline(root, settings, scope='all'):
         return {'recorded': len(guards), 'skipped': skipped}
 
 
-def prepare_handoff(root, settings, scope, source, qualification=None, resolve_conflicts=False):
+def prepare_handoff(root, settings, scope, source, qualification=None, resolve_conflicts=False, allow_unchanged=False):
     if scope == 'all' or source not in ('repo', 'editor'):
         raise ValueError('Choose a specific scope and --from repo or editor')
     data = catalog(root)
@@ -355,10 +372,12 @@ def prepare_handoff(root, settings, scope, source, qualification=None, resolve_c
         if after != before:
             entries.append({'group': row['group'], 'kind': row['kind'], 'source': str(src),
                             'destination': str(dst), 'before': before, 'after': after})
-    if not entries:
-        raise ValueError('No differing files with a configured handoff destination in this scope')
     if not resolve_conflicts:
         check_sync_conflicts(root, settings, scope, source)
+    if not guards:
+        raise ValueError('No configured handoff files in this scope')
+    if not entries and not allow_unchanged:
+        raise ValueError('No differing files with a configured handoff destination in this scope')
     directory = safe_path(root, '.sovereign/handoffs/' + uuid.uuid4().hex)
     directory.mkdir(parents=True)
     document = {'schemaVersion': 1, 'status': 'planned', 'scope': scope, 'sourceRole': source,

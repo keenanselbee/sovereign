@@ -22,17 +22,12 @@ ROOT = core.ROOT
 def vortex_root(config_path=None, package_id="main"):
     settings = core.config(argparse.Namespace(config=config_path))
     import vdb_workflow
-    selected = vdb_workflow.selected_source(ROOT, settings, package_id)
-    if selected is not None:
-        return selected
     if package_id != 'main':
-        raise ValueError('Texture packaging requires a verified selected VDB stage')
-    runtime = Path(settings['roots']['vortex']).resolve()
-    if runtime.name.lower() != 'mod':
-        raise ValueError('Configured Vortex runtime root must end in mod; its parent is the package source')
-    if not (runtime / 'regulation.bin').is_file():
-        raise ValueError('Vortex source is unavailable or lacks mod/regulation.bin')
-    return runtime.parent
+        selected = vdb_workflow.selected_source(ROOT, settings, package_id)
+        if selected is None:
+            raise ValueError('Texture packaging requires a verified selected VDB stage')
+        return selected
+    return vdb_workflow.package_source(ROOT, settings, package_id)
 
 
 def inventory(source, manifest):

@@ -6,8 +6,7 @@
     "animations": "Z:\\Modding\\Elden Ring\\DSAnimStudio",
     "sfx": "Z:\\Modding\\Elden Ring\\SFX",
     "live": "Z:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\mod",
-    "vortex": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign\\mod",
-    "vortexTextures": "Z:\\Modding\\Elden Ring\\Vortex\\Sovereign - Textures\\mod"
+    "vortexStaging": "Z:\\Modding\\Elden Ring\\Vortex"
   },
   "tools": {
     "smithbox": "Z:\\Modding\\Elden Ring\\Tools\\Smithbox",
