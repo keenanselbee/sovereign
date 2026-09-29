@@ -9,8 +9,9 @@ and promotional media. It does not change game payloads or relocate external edi
 | `mod/` | Accepted main runtime payload |
 | `packages/textures/mod/` | Separate texture payload, locally retained and Git-ignored |
 | `src/` | Catalogued editable sources plus explicitly unqualified asset overlays |
-| `docs/` | Current guides, development notes and `nexus-*.txt` publishing copy |
-| `images/` | Flat collection of screenshots, GIFs, icons and promotional artwork |
+| `docs/` | Task index, current guides, feature evidence and `nexus-*.txt` publishing copy |
+| `docs/history/` | Superseded plans and dated workflow/deployment reports |
+| `images/` | Screenshots, GIFs and promotional artwork; tutorial assets in `mockups/<feature>/` |
 | `extras/loading-screens/` | Separate default/ultrawide options; not main package inputs |
 | `reference/` | Historical descriptions, reports, message exports and unassigned maps |
 | `tools/` | Build, validation, sync and release helpers |
@@ -71,9 +72,12 @@ Historical build, handoff and release receipts keep their original evidence; nev
 rewrite their hashes or paths to simulate a new qualification.
 
 Refresh affected qualifications after code/configuration edits. Keep native outputs in
-scratch; verify runtime hashes and selected VDB stages before finishing. This cleanup
-does not call propagation, stage a version, deploy or publish. Version 1.0.1 remains
-the main target because packaged bytes are unchanged; textures remain 1.0.0.
+scratch; verify runtime hashes and selected VDB stages before finishing.
+
+Historical cleanup result, 2026-09-20: the cleanup did not call propagation, stage a
+version, deploy or publish. Main remained at 1.0.1 and textures at 1.0.0 because
+packaged bytes were unchanged. These are historical versions; `mod.json` owns the
+current target, and verified selected-stage receipts identify packaging sources.
 
 Completion verification: 493 planned file moves were checked. All 73 runtime files
 retain their original bytes and membership. All 144 Python tests passed, as did

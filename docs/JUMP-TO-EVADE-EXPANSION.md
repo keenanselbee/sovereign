@@ -1,6 +1,17 @@
 Jump to Evade: expanded priority candidates
 ==========================================
 
+**Latest implementation, 2026-09-26:** the author explicitly approved all 47
+damage rows and deployment. Version 1.3.5 completes that scope; see the
+[full-batch report](test-results/2026-09-26-jump-all47.md). Research tiers below
+describe evidence strength, not current implementation or gameplay acceptance.
+
+**First implementation update, 2026-09-26:** the author confirms Hadeon's trial works.
+The first fourteen P1 rows are the approved 1.3.4 batch; see the
+[implementation report](test-results/2026-09-26-jump-batch1.md). All 47 candidates
+remain listed. The evidence and research status below describe the pre-edit
+1.3.3 snapshot, not current parameter values or acceptance of the new families.
+
 **Second review:** all 47 priority candidates remain on the list. The
 [deeper evidence review](JUMP-TO-EVADE-SECOND-REVIEW.md) checks complete bullet
 branches, full animation sequences, motion imports and effect routes, and adds

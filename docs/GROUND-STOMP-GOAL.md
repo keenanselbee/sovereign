@@ -1,6 +1,20 @@
 Ground-stomp counters and Hadeon's jumping lesson
 ================================================
 
+Latest update, 2026-09-26: the author explicitly requested all 47 reviewed
+damage-row candidates and deployment. Version 1.3.5 adds the remaining 33 rows
+to the fourteen already implemented. See the
+[full-batch report](test-results/2026-09-26-jump-all47.md). Earlier staged-batch
+limits below are superseded by this instruction; gameplay qualifications remain.
+
+First update, 2026-09-26: the author confirms the modified Hadeon stomp works
+and authorizes implementation/deployment of the first fourteen-row priority
+batch. Thirteen additional rows receive the same two flags in 1.3.4. The other
+33 priority candidates remain in the queue. See the
+[first-batch report](test-results/2026-09-26-jump-batch1.md) for exact scope,
+verification and deployment status. Earlier pending-Hadeon statements below
+are historical; wider family and terrain checks remain pending.
+
 Author-approved goal, 2026-09-24; trial updated 2026-09-25. The author confirmed
 the existing Crucible Knight stomp is jumpable. The first local trial changes only
 `disableGuard` and `isDisableNoDamage` from 0 to 1 on NPC attack 2500182.

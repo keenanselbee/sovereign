@@ -62,7 +62,7 @@ Original binder SHA-256:
 `a36f192c3a0918e7bbf70507c0b5dbd685bde842a22daf1b03749df75e2c6de0`.
 
 The repository's loose sources and runtime binder were updated together. The
-subsequent authorized [1.0.0 deployment](DEPLOYMENT-1.0.0.md) synchronized the
+subsequent authorized [1.0.0 deployment](history/deployment-1.0.0.md) synchronized the
 saved editor copies and verified the staged/live files. The original trial receipt
 records its earlier repository-only acceptance. No Nexus description change or
 in-game acceptance is implied by deployment.

@@ -1,6 +1,15 @@
 Sovereign tutorial replacement, 1.0.7
 =====================================
 
+Local follow-up, 2026-09-28: the Ultimate lesson now latches Soldier arena entry,
+keeps its 2.5-second delay after leaving the small entrance box, and defers through
+transformation instead of cancelling. Death, map exit, admission loss and boss
+victory still suppress the pending popup. Previously shown lessons remain shown.
+Ultimate charge now comes only from deflections; the text teaches the readiness
+spark cue. The Deflection lesson explicitly names guard counters and critical
+hits as consuming all charges. Both saved PNGs in `src/textures/tutorial/` were
+rebuilt into the separate texture package. Native checks passed; game testing is pending.
+
 Local follow-up, 2026-09-25: the Ultimate Attacks lesson now waits 2.5 seconds
 instead of 1 second after Soldier of Godrick arena admission. Cancellation,
 transformation protection and the once-shown receipt are unchanged. The Deflection
@@ -67,7 +76,8 @@ Text
 Title: Deflection
 
 Tap Guard just before an attack connects to deflect it. Guard with a shield or a
-weapon held in both hands.
+weapon held in both hands. Holding your weapon in both hands reduces the
+stamina consumed by deflection.
 
 Deflect in quick succession to build up to four charges and greatly increase
 guard-counter damage. Successful deflections also charge your weapon's ultimate.

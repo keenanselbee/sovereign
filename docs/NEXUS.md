@@ -182,7 +182,7 @@ stacking and Bindseal protection. Current parameter extraction is retained under
 The live full description was saved, reread and visually verified, including the
 table alignment. The summary was preserved. Receipt and screenshots:
 `.codex-temp/nexus-description-requests/1789874679063441000/`.
-The approved overlap trim removed about 316 words, concentrated Nightmare Mode
+The approved overlap trim removed about 316 words, concentrated crystal-release
 rules in Difficulty, retained Quick Start unchanged, and shortened repeated combat
 and shrine explanations. The Sin section now explicitly explains learning Rapture
 near Nemesis, performing the ritual there, receiving the Bindseal, and equipping it.

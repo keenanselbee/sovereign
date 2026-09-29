@@ -12,7 +12,7 @@ than restoring absent rows automatically. No gameplay changes accompanied that r
 Historical design snapshot from 2026-09-10, before gameplay implementation. Agreed
 designs and remaining investigations are distinguished below; the implementation
 report above supersedes its earlier status statements. Execution stages and the full pre-cleanup repository
-backup are recorded in [the repository plan](REPOSITORY-AND-RELEASE-PLAN.md).
+backup are recorded in [the repository plan](history/2026-09-10-repository-release-plan.md).
 
 The retained `.codex-temp/feature-followup/` investigation contains parameter tables,
 timeline/member inventories, historical comparisons and extracted boss events. This

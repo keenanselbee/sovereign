@@ -1,6 +1,16 @@
 Jump to Evade: attack investigation
 ==================================
 
+**Latest implementation, 2026-09-26:** the author explicitly approved all 47
+reviewed damage rows and deployment. See the
+[1.3.5 full-batch report](test-results/2026-09-26-jump-all47.md). Earlier
+batch limits below are superseded; untested families remain unverified in play.
+
+**First implementation update, 2026-09-26:** Hadeon's trial is author-confirmed, and
+the first fourteen P1 rows form the approved 1.3.4 batch. See the
+[implementation report](test-results/2026-09-26-jump-batch1.md). Research and
+pending-Hadeon statements below describe the earlier snapshots.
+
 **Expanded follow-up:** the [current priority review](JUMP-TO-EVADE-EXPANSION.md)
 now covers 47 priority test rows: 14 small floor-probe rows, 27 foot/forelimb
 pulses and six larger or delayed ground pulses. The evidence JSON/CSV now contain

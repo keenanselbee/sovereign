@@ -1,80 +1,42 @@
 # Mechanics evidence and release decisions
 
-Current 1.3.3 implementation: aid waits three continuous eligible seconds,
-then ramps over ten seconds in twenty five-point steps to 2x HP/FP/stamina maxima
-and outgoing damage. Guard stamina cost reaches 0.5x (twice the endurance per
-stamina point; approximately four times full-bar endurance with doubled stamina).
-Resource percentages, spending protection and ten-second withdrawal remain.
-Hadeon returns visibly to his original position facing the barrier; hallway
-lights wait one continuous second outside before switching off. See
-[implementation and verification](test-results/2026-09-25-opening-followup.md).
-Native/source checks are distinct from pending in-game acceptance.
+Feature evidence owners
+-----------------------
 
-The [ground-stomp investigation](GROUND-STOMP-GOAL.md) records the approved
-jump-counter goal and implemented Hadeon entry lesson. The 2026-09-25 local trial
-sets guard disable and dodge-invulnerability bypass on shared NPC attack 2500182;
-damage and collision stay unchanged. The author confirmed the original stomp is
-jumpable, but the parameter definition warns that bypass overrides airborne
-avoidance. Jumpability and deflection rejection after the edit remain untested.
+Use the owning report below for current implementation and its qualifications.
+Earlier repeated release summaries are retained in [history](history/feature-summary-history.md).
+Deployment status belongs to its receipt; observed game acceptance belongs to
+[TEST-MATRIX](../TEST-MATRIX.md), not a copied release paragraph.
 
-Version 1.2.6 adds [Hadeon's arena aid](HADEON-AID-UPDATE.md): ten-second ramp
-to +50% resource maxima/damage and reciprocal guard stamina cost, proportional
-current resources, visual-only shard aura and a safe ten-second withdrawal on
-victory/departure. Beginner rescue uses effective maximum HP. Native/source
-checks pass; resource ordering and presentation still require game acceptance.
+| Feature | Owning implementation/evidence |
+| --- | --- |
+| Eighteen Hadeon teleport destinations and generated helpers | [Implementation and pending game checks](test-results/2026-09-29-hadeon-destinations-172.md) |
+| Memory of Grace return without rune loss | [Implementation and pending game checks](test-results/2026-09-28-memory-of-grace-171.md) |
+| Hadeon Vortex tiers, mid-slam teleport and positional entrance voice | [Implementation and checks](test-results/2026-09-28-hadeon-vortex.md) |
+| Hadeon arena aid | [Aid report](HADEON-AID-UPDATE.md#current-implementation) |
+| Hadeon repeat teleport, dialogue gates and movement recorder fix | [1.5.6 verification](test-results/2026-09-27-hadeon-followup-156.md) |
+| Hadeon running-AI monologue and combat handoff | [1.5.5 implementation and checks](test-results/2026-09-27-hadeon-wait-155.md) |
+| Hadeon dialogue, progressive aid and no-aid victory | [1.4.4 implementation and checks](test-results/2026-09-27-hadeon-progression.md) |
+| Ground-wave jump counters | [All 47 rows](test-results/2026-09-26-jump-all47.md); [design goal](GROUND-STOMP-GOAL.md) |
+| Hadeon retreat, hallway grace, current opening follow-up | [1.3.3 implementation and qualification](test-results/2026-09-25-opening-followup.md) |
+| Rick transition and retry behavior | [Rick encounter report](RICK-ENCOUNTER-UPDATE.md) |
+| Room lighting and Nemesis gaze | [Lighting report](HADEON-LIGHTING-UPDATE.md); later follow-up above |
+| Key barriers and rewards | [Gate ownership](GRAVEYARD-KEY-GATES.md) |
+| Beginner rescue and generic Ultimate launch | [Opening support](OPENING-SUPPORT-1.2.4.md) |
+| Rescue-aware Soldier/Rick music and starting flask pouch trial | [Implementation and game checks](test-results/2026-09-28-opening-pouch-music.md) |
+| Lessons, text and Deflection artwork | [Opening text/artwork evidence](test-results/2026-09-25-opening-dialogue-tutorial.md), [texture recipe](../src/textures/tutorial/README.md) |
+| Favor rewards and short-fall correction | [Progression report](FAVOR-PROGRESSION-UPDATE.md) |
+| Chapel shard and door changes | [Shard report](CHAPEL-SHARD-UPDATE.md), [follow-up](CHAPEL-POLISH-UPDATE.md) |
 
-The [Rick visible transition](RICK-ENCOUNTER-UPDATE.md) is now implemented locally
-and synced to editors, awaiting deployment/game testing: stance-break bait at 25%
-HP, two-second golden warning, one charged burst at 75% base attack power,
-Hoarah vocal and a visible actor swap. Every attempt starts with the soldier;
-only final victory persists. No percentage-HP damage or black fade is used.
-
-The approved [room follow-up](HADEON-LIGHTING-UPDATE.md) is implemented locally:
-ceiling Scions are suppressed, room illumination ignites in 26 staggered banks,
-and hallway proximity controls re-arm on exit. Event compilation and source
-simulation pass; deployment and game acceptance remain pending. Rick's visible transition is implemented as described above.
-
-Version 1.1.7 requires both statue activations for one shared imp barrier
-([gate ownership](GRAVEYARD-KEY-GATES.md)). It also removes the invalid unused
-light node from candle flame FXR 7506110, preserving all other decoded source
-fields. The [1.1.6 room-entry crash](test-results/2026-09-24-hadeon-room-entry-crash.md)
-requires a corrected in-game retest; static checks are not gameplay acceptance.
-
-Version 1.1.6 corrects the [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md):
-82 room candles use grouped red-light presets preserving their source settings.
-The 74 particle flames stay continuous; eight other assets use illumination only.
-Models and hallway controls remain unchanged; visual/performance playtests are pending.
-
-The 1.1.4 [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md) adds staged brazier
-illumination, brief gaze surges, victory/crystal hallway states and a five-second
-crystal cue followed by room dimming. In-game visual and performance checks are pending.
-
-Version 1.1.3 restores a later Favor upgrade: Hadeon grants +1, the Shunning-Grounds
-duplicate becomes one Darklight Arc, and Ashen Leyndell retains +2. The custom +3
-is removed without old Sovereign-save conversion. See [the progression update](FAVOR-PROGRESSION-UPDATE.md)
-for exact rows, unchanged collection flags and the included short-fall correction.
-
-The 1.1.2 [Rick follow-up](RICK-ENCOUNTER-UPDATE.md) adds saved phase-two retries,
-an explicit ground-level warp target, Hoarah Loux's transition vocal with a hidden
-sound carrier, hittable transition protection, and normal Nemesis visuals on the
-beginner rescue heal. Native/source checks do not establish gameplay acceptance.
-
-The 1.1.0 [Chapel reward update](CHAPEL-SHARD-UPDATE.md) replaces the maiden's
-Wizened Finger with one existing Darklight Shard and moves the finger to Kale for
-100 runes. The [1.1.1 Chapel fix](CHAPEL-POLISH-UPDATE.md) removes the remaining
-finger restriction and ground message, revises shard text, and completes omen VFX.
-
-The 1.0.9 [opening update](BEGINNER-OPENING-UPDATE.md) adds the 45-second
-beginner rescue, grants Hadeon Thorn Ward at both 75% and 50%, separates the left
-imp flag from vanilla, softens the key knight, adds the initial Chapel omen and
-suppresses the exit omen after crystal destruction. Gameplay acceptance is pending.
 
 Living feature intent and balance decisions are maintained in
 [DESIGN.md](DESIGN.md) and [BALANCE.md](BALANCE.md). This file records implementation
 evidence; an earlier review's proposed tuning is not an accepted design change.
 
-For the 2026-09-23 independent Stonesword Key gates, three torch pairs, Partisan
+For the 2026-09-23 independent Stonesword Key gates, three torch pairs,
 Godrick Knight and final Rick key reward, see [the implementation record](GRAVEYARD-KEY-GATES.md).
+The knight now uses the 1.3.2 sword-and-shield variant; its original Partisan setup
+is historical (see [the accepted decision](BALANCE.md) and ER-122).
 This supersedes the earlier keyless-entry proposal. Native checks and editor sync
 are distinct from gameplay acceptance and package deployment.
 
@@ -111,11 +73,25 @@ For the 2026-09-22 Soldier of Godrick / Rick two-phase encounter, see
 Golden Eyes for phase 2 and adding Boss Modifier, a full heal, 1.5x size, a fade
 and The Final Battle music. Native checks pass; gameplay acceptance remains Pending.
 
-For the 2026-09-23 tutorial replacement, see [TUTORIAL-UPDATE](TUTORIAL-UPDATE.md).
-Tutorial 1180 teaches deflection with Guarding image 16; the other 85 native rows
-are gated off. Popup timing, global suppression and pause behavior await game tests.
+For tutorial history and text, see [TUTORIAL-UPDATE](TUTORIAL-UPDATE.md).
+The original 2026-09-23 Deflection-only replacement is superseded by three
+approved lessons: Deflection two seconds after the knight-approach region,
+Ultimate Attacks 2.5 seconds after Soldier arena admission, and Jump to Evade
+after three safe seconds in Hadeon's room. See the [opening sequence](GROUND-STOMP-GOAL.md)
+and [timing follow-up](test-results/2026-09-25-opening-followup.md). Other vanilla
+lessons remain suppressed; the old statement that all 85 other rows are gated off
+describes the initial implementation only. Deflection retains image slot 16,
+now with custom artwork; the [current texture recipe](../src/textures/tutorial/README.md)
+owns the approved Deflection and Ultimate images. Popup timing, suppression,
+pause behavior and current artwork appearance still require gameplay acceptance.
 
 ## Nemesis and the physical red crystal
+
+Current terminology is Nightmare difficulty for the combat challenge, separate
+from the planned Nemesis Unbound story stage. Weapon-restricted crystal destruction
+and its final confrontation are deferred. See [the accepted direction](nemesis-unbound.md).
+The implementation below still uses the existing release/eclipse/follower flags;
+this terminology change does not silently replace those mechanics.
 
 The [2026-09-23 omen update](NEMESIS-OMENS.md) adds cosmetic ten-second cues at the
 first outdoor reveal and crystal break, using existing Nemesis sounds without
@@ -172,7 +148,8 @@ six-second findings describe its preserved pre-fix snapshot.
 
 ## Shrine and Hadeon / Crucible Lord
 
-Primary source: `event/src/m18_00_00_00.emevd.dcx.js`, events 5750290-5750309.
+Primary source: [m18_00_00_00.emevd.dcx.js](../src/events/m18_00_00_00.emevd.dcx.js),
+events 5750290-5750309.
 
 - Startup no longer clears defeat 1055420915, collection 1055420916, gesture marker
   1055420009 or the former testing flags 1055420914/1055420917.
@@ -182,6 +159,9 @@ Primary source: `event/src/m18_00_00_00.emevd.dcx.js`, events 5750290-5750309.
 - Event 5750290 owns reward lot 6050 (Erdtree's Favor +1, accessory 1041). Its
   existing lot collection flag 1055420916 prevents repeat payout. A defeated but
   uncollected state is reconciled on load, including an interrupted reward delay.
+  In 1.6.8 the live payout waits five seconds after actual banner display; banner
+  readiness is 10.5/12.0 seconds into the normal/no-aid death line, independent
+  of full voice cleanup. See [verification](test-results/2026-09-28-hadeon-teleport-168.md).
 - The earlier actor correction to Hadeon 18002354 and asset corrections to entrance
   wall 18002379 are retained. Region 18002349 remains a region for bounds checks.
   The author controls wall placement and must test collision/visual cleanup.
@@ -213,7 +193,7 @@ and its opening line afterward, with a fade/smithing presentation and item lot 7
 Its collection flag is intended to permit one reward per journey; NG+ reset and
 actual acquisition still require game tests. Goods 8115 (Meteoric Ore Slab) and
 8116 (Eye of Astel) remain unused by this route. See
-[implementation and evidence](GAMEPLAY-CORRECTNESS-UPDATE.md), tests ER-035–ER-041.
+[implementation and evidence](GAMEPLAY-CORRECTNESS-UPDATE.md), tests ER-035â€“ER-041.
 Do not publish the acquisition guide as verified until these tests pass.
 
 The weapon uses category 984. Skill 660, Harness Void Eye, costs 45 FP and applies
@@ -224,8 +204,8 @@ configuration the combination uses R2 with L1 when the swap setting is true (L2
 when false), with button hold below two seconds. These are source conditions;
 controller behavior and input timing still require an in-game test.
 
-The general charge meter has ten steps: ordinary kill/deflect gives one, larger
-deflect two. It starts at effect 277 and reaches full at 287. The Obliterator's
+The general charge meter has ten steps: ordinary deflect gives one, larger
+deflect two. Version 1.6.7 removes enemy-kill charge; the full-meter spark cue remains. It starts at effect 277 and reaches full at 287. The Obliterator's
 resident effect 287 bypasses this ordinary charging path, but its buff/readiness
 conditions still matter, explaining why simply equipping it is insufficient. The
 ultimate uses Astel's beam bullet 4620221 and refreshes the buff. Older descriptions
@@ -246,7 +226,7 @@ phase or at final victory. The conversion captures quantities and replaces carri
 original pieces one-for-one, including duplicates and altered body armor. Workers
 require carried ownership and do not deliberately withdraw from storage. A player
 whose Rykard defeat flag was already set cannot start the conversion. Quantity,
-storage, respawn and interruption behavior require ER-031–ER-034; the source does
+storage, respawn and interruption behavior require ER-031â€“ER-034; the source does
 not distinguish Rykard damage from other deaths during the active encounter.
 See [the implementation report](GAMEPLAY-CORRECTNESS-UPDATE.md) for exact IDs.
 
@@ -257,3 +237,5 @@ effect, source/build hashes, test IDs, and the latest observed result. Use
 **Implemented (static evidence)**, **Observed in game**, **Proposed**, or **Unresolved**
 explicitly. A successful compiler run, matching package hash, or copied description
 is not evidence that progression, acquisition or persistence works.
+
+Hadeon follow-up: [Vortex routing, dialogue history and progression lighting](test-results/2026-09-28-hadeon-followup-160.md).

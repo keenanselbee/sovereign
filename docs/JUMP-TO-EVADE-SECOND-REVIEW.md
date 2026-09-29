@@ -1,6 +1,16 @@
 Jump to Evade: second evidence review
 ====================================
 
+**Latest implementation:** the author explicitly requested all 47 reviewed
+damage rows and deployment. See the
+[1.3.5 full-batch report](test-results/2026-09-26-jump-all47.md). The structural
+qualifications below remain relevant to gameplay testing.
+
+**First implementation:** the author confirmed Hadeon's trial on 2026-09-26
+and authorized the first fourteen-row batch. See the
+[implementation report](test-results/2026-09-26-jump-batch1.md). The qualifications
+below remain relevant to testing the new families; all 47 candidates are retained.
+
 Reviewed again on 2026-09-25 at the author's request. **All 47 priority candidates
 and all 245 curated records are retained, with their existing tiers unchanged.**
 This pass adds qualifications and checks the supporting evidence; it does not

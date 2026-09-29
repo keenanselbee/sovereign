@@ -21,7 +21,7 @@ The recovered files are installed in both `sfx/modified/sfxbnd_commoneffects-ffx
 
 The archive entry was later relocated to
 `Z:/Backup/Elden Ring/archive/game-updates/2026-09-09_to-steam-25080141/06-sfx-recovery/README.md`.
-See the [recovery guide](WORKFLOW-PREP-CHECKPOINT.md).
+See the [recovery guide](history/2026-09-11-workflow-preparation.md).
 
 `before/` contains independent original packed files and complete authoring/repo modified source snapshots. `recovered-additions/` preserves the imported bytes and provenance. `alternative-designs/backup-2/` contains the ten unused FXR variants and two matching resource lists, explicitly retained as potentially useful future designs. They are not runtime inputs. The accompanying comparison documents colour, size, timing, layer and sound differences.
 

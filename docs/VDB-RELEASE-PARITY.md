@@ -12,7 +12,7 @@ checks for conflicting changes, syncs the scoped repository sources/outputs and
 records a recoverable receipt. It does not check release metadata, bump a version,
 prepare a package or call Vortex. The nine shortcuts use this sync-only path.
 Build and deployment are separate requested work. See the
-[sync-only update](PROPAGATION-SYNC-UPDATE.md) and [command reference](WORKFLOW-COMMANDS.md).
+[sync-only update](history/propagation-sync-transition.md) and [command reference](WORKFLOW-COMMANDS.md).
 
 For a requested build, collect all current repo-owned runtime files for each affected
 package and preserve verified external dependencies. Assign the next unused regular
@@ -48,7 +48,7 @@ Neither package had a regular-version stage or reservation, so the unstaged 1.0.
 workflow notes were consolidated into 1.0.0 without relabeling a retained build.
 The Hadeon encounter changes and one-frame opening deflect adjustment are included;
 gameplay acceptance remains pending and `releaseReady` remains false.
-Both packages were subsequently [deployed and verified locally](DEPLOYMENT-1.0.0.md).
+Both packages were subsequently [deployed and verified locally](history/deployment-1.0.0.md).
 
 Separately requested package preparation uses the checked regular target without
 a development suffix. Bump `mod.json` and add

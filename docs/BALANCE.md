@@ -1,31 +1,10 @@
 Sovereign balance design
 =======================
 
-Current 1.3.3 implementation: aid waits three continuous eligible seconds,
-then ramps over ten seconds in twenty five-point steps to 2x HP/FP/stamina maxima
-and outgoing damage. Guard stamina cost reaches 0.5x (twice the endurance per
-stamina point; approximately four times full-bar endurance with doubled stamina).
-Resource percentages, spending protection and ten-second withdrawal remain.
-Hadeon returns visibly to his original position facing the barrier; hallway
-lights wait one continuous second outside before switching off. See
-[implementation and verification](test-results/2026-09-25-opening-followup.md).
-Native/source checks are distinct from pending in-game acceptance.
-
-Approved 1.2.6: [Hadeon aid](HADEON-AID-UPDATE.md) uses twenty 2.5-point steps
-over ten seconds, reaching 1.5x maximum/current-resource scaling and damage.
-Current bars retain their percentage and intervening resource spending.
-Guard cost is reciprocal (2/3 at full aid), giving 1.5x endurance per stamina
-point and approximately 2.25x full-bar endurance with the stamina increase.
-Ten-second withdrawal preserves at least 1 HP, including a partial blessing.
-This changes the opening player's support, not Hadeon's NPC stats. Runtime
-resource behavior and fight difficulty still require game testing.
-
-Approved 1.2.4: beginner rescue retains the 30% threshold and full heal, with a
-shared 30-second cooldown reduced to 15 seconds inside Hadeon's arena and a brief
-post-heal damage shield. Try lethal-hit interception without changing Oath healing.
-Generic Ultimates gain small launch back; Hadeon's local resistance permits that
-reaction, including from other attacks. Damage/poise damage remain unchanged.
-See [implementation and pending game checks](OPENING-SUPPORT-1.2.4.md).
+Current implementation summaries are routed through the
+[feature evidence index](MECHANICS.md#feature-evidence-owners). This guide owns
+balance decisions and tuning questions, not a second release log.
+Earlier preface summaries remain in [history](history/feature-summary-history.md).
 
 Living balance document, established 2026-09-11. Read [DESIGN.md](DESIGN.md) for
 feature intent and coverage. This document owns the working balance questions,
@@ -46,10 +25,14 @@ These decisions were supplied directly by the author in this conversation.
 
 | Date | Topic | Confirmed intent | Consequence |
 | --- | --- | --- | --- |
+| 2026-09-27 | Fatal Hadeon falls | A player who dies falling off the bridge during the fight has lost that attempt | 1.4.5 counts fatal falls during active combat; survived falls and recovery still do not count. See [correction](test-results/2026-09-27-hadeon-fatal-falls.md). |
+| 2026-09-27 | Hadeon progressive aid | No first-attempt aid, shield stamina discount, room rescue, threshold wards or 25% wail; add 20% aid per genuine combat loss to 100% | Saved progression, existing gradual ramp/withdrawal and a no-loss victory reward; see [implementation](test-results/2026-09-27-hadeon-progression.md). Game acceptance pending. |
+| 2026-09-26 | All 47 ground-wave candidates | Author explicitly requests all 47 damage rows and deployment after the first batch | Version 1.3.5 adds the remaining 33 rows using the same two flags; damage, collision and timing stay unchanged. Family tests remain pending beyond Hadeon. See [report](test-results/2026-09-26-jump-all47.md). |
+| 2026-09-26 | First ground-wave batch | Author confirms Hadeon's modified stomp works and requests implementation/deployment of the proposed first batch | Apply the same two flags to thirteen additional P1 rows, fourteen including Hadeon; retain all 47 candidates. New families remain pending gameplay tests. See [report](test-results/2026-09-26-jump-batch1.md). |
 | 2026-09-25 | Ground-stomp counters | Readable ground waves should require jumping instead of dodge invulnerability or deflection; the author confirmed the original Crucible stomp is jumpable | Two-field trial on shared attack 2500182; damage and geometry unchanged, gameplay pending. Jump to Evade after 3s in Hadeon's room supersedes three-death counting. See [investigation](GROUND-STOMP-GOAL.md). |
 | 2026-09-25 | Graveyard knight variant | Use sword and shield instead of the Partisan | NPC 43519000 preserves custom tuning and Stonesword Key lot; sword variant data and ThinkParam 43510000 replace the spear setup. |
 | 2026-09-24 | Rick transformation burst | 75% of normal charged Wrath attack power after a two-second stance-break bait; death resets to Soldier of Godrick | Supersedes percentage-HP damage and persistent phase-two retries. Implemented locally with author-approved animation 8700, 315 base holy attack and normal damage calculation. Damage and casting VFX still need game verification; see [implementation](RICK-ENCOUNTER-UPDATE.md). |
-| 2026-09-20 | Optional guidebooks | Teach existing tools without gating deflect charge; Kalé sells the opening volume for 500 runes; retain the original two Farum Azula placements | Eight [Profane Tomes](PROFANE-TOMES-UPDATE.md), one copy per subject across NG+; additional prices and the 5% Fire Monk roll are implemented starting values awaiting playtesting |
+| 2026-09-20 | Optional guidebooks | Teach existing tools without gating deflect charge; KalÃ© sells the opening volume for 500 runes; retain the original two Farum Azula placements | Eight [Profane Tomes](PROFANE-TOMES-UPDATE.md), one copy per subject across NG+; additional prices and the 5% Fire Monk roll are implemented starting values awaiting playtesting |
 | 2026-09-11 | Overall difficulty | The game is balanced around using Oaths and the powerful tools available | Evaluate expected tool use rather than treating an unbuffed vanilla-style run as the sole baseline |
 | 2026-09-19 | Opening deflect timing | Try one extra frame at 60 FPS for accessibility, retaining the repeat-attempt penalty | Opening window changed from 200 to 216.7 ms in 38 timeline events; [local implementation](DEFLECT-WINDOW-UPDATE.md), playtesting pending |
 | 2026-09-11 | Opening | "challenging" | Preserve a challenging start; this does not select exact multipliers or an early Oath acquisition change |
@@ -170,6 +153,12 @@ state. Test this transition as a progression milestone. Do not attribute all suc
 pressure to the crystal that the player has not yet released.
 
 ### Eclipse pacing and hardcore
+
+The 2026-09-27 direction calls the combat challenge Nightmare difficulty and treats
+crystal release as the planned Nemesis Unbound story stage. Its weapon restriction
+and final confrontation remain deferred; see [the design](nemesis-unbound.md).
+The historical implementation and balance evidence below describe the currently
+retained eclipse behavior, including follower suppression.
 
 **Author-approved 2026-09-23:** the first outdoor reveal after Hadeon's defeat and
 crystal destruction receive ten-second visual/audio omens. The new effects carry

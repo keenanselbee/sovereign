@@ -3,9 +3,9 @@ Sovereign development workflow
 
 Sovereign now uses accepted repo sources/outputs, qualified native tools and the shared
 Vortex Development Bridge (VDB). Repository preparation is separate from gameplay
-acceptance and Nexus publication. See the [checkpoint](WORKFLOW-PREP-CHECKPOINT.md),
+acceptance and Nexus publication. Start with the [task index](README.md). See the [historical checkpoint](history/2026-09-11-workflow-preparation.md),
 [command reference](WORKFLOW-COMMANDS.md), [editing guide](EDITING-GUIDE.md), and
-[remaining feature plan](FEATURE-CORRECTNESS-PLAN.md).
+[feature decisions and implementation history](FEATURE-CORRECTNESS-PLAN.md).
 
 The [repository layout and path guide](REPOSITORY-LAYOUT.md) records the completed
 cleanup, descriptive editor shortcuts and stable `roots.vortexStaging` setting.
@@ -70,6 +70,12 @@ Normal edit and propagation
    closed, leave the authorized request queued rather than launching it. Resume its
    existing receipt and select the verified build after completion.
 6. Record actual gameplay results in TEST-MATRIX only after an observed game test.
+
+For an already prepared package, use `python tools/finish_workflow.py deploy
+--stage <prepared-receipt>`. Recover through `python tools/finish_workflow.py resume
+--receipt <finalization-receipt>`; this keeps the recorded profile scope and never
+submits another request. See [the deployment guide](workflows/deployment-and-sync.md)
+for multiple packages, stage-only mode and completion checks.
 
 Propagation does not authorize build/deployment, Nexus publication or commits.
 Audit and DNE requests remain read-only.
@@ -167,7 +173,7 @@ selection, payload or archive. See [the release workflow](VDB-RELEASE-PARITY.md)
 
 The subsequent [gameplay update](GAMEPLAY-CORRECTNESS-UPDATE.md) implements the armor
 and Hewg/per-journey decisions. Manual game tests, dependency provenance, clean installation, release metadata
-and accurate descriptions remain in stages S7/S8 of the [release plan](REPOSITORY-AND-RELEASE-PLAN.md).
+and accurate descriptions remain in stages S7/S8 of the [release plan](history/2026-09-10-repository-release-plan.md).
 Earlier investigation prose is retained in [WORKFLOW-REFERENCE](../reference/WORKFLOW-REFERENCE.md)
 and [WORKFLOW-PREP-HISTORY](../reference/WORKFLOW-PREP-HISTORY.md); those snapshots do not supersede
 current commands or the editing guide.

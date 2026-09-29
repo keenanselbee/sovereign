@@ -12,7 +12,7 @@ Independent backups and handoff journal:
 Use its relocated `restore-map.json`; originals are in `before/`. Historical
 candidate/diagnostic files remain in scratch, with an archive pointer at the old
 backup-run location. The archive was later relocated to
-`Z:/Backup/Elden Ring/archive`; see the [recovery guide](WORKFLOW-PREP-CHECKPOINT.md).
+`Z:/Backup/Elden Ring/archive`; see the [recovery guide](history/2026-09-11-workflow-preparation.md).
 Durable entry-level merge evidence: [patch-updates/steam-25080141.json](patch-updates/steam-25080141.json).
 See the candidate `REPORT.md` and `receipt.json` for pre-handoff qualification.
 Updated from the event/text audits and rebuild qualification on 2026-09-09.

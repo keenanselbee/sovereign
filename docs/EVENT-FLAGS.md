@@ -12,6 +12,108 @@ inspection tables below retain the before-change evidence.
 Base ownership and valid ranges
 -------------------------------
 
+Version 1.7.2 adds map helper regions 18005101-18005245 for the eighteen-point
+Hadeon selector, preserving 18005900-18005943. No event IDs or flags are added.
+See the [destination expansion](test-results/2026-09-29-hadeon-destinations-172.md).
+
+Version 1.6.7 reserves temporary 1055425282 for death-banner readiness, separate
+from full-audio completion 1055425256. Diagnostic flags 1055425283-1055425289
+record periodic timer, expiry, invalid encounter, speech deferral, no clear
+landing, successful warp and acknowledgment. AI flags 1055425290-1055425295
+record observed request and unfinished-attack/throw/speech/HP/combat blockers;
+1055425296-1055425297 record queued Vortex and subsequent battle activation.
+They observe existing decisions without changing eligibility. Map startup clears
+all new flags. Native allocation checked 598 event files and 194 regulation
+members, including ranges, without collisions. See
+[the batch report](test-results/2026-09-28-tutorial-combat-167.md).
+
+Version 1.6.4 adds diagnostic flags 1055425279 (Vortex worker reached its
+cue wait), 1055425280 (live marker observed) and 1055425281 (cue marker
+observed). Map startup clears them. Two slots of observer event 5750434 latch
+the markers independently, even without an armed attack; neither flag affects
+gameplay. Native allocation checked 598 event files and 194 regulation members,
+including flag ranges. See the [marker correction](test-results/2026-09-28-vortex-cue-164.md).
+
+Version 1.6.3 temporarily allocates 1055425275-1055425278 for Vortex cue,
+invalid encounter, no eligible landing and successful relocation diagnostics.
+They reset at the next Vortex or private battle initialization, and are read by
+the existing reversible HKS trace. They do not grant progression or control
+teleport eligibility. The native exact/range scan checked 598 event files and
+194 regulation members with no collisions; see the
+[trial report](test-results/2026-09-28-deflect-critical-vortex-163.md).
+
+The Vortex update reserves temporary 1055425258 for its per-attack teleport
+roll and 1055425259 for restarting periodic relocation after a successful
+Vortex warp. Events 5750432/5750433 own the slam relocation and final entrance
+phrase. Native allocation scanned 598 event files and 194 regulation members;
+see [the implementation](test-results/2026-09-28-hadeon-vortex.md).
+
+The Hadeon refinement retains saved losses 1-5 in 1055420930-1055420934 and
+adds losses 6-10 in 1055420952-1055420956. Each loss now unlocks one 5% aid tier,
+capped at 50%. The temporary load reset clears both blocks; the death-reload bypass
+preserves them. Periodic teleport request/acknowledgment use 1055425253/1055425254;
+1055425256 records completed death dialogue; 1055425257 selects the player-emitter
+fallback if the hidden carrier cannot load. 1055425255 records actual banner display in 1.6.8; reward event 5750290
+waits five seconds from that signal on a live victory. The existing startup
+clear covers it; saved defeat/collection flags retain reload recovery.
+Event 5750430 owns periodic relocation; 5750431 owns the hidden death sound carrier.
+Native allocation checked 598 event files and 194 regulation members without
+exact-reference or range collisions before editing. Evidence is retained under
+`.codex-temp/hadeon-refinement/flag-scan/flag-scan.json`.
+
+Version 1.5.2 retires combat diagnostic event 5750313 and its flags 1055422949
+and 1055425250-1055425252. Their HKS readers are removed; no gameplay depends on
+leftover values. The temporary load reset and aid/movement diagnostics remain.
+The teleport selector uses map regions 18005900-18005935 in 1.5.3 and allocates
+no flags; existing 1.5.2 region IDs are preserved. Opening and fall recovery share
+the generated eight-point selector.
+See the [teleport implementation](test-results/2026-09-27-hadeon-teleport-152.md).
+The [1.5.1 report](test-results/2026-09-27-hadeon-release-151.md) retains trial history.
+
+Temporary test build 1.4.9 reserves saved flag `1055420938` as the death-reload
+bypass. Common preconstructor 50 consumes it before encounter initialization;
+otherwise it resets Hadeon's encounter progression unless an earned reward is pending.
+The 1.6.0 follow-up preserves repeat-dialogue history independently of this test reset.
+Common event `5750425` observes actual host deaths globally and requests a save
+after the encounter loss worker's one-frame settlement. Ordinary loads (including
+fast travel) reset; grace rests do not. This is not a title-screen detector.
+Native allocation checked 598 event files and 194 regulation members without a
+collision. See [the test reset](test-results/2026-09-27-hadeon-load-reset-149.md).
+
+The local Hadeon no-repeat update reserves saved flags 1055420940-1055420951:
+four one-hot last-line flags each for repeat entrance, repeat half-health and
+player-killed pools. They survive encounter resets and, from the 1.6.0 follow-up, ordinary test loads; journey reset
+still requires game acceptance. A native scan of 598 event files and 194
+regulation members found no prior exact-ID or flag-range collision. See
+[no-repeat verification](test-results/2026-09-27-hadeon-no-repeat.md).
+
+Hadeon 1.4.4 uses saved cumulative loss flags 1055420930-1055420934, first-entrance
+receipt 1055420935, first-half-health receipt 1055420936 and no-aid victory
+entitlement 1055420937. Temporary 1055425200-1055425215 select the sixteen voices;
+1055425216-1055425222 queue speech; 1055425223-1055425227 hold the room rescue
+guard, death/half-health latches, victory capture and first-intro state.
+Version 1.4.7 reserves temporary 1055425233 for aid admission after the three-second
+warm-up. Event 5750403 owns it; 5750405 refreshes the expiring permission effect
+while admission remains valid. Map initialization and departure clear it. The
+retained 598-event/194-parameter allocation scan covered this ID with no conflict.
+The remaining scanned 0939, 5228-5232 and 5234-5247 are unused.
+Events 5750420-5750424 own the new encounter workers. Allocation checked 598
+mod/retained vanilla EMEVD files and 194 regulation members with no prior conflict.
+Reloads preserve saved progression; NG+ reset remains an in-game acceptance check.
+See [progression evidence](test-results/2026-09-27-hadeon-progression.md).
+
+Hadeon dialogue uses temporary 1055422946 for active voice/subtitles,
+1055422947 for the intro request/combat gate, and 1055422948 for a cue-time
+invalid-room reset request consumed by controller 5750303. The original
+every-encounter calibration had no saved first-encounter receipt. Allocation checked 598
+mod/retained-vanilla event files, including flag ranges, and 194 regulation
+members for 1055422946-1055422947; the same native scan found no 1055422948
+reference or range collision. See [the monologue report](test-results/2026-09-26-hadeon-monologue.md).
+
+Retired flag 1055422949 previously mirrored native Combat AI state in 1.4.3-1.5.1.
+The [encounter correction](test-results/2026-09-27-hadeon-encounter.md) retains its
+allocation evidence; it is no longer read or written by the active implementation.
+
 Hadeon 1.2.5 reserves temporary flag 1055425042 for sustained player-death
 confirmation, written only by map event 5750402 after 0.5s of zero HP and outside
 beginner rescue protection. Recovery clears it. Lighting ignition now owns
@@ -28,6 +130,16 @@ referenced. Earlier gates 1055422970-1055422995 and gaze/chance bits
 flag 1055422945 and saved victory/crystal flags retain their existing roles.
 Native allocation checks cover current parameters plus mod and retained vanilla
 event instructions/ranges. See [the lighting update](HADEON-LIGHTING-UPDATE.md).
+
+Room progression 1.6.0 snapshots the attempt's death tier in one of
+1055425262-1055425272. Flag 1055425273 is an always-off baseline sentinel;
+1055425274 gates meaningful live boss HP. These are temporary map-owned flags,
+separate from saved death and dialogue history. Events 5750401 and 5750407
+split the tier checks to remain within native condition-group limits; 5750406
+owns HP readiness. Lit positions latch, death freezes them until recovery, and
+ordinary fixtures now use preset 1055422953 rather than an HP brightness ramp.
+The crystal presentation still uses the lower presets for its established fade.
+See [the follow-up](test-results/2026-09-28-hadeon-followup-160.md).
 
 Rick awakening flag 1055420926 is retired by the visible-transition follow-up.
 It is no longer read or written; do not reuse it for another purpose. Every

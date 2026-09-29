@@ -1,4 +1,4 @@
-﻿Sovereign
+Sovereign
 =========
 
 An Elden Ring overhaul built around deflection, weapon ultimates, Oaths, Dragon
@@ -9,6 +9,8 @@ information and downloads. Local page copy is in [docs/nexus-full-desc.txt](docs
 
 Development
 -----------
+
+Start with the [task-based documentation index](docs/README.md).
 
 - [Repository layout and workstation paths](docs/REPOSITORY-LAYOUT.md)
 - [Editing and completion workflow](docs/WORKFLOW.md)

@@ -1,5 +1,11 @@
 # Shrine persistence and optional Nemesis hardcore
 
+Terminology update, 2026-09-27: Nightmare difficulty describes the combat challenge.
+The planned crystal consequence is the Nemesis Unbound story stage, documented in
+[the deferred design](nemesis-unbound.md). The historical flag implementation below
+remains current; the weapon gate, final confrontation and proposed Bindseal change
+are not implemented by a description update.
+
 Applied 2026-09-10 for local testing. **Implemented and statically checked; gameplay
 acceptance is pending.** No existing-save migration was added. The author's latest
 clarification takes precedence over the earlier draft that gated all Nemesis activity

@@ -4,7 +4,7 @@ Hadeon threshold boons and deflect thorns
 2026-09-19. The author approved this minimal combat change after the initial
 [encounter investigation](HADEON-ENCOUNTER-REVIEW.md). Implemented in repository
 sources and built runtime assets; gameplay acceptance remains Pending. The later
-authorized [1.0.0 deployment](DEPLOYMENT-1.0.0.md) synchronized the affected editor
+authorized [1.0.0 deployment](history/deployment-1.0.0.md) synchronized the affected editor
 copies and verified both installed packages.
 
 

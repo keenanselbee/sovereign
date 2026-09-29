@@ -1,6 +1,71 @@
 Hadeon room and hallway lighting
 ================================
 
+Correction (1.6.1, gameplay pending)
+-----------------------------------
+
+The author reports all fixtures lit at roughly 80% Hadeon HP after two or three
+losses in 1.6.0. Aid logs confirm the saved loss counter advanced normally.
+A controlled source simulation reproduced a readiness cancellation waking all
+pending HP checks, then readiness returning before continuation. At three losses
+and 80% HP this incorrectly advanced 36 lit positions to all 96. This is a
+reproduced control-flow weakness, not proof of native scheduling in that session.
+
+Every HP-tier branch now checks HP again after waking. A cancellation cannot
+become permission to ignite just because readiness recovered. Invalid zero boss
+HP is rejected; victory and crystal keep their explicit overrides. The baseline
+and normal brightness preset initialize on map load and refresh after respawn,
+before room entry. HP additions still require an admitted active encounter.
+The controller clears the unused baseline sentinel along with its tier state.
+
+The existing removable dialogue trace also records lit count, selected lighting
+tier, readiness, active state, sentinel and victory/crystal flags at 0.5-second
+intervals, writing only changes. It does not read boss HP or prove rendered SFX.
+See [the integration record](test-results/2026-09-28-lighting-aid-161.md).
+
+
+Previous implementation (1.6.0, reported lighting failure)
+--------------------------------------------------
+
+The thirty-second room ignition timer is removed. On each attempt, the existing
+96 positions ignite in their original fixed shuffled order as Hadeon's HP falls.
+The attempt snapshots the ten saved combat-loss flags when the player first enters
+the room: 1055420930-1055420934 and 1055420952-1055420956. The number lit is
+`floor(96 * (b + (1 - b) * (1 - h)))`, where `b = 0.075 * min(losses, 10)` and
+`h` is the fraction of Hadeon's HP remaining. This gives 0 lights on the first
+full-health attempt, 36 after five losses, and 72 after ten. Defeat lights all 96.
+Each lit fixture uses the existing normal 100% preset. No 150% preset is enabled.
+
+Events 5750401 and 5750407 divide the eleven death tiers into two condition
+banks to stay within DarkScript's native condition-group limit. The 96 existing
+ignition flags 1055425100-1055425195 still latch the exact lit set; the two
+workers for each position share one flag, and only the bank for the snapshotted
+tier runs. The 96 x 11 HP thresholds are authored by
+[`generate.mjs`](../src/recipes/hadeon-lighting-progression/generate.mjs) from the
+retained shuffled order. Temporary flags 1055425262-1055425272 hold the tier,
+1055425273 is an always-off sentinel for positions beyond the ten-loss entry
+baseline, and 1055425274 means Hadeon has valid live HP. Event 5750406 owns that
+readiness flag, so an unloaded or disabled actor reporting zero HP cannot light
+the whole room before the encounter. The original 384 preset and 88 flame
+workers remain; ignition now uses 192 sleeping workers instead of 96.
+
+A confirmed death freezes the exact lit set and its full brightness until player
+recovery, then the attempt resets. A brief zero-HP rescue pauses new ignition and
+resumes without a reset. Leaving the room, Hadeon's retreat, or an HP reset
+cannot light or rewind positions; new HP progress resumes when combat returns.
+Victory forces full lighting and the existing crystal cue still holds full
+brightness before its three 0.75-second dimming steps and final off state.
+Hallway lighting is unchanged.
+
+DarkScript compilation and the focused source simulation pass. The simulation
+covers all eleven death tiers, HP threshold boundaries, unloaded boss HP,
+rescued zero HP, confirmed death and retry, retreat and re-entry, full-brightness
+fixtures, victory and crystal fade. A native allocation scan found no collisions
+for the new temporary flags or event IDs in 598 event files and 194 regulation
+members. Game rendering, timing and frame cost remain to be checked in game;
+the existing ER-109/110 acceptance remains pending.
+
+
 Death follow-up (1.3.1, deployed)
 --------------------------------
 

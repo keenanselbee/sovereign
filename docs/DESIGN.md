@@ -1,64 +1,10 @@
 Sovereign feature design
 =======================
 
-Current 1.3.3 implementation: aid waits three continuous eligible seconds,
-then ramps over ten seconds in twenty five-point steps to 2x HP/FP/stamina maxima
-and outgoing damage. Guard stamina cost reaches 0.5x (twice the endurance per
-stamina point; approximately four times full-bar endurance with doubled stamina).
-Resource percentages, spending protection and ten-second withdrawal remain.
-Hadeon returns visibly to his original position facing the barrier; hallway
-lights wait one continuous second outside before switching off. See
-[implementation and verification](test-results/2026-09-25-opening-followup.md).
-Native/source checks are distinct from pending in-game acceptance.
-
-Approved 1.2.6: [Nemesis's aid](HADEON-AID-UPDATE.md) visibly builds over ten
-seconds on Hadeon arena entry, reaches +50% resource maxima/damage/guard
-endurance, holds during the encounter and withdraws over ten seconds after
-victory or departure. Withdrawal must not kill a living player; it is not a
-repeated resource refill. The sustained shard aura is cosmetic. Actual player
-death clears the aid; Oath healing remains outside this change.
-
-The [1.2.5 Hadeon correction](HADEON-RESET-1.2.5.md) confirms sustained zero HP
-before encounter/lighting/milestone resets, cancels recovered retreat requests,
-and removes the light ignition flashes. Native/source checks pass; game retest
-is still required.
-
-The author-approved [1.2.4 opening support update](OPENING-SUPPORT-1.2.4.md)
-restores movement scaling with bounded diagnostics, corrects room ignition flags,
-adds the Ultimate lesson and an ordinary lethal-hit beginner rescue. Generic
-Ultimates, including Obliterator's generic fallback, gain launch back; custom
-signature paths remain unchanged. Game acceptance is pending.
-
-The [Rick visible transition](RICK-ENCOUNTER-UPDATE.md) is now implemented locally
-and synced to editors, awaiting deployment/game testing: stance-break bait at 25%
-HP, two-second golden warning, one charged burst at 75% base attack power,
-Hoarah vocal and a visible actor swap. Every attempt starts with the soldier;
-only final victory persists. No percentage-HP damage or black fade is used.
-
-Approved room follow-up: remove the two ceiling Grafted Scions; illuminate the
-boss room through a short randomized ignition sequence, then retain HP-based
-brightness and Nemesis gaze pulses. Hallway candles switch off outside their own
-boxes while Hadeon lives, remain on after victory, and switch off after crystal
-destruction. See [the implementation record](HADEON-LIGHTING-UPDATE.md).
-
-Version 1.1.6 corrects the [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md):
-82 room candles use grouped red-light presets preserving their source settings.
-The 74 particle flames stay continuous; eight other assets use illumination only.
-Models and hallway controls remain unchanged; visual/performance playtests are pending.
-
-The 1.1.4 [Hadeon lighting update](HADEON-LIGHTING-UPDATE.md) adds staged brazier
-illumination, brief gaze surges, victory/crystal hallway states and a five-second
-crystal cue followed by room dimming. In-game visual and performance checks are pending.
-
-The 1.1.0 [Chapel reward update](CHAPEL-SHARD-UPDATE.md) replaces the maiden's
-Wizened Finger with one existing Darklight Shard and moves the finger to Kale for
-100 runes. The [1.1.1 Chapel fix](CHAPEL-POLISH-UPDATE.md) removes the remaining
-finger restriction and ground message, revises shard text, and completes omen VFX.
-
-The 1.0.9 [opening update](BEGINNER-OPENING-UPDATE.md) adds the 45-second
-beginner rescue, grants Hadeon Thorn Ward at both 75% and 50%, separates the left
-imp flag from vanilla, softens the key knight, adds the initial Chapel omen and
-suppresses the exit omen after crystal destruction. Gameplay acceptance is pending.
+Current implementation summaries are routed through the
+[feature evidence index](MECHANICS.md#feature-evidence-owners). This guide owns
+design intent, not a second copy of each release report.
+Earlier preface summaries remain in [history](history/feature-summary-history.md).
 
 Living design document, established 2026-09-11. Sovereign's author designed its
 custom mechanics and is the authority on their intent. This document records that
@@ -84,7 +30,12 @@ teaching encounter. The 2026-09-25 decision moves Jump to Evade to three seconds
 after room entry instead of after three failed attempts, with Deflection before
 the earlier added knight (18002658, two-second delay) and Ultimate Attacks at
 Soldier of Godrick (one second after admission). This sequence is implemented
-in 1.3.2; the two-field stomp trial is not yet verified jump-only behavior. See
+in 1.3.2. On 2026-09-26 the author confirmed Hadeon's two-field trial works and
+authorized the first fourteen-row priority batch and deployment. The thirteen
+additional rows still need individual gameplay tests. The author then explicitly
+requested all 47 reviewed candidates and deployment; 1.3.5 adds the remaining
+33 rows without changing damage or collision. This is implementation approval,
+not gameplay acceptance of those families. See
 [the ground-stomp goal and investigation](GROUND-STOMP-GOAL.md).
 
 **Confirmed 2026-09-23:** Reserve tutorial popups for important Sovereign mechanics.
@@ -97,8 +48,9 @@ and pending gameplay checks.
 **Confirmed by the author:** Sovereign is balanced around using Oaths and the
 powerful tools available to the player. Its difficulty is deliberate. The opening
 can nevertheless be excessively difficult, particularly with Nemesis enemies.
-Defeating Hadeon releases Nemesis narratively; breaking the crystal separately
-starts the deliberate hardcore mode.
+Nightmare difficulty names that challenge. Hadeon's defeat grants access to the
+prison; the crystal's destruction releases Nemesis. The planned Nemesis Unbound
+story stage and final confrontation are documented in [the deferred design](nemesis-unbound.md).
 
 The design task is to preserve this demanding game and its extraordinary rewards
 while making the intended tools, commitments and counters understandable. Strong
@@ -151,6 +103,21 @@ Combat and controls
 
 ### Deflection and active defense
 
+**Author-approved 2026-09-28:** four deflect charges last seven seconds, refreshed
+by each successful deflect. Preserve the existing PvE guard-counter bonuses
+(20/40/60/80 percent). A confirmed critical consumes all charges and snapshots
+a 10/20/30/40 percent critical-only bonus through its complete animation.
+Ordinary attacks and special grab skills are excluded. Teach duration and
+critical consumption in the Deflection tutorial. See the
+[implementation recipe](../src/recipes/deflect-critical/README.md); game acceptance
+remains required for animation reporting and talisman stacking.
+
+**Author-approved stamina trial, 2026-09-27:** successful deflects should use
+75% of their previous stamina cost and remain viable through exhaustion without
+a stamina guard break. Ordinary blocks retain their risk. Version 1.4.6 reduces
+the five cost multipliers and trials a depleted timed-guard reaction/floor;
+native protection and grip interactions require [game acceptance](test-results/2026-09-27-deflect-hadeon-trial.md).
+
 **Author-approved timing trial, 2026-09-19:** extend the opening deflect window
 from 0.2 to 13/60 seconds, leaving shorter repeat-attempt windows and other
 mechanics intact. Implemented in the repository; see the
@@ -184,7 +151,8 @@ prerequisite and the beam's buff refresh in that fix. The charging change is sti
 pending; the intended rule is settled.
 
 **Implementation evidence:** common event 5750015 advances meter effects 277-287
-through ten steps using trigger 101990. Kills feed that trigger through 5750018.
+through ten steps using trigger 101990. From 1.6.7, only deflections feed that
+trigger; kill event 5750018 retains its other rewards but no longer adds charge.
 The player functions `ModUltimateAttack` and `ModUltimateAttackConditions` select
 the input/animation path and weapon-specific buff prerequisites. Weapon 23085000
 currently supplies resident effect 287, bypassing ordinary charging. Removing that
@@ -361,6 +329,41 @@ and what recovery follows failure as well as success.
 
 ### Hadeon, the shrine and crystal release
 
+**Author-approved 2026-09-28, periodic refinement:** the 15-30-second combat
+teleport cooldown should work during melee. Once elapsed, retain its request
+through dialogue or an unavailable landing until a safe action boundary. Keep
+both participants inside the valid arena and clear each landing by 2.5 m from
+both. Successful Vortex relocation shares the cooldown; actual encounter
+invalidation resets it. See [1.6.2 verification](test-results/2026-09-28-hadeon-periodic-162.md).
+
+**Author-approved 2026-09-28:** Ordovis's Vortex accelerates in four HP tiers
+from normal to double speed, with a modest increase in selection weight and
+25-75% chance of relocating one real second before its slam. Choose an eligible
+nearest marker near the player, retain landing clearance, and snapshot the tier
+at attack start. The initial trial accelerates recovery too; fairness remains a
+gameplay check. Entrance speech admits at 30 m, and its final phrase posts from
+the relocated Hadeon. See [implementation](test-results/2026-09-28-hadeon-vortex.md).
+
+
+**Author-approved 2026-09-27:** the first attempt receives no Nemesis stat aid,
+shield stamina discount, room rescue, threshold Thorn Wards or 25% wail/damage.
+Each genuine combat loss adds 20 percentage points of future aid, capped at
+100% after five losses; rescue elsewhere remains. A victory before any such loss
+earns the special remembrance line and Stormblessed Zweihander through its existing
+item lot and pickup receipt, alongside the normal reward. First entrance and
+first half-health speeches are once per journey; later attempts use short random
+pools. Player-death lines begin at death, without waiting for the return teleport.
+See [implementation and acceptance](test-results/2026-09-27-hadeon-progression.md).
+
+**Author clarification, 2026-09-27:** falling off the bridge and dying during
+Hadeon's fight is a failed attempt. Exclude survived falls/recovery teleports,
+not fatal combat falls. Fatal below-arena falls remain counted but do not play
+a player-killed voice or subtitle in 1.5.6. See the [1.4.5 correction](test-results/2026-09-27-hadeon-fatal-falls.md).
+
+For his proposed origin as the first leader of the Crucible Knights and his
+allegiance to Hoarah Loux, see [Hadeon's lore](hadeon-lore.md). This character
+history is a writing proposal, separate from the encounter's implementation.
+
 **Author-confirmed 2026-09-23:** Nemesis is sealed in the Stranded Graveyard.
 Two statues each consume one Stonesword Key and open their own barrier layer,
 turning their corresponding guide torch red. A Partisan Godrick Knight before
@@ -386,8 +389,10 @@ Implemented in the repo; gameplay and deployment remain pending. See the
 [investigation](HADEON-ENCOUNTER-REVIEW.md) retains historical findings and superseded
 deflection-credit proposals; no extra deflect meter is part of the accepted change.
 
-**Confirmed intent:** Hadeon's defeat releases Nemesis into the world in the
-narrative; deliberately breaking the crystal starts hardcore. The existing accepted
+**Current intent, 2026-09-27:** Hadeon's defeat opens access to the prison; crystal
+destruction releases Nemesis and will lead into the planned Nemesis Unbound story
+stage. Weapon-specific seal damage and a final confrontation are deferred, as
+described in [the story design](nemesis-unbound.md). The existing accepted
 implementation uses destruction of crystal entity 18002346 after Hadeon as the
 persistent choice. Following Nemesis suppresses that state; leaving the follower
 state restores it when the crystal has been broken.
@@ -421,6 +426,20 @@ placement. The first transformation uses the soldier's last position and Hoarah
 Loux vocal 472108006; it should remain hittable without taking damage or staggering.
 Awakening lasts for the journey. The beginner rescue should use the normal Nemesis
 blessing visuals without changing its existing heal, cooldown or eligibility.
+
+**Opening defaults, confirmed 2026-09-28:** new characters should receive HP flasks
+in the left pouch shortcut and FP flasks in the right, without automatic quick-item
+assignment. Players retain manual equipment choices. The empty-flask parameter
+trial must verify native slot mapping and charge conversion without changing the
+normal three-HP/one-FP grant. Soldier/Rick music must survive beginner rescue from
+transient zero HP and stop on actual death, victory or map departure. This change
+does not add a minimum-HP floor. See [implementation and pending game checks](test-results/2026-09-28-opening-pouch-music.md).
+
+**Memory of Grace, confirmed 2026-09-28:** retain its native reusable return to the
+last visited grace, animation and restrictions, but remove rune loss. Its English
+effect description and confirmation should describe the destination without
+mentioning runes. Keep the item name and surrounding lore. See
+[implementation and pending game checks](test-results/2026-09-28-memory-of-grace-171.md).
 
 **Confirmed intent, 2026-09-11:** Malenia is defeated through mastery of deflecting
 her attacks, which should award her no healing. Maliketh and Destined Death are
@@ -769,3 +788,27 @@ Keep the earlier review as history, with explicit supersession notes where neede
 Record actual game observations through [TEST-MATRIX.md](../TEST-MATRIX.md), not
 by relabeling source inspection as a passed test. Local documentation changes do
 not imply that Nexus copy or a deployed package has changed.
+
+Hadeon room progression, approved 2026-09-28
+-------------------------------------------
+
+Red room illumination expresses cumulative losses and current fight progress.
+Each counted death supplies 7.5 percent of the 96-position starting baseline,
+capped at 75 percent after ten deaths. Lost boss HP lights the remaining
+positions, reaching every position at victory. Keep the established shuffled
+order, latch illumination during an attempt, freeze it during death, and
+reinitialize from the new baseline on retry. Lit positions use consistent
+normal intensity; crystal presentation keeps its override and fade.
+See [implementation and acceptance](test-results/2026-09-28-hadeon-followup-160.md).
+
+
+Hadeon refinement, 2026-09-28
+-----------------------------
+
+Counted deaths now unlock +10% Nemesis aid each, capped at +100% after ten deaths.
+The existing twenty 5% stat tiers retain their gradual entry/exit ramp. Rescue
+cooldown remains 40 seconds without aid, descending to 20 after ten counted deaths.
+Room lighting retains its separate 7.5-percentage-point baseline per death,
+capped at 75%; map-load/respawn preparation precedes room visibility. Active boss
+HP controls further ignition, with explicit threshold revalidation after any
+readiness interruption. See [the integration record](test-results/2026-09-28-lighting-aid-161.md).
