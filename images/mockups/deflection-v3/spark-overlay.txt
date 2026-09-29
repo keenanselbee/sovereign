@@ -1,0 +1,8 @@
+Mode: built-in imagegen, transparent overlay edit, 2026-09-26.
+Reference: scene.png.
+Output: spark-overlay.png, 1594x986 RGBA. Verified 1,086,728 fully transparent
+pixels and 484,956 semitransparent pixels; corner alpha is zero.
+Recreated spark effect, not a pixel-exact extraction. Manually align and scale.
+
+Prompt:
+Use case: background-extraction / compositing. Create a reusable transparent PNG spark overlay from the supplied deflection combat illustration. Isolate ONLY the bright metal-on-metal deflection spark burst at the shield impact, closely matching its existing shape: compact white-hot core, bright yellow-gold inner needles, orange-gold outward streaks, scattered fine ember particles, long rays radiating chiefly upper-right and lower-right, a few shorter leftward rays. Remove EVERYTHING else: no knight, enemy, shield, sword, cave, ground, scenery, UI, frame, text, smoke cloud or opaque background. Real RGBA transparency, not a black or checkerboard background. Preserve soft semitransparent glow around the sparks and clean feathered alpha for normal layer compositing, no dark fringe. Keep the source image's full 34:21 landscape canvas and the spark origin at approximately x=45.5% and y=38.5% so this overlay aligns when stretched to the same canvas dimensions as the combat illustration. Keep all rays inside canvas with generous transparent margins. Only luminous sparks and their very local glow are visible. One standalone transparent overlay, faithful to the supplied burst rather than a generic symmetrical star or explosion.
