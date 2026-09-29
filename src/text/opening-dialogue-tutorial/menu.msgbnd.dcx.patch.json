@@ -21,6 +21,12 @@
     "file": "TutorialBody.fmg",
     "id": 302400,
     "before": "Tap Guard just before an attack connects to deflect it. You can guard with a shield or a weapon held in both hands.\n\nTime each block carefully and watch your stamina. Successful deflections also charge your weapon's ultimate.\n\n<?keyicon@24?> just before impact: Deflect",
-    "after": "Tap Guard just before an attack connects to deflect it. Guard with a shield or a weapon held in both hands.\n\nDeflect in quick succession to build up to four charges and greatly increase guard-counter damage. Successful deflections also charge your weapon's ultimate.\n\n<?keyicon@24?> just before impact: Deflect\n<?keyicon@23?> after blocking: Guard Counter"
+    "after": "Tap Guard just before an attack connects to deflect it. Guard with a shield or a weapon held in both hands. Holding your weapon in both hands reduces the stamina consumed by deflection.\n\nDeflect successive attacks to build up to four charges, increasing guard-counter and critical-hit damage. Each successful deflection refreshes their seven-second duration. Guard counters and critical hits consume all charges. Successful deflections also charge your weapon's ultimate.\n\n<?keyicon@24?> just before impact: Deflect\n<?keyicon@23?> after blocking: Guard Counter"
+  },
+  {
+    "file": "TutorialBody.fmg",
+    "id": 5750363,
+    "before": "Successful deflections and defeated enemies build toward your weapon's Ultimate attack. Watch the Ultimate icon fill to see when it's ready.\n\nOnce ready, tap Block and Heavy Attack simultaneously to unleash your weapon's Ultimate. Press both together rather than holding Block first.\n\nUltimates unleash powerful attacks whose effects vary by weapon.",
+    "after": "Successful deflections build toward your weapon's Ultimate attack. Watch the Ultimate icon fill. A burst of sparks signals that your Ultimate is ready.\n\nOnce ready, tap Block and Heavy Attack simultaneously to unleash your weapon's Ultimate. Press both together rather than holding Block first.\n\nUltimates unleash powerful attacks whose effects vary by weapon."
   }
 ]

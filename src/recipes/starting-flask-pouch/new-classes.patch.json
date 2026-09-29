@@ -1,0 +1,41 @@
+{
+  "sourceHash": "34412ed6124f94222c49032a5f9c1075dd919ebc6d19073a61a3730bfceaf37c",
+  "changes": [
+    {
+      "table": "CharaInitParam",
+      "id": 3010,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3011,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    }
+  ]
+}

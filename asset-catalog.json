@@ -3,6 +3,22 @@
   "runtimeRoot": "mod",
   "groups": [
     {
+      "id": "hadeon-audio-test",
+      "scope": "audio",
+      "package": "main",
+      "recipe": "wwise-bank",
+      "files": [
+        "sd/cs_c9998.bnk"
+      ],
+      "editing": {
+        "mode": "source",
+        "inputs": [
+          "src/audio/hadeon"
+        ],
+        "note": "Hadeon entrance monologue and native subtitle carrier cues; embedded PCM and native-format bank graph. Rebuild and validate before accepting runtime."
+      }
+    },
+    {
       "id": "regulation",
       "scope": "params",
       "package": "main",
@@ -296,6 +312,7 @@
         "script/talk/m00_00_00_00.talkesdbnd.dcx",
         "script/talk/m11_00_00_00.talkesdbnd.dcx",
         "script/talk/m11_10_00_00.talkesdbnd.dcx",
+        "script/talk/m18_00_00_00.talkesdbnd.dcx",
         "script/talk/m60_00_00_00.talkesdbnd.dcx",
         "script/talk/m61_00_00_00.talkesdbnd.dcx"
       ],
@@ -345,6 +362,50 @@
           "images/mockups/deflection-v3"
         ],
         "note": "Qualified reviewed DDS or image recipe changes preserve untouched texture members; paired archives remain coordinated."
+      }
+    },
+    {
+      "id": "hadeon-ai",
+      "scope": "ai",
+      "package": "main",
+      "recipe": "lua-logic-binder",
+      "files": [
+        "script/250090_logic.luabnd.dcx",
+        "script/250091_battle.luabnd.dcx"
+      ],
+      "editor": {
+        "root": "smithbox",
+        "stripPrefix": "",
+        "base": ""
+      },
+      "editing": {
+        "mode": "source",
+        "inputs": [
+          "src/ai/hadeon"
+        ],
+        "note": "Private Hadeon logic and battle clone; build and verify native Lua/binder registration before accepting. Shared battle250010 remains unchanged."
+      }
+    },
+    {
+      "id": "hadeon-animations",
+      "scope": "ai",
+      "package": "main",
+      "recipe": "c2500-vortex",
+      "files": [
+        "chr/c2500.anibnd.dcx",
+        "chr/c2500.behbnd.dcx"
+      ],
+      "editor": {
+        "root": "animations",
+        "stripPrefix": "chr",
+        "base": "_Default"
+      },
+      "editing": {
+        "mode": "source-overlay",
+        "inputs": [
+          "src/recipes/hadeon-vortex-animation"
+        ],
+        "note": "Private c2500 routes; native TAE and graph qualification required. Preserve original 3028 and all other records. Packed DSAnimStudio _Default inputs are authoritative; no loose tree or saved project existed at initial acceptance."
       }
     }
   ],
@@ -455,9 +516,32 @@
       "patterns": [
         "**/*"
       ]
+    },
+    {
+      "id": "talk-source-m18_00_00_00",
+      "scope": "talk",
+      "mode": "overlay",
+      "repo": "src/talk/m18_00_00_00-talkesdbnd-dcx",
+      "editorRoot": "scripts",
+      "editor": "talk/m18_00_00_00-talkesdbnd-dcx",
+      "patterns": [
+        "**/*"
+      ]
     }
   ],
   "sourceRecipes": [
+    {
+      "source": "src/recipes/deflect-critical/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/audio/hadeon/build.py",
+      "output": "sd/cs_c9998.bnk"
+    },
+    {
+      "source": "src/recipes/hadeon-audio-test/Program.cs",
+      "output": "regulation.bin"
+    },
     {
       "source": "src/text/opening-dialogue-tutorial/item_dlc02.msgbnd.dcx.patch.json",
       "output": "msg/engus/item_dlc02.msgbnd.dcx"
@@ -483,12 +567,124 @@
       "output": "map/MapStudio/m18_00_00_00.msb.dcx"
     },
     {
-      "source": "src/textures/deflection-tutorial/build.ps1",
+      "source": "src/textures/tutorial/build.ps1",
       "output": "menu/hi/00_solo.tpfbhd"
     },
     {
-      "source": "src/textures/deflection-tutorial/build.ps1",
+      "source": "src/textures/tutorial/build.ps1",
       "output": "menu/hi/00_solo.tpfbdt"
+    },
+    {
+      "source": "src/recipes/hadeon-dialogue/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/hadeon-dialogue/Program.cs",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-dialogue/menu.msgbnd.dcx.patch.json",
+      "output": "msg/engus/menu.msgbnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-dialogue/menu_dlc01.msgbnd.dcx.patch.json",
+      "output": "msg/engus/menu_dlc01.msgbnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-dialogue/menu_dlc02.msgbnd.dcx.patch.json",
+      "output": "msg/engus/menu_dlc02.msgbnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-ai-params/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/hadeon-ai-params/Program.cs",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/ai/hadeon/build.ps1",
+      "output": "script/250090_logic.luabnd.dcx"
+    },
+    {
+      "source": "src/ai/hadeon/build-battle.ps1",
+      "output": "script/250091_battle.luabnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-periodic-ai/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/hadeon-aid-refinement/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/hadeon-dialogue-proxy/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/hadeon-dialogue-proxy/Program.cs",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-vortex-animation/Program.cs",
+      "output": "chr/c2500.anibnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-vortex-animation/Program.cs",
+      "output": "chr/c2500.behbnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-vortex-animation/build-graph.py",
+      "output": "chr/c2500.behbnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-vortex-markers/Program.cs",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/hadeon-vortex-map/Program.cs",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-lighting-progression/generate.mjs",
+      "output": "event/m18_00_00_00.emevd.dcx"
+    },
+    {
+      "source": "src/recipes/starting-flask-pouch/new-classes.patch.json",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/cave-message/Program.cs",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/recipes/starting-flask-pouch/whistle-zero-quantity.patch.json",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/memory-of-grace/params.patch.json",
+      "output": "regulation.bin"
+    },
+    {
+      "source": "src/recipes/memory-of-grace/text.patch.json",
+      "output": "msg/engus/item_dlc02.msgbnd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-teleport/Program.cs",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-teleport/destinations.json",
+      "output": "map/MapStudio/m18_00_00_00.msb.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-teleport/generate-selector.py",
+      "output": "event/m18_00_00_00.emevd.dcx"
+    },
+    {
+      "source": "src/recipes/hadeon-teleport/regions.json",
+      "output": "event/m18_00_00_00.emevd.dcx"
     }
   ],
   "externalFiles": [

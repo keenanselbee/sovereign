@@ -5,6 +5,12 @@ The existing folders contain editable sources and modified-file overlays.
 `asset-catalog.json` owns qualified source/editor mappings. A loose extraction
 does not automatically become a complete or qualified rebuild input.
 
+Hadeon's entrance audio is authored under `audio/hadeon/`.
+`recipes/hadeon-audio-test/` owns the original additional-bank NPC patch;
+`recipes/hadeon-dialogue/` owns subtitle parameter/map/text additions, with the
+talk source in `talk/m18_00_00_00-talkesdbnd-dcx/`. See the
+[monologue report](../docs/test-results/2026-09-26-hadeon-monologue.md).
+
 Recovered members, 2026-09-25
 ----------------------------
 
@@ -66,3 +72,10 @@ editor mapping or automatic rebuild is inferred. HKS, name lists, maps and
 regulation remain directly editable in their established locations. See
 [the workflow commands](../docs/WORKFLOW-COMMANDS.md) and
 [archived baseline inventory](../docs/BASELINE-INVENTORY.md).
+
+Hadeon Vortex authoring uses `recipes/hadeon-vortex-animation/` for qualified
+private c2500 TAE/graph routes, `recipes/hadeon-vortex-markers/` for neutral
+SpEffects and `recipes/hadeon-vortex-map/` for landing eligibility spheres.
+The c2500 packed archives sync together to DSAnimStudio `_Default/` through
+the `hadeon-animations` group (AI scope); they do not alter player archives.
+See [the implementation report](../docs/test-results/2026-09-28-hadeon-vortex.md).

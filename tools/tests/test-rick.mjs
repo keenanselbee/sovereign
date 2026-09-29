@@ -25,12 +25,14 @@ function suspend(code, name, wrap) {
 }
 function encounter(flags = []) {
   const state = { flags: new Set(flags), hp: new Map([[player, 500], [soldier, 1000], [rick, 1000]]),
-    admitted: false, loaded: true, critical: false, calls: [], effects: new Set() };
+    admitted: false, loaded: true, critical: false, inMap: true, dead: false, host: true,
+    calls: [], effects: new Set() };
   const api = { ON: true, OFF: false, Enabled: 1, Disabled: 0, L9: 9,
     CharacterUpdateFrequency: { AlwaysUpdate: 0 }, TargetEntityType: { Character: 0 },
     BossBGMState: { Start: 1, Stop1: 0 }, SoundType: { CharacterMotion: 1, SFX: 5 },
-    PlayerIsInOwnWorld: () => true, PlayerInMap: () => true,
+    PlayerIsInOwnWorld: () => state.host, PlayerInMap: () => state.inMap,
     EventFlag: id => state.flags.has(id), CharacterHPValue: id => state.hp.get(id),
+    CharacterDead: id => id === player && state.dead,
     HPRatio: id => state.hp.get(id) / 1000, InArea: () => state.admitted,
     CharacterBackreadStatus: () => state.loaded, ElapsedSeconds: () => true,
     CharacterHasSpEffect: (id, effect) => effect === 18480 ? state.critical : state.effects.has(`${id}:${effect}`),
@@ -57,7 +59,10 @@ function encounter(flags = []) {
     return {
       step() {
         if (done || (typeof pending === 'function' && !pending())) return false;
-        try { const next = iterator.next(); pending = next.value; done = next.done; }
+        try {
+          const next = iterator.next(); pending = next.value; done = next.done;
+          if (done && cleanup) vm.runInContext(cleanup, context);
+        }
         catch (error) {
           if (!['end', 'cleanup'].includes(error)) throw error;
           if (error === 'cleanup') vm.runInContext(cleanup, context);
@@ -164,6 +169,100 @@ test('retry music starts phase one even with the obsolete awakening flag', () =>
   assert(!s.calls.some(c => c[0] === 'SetBossBGM' && c[1] === 219000 && c[2] === 1));
   s.flags.add(18002851); music.drain(); s.flags.add(18002852); music.drain();
   assert(s.calls.some(c => c[0] === 'SetBossBGM' && c[1] === 219000 && c[2] === 1));
+});
+
+function musicCalls(state) {
+  return state.calls.filter(call => call[0] === 'SetBossBGM');
+}
+
+function activeMusic(phase) {
+  const state = encounter([18002855]);
+  state.admitted = true;
+  const music = state.start(18002862);
+  music.drain();
+  if (phase === 2) {
+    state.flags.add(18002851);
+    music.drain();
+    state.flags.add(18002852);
+    music.drain();
+  }
+  return { state, music };
+}
+
+test('rescued zero HP preserves each phase cue without replay', () => {
+  for (const phase of [1, 2]) {
+    const { state, music } = activeMusic(phase);
+    const before = musicCalls(state);
+    for (let attempt = 0; attempt < 2; attempt++) {
+      state.hp.set(player, 0);
+      music.drain();
+      assert.deepEqual(musicCalls(state), before);
+      state.hp.set(player, 500);
+      music.drain();
+      assert.deepEqual(musicCalls(state), before);
+    }
+    state.hp.set(player, 0);
+    state.flags.add(1055425042);
+    music.drain();
+    assert.deepEqual(musicCalls(state).slice(-2), [
+      ['SetBossBGM', 931000, 0], ['SetBossBGM', 219000, 0]]);
+  }
+});
+
+test('zero HP during admission or the phase handoff does not end music', () => {
+  const state = encounter([18002855]);
+  state.admitted = true;
+  state.hp.set(player, 0);
+  const music = state.start(18002862);
+  music.drain();
+  assert.deepEqual(musicCalls(state).slice(-1), [['SetBossBGM', 931000, 1]]);
+  state.flags.add(18002851);
+  music.drain();
+  assert.deepEqual(musicCalls(state).slice(-1), [['SetBossBGM', 931000, 0]]);
+  state.flags.add(18002852);
+  music.drain();
+  assert.deepEqual(musicCalls(state).slice(-1), [['SetBossBGM', 219000, 1]]);
+  state.hp.set(player, 500);
+  music.drain();
+  assert.equal(musicCalls(state).filter(call => call[1] === 219000 && call[2] === 1).length, 1);
+});
+
+test('victory and map departure stop music immediately during rescued zero HP', () => {
+  for (const phase of [1, 2]) {
+    for (const reason of ['victory', 'departure']) {
+      const { state, music } = activeMusic(phase);
+      state.hp.set(player, 0);
+      music.drain();
+      if (reason === 'victory') state.flags.add(18000850);
+      else state.inMap = false;
+      music.drain();
+      assert.deepEqual(musicCalls(state).slice(-2), [
+        ['SetBossBGM', 931000, 0], ['SetBossBGM', 219000, 0]]);
+    }
+  }
+});
+
+test('visiting player music waits for native death, not a rescued zero-HP frame', () => {
+  const state = encounter([18002855, 18002856]);
+  state.host = false;
+  state.admitted = true;
+  const music = state.start(18002862);
+  music.drain();
+  const before = musicCalls(state);
+  state.hp.set(player, 0);
+  music.drain();
+  assert.deepEqual(musicCalls(state), before);
+  state.dead = true;
+  music.drain();
+  assert.deepEqual(musicCalls(state).slice(-2), [
+    ['SetBossBGM', 931000, 0], ['SetBossBGM', 219000, 0]]);
+});
+
+test('host death confirmation waits through the rescue window', () => {
+  const confirmation = body(5750402);
+  assert(confirmation.includes('WaitFor(ElapsedSeconds(0.5) || CharacterHPValue(10000) > 0)'));
+  assert(confirmation.includes('RestartIf(CharacterHPValue(10000) > 0 || CharacterHasSpEffect(10000, 1627125))'));
+  assert(confirmation.indexOf('SetEventFlagID(1055425042, ON)') > confirmation.indexOf('ElapsedSeconds(0.5)'));
 });
 
 test('warning and vocal contain no fade or player animation freeze', () => {

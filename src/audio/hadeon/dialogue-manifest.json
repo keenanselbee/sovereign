@@ -1,0 +1,72 @@
+{
+  "bankId": 1155255848,
+  "selectorFlagBase": 1055425200,
+  "activeFlag": 1055422946,
+  "lines": [
+    {"index": 0, "key": "entrance-first", "recording": "hadeon-entrance-first.wav", "soundId": 999800001, "stopAlias": 999800002, "finalSegment": {"soundId": 999800003, "stopAlias": 999800004, "start": 13.1}, "talkParamBase": 99980000, "textBase": 999800000, "carrierBase": 999800010, "cues": [
+      {"start": 0.0, "text": "Begone from this place."},
+      {"start": 2.75, "text": "Long have I kept mine oath."},
+      {"start": 5.55, "text": "Older still, the hunger here bound."},
+      {"start": 9.15, "text": "His whispers draw thee hither..."},
+      {"start": 13.1, "text": "to my blade.", "end": 14.8}
+    ]},
+    {"index": 1, "key": "entrance-unyielding", "recording": "hadeon-entrance-unyielding.wav", "soundId": 999800100, "stopAlias": 999800200, "talkParamBase": 99980110, "textBase": 999801100, "carrierBase": 999801100, "cues": [
+      {"start": 0.0, "text": "Thou shalt find me as before."},
+      {"start": 2.85, "text": "Unyielding."},
+      {"start": 4.25, "text": "Forsake these fruitless ambitions.", "end": 7.0}
+    ]},
+    {"index": 2, "key": "entrance-promise", "recording": "hadeon-entrance-promise.wav", "soundId": 999800101, "stopAlias": 999800201, "talkParamBase": 99980120, "textBase": 999801200, "carrierBase": 999801200, "cues": [
+      {"start": 0.0, "text": "Doth his promise grow sweeter with each defeat?", "end": 3.7}
+    ]},
+    {"index": 3, "key": "entrance-another-defeat", "recording": "hadeon-entrance-another-defeat.wav", "soundId": 999800102, "stopAlias": 999800202, "talkParamBase": 99980130, "textBase": 999801300, "carrierBase": 999801300, "cues": [
+      {"start": 0.0, "text": "Each defeat hath taught thee naught."},
+      {"start": 3.7, "text": "Let this be thy last.", "end": 6.45}
+    ]},
+    {"index": 4, "key": "entrance-hunger", "recording": "hadeon-entrance-hunger.wav", "soundId": 999800103, "stopAlias": 999800203, "talkParamBase": 99980140, "textBase": 999801400, "carrierBase": 999801400, "cues": [
+      {"start": 0.0, "text": "Again thou comest, bearing another’s hunger."},
+      {"start": 4.15, "text": "Then meet thy familiar end.", "end": 6.8}
+    ]},
+    {"index": 5, "key": "half-health-first", "recording": "hadeon-half-health-first.wav", "soundId": 999800104, "stopAlias": 999800204, "talkParamBase": 99980150, "textBase": 999801500, "carrierBase": 999801500, "cues": [
+      {"start": 0.0, "text": "Ngh... Even bound..."},
+      {"start": 2.65, "text": "thy reach grows long, Nemesis."},
+      {"start": 5.35, "text": "Have these lands not bled enough for thee?", "end": 8.9}
+    ]},
+    {"index": 6, "key": "half-health-hunger", "recording": "hadeon-half-health-hunger.wav", "soundId": 999800105, "stopAlias": 999800205, "talkParamBase": 99980160, "textBase": 999801600, "carrierBase": 999801600, "cues": [
+      {"start": 0.0, "text": "Ngh... His chains hold."},
+      {"start": 2.7, "text": "Yet still his hunger grows.", "end": 5.9}
+    ]},
+    {"index": 7, "key": "half-health-surrendered", "recording": "hadeon-half-health-surrendered.wav", "soundId": 999800106, "stopAlias": 999800206, "talkParamBase": 99980170, "textBase": 999801700, "carrierBase": 999801700, "cues": [
+      {"start": 0.0, "text": "Ngh... That strength..."},
+      {"start": 2.35, "text": "what hast thou surrendered?", "end": 5.05}
+    ]},
+    {"index": 8, "key": "half-health-dominion", "recording": "hadeon-half-health-dominion.wav", "soundId": 999800107, "stopAlias": 999800207, "talkParamBase": 99980180, "textBase": 999801800, "carrierBase": 999801800, "cues": [
+      {"start": 0.0, "text": "Ngh... I shall give him no dominion here.", "end": 4.4}
+    ]},
+    {"index": 9, "key": "half-health-oath", "recording": "hadeon-half-health-oath.wav", "soundId": 999800108, "stopAlias": 999800208, "talkParamBase": 99980190, "textBase": 999801900, "carrierBase": 999801900, "cues": [
+      {"start": 0.0, "text": "An oath such as mine yieldeth not.", "end": 4.5}
+    ]},
+    {"index": 10, "key": "player-killed-thousand-times", "recording": "hadeon-player-killed-thousand-times.wav", "soundId": 999800109, "stopAlias": 999800209, "talkParamBase": 99980200, "textBase": 999802000, "carrierBase": 999802000, "cues": [
+      {"start": 0.0, "text": "Rise a thousand times."},
+      {"start": 2.5, "text": "I shall not yield.", "end": 4.5}
+    ]},
+    {"index": 11, "key": "player-killed-worthier", "recording": "hadeon-player-killed-worthier.wav", "soundId": 999800110, "stopAlias": 999800210, "talkParamBase": 99980210, "textBase": 999802100, "carrierBase": 999802100, "cues": [
+      {"start": 0.0, "text": "Find thee a worthier servant.", "end": 2.6}
+    ]},
+    {"index": 12, "key": "player-killed-chosen", "recording": "hadeon-player-killed-chosen.wav", "soundId": 999800111, "stopAlias": 999800211, "talkParamBase": 99980220, "textBase": 999802200, "carrierBase": 999802200, "cues": [
+      {"start": 0.0, "text": "Was this thy chosen?", "end": 2.35}
+    ]},
+    {"index": 13, "key": "player-killed-another-falls", "recording": "hadeon-player-killed-another-falls.wav", "soundId": 999800112, "stopAlias": 999800212, "talkParamBase": 99980230, "textBase": 999802300, "carrierBase": 999802300, "cues": [
+      {"start": 0.0, "text": "Another falls. Thy prison stands.", "end": 4.0}
+    ]},
+    {"index": 14, "key": "death", "recording": "hadeon-death.wav", "soundId": 999800113, "stopAlias": 999800213, "talkParamBase": 99980240, "textBase": 999802400, "carrierBase": 999802400, "cues": [
+      {"start": 0.0, "text": "Fool… wouldst thou doom these lands?"},
+      {"start": 4.2, "text": "Refuse the Bindseal…"},
+      {"start": 6.7, "text": "disturb not the crystal...", "end": 9.75}
+    ]},
+    {"index": 15, "key": "death-nobonus", "recording": "hadeon-death-nobonus.wav", "soundId": 999800114, "stopAlias": 999800214, "talkParamBase": 99980250, "textBase": 999802500, "carrierBase": 999802500, "cues": [
+      {"start": 0.0, "text": "Thy strength… awakens an old remembrance."},
+      {"start": 4.7, "text": "Another stood where thou standest."},
+      {"start": 7.9, "text": "Him… I called lord.", "end": 11.4}
+    ]}
+  ]
+}

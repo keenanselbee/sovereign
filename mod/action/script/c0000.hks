@@ -354,45 +354,58 @@ function ModMovementMultiplier()
             if env(GetStateChangeType, 7501) == TRUE then --  193 Movement Multiplier 1
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.5 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1.5 * 1.2))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.25 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1.25 * 1.2))
                 end
             elseif env(GetStateChangeType, 7502) == TRUE then -- 194 Movement Multiplier 2
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((2 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (2 * 1.2))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.5 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1.5 * 1.2))
                 end
             elseif env(GetStateChangeType, 7503) == TRUE then -- 195 Movement Multiplier 3
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1 * 1.2))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((0.5 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (0.5 * 1.2))
                 end
             elseif env(GetStateChangeType, 7504) == TRUE then -- 196 Movement Multiplier 4
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((2.8 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (2.8 * 1.2))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.9 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1.9 * 1.2))
                 end
             elseif env(GetStateChangeType, 7505) == TRUE then -- 197 Movement Multiplier 5
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.5 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1.5 * 1.2))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1 * 1.2))
                 end
             elseif env(GetStateChangeType, 7506) == TRUE then -- 198 Movement Multiplier 6
+                ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((4 * 1.2))) -- movement capture
                 act(SetMovementScaleMult, (4 * 1.2))
             elseif env(GetStateChangeType, 7507) == TRUE then -- 199 Movement Multiplier 7
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.1 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (1.1 * 1.2))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((0.9 * 1.2))) -- movement capture
                     act(SetMovementScaleMult, (0.9 * 1.2))
                 end
             end
@@ -400,45 +413,58 @@ function ModMovementMultiplier()
             if env(GetStateChangeType, 7501) == TRUE then -- 193 Movement Multiplier 1
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.5 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1.5 * 0.8))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.25 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1.25 * 0.8))
                 end
             elseif env(GetStateChangeType, 7502) == TRUE then -- 194 Movement Multiplier 2
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((2 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (2 * 0.8))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.5 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1.5 * 0.8))
                 end
             elseif env(GetStateChangeType, 7503) == TRUE then -- 195 Movement Multiplier 3
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1 * 0.8))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((0.5 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (0.5 * 0.8))
                 end
             elseif env(GetStateChangeType, 7504) == TRUE then -- 196 Movement Multiplier 4
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((2.8 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (2.8 * 0.8))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.9 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1.9 * 0.8))
                 end
             elseif env(GetStateChangeType, 7505) == TRUE then -- 197 Movement Multiplier 5
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.5 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1.5 * 0.8))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1 * 0.8))
                 end
             elseif env(GetStateChangeType, 7506) == TRUE then -- 198 Movement Multiplier 6
+                ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((4 * 0.8))) -- movement capture
                 act(SetMovementScaleMult, (4 * 0.8))
             elseif env(GetStateChangeType, 7507) == TRUE then -- 199 Movement Multiplier 7
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((1.1 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (1.1 * 0.8))
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring((0.9 * 0.8))) -- movement capture
                     act(SetMovementScaleMult, (0.9 * 0.8))
                 end
             end
@@ -446,50 +472,64 @@ function ModMovementMultiplier()
             if env(GetStateChangeType, 7501) == TRUE then -- 193 Movement Multiplier 1
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1.5)) -- movement capture
                     act(SetMovementScaleMult, 1.5)
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1.25)) -- movement capture
                     act(SetMovementScaleMult, 1.25)
                 end
             elseif env(GetStateChangeType, 7502) == TRUE then -- 194 Movement Multiplier 2
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(2)) -- movement capture
                     act(SetMovementScaleMult, 2)
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1.5)) -- movement capture
                     act(SetMovementScaleMult, 1.5)
                 end
             elseif env(GetStateChangeType, 7503) == TRUE then -- 195 Movement Multiplier 3
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1)) -- movement capture
                     act(SetMovementScaleMult, 1)
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(0.5)) -- movement capture
                     act(SetMovementScaleMult, 0.5)
                 end
             elseif env(GetStateChangeType, 7504) == TRUE then -- 196 Movement Multiplier 4
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(2.8)) -- movement capture
                     act(SetMovementScaleMult, 2.8)
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1.9)) -- movement capture
                     act(SetMovementScaleMult, 1.9)
                 end
             elseif env(GetStateChangeType, 7505) == TRUE then -- 197 Movement Multiplier 5
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1.5)) -- movement capture
                     act(SetMovementScaleMult, 1.5)
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1)) -- movement capture
                     act(SetMovementScaleMult, 1)
                 end
             elseif env(GetStateChangeType, 7506) == TRUE then -- 198 Movement Multiplier 6
+                ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(4)) -- movement capture
                 act(SetMovementScaleMult, 4)
             elseif env(GetStateChangeType, 7507) == TRUE then -- 199 Movement Multiplier 7
                 if env(ActionDuration, ACTION_ARM_L1) > 0 or env(ActionDuration, ACTION_ARM_L2) > 0 or env(ActionDuration, ACTION_ARM_L3) > 0 
                 or env(ActionDuration, ACTION_ARM_R1) > 0 or env(ActionDuration, ACTION_ARM_R2) > 0 then
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(1.1)) -- movement capture
                     act(SetMovementScaleMult, 1.1)
                 else
+                    ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(0.9)) -- movement capture
                     act(SetMovementScaleMult, 0.9)
                 end
             end
         end
         if env(GetStateChangeType, 7703) == TRUE then -- 227 Divinity Air Dash
+            ModMotionTrace("scale", "ModMovementMultiplier:" .. tostring(6)) -- movement capture
             act(SetMovementScaleMult, 6)
         end
     end
@@ -1426,6 +1466,7 @@ function CheckActionRequest()
 end
 
 function ExecStop()
+    ModMotionTrace("dispatch", "ExecStop") -- movement capture
     -- 100200 "[HKS] Gesture Anim"
 
     if GetVariable("MoveSpeedLevel") > 0 and env(GetSpEffectID, 100200) == FALSE then
@@ -1484,6 +1525,7 @@ function ExecStop()
 end
 
 function ExecStopHalfBlend(event, to_idle)
+    ModMotionTrace("dispatch", "ExecStopHalfBlend") -- movement capture
     -- 100200 "[HKS] Gesture Anim"
 
     if GetVariable("MoveSpeedLevel") > 0 and env(GetSpEffectID, 100200) == FALSE then
@@ -6004,6 +6046,7 @@ function IsGuard()
 end
 
 function ExecQuickTurn(blend_type, turn_type)
+    ModMotionTrace("dispatch", "ExecQuickTurn") -- movement capture
     if blend_type == LOWER and IsLowerQuickTurn() == TRUE then
         return FALSE
     end
@@ -6054,6 +6097,7 @@ function ExitQuickTurnLower()
 end
 
 function ExecQuickTurnOnCancelTiming()
+    ModMotionTrace("dispatch", "ExecQuickTurnOnCancelTiming") -- movement capture
     if env(IsMoveCancelPossible) == FALSE then
         return FALSE
     end
@@ -6286,6 +6330,7 @@ function ExecPassiveAction(is_parry, fall_type, is_attackwhileguard)
         return TRUE
     end
     if env(CheckForEventAnimPlaybackRequest) == TRUE then
+        ModMovementEventTrace("eventRequestGate", "ExecPassiveAction") -- movement event trace
         ResetDamageCount()
         ModMotionTrace("gate", "ExecPassiveAction:env(CheckForEventAnimPlaybackRequest)")
         return TRUE
@@ -6387,6 +6432,27 @@ function ModAidResources()
          env(GetMaxStamina)}
 end
 
+function ModHadeonAidDeaths()
+    -- HKS numbers are single-precision: converting arithmetic to text is too
+    -- late to preserve these IDs. Pass saved flags as exact strings.
+    if env(GetEventFlag, "1055420956") == TRUE then return 10 end
+    if env(GetEventFlag, "1055420955") == TRUE then return 9 end
+    if env(GetEventFlag, "1055420954") == TRUE then return 8 end
+    if env(GetEventFlag, "1055420953") == TRUE then return 7 end
+    if env(GetEventFlag, "1055420952") == TRUE then return 6 end
+    if env(GetEventFlag, "1055420934") == TRUE then return 5 end
+    if env(GetEventFlag, "1055420933") == TRUE then return 4 end
+    if env(GetEventFlag, "1055420932") == TRUE then return 3 end
+    if env(GetEventFlag, "1055420931") == TRUE then return 2 end
+    if env(GetEventFlag, "1055420930") == TRUE then return 1 end
+    return 0
+end
+
+function ModHadeonAidCap()
+    -- Twenty existing 5% tiers grant two tiers per counted loss, up to 100%.
+    return ModHadeonAidDeaths() * 2
+end
+
 function ModHadeonAid()
     sovereignAidCalls = sovereignAidCalls + 1
     if sovereignAidStage == -1 then
@@ -6407,6 +6473,11 @@ function ModHadeonAid()
     end
     -- Outside the arena, skip resource reads and timers once withdrawal is complete.
     if not eligible and sovereignAidStage == 0 and not sovereignAidPending then
+        return
+    end
+    local cap = ModHadeonAidCap()
+    if eligible and cap == 0 and sovereignAidStage == 0 and not sovereignAidPending then
+        if env(GetSpEffectID, 1627131) == TRUE then act(ClearSpEffect, 1627131) end
         return
     end
     if env(GetHP) <= 0 then
@@ -6472,7 +6543,10 @@ function ModHadeonAid()
     end
 
     local direction = -1
-    if eligible then direction = 1 end
+    if eligible then
+        if sovereignAidStage < cap then direction = 1
+        elseif sovereignAidStage == cap then direction = 0 end
+    end
     if direction ~= sovereignAidDirection then
         sovereignAidDirection = direction
         sovereignAidTimer = 0
@@ -6480,10 +6554,10 @@ function ModHadeonAid()
         -- Partial blessings also withdraw over ten seconds, rather than abruptly disappearing.
         if direction == -1 and sovereignAidStage > 0 then sovereignAidInterval = 10 / sovereignAidStage end
     end
-    if eligible and env(GetSpEffectID, 1627131) == FALSE then act(AddSpEffect, 1627131) end
-    if (eligible and sovereignAidStage == 20) or (not eligible and sovereignAidStage == 0) then
+    if eligible and cap > 0 and env(GetSpEffectID, 1627131) == FALSE then act(AddSpEffect, 1627131) end
+    if (eligible and sovereignAidStage == cap) or (not eligible and sovereignAidStage == 0) then
         sovereignAidTimer = 0
-        if not eligible and env(GetSpEffectID, 1627131) == TRUE then act(ClearSpEffect, 1627131) end
+        if (not eligible or cap == 0) and env(GetSpEffectID, 1627131) == TRUE then act(ClearSpEffect, 1627131) end
         return
     end
     if sovereignAidTimer < sovereignAidInterval then return end
@@ -6507,8 +6581,14 @@ end
 -- paths cannot both consume a charge. These effects cannot be extended by Divinity.
 function ModBeginnerRescue(lethal)
     if env(GetSpEffectID, 1627122) == FALSE then return FALSE end
-    if env(GetSpEffectID, 1627126) == TRUE then return FALSE end
-    if env(GetSpEffectID, 1627127) == TRUE and env(GetSpEffectID, 1627123) == FALSE then return FALSE end
+    -- The first genuine Hadeon attempt grants no rescue inside his arena.
+    if env(GetEventFlag, "1055425223") == TRUE then return FALSE end
+    if env(GetSpEffectID, 1627126) == TRUE or env(GetSpEffectID, 1627127) == TRUE then return FALSE end
+    -- A rescue keeps the cooldown chosen at consumption even if the player leaves
+    -- or re-enters the arena while it is running.
+    for effect = 1627161, 1627170 do
+        if env(GetSpEffectID, effect) == TRUE then return FALSE end
+    end
     if env(GetSpEffectID, 100690) == TRUE or env(GetSpEffectID, 9621) == TRUE
         or env(GetSpEffectID, 19700) == TRUE or env(GetSpEffectID, 102351) == TRUE
         or env(GetSpEffectID, 9913) == TRUE or env(IsOnLadder) == TRUE
@@ -6527,7 +6607,12 @@ function ModBeginnerRescue(lethal)
         return FALSE
     end
     act(AddSpEffect, 1627126)
-    act(AddSpEffect, 1627127)
+    local cooldown = 1627127
+    if env(GetEventFlag, "1055425233") == TRUE then
+        local deaths = ModHadeonAidDeaths()
+        if deaths > 0 then cooldown = 1627160 + deaths end
+    end
+    act(AddSpEffect, cooldown)
     act(AddSpEffect, 1627125)
     act(ChangeHP, maximum - hp)
     act(AddSpEffect, 1627124)
@@ -6677,6 +6762,25 @@ function ResetDamageCount()
     SetVariable("UseChainRecover", 0)
 end
 
+-- A depleted timed guard must enter the existing deflect reaction, rather than
+-- the earlier guard-break reaction. This only handles a received guarded hit;
+-- an active timing window alone never restores stamina or blocks damage.
+function ModDeflectDamageType(damage_type, is_parry, is_attackwhileguard)
+    if damage_type ~= DAMAGE_TYPE_GUARDBREAK then return damage_type end
+    if is_parry == TRUE or is_attackwhileguard == TRUE then return damage_type end
+    if env(GetHP) <= 0 or env(GetStamina) > 0 or env(GetGuardLevelAction) <= 0 then
+        return damage_type
+    end
+    if env(GetSpEffectID, 175) == TRUE or env(GetSpEffectID, 176) == TRUE then
+        return damage_type
+    end
+    if env(GetSpEffectID, 102001) == TRUE or env(GetSpEffectID, 102011) == TRUE
+        or env(GetSpEffectID, 102013) == TRUE or env(GetSpEffectID, 102015) == TRUE then
+        return DAMAGE_TYPE_GUARD
+    end
+    return damage_type
+end
+
 function ExecDamage(is_parry, is_attackwhileguard)
     local damage_level = env(GetDamageLevel)
     local damage_type = env(GetReceivedDamageType)
@@ -6762,6 +6866,7 @@ function ExecDamage(is_parry, is_attackwhileguard)
         return TRUE
     end
 
+    damage_type = ModDeflectDamageType(damage_type, is_parry, is_attackwhileguard)
     if damage_type >= DAMAGE_TYPE_GUARDED and damage_type <= DAMAGE_TYPE_WALL_LEFT then
         DebugPrint(1, damage_type)
         Replanning()
@@ -8186,6 +8291,7 @@ function ThrowCommonFunction(estep)
             return TRUE
         end
         if env(CheckForEventAnimPlaybackRequest) == TRUE then
+            ModMovementEventTrace("eventRequestGate", "ThrowCommonFunction") -- movement event trace
             return TRUE
         end
         if ExecDamage(FALSE) == TRUE then
@@ -9694,20 +9800,24 @@ function Idle_onDeactivate()
 end
 
 function DashStop_onActivate()
+    ModMotionTrace("callback", "DashStop_onActivate") -- movement capture
     act(Wait)
 end
 
 function DashStop_onUpdate()
+    ModMotionTrace("callback", "DashStop_onUpdate") -- movement capture
     if StopCommonFunction(TRUE) == TRUE then
         return
     end
 end
 
 function RunStopFront_onActivate()
+    ModMotionTrace("callback", "RunStopFront_onActivate") -- movement capture
     act(Wait)
 end
 
 function RunStopFront_onUpdate()
+    ModMotionTrace("callback", "RunStopFront_onUpdate") -- movement capture
     SetEnableMimicry()
 
     if StopCommonFunction(FALSE) == TRUE then
@@ -9716,10 +9826,12 @@ function RunStopFront_onUpdate()
 end
 
 function RunStopBack_onActivate()
+    ModMotionTrace("callback", "RunStopBack_onActivate") -- movement capture
     act(Wait)
 end
 
 function RunStopBack_onUpdate()
+    ModMotionTrace("callback", "RunStopBack_onUpdate") -- movement capture
     SetEnableMimicry()
     if StopCommonFunction(FALSE) == TRUE then
         return
@@ -9727,10 +9839,12 @@ function RunStopBack_onUpdate()
 end
 
 function RunStopLeft_onActivate()
+    ModMotionTrace("callback", "RunStopLeft_onActivate") -- movement capture
     act(Wait)
 end
 
 function RunStopLeft_onUpdate()
+    ModMotionTrace("callback", "RunStopLeft_onUpdate") -- movement capture
     SetEnableMimicry()
     if StopCommonFunction(FALSE) == TRUE then
         return
@@ -9738,10 +9852,12 @@ function RunStopLeft_onUpdate()
 end
 
 function RunStopRight_onActivate()
+    ModMotionTrace("callback", "RunStopRight_onActivate") -- movement capture
     act(Wait)
 end
 
 function RunStopRight_onUpdate()
+    ModMotionTrace("callback", "RunStopRight_onUpdate") -- movement capture
     SetEnableMimicry()
 
     if StopCommonFunction(FALSE) == TRUE then
@@ -9819,11 +9935,14 @@ function Rolling_onUpdate()
 
     SetEnableAimMode()
 	-- SACRED Movement Speed
+    ModMotionTrace("scale", "Rolling_onUpdate:" .. tostring(globalRollMultiplier)) -- movement capture
     act(SetMovementScaleMult, globalRollMultiplier)  
     if env(GetStateChangeType, 7784) == TRUE then
         if env(GetStateChangeType, 7997) == TRUE then
+            ModMotionTrace("scale", "Rolling_onUpdate:" .. tostring(4)) -- movement capture
             act(SetMovementScaleMult, 4)
         else
+            ModMotionTrace("scale", "Rolling_onUpdate:" .. tostring(3)) -- movement capture
             act(SetMovementScaleMult, 3)
         end
     end
@@ -9855,11 +9974,14 @@ function Rolling_Selftrans_onUpdate()
 
     SetEnableAimMode()
 	-- SACRED Movement Speed
+    ModMotionTrace("scale", "Rolling_Selftrans_onUpdate:" .. tostring(globalRollMultiplier)) -- movement capture
     act(SetMovementScaleMult, globalRollMultiplier)  
     if env(GetStateChangeType, 7784) == TRUE then
         if env(GetStateChangeType, 7997) == TRUE then
+            ModMotionTrace("scale", "Rolling_Selftrans_onUpdate:" .. tostring(4)) -- movement capture
             act(SetMovementScaleMult, 4)
         else
+            ModMotionTrace("scale", "Rolling_Selftrans_onUpdate:" .. tostring(3)) -- movement capture
             act(SetMovementScaleMult, 3)
         end
     end
@@ -9961,6 +10083,7 @@ function Move_Update()
 end
 
 function Move_onActivate()
+    ModMotionTrace("callback", "Move_onActivate") -- movement capture
     act(SwitchMotion, TRUE)
 end
 
@@ -10038,28 +10161,35 @@ function Move_onUpdate()
     end
 
     if hkbGetVariable("MoveDirection") == 3 or hkbGetVariable("MoveDirection") == 2 then
+        ModMotionTrace("scale", "Move_onUpdate:" .. tostring((base_speed_percent * 96))) -- movement capture
         act(SetMovementScaleMult, (base_speed_percent * 96))
     elseif hkbGetVariable("MoveDirection") == 1 then
+        ModMotionTrace("scale", "Move_onUpdate:" .. tostring((base_speed_percent * 96))) -- movement capture
         act(SetMovementScaleMult, (base_speed_percent * 96))
     elseif hkbGetVariable("MoveDirection") == 0 then
+        ModMotionTrace("scale", "Move_onUpdate:" .. tostring((base_speed_percent * 98))) -- movement capture
         act(SetMovementScaleMult, (base_speed_percent * 98))
     end
     -- SACRED
 end
 
 function MoveNoSync_onActivate()
+    ModMotionTrace("callback", "MoveNoSync_onActivate") -- movement capture
     act(SwitchMotion, TRUE)
 end
 
 function MoveNoSync_onUpdate()
+    ModMotionTrace("callback", "MoveNoSync_onUpdate") -- movement capture
     Move_onUpdate()
 end
 
 function Move_Upper_onActivate()
+    ModMotionTrace("callback", "Move_Upper_onActivate") -- movement capture
     act(Wait)
 end
 
 function Move_Upper_onUpdate()
+    ModMotionTrace("callback", "Move_Upper_onUpdate") -- movement capture
     SetEnableMimicry()
 
     if MoveCommonFunction(UPPER) == TRUE then
@@ -10115,10 +10245,12 @@ function BackStepGuardEnd_Upper_Update()
 end
 
 function GuardStart_Upper_onActivate()
+    ModMotionTrace("callback", "GuardStart_Upper_onActivate") -- movement capture
     act(Wait)
 end
 
 function GuardStart_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardStart_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
 
     if lower_state == LOWER_IDLE then
@@ -10145,10 +10277,12 @@ function GuardStart_Upper_onDeactivate()
 end
 
 function GuardOn_Upper_onActivate()
+    ModMotionTrace("callback", "GuardOn_Upper_onActivate") -- movement capture
     act(Wait)
 end
 
 function GuardOn_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardOn_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
 
     if lower_state == LOWER_IDLE then
@@ -10171,10 +10305,12 @@ function GuardOn_Upper_onDeactivate()
 end
 
 function GuardEnd_Upper_onActivate()
+    ModMotionTrace("callback", "GuardEnd_Upper_onActivate") -- movement capture
     act(Wait)
 end
 
 function GuardEnd_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardEnd_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
 
     if lower_state == LOWER_IDLE then
@@ -10220,11 +10356,13 @@ function JustGuardStartCommonFunction(event)
 end
 
 function GuardStart_JustGuard_Upper_onActivate()
+    ModMotionTrace("callback", "GuardStart_JustGuard_Upper_onActivate") -- movement capture
     act(Wait)
     JUSTGUARD_IS_FIRSTFRAME = TRUE
 end
 
 function GuardStart_JustGuard_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardStart_JustGuard_Upper_onUpdate") -- movement capture
     JustGuardStartCommonFunction(Event_GuardStart_JustGuard)
 end
 
@@ -10233,11 +10371,13 @@ function GuardStart_JustGuard_Upper_onDeactivate()
 end
 
 function GuardStart_JustGuard_SelfTrans_Upper_onActivate()
+    ModMotionTrace("callback", "GuardStart_JustGuard_SelfTrans_Upper_onActivate") -- movement capture
     act(Wait)
     JUSTGUARD_IS_FIRSTFRAME = TRUE
 end
 
 function GuardStart_JustGuard_SelfTrans_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardStart_JustGuard_SelfTrans_Upper_onUpdate") -- movement capture
     JustGuardStartCommonFunction(Event_GuardStart_JustGuard)
 end
 
@@ -10246,11 +10386,13 @@ function GuardStart_JustGuard_SelfTrans_Upper_onDeactivate()
 end
 
 function GuardStart_JustGuard2_Upper_onActivate()
+    ModMotionTrace("callback", "GuardStart_JustGuard2_Upper_onActivate") -- movement capture
     act(Wait)
     JUSTGUARD_IS_FIRSTFRAME = TRUE
 end
 
 function GuardStart_JustGuard2_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardStart_JustGuard2_Upper_onUpdate") -- movement capture
     JustGuardStartCommonFunction(Event_GuardStart_JustGuard2)
 end
 
@@ -10259,11 +10401,13 @@ function GuardStart_JustGuard2_Upper_onDeactivate()
 end
 
 function GuardStart_JustGuard3_Upper_onActivate()
+    ModMotionTrace("callback", "GuardStart_JustGuard3_Upper_onActivate") -- movement capture
     act(Wait)
     JUSTGUARD_IS_FIRSTFRAME = TRUE
 end
 
 function GuardStart_JustGuard3_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardStart_JustGuard3_Upper_onUpdate") -- movement capture
     JustGuardStartCommonFunction(Event_GuardStart_JustGuard3)
 end
 
@@ -10272,11 +10416,13 @@ function GuardStart_JustGuard3_Upper_onDeactivate()
 end
 
 function GuardStart_JustGuard4_Upper_onActivate()
+    ModMotionTrace("callback", "GuardStart_JustGuard4_Upper_onActivate") -- movement capture
     act(Wait)
     JUSTGUARD_IS_FIRSTFRAME = TRUE
 end
 
 function GuardStart_JustGuard4_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardStart_JustGuard4_Upper_onUpdate") -- movement capture
     JustGuardStartCommonFunction(Event_GuardStart_JustGuard4)
 end
 
@@ -10285,11 +10431,13 @@ function GuardStart_JustGuard4_Upper_onDeactivate()
 end
 
 function GuardStart_JustGuard4_SelfTrans_Upper_onActivate()
+    ModMotionTrace("callback", "GuardStart_JustGuard4_SelfTrans_Upper_onActivate") -- movement capture
     act(Wait)
     JUSTGUARD_IS_FIRSTFRAME = TRUE
 end
 
 function GuardStart_JustGuard4_SelfTrans_Upper_onUpdate()
+    ModMotionTrace("callback", "GuardStart_JustGuard4_SelfTrans_Upper_onUpdate") -- movement capture
     JustGuardStartCommonFunction(Event_GuardStart_JustGuard4_SelfTrans)
 end
 
@@ -10298,18 +10446,21 @@ function GuardStart_JustGuard4_SelfTrans_Upper_onDeactivate()
 end
 
 function FallStart_onUpdate() 
+    ModMotionTrace("callback", "FallStart_onUpdate") -- movement capture
     if FallCommonFunction(TRUE, FALSE, FALL_DEFAULT) == TRUE then
         return
     end
 end
 
 function FallJumpStart_onUpdate() 
+    ModMotionTrace("callback", "FallJumpStart_onUpdate") -- movement capture
     if FallCommonFunction(TRUE, TRUE, FALL_DEFAULT) == TRUE then
         return
     end
 end
 
 function FallLoop_onUpdate()
+    ModMotionTrace("callback", "FallLoop_onUpdate") -- movement capture
     if env(GetSpEffectID, 19935) == TRUE then
         if env(IsHamariFallDeath, 20) == TRUE then
             ExecEvent("W_FallDeath")
@@ -10325,16 +10476,19 @@ function FallLoop_onUpdate()
 end
 
 function Land_onUpdate()
+    ModMotionTrace("callback", "Land_onUpdate") -- movement capture
     if LandCommonFunction() == TRUE then
         return
     end
 end
 
 function LandLow_onActivate()
+    ModMotionTrace("callback", "LandLow_onActivate") -- movement capture
     act(Wait)
 end
 
 function LandLow_onUpdate()
+    ModMotionTrace("callback", "LandLow_onUpdate") -- movement capture
     if IdleCommonFunction() == TRUE then
         return
     end
@@ -10345,18 +10499,21 @@ function LandLow_onUpdate()
 end
 
 function FallStartFaceUp_onUpdate()
+    ModMotionTrace("callback", "FallStartFaceUp_onUpdate") -- movement capture
     if FallCommonFunction(TRUE, FALSE, FALL_FACEUP) == TRUE then
         return
     end
 end
 
 function FallStartFaceDown_onUpdate()
+    ModMotionTrace("callback", "FallStartFaceDown_onUpdate") -- movement capture
     if FallCommonFunction(TRUE, FALSE, FALL_FACEDOWN) == TRUE then
         return
     end
 end
 
 function FallLoopFaceUp_onUpdate() 
+    ModMotionTrace("callback", "FallLoopFaceUp_onUpdate") -- movement capture
     if env(GetSpEffectID, 19935) == TRUE then
         if env(IsHamariFallDeath, 20) == TRUE then
             ExecEvent("W_FallDeathFaceUp")
@@ -10372,6 +10529,7 @@ function FallLoopFaceUp_onUpdate()
 end
 
 function FallLoopFaceDown_onUpdate() 
+    ModMotionTrace("callback", "FallLoopFaceDown_onUpdate") -- movement capture
     if env(GetSpEffectID, 19935) == TRUE then
         if env(IsHamariFallDeath, 20) == TRUE then
             ExecEvent("W_FallDeathFaceDown")
@@ -10387,12 +10545,14 @@ function FallLoopFaceDown_onUpdate()
 end
 
 function LandFaceUp_onUpdate()
+    ModMotionTrace("callback", "LandFaceUp_onUpdate") -- movement capture
     if LandCommonFunction() == TRUE then
         return
     end
 end
 
 function LandFaceDown_onUpdate()
+    ModMotionTrace("callback", "LandFaceDown_onUpdate") -- movement capture
     if LandCommonFunction() == TRUE then
         return
     end
@@ -10413,28 +10573,33 @@ function Damage_NoThrowDef_Update()
 end
 
 function DamageSABreak_onUpdate()
+    ModMotionTrace("callback", "DamageSABreak_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
         return
     end
 end
 
 function DamageSleepResist_onUpdate()
+    ModMotionTrace("callback", "DamageSleepResist_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
         return
     end
 end
 
 function DamageMad_onUpdate()
+    ModMotionTrace("callback", "DamageMad_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
         return
     end
 end
 
 function DamageBind_onActivate()
+    ModMotionTrace("callback", "DamageBind_onActivate") -- movement capture
     ResetRequest()
 end
 
 function DamageBind_onUpdate()
+    ModMotionTrace("callback", "DamageBind_onUpdate") -- movement capture
     act(SetIsMagicInUse, 0)
     act(SetAllowedThrowDefenseType, 0)
     act(SetAllowedThrowAttackType, 0)
@@ -10448,6 +10613,8 @@ function DamageBind_onUpdate()
 end
 
 function DamageLv1_Small_onUpdate()
+    ModMotionTrace("callback", "DamageLv1_Small_onUpdate") -- movement capture
+    ModMotionTrace("scale", "DamageLv1_Small_onUpdate:" .. tostring(0)) -- movement capture
     act(SetMovementScaleMult, 0)
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
         return
@@ -10455,6 +10622,8 @@ function DamageLv1_Small_onUpdate()
 end
 
 function DamageLv2_Middle_onUpdate()
+    ModMotionTrace("callback", "DamageLv2_Middle_onUpdate") -- movement capture
+    ModMotionTrace("scale", "DamageLv2_Middle_onUpdate:" .. tostring(0)) -- movement capture
     act(SetMovementScaleMult, 0)
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
         return
@@ -10462,6 +10631,8 @@ function DamageLv2_Middle_onUpdate()
 end
 
 function DamageLv3_Large_onUpdate()
+    ModMotionTrace("callback", "DamageLv3_Large_onUpdate") -- movement capture
+    ModMotionTrace("scale", "DamageLv3_Large_onUpdate:" .. tostring(0)) -- movement capture
     act(SetMovementScaleMult, 0)
 
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
@@ -10470,6 +10641,8 @@ function DamageLv3_Large_onUpdate()
 end
 
 function DamageLarge2_onUpdate()
+    ModMotionTrace("callback", "DamageLarge2_onUpdate") -- movement capture
+    ModMotionTrace("scale", "DamageLarge2_onUpdate:" .. tostring(0)) -- movement capture
     act(SetMovementScaleMult, 0)
 
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
@@ -10478,30 +10651,36 @@ function DamageLarge2_onUpdate()
 end
 
 function DamageWeak_onUpdate()
+    ModMotionTrace("callback", "DamageWeak_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
         return
     end
 end
 
 function DamageLv8_Minimum_onUpdate()
+    ModMotionTrace("callback", "DamageLv8_Minimum_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
         return
     end
 end
 
 function DamageLv6_Fling_onUpdate()
+    ModMotionTrace("callback", "DamageLv6_Fling_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_DOWN, FALL_TYPE_FACEDOWN_LOOP) == TRUE then
         return
     end
 end
 
 function DamageLv4_ExLarge_onUpdate()
+    ModMotionTrace("callback", "DamageLv4_ExLarge_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_DOWN, FALL_TYPE_FORCE_LOOP) == TRUE then
         return
     end
 end
 
 function DamageLv5_Push_onUpdate()
+    ModMotionTrace("callback", "DamageLv5_Push_onUpdate") -- movement capture
+    ModMotionTrace("scale", "DamageLv5_Push_onUpdate:" .. tostring(0)) -- movement capture
     act(SetMovementScaleMult, 0)
 
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_FORCE) == TRUE then
@@ -10510,40 +10689,47 @@ function DamageLv5_Push_onUpdate()
 end
 
 function DamageLv7_SmallBlow_onUpdate()
+    ModMotionTrace("callback", "DamageLv7_SmallBlow_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_DOWN, FALL_TYPE_FORCE_LOOP) == TRUE then
         return
     end
 end
 
 function DamageLv9_Upper_onUpdate()
+    ModMotionTrace("callback", "DamageLv9_Upper_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_DOWN, FALL_TYPE_FACEDOWN_LOOP) == TRUE then
         return
     end
 end
 
 function DamageLV10_ExBlast_onUpdate()
+    ModMotionTrace("callback", "DamageLV10_ExBlast_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_DOWN, FALL_TYPE_FORCE_LOOP) == TRUE then
         return
     end
 end
 
 function DamageLv11_Breath_onUpdate()
+    ModMotionTrace("callback", "DamageLv11_Breath_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_DOWN, FALL_TYPE_FORCE_LOOP) == TRUE then
         return
     end
 end
 
 function DamageParry_onUpdate()
+    ModMotionTrace("callback", "DamageParry_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
         return
     end
 end
 
 function GuardDamageSmall_onActivate()
+    ModMotionTrace("callback", "GuardDamageSmall_onActivate") -- movement capture
     JUSTGUARD_RELEASE_GUARD_BUTTON = FALSE
 end
 
 function GuardDamageSmall_onUpdate()
+    ModMotionTrace("callback", "GuardDamageSmall_onUpdate") -- movement capture
     act(SetStaminaRecoveryDisabled)
 
     if DamageCommonFunction(TO_GUARDON, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
@@ -10556,10 +10742,12 @@ function GuardDamageSmall_onUpdate()
 end
 
 function GuardDamageMiddle_onActivate()
+    ModMotionTrace("callback", "GuardDamageMiddle_onActivate") -- movement capture
     JUSTGUARD_RELEASE_GUARD_BUTTON = FALSE
 end
 
 function GuardDamageMiddle_onUpdate()
+    ModMotionTrace("callback", "GuardDamageMiddle_onUpdate") -- movement capture
     act(SetStaminaRecoveryDisabled)
 
     if DamageCommonFunction(TO_GUARDON, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
@@ -10572,10 +10760,12 @@ function GuardDamageMiddle_onUpdate()
 end
 
 function GuardDamageLarge_onActivate()
+    ModMotionTrace("callback", "GuardDamageLarge_onActivate") -- movement capture
     JUSTGUARD_RELEASE_GUARD_BUTTON = FALSE
 end
 
 function GuardDamageLarge_onUpdate()
+    ModMotionTrace("callback", "GuardDamageLarge_onUpdate") -- movement capture
     act(SetStaminaRecoveryDisabled)
 
     if DamageCommonFunction(TO_GUARDON, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
@@ -10587,6 +10777,14 @@ function GuardDamageLarge_onUpdate()
 end
 
 function SetJustGuardSucceedEffect(level)
+    -- Keep enough stamina to guard the next hit. This does not refund ordinary
+    -- costs or revive an already running break: only this success path grants it.
+    if env(GetHP) > 0 then
+        local stamina = env(GetStamina)
+        if stamina < 1 then
+            act(ChangeStamina, 1 - stamina)
+        end
+    end
     if env(GetSpEffectID, 102010) == TRUE or env(GetSpEffectID, 102009) == TRUE then
         act(AddSpEffect, 102010)
     elseif env(GetSpEffectID, 102008) == TRUE then
@@ -10760,10 +10958,12 @@ function SetJustGuardReinputState()
 end
 
 function GuardDamageSmall_JustGuard_onActivate()
+    ModMotionTrace("callback", "GuardDamageSmall_JustGuard_onActivate") -- movement capture
     JUSTGUARD_RELEASE_GUARD_BUTTON = FALSE
 end
 
 function GuardDamageSmall_JustGuard_onUpdate()
+    ModMotionTrace("callback", "GuardDamageSmall_JustGuard_onUpdate") -- movement capture
     act(SetStaminaRecoveryDisabled)
     if DamageCommonFunction(TO_GUARDON, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
         return
@@ -10772,10 +10972,12 @@ function GuardDamageSmall_JustGuard_onUpdate()
 end
 
 function GuardDamageMiddle_JustGuard_onActivate()
+    ModMotionTrace("callback", "GuardDamageMiddle_JustGuard_onActivate") -- movement capture
     JUSTGUARD_RELEASE_GUARD_BUTTON = FALSE
 end
 
 function GuardDamageMiddle_JustGuard_onUpdate()
+    ModMotionTrace("callback", "GuardDamageMiddle_JustGuard_onUpdate") -- movement capture
     act(SetStaminaRecoveryDisabled)
     if DamageCommonFunction(TO_GUARDON, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
         return
@@ -10784,10 +10986,12 @@ function GuardDamageMiddle_JustGuard_onUpdate()
 end
 
 function GuardDamageLarge_JustGuard_onActivate()
+    ModMotionTrace("callback", "GuardDamageLarge_JustGuard_onActivate") -- movement capture
     JUSTGUARD_RELEASE_GUARD_BUTTON = FALSE
 end
 
 function GuardDamageLarge_JustGuard_onUpdate()
+    ModMotionTrace("callback", "GuardDamageLarge_JustGuard_onUpdate") -- movement capture
     act(SetStaminaRecoveryDisabled)
     if DamageCommonFunction(TO_GUARDON, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
         return
@@ -10796,12 +11000,14 @@ function GuardDamageLarge_JustGuard_onUpdate()
 end
 
 function GuardBreak_onUpdate()
+    ModMotionTrace("callback", "GuardBreak_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
         return
     end
 end
 
 function GuardBreakRight_onUpdate()
+    ModMotionTrace("callback", "GuardBreakRight_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_NONE, FALL_TYPE_DEFAULT) == TRUE then
         return
     end
@@ -10828,6 +11034,7 @@ function Repelled_Large_onUpdate()
 end
 
 function GuardDamageExLarge_onUpdate()
+    ModMotionTrace("callback", "GuardDamageExLarge_onUpdate") -- movement capture
     if DamageCommonFunction(FALSE, ESTEP_DOWN, FALL_TYPE_DEFAULT) == TRUE then
         return
     end
@@ -10842,6 +11049,7 @@ function DeathIdle_onDeactivate()
 end
 
 function QuickTurnLeft180_Upper_onUpdate()
+    ModMotionTrace("callback", "QuickTurnLeft180_Upper_onUpdate") -- movement capture
     if QuickTurnCommonFunction() == TRUE then
         return
     end
@@ -10856,6 +11064,7 @@ function QuickTurnLeft180_Upper_onUpdate()
 end
 
 function QuickTurnRight180_Upper_onUpdate()
+    ModMotionTrace("callback", "QuickTurnRight180_Upper_onUpdate") -- movement capture
     if QuickTurnCommonFunction() == TRUE then
         return
     end
@@ -12767,6 +12976,7 @@ function AttackCrossbowBothRightEmpty_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowRightStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowRightStart_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -12800,6 +13010,7 @@ function StealthAttackCrossbowRightStart_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowRightLoop_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowRightLoop_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -12824,6 +13035,7 @@ function StealthAttackCrossbowRightLoop_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowRightFire_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowRightFire_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -12846,6 +13058,7 @@ function StealthAttackCrossbowRightFire_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowRightEmpty_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowRightEmpty_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -12868,6 +13081,7 @@ function StealthAttackCrossbowRightEmpty_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowRightReload_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowRightReload_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -12890,6 +13104,7 @@ function StealthAttackCrossbowRightReload_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowLeftStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowLeftStart_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -12931,6 +13146,7 @@ function StealthAttackCrossbowLeftStart_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowLeftLoop_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowLeftLoop_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -12955,6 +13171,7 @@ function StealthAttackCrossbowLeftLoop_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowLeftFire_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowLeftFire_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -12977,6 +13194,7 @@ function StealthAttackCrossbowLeftFire_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowLeftEmpty_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowLeftEmpty_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -12999,6 +13217,7 @@ function StealthAttackCrossbowLeftEmpty_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowLeftReload_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowLeftReload_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -13021,6 +13240,7 @@ function StealthAttackCrossbowLeftReload_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothLeftStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothLeftStart_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -13054,6 +13274,7 @@ function StealthAttackCrossbowBothLeftStart_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothLeftLoop_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothLeftLoop_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -13079,6 +13300,7 @@ function StealthAttackCrossbowBothLeftLoop_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothLeftFire_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothLeftFire_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
@@ -13102,6 +13324,7 @@ function StealthAttackCrossbowBothLeftFire_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothLeftEmpty_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothLeftEmpty_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -13124,6 +13347,7 @@ function StealthAttackCrossbowBothLeftEmpty_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothLeftReload_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothLeftReload_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
         return
@@ -13146,6 +13370,7 @@ function StealthAttackCrossbowBothLeftReload_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothRightStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothRightStart_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -13187,6 +13412,7 @@ function StealthAttackCrossbowBothRightStart_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothRightLoop_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothRightLoop_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -13220,6 +13446,7 @@ function StealthAttackCrossbowBothRightLoop_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothRightFire_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothRightFire_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
 
@@ -13244,6 +13471,7 @@ function StealthAttackCrossbowBothRightFire_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothRightReload_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothRightReload_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
 
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
@@ -13267,6 +13495,7 @@ function StealthAttackCrossbowBothRightReload_Upper_onUpdate()
 end
 
 function StealthAttackCrossbowBothRightEmpty_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackCrossbowBothRightEmpty_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
 
     if CrossbowCommonFunction(blend_type, TRUE) == TRUE then
@@ -15718,6 +15947,7 @@ function WeaponChangeStart_Upper_onUpdate()
 end
 
 function StealthWeaponChangeStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthWeaponChangeStart_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if WeaponChangeCommonFunction(blend_type) == TRUE then
         return
@@ -15749,6 +15979,7 @@ function WeaponChangeEnd_Upper_onUpdate()
 end
 
 function StealthWeaponChangeEnd_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthWeaponChangeEnd_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if WeaponChangeCommonFunction(blend_type) == TRUE then
         return
@@ -15780,6 +16011,7 @@ function HandChangeStart_Upper_onUpdate()
 end
 
 function StealthHandChangeStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthHandChangeStart_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if HandChangeCommonFunction(blend_type) == TRUE then
         return
@@ -15818,6 +16050,7 @@ function HandChangeEnd_Upper_onDeactivate()
 end
 
 function StealthHandChangeEnd_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthHandChangeEnd_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if HandChangeCommonFunction(blend_type) == TRUE then
         return
@@ -17926,6 +18159,7 @@ function MagicFireLeftJumpCancel_Upper_onUpdate()
 end
 
 function StealthMagicRightLaunch_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthMagicRightLaunch_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if MagicCommonFunction(blend_type, QUICKTYPE_NORMAL, FALSE) == TRUE then
         return
@@ -17940,6 +18174,7 @@ function StealthMagicRightLaunch_Upper_onUpdate()
 end
 
 function StealthMagicRightFire_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthMagicRightFire_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if MagicCommonFunction(blend_type, QUICKTYPE_NORMAL, FALSE) == TRUE then
         return
@@ -17957,6 +18192,7 @@ function StealthMagicRightFire_Upper_onUpdate()
 end
 
 function StealthMagicLeftLaunch_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthMagicLeftLaunch_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if MagicCommonFunction(blend_type, QUICKTYPE_NORMAL, FALSE) == TRUE then
         return
@@ -17971,6 +18207,7 @@ function StealthMagicLeftLaunch_Upper_onUpdate()
 end
 
 function StealthMagicLeftFire_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthMagicLeftFire_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if MagicCommonFunction(blend_type, QUICKTYPE_NORMAL, FALSE) == TRUE then
         return
@@ -18034,6 +18271,37 @@ function MagicInvalid_Upper_onUpdate()
     end
 end
 
+-- Deflect critical bonus uses the native Dagger Talisman damage restriction.
+-- Snapshot only confirmed critical attacker animations, never a failed attempt
+-- or a special grab. Keep the effect until the complete throw state exits.
+sovereignDeflectCriticalInitialized = false
+
+function ModDeflectCriticalClear()
+    for effect = 1627611, 1627614 do
+        act(ClearSpEffect, effect)
+    end
+    sovereignDeflectCriticalInitialized = true
+end
+
+function ModDeflectCriticalStart()
+    ModDeflectCriticalClear()
+    local animation = env(GetThrowAnimID)
+    -- Player ThrowParam attacker rows with throwTypeId=0; special skill grabs
+    -- use 40090/45080/45180 and must not spend or benefit from these charges.
+    if animation ~= 31700 and animation ~= 31710 and animation ~= 31720
+        and animation ~= 31730 and animation ~= 31750 and animation ~= 31760 then return end
+    if env(GetHP) <= 0 then return end
+    local tier = 0
+    for charge = 1, 4 do
+        if env(GetSpEffectID, 102006 + charge) == TRUE then tier = charge end
+    end
+    if tier == 0 then return end
+    for effect = 102007, 102010 do
+        act(ClearSpEffect, effect)
+    end
+    act(AddSpEffect, 1627610 + tier)
+end
+
 function ThrowBackStab_Activate()
     act(InvokeBackstab)
     local hand = HAND_RIGHT
@@ -18086,10 +18354,12 @@ function Throw_Update()
 end
 
 function Throw_Deactivate()
+    ModDeflectCriticalClear()
     act(RequestThrowAnimInterrupt)
 end
 
 function ThrowAtk_onActivate()
+    ModDeflectCriticalStart()
     Replanning()
 end
 
@@ -18101,6 +18371,7 @@ function ThrowAtk_onUpdate()
 end
 
 function ThrowDef_onActivate()
+    ModDeflectCriticalClear()
     Replanning()
 end
 
@@ -18144,6 +18415,7 @@ function ThrowDeathIdle_onActivate()
 end
 
 function Event_onActivate()
+    ModMovementEventTrace("eventEnter", "Event_onActivate") -- movement event trace
     ResetEventState()
     SetVariable("TestIsEventBlend", 1)
     if GetVariable("TestIsEventBlend") then
@@ -18155,6 +18427,7 @@ function Event_onActivate()
 end
 
 function Event_onUpdate()
+    ModMotionTrace("eventUpdate", "Event_onUpdate") -- movement event trace
     if GetVariable("TestIsEventBlend") then
         blendtime = env(GetObjActRemainingInterpolateTime)
         if blendtime > 0 then
@@ -18184,11 +18457,13 @@ function Event_onUpdate()
 end
 
 function Event26001_onActivate()
+    ModMovementEventTrace("eventEnter", "Event26001_onActivate") -- movement event trace
     ResetEventState()
     act(SetTurnAnimCorrectionRate, 90)
 end
 
 function Event26001_onUpdate()
+    ModMotionTrace("eventUpdate", "Event26001_onUpdate") -- movement event trace
     act(SetIsTurnAnimInProgress)
     if EventCommonFunction() == TRUE then
         return
@@ -18196,11 +18471,13 @@ function Event26001_onUpdate()
 end
 
 function Event26011_onActivate()
+    ModMovementEventTrace("eventEnter", "Event26011_onActivate") -- movement event trace
     ResetEventState()
     act(SetTurnAnimCorrectionRate, 90)
 end
 
 function Event26011_onUpdate()
+    ModMotionTrace("eventUpdate", "Event26011_onUpdate") -- movement event trace
     act(SetIsTurnAnimInProgress)
     if EventCommonFunction() == TRUE then
         return
@@ -18208,10 +18485,12 @@ function Event26011_onUpdate()
 end
 
 function Event26020_onActivate()
+    ModMovementEventTrace("eventEnter", "Event26020_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event26020_onUpdate()
+    ModMotionTrace("eventUpdate", "Event26020_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18220,10 +18499,12 @@ function Event26020_onUpdate()
 end
 
 function Event26030_onActivate()
+    ModMovementEventTrace("eventEnter", "Event26030_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event26030_onUpdate()
+    ModMotionTrace("eventUpdate", "Event26030_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18232,11 +18513,13 @@ function Event26030_onUpdate()
 end
 
 function Event26021_onActivate()
+    ModMovementEventTrace("eventEnter", "Event26021_onActivate") -- movement event trace
     ResetEventState()
     act(SetTurnAnimCorrectionRate, 180)
 end
 
 function Event26021_onUpdate()
+    ModMotionTrace("eventUpdate", "Event26021_onUpdate") -- movement event trace
     act(SetIsTurnAnimInProgress)
     if EventCommonFunction() == TRUE then
         return
@@ -18244,11 +18527,13 @@ function Event26021_onUpdate()
 end
 
 function Event26031_onActivate()
+    ModMovementEventTrace("eventEnter", "Event26031_onActivate") -- movement event trace
     ResetEventState()
     act(SetTurnAnimCorrectionRate, 180)
 end
 
 function Event26031_onUpdate()
+    ModMotionTrace("eventUpdate", "Event26031_onUpdate") -- movement event trace
     act(SetIsTurnAnimInProgress)
     if EventCommonFunction() == TRUE then
         return
@@ -18256,10 +18541,12 @@ function Event26031_onUpdate()
 end
 
 function Event50050_onActivate()
+    ModMovementEventTrace("eventEnter", "Event50050_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event50050_onUpdate()
+    ModMotionTrace("eventUpdate", "Event50050_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18268,14 +18555,17 @@ function Event50050_onUpdate()
 end
 
 function Event50050_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event50050_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event50250_onActivate()
+    ModMovementEventTrace("eventEnter", "Event50250_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event50250_onUpdate()
+    ModMotionTrace("eventUpdate", "Event50250_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18284,14 +18574,17 @@ function Event50250_onUpdate()
 end
 
 function Event50250_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event50250_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60000_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60000_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60000_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60000_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18300,14 +18593,17 @@ function Event60000_onUpdate()
 end
 
 function Event60000_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60000_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60001_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60001_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60001_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60001_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18316,14 +18612,17 @@ function Event60001_onUpdate()
 end
 
 function Event60001_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60001_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60002_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60002_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60002_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60002_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18332,14 +18631,17 @@ function Event60002_onUpdate()
 end
 
 function Event60002_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60002_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60003_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60003_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60003_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60003_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18348,64 +18650,77 @@ function Event60003_onUpdate()
 end
 
 function Event60003_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60003_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60010_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60010_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60010_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60010_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60020_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60020_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60020_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60020_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60030_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60030_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60030_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60030_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60040_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60040_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60040_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60040_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60060_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60060_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60060_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60060_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60070_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60070_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60070_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60070_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18414,14 +18729,17 @@ function Event60070_onUpdate()
 end
 
 function Event60070_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60070_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60071_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60071_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60071_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60071_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18430,14 +18748,17 @@ function Event60071_onUpdate()
 end
 
 function Event60071_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60071_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function EventHalfBlend60071_Upper_onActivate()
+    ModMovementEventTrace("eventEnter", "EventHalfBlend60071_Upper_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function EventHalfBlend60071_Upper_onUpdate()
+    ModMotionTrace("eventUpdate", "EventHalfBlend60071_Upper_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     act(Wait)
     local blend_type, lower_state = GetHalfBlendInfo()
@@ -18461,14 +18782,17 @@ function EventHalfBlend60071_Upper_onUpdate()
 end
 
 function EventHalfBlend60071_Upper_onDeactivate()
+    ModMovementEventTrace("eventExit", "EventHalfBlend60071_Upper_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function EventHalfBlend360070_Upper_onActivate()
+    ModMovementEventTrace("eventEnter", "EventHalfBlend360070_Upper_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function EventHalfBlend360070_Upper_onUpdate()
+    ModMotionTrace("eventUpdate", "EventHalfBlend360070_Upper_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     act(Wait)
     local blend_type, lower_state = GetHalfBlendInfo()
@@ -18492,24 +18816,29 @@ function EventHalfBlend360070_Upper_onUpdate()
 end
 
 function EventHalfBlend360070_Upper_onDeactivate()
+    ModMovementEventTrace("eventExit", "EventHalfBlend360070_Upper_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60080_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60080_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60080_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60080_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60090_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60090_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60090_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60090_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18518,64 +18847,77 @@ function Event60090_onUpdate()
 end
 
 function Event60090_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60090_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60100_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60100_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60100_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60100_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60110_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60110_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60110_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60110_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60120_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60120_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60120_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60120_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60130_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60130_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60130_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60130_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60131_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60131_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60131_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60131_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60160_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60160_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60160_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60160_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18584,14 +18926,17 @@ function Event60160_onUpdate()
 end
 
 function Event60160_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60160_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60170_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60170_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60170_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60170_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18600,14 +18945,17 @@ function Event60170_onUpdate()
 end
 
 function Event60170_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60170_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60180_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60180_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60180_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60180_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18616,14 +18964,17 @@ function Event60180_onUpdate()
 end
 
 function Event60180_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60180_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60190_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60190_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60190_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60190_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -18632,812 +18983,975 @@ function Event60190_onUpdate()
 end
 
 function Event60190_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60190_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event60200_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60200_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60200_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60200_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60201_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60201_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60201_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60201_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60202_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60202_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60202_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60202_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60210_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60210_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60210_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60210_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60220_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60220_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60220_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60220_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60230_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60230_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60230_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60230_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60231_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60231_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60231_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60231_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60240_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60240_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60240_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60240_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60241_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60241_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60241_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60241_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60250_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60250_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60250_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60250_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60260_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60260_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60260_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60260_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60265_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60265_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60265_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60265_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60270_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60270_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60270_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60270_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60370_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60370_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60370_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60370_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60380_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60380_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60380_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60380_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60390_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60390_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60390_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60390_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60400_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60400_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60400_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60400_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60450_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60450_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60450_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60450_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60451_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60451_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60451_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60451_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60455_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60455_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60455_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60455_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60456_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60456_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60455_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60455_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60460_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60460_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60460_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60460_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60470_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60470_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60470_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60470_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60471_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60471_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60471_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60471_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60472_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60472_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60472_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60472_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60473_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60473_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60473_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60473_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60480_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60480_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60480_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60480_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60481_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60481_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60481_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60481_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60482_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60482_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60482_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60482_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60490_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60490_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60490_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60490_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60500_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60500_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60500_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60500_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60501_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60501_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60501_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60501_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60502_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60502_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60502_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60502_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60503_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60503_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60503_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60503_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60504_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60504_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60504_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60504_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60505_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60505_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60505_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60505_onUpdate") -- movement event trace
     if env(IsAnimEnd, 1) == TRUE then
         act(ChangeBuddyState)
     end
 end
 
 function Event60505_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event60505_onDeactivate") -- movement event trace
     act(ChangeBuddyState)
 end
 
 function Event60520_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60520_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60520_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60520_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60521_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60521_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60521_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60521_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60522_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60522_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60522_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60522_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60523_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60523_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60523_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60523_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60524_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60524_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60524_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60524_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60525_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60525_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60525_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60525_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60530_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60530_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60530_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60530_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60550_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60550_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60550_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60550_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60560_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60560_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60560_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60560_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60750_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60750_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60750_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60750_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60760_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60760_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60760_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60760_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60780_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60780_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60780_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60780_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60790_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60790_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60790_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60790_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60800_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60800_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60800_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60800_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60810_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60810_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60810_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60810_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event60811_onActivate()
+    ModMovementEventTrace("eventEnter", "Event60811_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event60811_onUpdate()
+    ModMotionTrace("eventUpdate", "Event60811_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63000_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63000_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63000_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63000_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63010_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63010_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63010_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63010_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63020_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63020_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63020_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63020_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63021_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63021_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63040_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63040_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63040_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63040_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63050_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63050_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63050_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63050_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63060_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63060_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63060_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63060_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63061_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63061_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63061_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63061_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63070_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63070_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63070_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63070_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63080_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63080_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63080_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63080_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event63090_onActivate()
+    ModMovementEventTrace("eventEnter", "Event63090_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event63090_onUpdate()
+    ModMotionTrace("eventUpdate", "Event63090_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event65012_onActivate()
+    ModMovementEventTrace("eventEnter", "Event65012_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event65012_onUpdate()
+    ModMotionTrace("eventUpdate", "Event65012_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event65013_onActivate()
+    ModMovementEventTrace("eventEnter", "Event65013_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event65013_onUpdate()
+    ModMotionTrace("eventUpdate", "Event65013_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67000_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67000_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67000_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67000_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67001_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67001_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67001_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67001_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67010_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67010_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67010_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67010_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67011_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67011_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67011_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67011_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67020_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67020_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67020_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67020_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67030_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67030_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67030_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67030_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67040_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67040_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67040_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67040_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67050_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67050_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67050_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67050_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67060_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67060_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67060_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67060_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67070_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67070_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67070_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67070_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67080_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67080_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67080_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67080_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67090_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67090_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67090_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67090_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67080_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67080_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67080_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67080_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event67100_onActivate()
+    ModMovementEventTrace("eventEnter", "Event67100_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event67100_onUpdate()
+    ModMotionTrace("eventUpdate", "Event67100_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event68043_onActivate()
+    ModMovementEventTrace("eventEnter", "Event68043_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event68043_onUpdate()
+    ModMotionTrace("eventUpdate", "Event68043_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event68110_onActivate()
+    ModMovementEventTrace("eventEnter", "Event68110_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event68110_onUpdate()
+    ModMotionTrace("eventUpdate", "Event68110_onUpdate") -- movement event trace
     if env(IsAnimEnd, 1) == TRUE then
         ExecEvent("W_BonfireLevelUpLoop")
         return
@@ -19448,70 +19962,84 @@ function Event68110_onUpdate()
 end
 
 function Event69000_onActivate()
+    ModMovementEventTrace("eventEnter", "Event69000_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event69000_onUpdate()
+    ModMotionTrace("eventUpdate", "Event69000_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event69001_onActivate()
+    ModMovementEventTrace("eventEnter", "Event69001_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event69001_onUpdate()
+    ModMotionTrace("eventUpdate", "Event69001_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event69002_onActivate()
+    ModMovementEventTrace("eventEnter", "Event69002_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event69002_onUpdate()
+    ModMotionTrace("eventUpdate", "Event69002_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event69003_onActivate()
+    ModMovementEventTrace("eventEnter", "Event69003_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event69003_onUpdate()
+    ModMotionTrace("eventUpdate", "Event69003_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event69010_onActivate()
+    ModMovementEventTrace("eventEnter", "Event69010_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event69010_onUpdate()
+    ModMotionTrace("eventUpdate", "Event69010_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event69030_onActivate()
+    ModMovementEventTrace("eventEnter", "Event69030_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event69030_onUpdate()
+    ModMotionTrace("eventUpdate", "Event69030_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event6000_onActivate()
+    ModMovementEventTrace("eventEnter", "Event6000_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event6000_onUpdate()
+    ModMotionTrace("eventUpdate", "Event6000_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if EventCommonFunction() == TRUE then
         act(SetIsEventActionPossible, FALSE)
@@ -19520,14 +20048,17 @@ function Event6000_onUpdate()
 end
 
 function Event6000_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event6000_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event6001_onActivate()
+    ModMovementEventTrace("eventEnter", "Event6001_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event6001_onUpdate()
+    ModMotionTrace("eventUpdate", "Event6001_onUpdate") -- movement event trace
     if env(GetSpEffectID, 10665) == TRUE then
         act(SetIsEventActionPossible, FALSE)
     else
@@ -19540,50 +20071,61 @@ function Event6001_onUpdate()
 end
 
 function Event6001_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event6001_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event6002_onActivate()
+    ModMovementEventTrace("eventEnter", "Event6002_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event6002_onUpdate()
+    ModMotionTrace("eventUpdate", "Event6002_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event17140_onActivate()
+    ModMovementEventTrace("eventEnter", "Event17140_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event18140_onActivate()
+    ModMovementEventTrace("eventEnter", "Event18140_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event18140_onUpdate()
+    ModMotionTrace("eventUpdate", "Event18140_onUpdate") -- movement event trace
     act(SetDeathStay, TRUE)
 end
 
 function Event18140_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event18140_onDeactivate") -- movement event trace
     act(SetDeathStay, FALSE)
 end
 
 function Event99999_onActivate()
+    ModMovementEventTrace("eventEnter", "Event99999_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event99999_onUpdate()
+    ModMotionTrace("eventUpdate", "Event99999_onUpdate") -- movement event trace
     if EventCommonFunction() == TRUE then
         return
     end
 end
 
 function Event150250_onActivate()
+    ModMovementEventTrace("eventEnter", "Event150250_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event150250_onUpdate()
+    ModMotionTrace("eventUpdate", "Event150250_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if RideCommonFunction("W_RideAttack_R_Top", "W_RideAttack_R_Hard1_Start", "W_RideAttack_L_Top",
         "W_RideAttack_L_Hard1_Start") == TRUE then
@@ -19603,14 +20145,17 @@ function Event150250_onUpdate()
 end
 
 function Event150250_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event150250_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event160070_onActivate()
+    ModMovementEventTrace("eventEnter", "Event160070_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event160070_onUpdate()
+    ModMotionTrace("eventUpdate", "Event160070_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if RideCommonFunction("W_RideAttack_R_Top", "W_RideAttack_R_Hard1_Start", "W_RideAttack_L_Top",
         "W_RideAttack_L_Hard1_Start") == TRUE then
@@ -19630,14 +20175,17 @@ function Event160070_onUpdate()
 end
 
 function Event160070_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event160070_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
 function Event360070_onActivate()
+    ModMovementEventTrace("eventEnter", "Event360070_onActivate") -- movement event trace
     ResetEventState()
 end
 
 function Event360070_onUpdate()
+    ModMotionTrace("eventUpdate", "Event360070_onUpdate") -- movement event trace
     act(SetIsEventActionPossible, TRUE)
     if env(IsAnimEnd, 0) == TRUE then
         ExecEventAllBody("W_Stealth_Idle")
@@ -19651,6 +20199,7 @@ function Event360070_onUpdate()
 end
 
 function Event360070_onDeactivate()
+    ModMovementEventTrace("eventExit", "Event360070_onDeactivate") -- movement event trace
     act(SetIsEventActionPossible, FALSE)
 end
 
@@ -19954,6 +20503,7 @@ function LadderFallLanding_onUpdate()
 end
 
 function LadderDrop_onUpdate()
+    ModMotionTrace("scale", "LadderDrop_onUpdate:" .. tostring(math.random(160, 200) / 100)) -- movement capture
     act(SetMovementScaleMult, math.random(160, 200) / 100)
     act(SetCanChangeEquipmentOn)
     if env(IsFalling) == TRUE then
@@ -20002,6 +20552,7 @@ function SAMagic_Default_onUpdate()
 end
 
 function DamageDirNoAdd_onUpdate()
+    ModMotionTrace("callback", "DamageDirNoAdd_onUpdate") -- movement capture
     SetVariable("DamageDirBlendRate", 0)
 end
 
@@ -20223,10 +20774,231 @@ sovereignUpdateCheckpoint = "not started"
 
 -- Capture only while the bounded living-player trace is active; no file/native calls here.
 sovereignMotion = {}
+-- BEGIN REVERSIBLE MOVEMENT CAPTURE (1.4.7)
+-- Switch off, requalify/sync and deploy to disable all movement logging.
+sovereignMovementCaptureEnabled = true
+sovereignMovementCapture = {active = false, failed = false, frame = 0, time = 0,
+    frames = {}, head = 0, count = 0, capacity = 180, hooks = {}, hookCount = 0,
+    dropped = 0, stall = 0, recovery = 0, armed = true, captures = 0,
+    rawStall = 0, expectedUntil = 0, expectedReason = "none", filteredFrames = 0,
+    post = false, remaining = 0, pending = {}, pendingCount = 0,
+    file = false, path = "", bytes = 0, nextHeartbeat = 5}
+
+function ModMovementCaptureWrite(text)
+    local trace = sovereignMovementCapture
+    if trace.bytes + #text > 8388608 then error("movement capture byte limit") end
+    local ok, reason = trace.file:write(text)
+    if ok == false or reason ~= nil then error(tostring(reason or "movement capture write failed")) end
+    local flushed, flushReason = trace.file:flush()
+    if flushed == false or flushReason ~= nil then error(tostring(flushReason or "movement capture flush failed")) end
+    trace.bytes = trace.bytes + #text
+end
+
+function ModMovementCaptureOpen()
+    local trace = sovereignMovementCapture
+    local stamp = "session"
+    if type(os) == "table" and type(os.date) == "function" then
+        local ok, value = pcall(os.date, "%Y%m%d-%H%M%S")
+        if ok and type(value) == "string" then stamp = value end
+    end
+    -- Collision probe plus append mode: never truncate an earlier session.
+    for index = 1, 1000 do
+        local path = "Sovereign-movement-1.4.7-" .. stamp .. "-" .. tostring(index) .. ".log"
+        local previous = io.open(path, "r")
+        if previous then
+            previous:close()
+        else
+            local file, reason = io.open(path, "a")
+            if not file then error(tostring(reason)) end
+            trace.file = file
+            trace.path = path
+            ModMovementCaptureWrite("[Sovereign movement] recorder=1.6.7 schema=6 ringFrames=180 postSeconds=3 maxCaptures=12 maxSeconds=1800 maxBytes=8388608 prolongedActionSeconds=6\nprocessed input; scripted speed; hooks since previous snapshot; fresh action callbacks filter ordinary transitions; filename retains legacy prefix\n")
+            return
+        end
+    end
+    error("movement capture session names exhausted")
+end
+
+function ModMovementExpectedPause()
+    local trace = sovereignMovementCapture
+    local activeReason = nil
+    -- Only fresh action requests create a grace window; stale scalar callbacks do not.
+    for _, hook in ipairs(trace.hooks) do
+        local reason, seconds = nil, 0
+        if string.find(hook, "^event=W_Attack") then reason, seconds = "attack", 2.5
+        elseif string.find(hook, "^event=W_Deflect") then reason, seconds = "deflect", 1.25
+        elseif string.find(hook, "^event=W_Damage") then reason, seconds = "damage", 2
+        elseif string.find(hook, "^event=W_Jump") then reason, seconds = "jump", 2
+        elseif string.find(hook, "^event=W_Fall") then reason, seconds = "fall", 2
+        elseif hook == "zeroBy=Throw_Activate" then reason, seconds = "throw", 5 end
+        -- Native action updates can call movement helpers internally. A fresh
+        -- action callback takes priority for this frame; stale scalar names do not.
+        if string.find(hook, "^callback=Jump_") then activeReason = "jump"
+        elseif string.find(hook, "^callback=Stealth_to_") then activeReason = "crouch-transition"
+        elseif string.find(hook, "^callback=GuardBreak_")
+            or string.find(hook, "^callback=GuardDamage") then activeReason = "guard-reaction"
+        elseif string.find(hook, "^callback=DamageLv") then activeReason = "damage"
+        elseif string.find(hook, "^callback=Land_") then activeReason = "landing"
+        elseif string.find(hook, "^eventEnter=Event%d+_")
+            or string.find(hook, "^eventUpdate=Event%d+_") then activeReason = "event-animation" end
+        if reason then
+            trace.expectedUntil = trace.time + seconds
+            trace.expectedReason = reason
+        elseif hook == "callback=Idle_onUpdate" or hook == "callback=StopCommonFunction"
+            or hook == "callback=MoveCommonFunction" then
+            -- Returning to locomotion ends grace, even if its next move request stalls.
+            trace.expectedUntil = 0; trace.expectedReason = "none"
+        end
+    end
+    -- Continuous suppression is capped by rawStall < 6 in the caller, even
+    -- when a stuck action keeps issuing its update callback every frame.
+    if activeReason ~= nil then return activeReason end
+    local ok, throwing = pcall(env, IsThrowing)
+    if ok and throwing == TRUE then return "throw" end
+    if ok and throwing == FALSE and trace.expectedReason == "throw" then return "none" end
+    if trace.time < trace.expectedUntil then return trace.expectedReason end
+    return "none"
+end
+
+function ModMovementCaptureFrame()
+    local trace = sovereignMovementCapture
+    local dt = GetDeltaTime()
+    trace.time = trace.time + dt
+    trace.frame = trace.frame + 1
+    if not trace.file then ModMovementCaptureOpen() end
+    if trace.time >= 1800 or trace.captures >= 12 and not trace.post then
+        if trace.pendingCount > 0 then
+            ModMovementCaptureWrite(table.concat(trace.pending))
+            trace.pending = {}; trace.pendingCount = 0
+        end
+        if trace.post then ModMovementCaptureWrite("END truncated: time limit\n") end
+        ModMovementCaptureWrite("capture complete: time/count limit\n")
+        trace.file:close(); trace.file = false; trace.failed = true; trace.active = false
+        return
+    end
+    local input = GetVariable("MoveSpeedLevel")
+    local speed = GetVariable("MoveSpeedLevelReal")
+    local state = GetLocomotionState()
+    local expected = ModMovementExpectedPause()
+    local suspect = input > 0.6 and (speed <= 0.01 or state == 0)
+    if not suspect and state ~= 0 and speed > 0.01 then
+        trace.expectedUntil = 0; trace.expectedReason = "none"; expected = "none"
+    end
+    if suspect then trace.rawStall = trace.rawStall + dt else trace.rawStall = 0 end
+    local filtered = suspect and expected ~= "none" and trace.rawStall < 6
+    if filtered then trace.filteredFrames = trace.filteredFrames + 1 end
+    local line = "frame=" .. tostring(trace.frame) .. " t=" .. tostring(trace.time)
+        .. " dt=" .. tostring(dt) .. " checkpoint=" .. tostring(sovereignUpdateCheckpoint)
+        .. ModMovementDiagnosticFields()
+        .. ModDiagnosticField("direction", GetVariable, "MoveDirection")
+        .. ModDiagnosticField("angle", GetVariable, "MoveAngle")
+        .. ModDiagnosticField("turnAngle", hkbGetVariable, "TurnAngle")
+        .. ModDiagnosticField("lockon", GetVariable, "IsLockon")
+        .. ModDiagnosticField("toggleDash", GetVariable, "ToggleDash")
+        .. ModDiagnosticField("stamina", env, GetStamina)
+        .. ModDiagnosticField("guardHeld", env, ActionDuration, ACTION_ARM_L1)
+        .. ModDiagnosticField("dodgeHeld", env, ActionDuration, ACTION_ARM_ROLLING)
+        .. ModDiagnosticField("command", env, GetCommandIDFromEvent, 0)
+        .. ModDiagnosticField("throwRequest", env, HasThrowRequest)
+        .. ModDiagnosticField("throwing", env, IsThrowing)
+        .. " expectedPause=" .. expected .. " filtered=" .. tostring(filtered)
+        .. " rawStall=" .. tostring(trace.rawStall)
+        .. " filteredFrames=" .. tostring(trace.filteredFrames)
+    for _, id in ipairs({7000,7001,7003,7009,7010,7016,7500,7501,7502,7503,7504,7505,7506,7507,7997}) do
+        line = line .. ModDiagnosticField("s" .. tostring(id), env, GetStateChangeType, id)
+    end
+    line = line .. " hooks=[" .. table.concat(trace.hooks, " > ") .. "] dropped=" .. tostring(trace.dropped) .. "\n"
+    trace.hooks = {}; trace.hookCount = 0; trace.dropped = 0
+    if suspect and not filtered then
+        trace.stall = trace.stall + dt; trace.recovery = 0
+    else
+        trace.stall = 0; trace.recovery = trace.recovery + dt
+        if trace.recovery >= 0.5 and not trace.post then trace.armed = true end
+    end
+    if trace.post then
+        trace.pendingCount = trace.pendingCount + 1
+        trace.pending[trace.pendingCount] = line
+        trace.remaining = trace.remaining - dt
+        -- Bounded batches, never an unbounded string or a disk write every frame.
+        if trace.pendingCount >= 60 or trace.remaining <= 0 then
+            ModMovementCaptureWrite(table.concat(trace.pending))
+            trace.pending = {}; trace.pendingCount = 0
+        end
+        if trace.remaining <= 0 then
+            ModMovementCaptureWrite("END capture=" .. tostring(trace.captures) .. "\n")
+            trace.post = false
+        end
+    end
+    trace.head = math.mod(trace.head, trace.capacity) + 1
+    trace.frames[trace.head] = line
+    trace.count = math.min(trace.count + 1, trace.capacity)
+    if trace.armed and not trace.post and trace.stall >= 0.25 then
+        trace.captures = trace.captures + 1
+        trace.armed = false; trace.post = true; trace.remaining = 3
+        local history = {"BEGIN capture=" .. tostring(trace.captures) .. " reason=positive-input-idle-or-zero-speed t=" .. tostring(trace.time) .. "\n"}
+        for offset = trace.count - 1, 0, -1 do
+            local index = math.mod(trace.head - offset - 1 + trace.capacity, trace.capacity) + 1
+            history[#history + 1] = trace.frames[index]
+        end
+        ModMovementCaptureWrite(table.concat(history))
+    elseif trace.time >= trace.nextHeartbeat and not trace.post then
+        ModMovementCaptureWrite("HEARTBEAT captures=" .. tostring(trace.captures) .. " " .. line)
+        trace.nextHeartbeat = trace.time + 5
+    end
+end
+
+function ModMovementCaptureTick(player)
+    local trace = sovereignMovementCapture
+    if not trace.active and not trace.file and (not sovereignMovementCaptureEnabled or not player or trace.failed) then return end
+    trace.active = sovereignMovementCaptureEnabled and player and not trace.failed
+    if not trace.active then
+        trace.hooks = {}; trace.hookCount = 0; trace.dropped = 0
+        trace.frames = {}; trace.head = 0; trace.count = 0
+        trace.stall = 0; trace.recovery = 0; trace.armed = true
+        trace.rawStall = 0; trace.expectedUntil = 0; trace.expectedReason = "none"
+        -- Close a capture on death/non-player eligibility loss; no cross-life history.
+        if trace.file then
+            pcall(function()
+                if trace.pendingCount > 0 then ModMovementCaptureWrite(table.concat(trace.pending)) end
+                ModMovementCaptureWrite("END eligibility/off\n")
+            end)
+            pcall(function() trace.file:close() end)
+            trace.file = false
+        end
+        trace.pending = {}; trace.pendingCount = 0; trace.post = false
+        return
+    end
+    local ok, reason = pcall(ModMovementCaptureFrame)
+    if not ok then
+        -- Read/file failures disable this observer, never abort gameplay Update.
+        trace.failed = true; trace.active = false
+        if trace.file then
+            pcall(function() trace.file:write("diagnosticError=" .. tostring(reason) .. "\n"); trace.file:flush() end)
+            pcall(function() trace.file:close() end)
+            trace.file = false
+        end
+        pcall(act, 10001, "[Sovereign movement diagnostic] " .. tostring(reason))
+    end
+end
+-- END REVERSIBLE MOVEMENT CAPTURE
+
+
 function ModMotionTrace(field, value)
-    if not sovereignMovementTrace.enabled then return end
-    sovereignMotion[field] = value
-    sovereignMotion[field .. "At"] = sovereignDiagnosticTime
+    if not sovereignMovementCaptureEnabled then return end
+    if sovereignMovementTrace.enabled then
+        sovereignMotion[field] = value
+        sovereignMotion[field .. "At"] = sovereignDiagnosticTime
+    end
+    local trace = sovereignMovementCapture
+    if trace.active then
+        -- Preserve nested reasons and all writers in call order, with a hard cap.
+        if trace.hookCount < 32 then
+            trace.hookCount = trace.hookCount + 1
+            trace.hooks[trace.hookCount] = field .. "=" .. string.sub(tostring(value), 1, 160)
+        else
+            trace.dropped = trace.dropped + 1
+        end
+    end
 end
 
 -- A bad optional probe must not discard the other fields or stop the trace.
@@ -20251,7 +21023,7 @@ function ModDiagnosticSample(trace, interval, buildLine)
         if file == nil then error("Open " .. trace.path .. ": " .. tostring(reason)) end
         trace.file = file
         -- Commit proof that Update is reached before any optional engine/native probe.
-        file:write("[Sovereign 1.3.1] diagnostic started; detail=death-aid-motion; living player; checkpoint=" .. tostring(sovereignUpdateCheckpoint) .. "\n")
+        file:write("[Sovereign diagnostics] schema=2; detail=death-aid-motion; living player; checkpoint=" .. tostring(sovereignUpdateCheckpoint) .. "\n")
         file:flush()
     end
     local ok, line = pcall(buildLine)
@@ -20264,6 +21036,26 @@ function ModDiagnosticSample(trace, interval, buildLine)
         trace.buffer = ""
     end
     if trace.samples == trace.limit then trace.file:close(); trace.file = nil end
+end
+
+-- Temporary event-state observer. Never dispatches or cancels an animation.
+-- Existing deactivate callbacks are traced; states without one are followed by
+-- their update timestamp and the existing locomotion callback timestamps.
+function ModMovementEventTrace(field, callback)
+    if not sovereignMovementCaptureEnabled or not sovereignMovementCapture.active then return end
+    local ok, reason = pcall(function()
+        ModMotionTrace(field, callback)
+        local context = ModDiagnosticField("anim", env, GetEventID)
+            .. ModDiagnosticField("request", env, CheckForEventAnimPlaybackRequest)
+            .. ModDiagnosticField("command", env, GetCommandIDFromEvent, 0)
+            .. ModDiagnosticField("input", GetVariable, "MoveSpeedLevel")
+            .. ModDiagnosticField("speed", GetVariable, "MoveSpeedLevelReal")
+            .. ModDiagnosticField("moveCancel", env, IsMoveCancelPossible)
+            .. ModDiagnosticField("ez0", env, GetEventEzStateFlag, 0)
+            .. ModDiagnosticField("objBlendMs", env, GetObjActRemainingInterpolateTime)
+        ModMotionTrace(field .. "Context", context)
+    end)
+    if not ok then ModMotionTrace("eventProbeError", tostring(reason)) end
 end
 
 function ModMovementDiagnosticFields()
@@ -20287,6 +21079,13 @@ function ModMovementDiagnosticFields()
         .. " moveStart=" .. tostring(sovereignMotion.moveStart) .. " moveStartAt=" .. tostring(sovereignMotion.moveStartAt)
         .. " speedInput=" .. tostring(sovereignMotion.speedInput) .. " speedInputAt=" .. tostring(sovereignMotion.speedInputAt)
         .. " speedResult=" .. tostring(sovereignMotion.speedResult) .. " speedResultAt=" .. tostring(sovereignMotion.speedResultAt)
+        .. " eventEnter=" .. tostring(sovereignMotion.eventEnter) .. " eventEnterAt=" .. tostring(sovereignMotion.eventEnterAt)
+        .. " eventEnterContext=[" .. tostring(sovereignMotion.eventEnterContext) .. "]"
+        .. " eventUpdate=" .. tostring(sovereignMotion.eventUpdate) .. " eventUpdateAt=" .. tostring(sovereignMotion.eventUpdateAt)
+        .. " eventExit=" .. tostring(sovereignMotion.eventExit) .. " eventExitAt=" .. tostring(sovereignMotion.eventExitAt)
+        .. " eventExitContext=[" .. tostring(sovereignMotion.eventExitContext) .. "]"
+        .. " eventRequestGate=" .. tostring(sovereignMotion.eventRequestGate) .. " eventRequestGateAt=" .. tostring(sovereignMotion.eventRequestGateAt)
+        .. " eventRequestGateContext=[" .. tostring(sovereignMotion.eventRequestGateContext) .. "]"
         .. ModDiagnosticField("eventAnim", env, GetEventID)
         .. ModDiagnosticField("eventRequest", env, CheckForEventAnimPlaybackRequest)
         .. ModDiagnosticField("falling", env, IsFalling)
@@ -20295,13 +21094,30 @@ end
 
 function ModHadeonAidDiagnosticFields()
     return " calls=" .. tostring(sovereignAidCalls or 0)
+        .. ModDiagnosticField("admitted", env, GetEventFlag, "1055425233")
+        .. ModDiagnosticField("aidCap", ModHadeonAidCap)
+        .. ModDiagnosticField("loss1", env, GetEventFlag, "1055420930")
+        .. ModDiagnosticField("loss2", env, GetEventFlag, "1055420931")
+        .. ModDiagnosticField("loss3", env, GetEventFlag, "1055420932")
+        .. ModDiagnosticField("loss4", env, GetEventFlag, "1055420933")
+        .. ModDiagnosticField("loss5", env, GetEventFlag, "1055420934")
+        .. ModDiagnosticField("loss6", env, GetEventFlag, "1055420952")
+        .. ModDiagnosticField("loss7", env, GetEventFlag, "1055420953")
+        .. ModDiagnosticField("loss8", env, GetEventFlag, "1055420954")
+        .. ModDiagnosticField("loss9", env, GetEventFlag, "1055420955")
+        .. ModDiagnosticField("loss10", env, GetEventFlag, "1055420956")
         .. ModDiagnosticField("permission", env, GetSpEffectID, 1627130)
         .. ModDiagnosticField("aura", env, GetSpEffectID, 1627131)
+        .. ModDiagnosticField("tierPresent", function()
+            if sovereignAidStage > 0 then return env(GetSpEffectID, 1627140 + sovereignAidStage) end
+            return FALSE
+        end)
         .. " stage=" .. tostring(sovereignAidStage)
         .. " permissionGrace=" .. tostring(sovereignAidPermissionGrace)
         .. " direction=" .. tostring(sovereignAidDirection)
         .. " timer=" .. tostring(sovereignAidTimer)
         .. " pending=" .. tostring(sovereignAidPending and sovereignAidPending.time)
+        .. " expectedHPMax=" .. tostring(sovereignAidPending and sovereignAidPending.expectedMaximum[1])
         .. ModDiagnosticField("grace", env, GetSpEffectID, 100690)
         .. ModDiagnosticField("scripted", env, GetSpEffectID, 9621)
         .. ModDiagnosticField("hp", env, GetHP)
@@ -20314,16 +21130,26 @@ end
 
 function ModPlayerDiagnostics()
     if pcall == nil then return end
-    if sovereignMovementTrace.samples >= sovereignMovementTrace.limit and sovereignAidTrace.samples >= sovereignAidTrace.limit then return end
     local ok, player = pcall(function()
         return env(IsCOMPlayer) == FALSE and env(IsGhost) == FALSE and env(GetHP) > 0
     end)
-    sovereignMovementTrace.enabled = ok and player and sovereignMovementTrace.samples < sovereignMovementTrace.limit
+    ModMovementCaptureTick(ok and player)
+    sovereignMovementTrace.enabled = sovereignMovementCaptureEnabled and ok and player and sovereignMovementTrace.samples < sovereignMovementTrace.limit
     if not ok or not player then return end
+    -- Session-specific summaries retain older captures, including the aid trace.
+    if sovereignMovementTrace.samples == 0 and sovereignMovementCapture.path ~= "" then
+        sovereignMovementTrace.path = sovereignMovementCapture.path .. ".summary.log"
+    end
+    if sovereignAidTrace.samples == 0 and sovereignMovementCapture.path ~= "" then
+        sovereignAidTrace.path = sovereignMovementCapture.path .. ".aid.log"
+    end
     for index, trace in ipairs({sovereignMovementTrace, sovereignAidTrace}) do
         local interval, fields = 0.2, ModMovementDiagnosticFields
         if index == 2 then interval, fields = 0.5, ModHadeonAidDiagnosticFields end
-        local success, reason = pcall(ModDiagnosticSample, trace, interval, fields)
+        local success, reason = true, nil
+        if index == 2 or sovereignMovementTrace.enabled and not sovereignMovementCapture.failed then
+            success, reason = pcall(ModDiagnosticSample, trace, interval, fields)
+        end
         if not success then
             -- Preserve the actual error where possible; never throw into gameplay Update.
             if trace.file ~= nil then
@@ -20336,12 +21162,129 @@ function ModPlayerDiagnostics()
         end
     end
     if sovereignMovementTrace.samples >= sovereignMovementTrace.limit then sovereignMovementTrace.enabled = false end
-    sovereignDiagnosticTime = sovereignMovementTrace.time
+    sovereignDiagnosticTime = sovereignMovementCapture.time
 end
 
 
+-- BEGIN REVERSIBLE HADEON DIALOGUE TRACE
+-- Disable this switch, or remove this block and its single Update call.
+sovereignDialogueTraceEnabled = true
+sovereignDialogueTrace = {time = 0, next = 0, rows = 0, limit = 1024, previous = "unobserved", file = nil, failed = false}
+
+function ModHadeonDialogueSample()
+    local trace = sovereignDialogueTrace
+    if env(IsCOMPlayer) ~= FALSE or env(IsGhost) ~= FALSE then return end
+    trace.time = trace.time + GetDeltaTime()
+    if trace.time < trace.next then return end
+    trace.next = trace.time + 0.1
+    local fields = {}
+    local names = {"entrance", "half", "kill"}
+    for pool = 1, 3 do
+        local bits = ""
+        for offset = 0, 3 do
+            local suffix = 940 + (pool - 1) * 4 + offset
+            bits = bits .. tostring(env(GetEventFlag, string.format("105542%04d", suffix)))
+        end
+        fields[pool] = names[pool] .. "=" .. bits
+    end
+    local selected = ""
+    for offset = 0, 15 do
+        selected = selected .. tostring(env(GetEventFlag, string.format("105542%04d", 5200 + offset)))
+    end
+    local pending = ""
+    for offset = 0, 6 do
+        pending = pending .. tostring(env(GetEventFlag, string.format("105542%04d", 5216 + offset)))
+    end
+    -- Lighting is sampled separately at 2 Hz; it never writes encounter flags.
+    if trace.lightNext == nil or trace.time >= trace.lightNext then
+        trace.lightNext = trace.time + 0.5
+        local lit, tier = 0, -1
+        for suffix = 5100, 5195 do
+            if env(GetEventFlag, string.format("105542%04d", suffix)) ~= FALSE then lit = lit + 1 end
+        end
+        for suffix = 5262, 5272 do
+            if env(GetEventFlag, string.format("105542%04d", suffix)) ~= FALSE then tier = suffix - 5262 end
+        end
+        trace.lighting = " lights=" .. tostring(lit) .. " lightTier=" .. tostring(tier)
+            .. " lightReady=" .. tostring(env(GetEventFlag, "1055425274"))
+            .. " lightActive=" .. tostring(env(GetEventFlag, "1055422997"))
+            .. " lightSentinel=" .. tostring(env(GetEventFlag, "1055425273"))
+            .. " victory=" .. tostring(env(GetEventFlag, "1055420915"))
+            .. " crystal=" .. tostring(env(GetEventFlag, "1055420918"))
+    end
+    local current = table.concat(fields, " ") .. " selected=" .. selected .. " pending=" .. pending
+        .. " active=" .. tostring(env(GetEventFlag, "1055422946"))
+        .. " deathReload=" .. tostring(env(GetEventFlag, "1055420938"))
+        .. " confirmedDeath=" .. tostring(env(GetEventFlag, "1055425042"))
+        .. " firstSeen=" .. tostring(env(GetEventFlag, "1055420935"))
+          .. " dead=" .. tostring(env(GetHP) <= 0) .. trace.lighting
+          .. " vortexArmed=" .. tostring(env(GetEventFlag, "1055425258"))
+          .. " vortexCooldownReset=" .. tostring(env(GetEventFlag, "1055425259"))
+          .. " vortexCue=" .. tostring(env(GetEventFlag, "1055425275"))
+          .. " vortexInvalidArena=" .. tostring(env(GetEventFlag, "1055425276"))
+          .. " vortexNoLanding=" .. tostring(env(GetEventFlag, "1055425277"))
+          .. " vortexSuccess=" .. tostring(env(GetEventFlag, "1055425278"))
+          .. " vortexWorkerReady=" .. tostring(env(GetEventFlag, "1055425279"))
+          .. " vortexLiveSeen=" .. tostring(env(GetEventFlag, "1055425280"))
+          .. " vortexCueSeen=" .. tostring(env(GetEventFlag, "1055425281"))
+          .. " periodicRequest=" .. tostring(env(GetEventFlag, "1055425253"))
+          .. " periodicAck=" .. tostring(env(GetEventFlag, "1055425254"))
+          .. " periodicTimer=" .. tostring(env(GetEventFlag, "1055425283"))
+          .. " periodicExpired=" .. tostring(env(GetEventFlag, "1055425284"))
+          .. " periodicInvalid=" .. tostring(env(GetEventFlag, "1055425285"))
+          .. " periodicSpeech=" .. tostring(env(GetEventFlag, "1055425286"))
+          .. " periodicNoLanding=" .. tostring(env(GetEventFlag, "1055425287"))
+          .. " periodicSuccess=" .. tostring(env(GetEventFlag, "1055425288"))
+          .. " periodicAckSeen=" .. tostring(env(GetEventFlag, "1055425289"))
+          .. " periodicAISeen=" .. tostring(env(GetEventFlag, "1055425290"))
+          .. " periodicAttackBusy=" .. tostring(env(GetEventFlag, "1055425291"))
+          .. " periodicThrowBusy=" .. tostring(env(GetEventFlag, "1055425292"))
+          .. " periodicAISpeech=" .. tostring(env(GetEventFlag, "1055425293"))
+          .. " periodicDeadTarget=" .. tostring(env(GetEventFlag, "1055425294"))
+          .. " periodicNoCombat=" .. tostring(env(GetEventFlag, "1055425295"))
+          .. " vortexQueued=" .. tostring(env(GetEventFlag, "1055425296"))
+          .. " vortexNextActivate=" .. tostring(env(GetEventFlag, "1055425297"))
+    if current == trace.previous then return end
+    if trace.file == nil then
+        if io == nil or io.open == nil then trace.failed = true; return end
+        local prefix = sovereignMovementCapture and sovereignMovementCapture.path or ""
+        if prefix == "" then prefix = "Sovereign-hadeon" end
+        trace.path = prefix .. ".dialogue.log"
+        local reason
+        trace.file, reason = io.open(trace.path, "a")
+        if trace.file == nil then error(tostring(reason)) end
+        local written, writeError = trace.file:write("[Sovereign dialogue] schema=5; dialogue/teleport interval=0.1s; lighting interval=0.5s; bit order=ascending flag IDs; marker observations latch until map initialization; sampling may miss brief transitions\n")
+        if written == false or (written == nil and writeError ~= nil) then error(tostring(writeError)) end
+    end
+    local written, writeError = trace.file:write("t=" .. tostring(trace.time) .. " previous={" .. trace.previous .. "} current={" .. current .. "}\n")
+    if written == false or (written == nil and writeError ~= nil) then error(tostring(writeError)) end
+    local flushed, flushError = trace.file:flush()
+    if flushed == false or (flushed == nil and flushError ~= nil) then error(tostring(flushError)) end
+    trace.previous = current
+    trace.rows = trace.rows + 1
+    if trace.rows >= trace.limit then trace.file:close(); trace.file = nil end
+end
+
+function ModHadeonDialogueTrace()
+    local trace = sovereignDialogueTrace
+    if not sovereignDialogueTraceEnabled then return end
+    if pcall == nil or trace.failed or trace.rows >= trace.limit then return end
+    local ok, reason = pcall(ModHadeonDialogueSample)
+    if not ok then
+        trace.failed = true
+        if trace.file ~= nil then
+            pcall(function() trace.file:write("diagnosticError=" .. tostring(reason) .. "\n"); trace.file:flush() end)
+            pcall(function() trace.file:close() end)
+            trace.file = nil
+        end
+    end
+end
+-- END REVERSIBLE HADEON DIALOGUE TRACE
+
 function Update()
+    if not sovereignDeflectCriticalInitialized then ModDeflectCriticalClear() end
     ModPlayerDiagnostics()
+    ModHadeonDialogueTrace()
     sovereignUpdateCheckpoint = "GetConstVariable"
     GetConstVariable()
     sovereignUpdateCheckpoint = "native update"
@@ -25527,15 +26470,19 @@ function Act_Jump()
 	if env(ActionDuration, ACTION_ARM_CHANGE_STYLE) > 1.5 and env(GetSpEffectID, 140) == TRUE then
 		if env(IsLanding) == FALSE and env(IsSummoningRide) == FALSE then
             if GetVariable("MoveWeightIndex") == MOVE_WEIGHT_LIGHT then
+			    ModMotionTrace("scale", "Act_Jump:" .. tostring((globalJumpMultiplier * 1.3))) -- movement capture
 			    act(SetMovementScaleMult, (globalJumpMultiplier * 1.3)) 
             elseif GetVariable("MoveWeightIndex") == MOVE_WEIGHT_NORMAL then
+                ModMotionTrace("scale", "Act_Jump:" .. tostring((globalJumpMultiplier * 1.2))) -- movement capture
                 act(SetMovementScaleMult, (globalJumpMultiplier * 1.2)) 
             elseif GetVariable("MoveWeightIndex") == MOVE_WEIGHT_HEAVY then
+                ModMotionTrace("scale", "Act_Jump:" .. tostring((globalJumpMultiplier * 1.1))) -- movement capture
                 act(SetMovementScaleMult, (globalJumpMultiplier * 1.1)) 
             end
 		end	
 	else
 		if env(IsLanding) == FALSE and env(IsSummoningRide) == FALSE then
+			ModMotionTrace("scale", "Act_Jump:" .. tostring(globalJumpMultiplier)) -- movement capture
 			act(SetMovementScaleMult, globalJumpMultiplier) 
 		end	
 	end
@@ -25642,12 +26589,14 @@ function ExecArrowBothJumpLandAttack()
 end
 
 function JumpAttack_Start_Falling_onActivate()
+    ModMotionTrace("callback", "JumpAttack_Start_Falling_onActivate") -- movement capture
     act(ResetInputQueue)
     act(AIJumpState)
     SetAIActionState()
 end
 
 function JumpAttack_Start_Falling_onUpdate()
+    ModMotionTrace("callback", "JumpAttack_Start_Falling_onUpdate") -- movement capture
     act(AIJumpState)
     SetAIActionState()
 
@@ -25692,12 +26641,14 @@ function JumpAttack_Start_Falling_onUpdate()
 end
 
 function JumpAttack_Start_Falling_F_onActivate()
+    ModMotionTrace("callback", "JumpAttack_Start_Falling_F_onActivate") -- movement capture
     act(ResetInputQueue)
     act(AIJumpState)
     SetAIActionState()
 end
 
 function JumpAttack_Start_Falling_F_onUpdate()
+    ModMotionTrace("callback", "JumpAttack_Start_Falling_F_onUpdate") -- movement capture
     act(AIJumpState)
     SetAIActionState()
 
@@ -25734,12 +26685,14 @@ function JumpAttack_Start_Falling_F_onUpdate()
 end
 
 function JumpAttack_Start_Falling_D_onActivate()
+    ModMotionTrace("callback", "JumpAttack_Start_Falling_D_onActivate") -- movement capture
     act(ResetInputQueue)
     act(AIJumpState)
     SetAIActionState()
 end
 
 function JumpAttack_Start_Falling_D_onUpdate()
+    ModMotionTrace("callback", "JumpAttack_Start_Falling_D_onUpdate") -- movement capture
     act(AIJumpState)
     SetAIActionState()
 
@@ -26336,10 +27289,12 @@ function ExecFallMagic()
 end
 
 function Jump_Overweight_onActivate()
+    ModMotionTrace("callback", "Jump_Overweight_onActivate") -- movement capture
     SetAIActionState()
 end
 
 function Jump_Overweight_onUpdate()
+    ModMotionTrace("callback", "Jump_Overweight_onUpdate") -- movement capture
     SetAIActionState()
 
     if EvasionCommonFunction(FALL_TYPE_DEFAULT, "W_AttackRightLight1", "W_AttackRightHeavy1Start", "W_AttackLeftLight1",
@@ -26353,11 +27308,13 @@ function Jump_Overweight_onDeactivate()
 end
 
 function Jump_N_onActivate()
+    ModMotionTrace("callback", "Jump_N_onActivate") -- movement capture
     act(AIJumpState)
     SetAIActionState()
 end
 
 function Jump_N_onUpdate()
+    ModMotionTrace("callback", "Jump_N_onUpdate") -- movement capture
     SetAIActionState()
     JUMP_STATE_1 = 1
     JUMP_STATE_2 = 0
@@ -26392,11 +27349,13 @@ function Jump_N_onDeactivate()
 end
 
 function Jump_F_onActivate()
+    ModMotionTrace("callback", "Jump_F_onActivate") -- movement capture
     act(AIJumpState)
     SetAIActionState()
 end
 
 function Jump_F_onUpdate()
+    ModMotionTrace("callback", "Jump_F_onUpdate") -- movement capture
     SetAIActionState()
     JUMP_STATE_1 = 0
     JUMP_STATE_2 = 1
@@ -26407,6 +27366,7 @@ function Jump_F_onUpdate()
     local endratio = 1
     endratio = 1 + addratio * math.abs(math.sin(math.rad(2 * rolling_angle)))
     endratio = math.abs(endratio)
+    ModMotionTrace("scale", "Jump_F_onUpdate:" .. tostring(endratio)) -- movement capture
     act(SetMovementScaleMult, endratio)
 
     if JumpCommonFunction(1) == TRUE then
@@ -26419,11 +27379,13 @@ function Jump_F_onDeactivate()
 end
 
 function Jump_D_onActivate()
+    ModMotionTrace("callback", "Jump_D_onActivate") -- movement capture
     act(AIJumpState)
     SetAIActionState()
 end
 
 function Jump_D_onUpdate()
+    ModMotionTrace("callback", "Jump_D_onUpdate") -- movement capture
     SetAIActionState()
     JUMP_STATE_1 = 0
     JUMP_STATE_2 = 0
@@ -26443,11 +27405,13 @@ function Jump_D_onDeactivate()
 end
 
 function Jump_RideOff_onActivate()
+    ModMotionTrace("callback", "Jump_RideOff_onActivate") -- movement capture
     act(AIJumpState)
     SetAIActionState()
 end
 
 function Jump_RideOff_onUpdate()
+    ModMotionTrace("callback", "Jump_RideOff_onUpdate") -- movement capture
     SetAIActionState()
     JUMP_STATE_1 = 0
     JUMP_STATE_2 = 0
@@ -26469,10 +27433,12 @@ function Jump_RideOff_onDeactivate()
 end
 
 function Jump_Loop_onActivate()
+    ModMotionTrace("callback", "Jump_Loop_onActivate") -- movement capture
     SetAIActionState()
 end
 
 function Jump_Loop_onUpdate()
+    ModMotionTrace("callback", "Jump_Loop_onUpdate") -- movement capture
     SetAIActionState()
     act(DisallowAdditiveTurning, TRUE)
 
@@ -26639,11 +27605,13 @@ function Jump_Loop_onDeactivate()
 end
 
 function Jump_LandAttack_Normal_onActivate()
+    ModMotionTrace("callback", "Jump_LandAttack_Normal_onActivate") -- movement capture
     act(ResetInputQueue)
     SetAIActionState()
 end
 
 function Jump_LandAttack_Normal_onUpdate()
+    ModMotionTrace("callback", "Jump_LandAttack_Normal_onUpdate") -- movement capture
     SetAIActionState()
 
     if EvasionCommonFunction(FALL_TYPE_DEFAULT, "W_AttackRightLight2", "W_AttackRightHeavy1Start", "W_AttackLeftLight1",
@@ -26658,11 +27626,13 @@ function Jump_LandAttack_Normal_onDeactivate()
 end
 
 function Jump_LandAttack_Hard_onActivate()
+    ModMotionTrace("callback", "Jump_LandAttack_Hard_onActivate") -- movement capture
     act(ResetInputQueue)
     SetAIActionState()
 end
 
 function Jump_LandAttack_Hard_onUpdate()
+    ModMotionTrace("callback", "Jump_LandAttack_Hard_onUpdate") -- movement capture
     SetAIActionState()
 
     if EvasionCommonFunction(FALL_TYPE_DEFAULT, "W_AttackRightLight2", "W_AttackRightHeavy1Start", "W_AttackLeftLight1",
@@ -26711,6 +27681,7 @@ function JumpLandCommonFunction()
 end
 
 function Jump_Land_N_onUpdate()
+    ModMotionTrace("callback", "Jump_Land_N_onUpdate") -- movement capture
     if JumpLandCommonFunction() == TRUE then
         return
     end
@@ -26721,18 +27692,21 @@ function Jump_Land_N_onDeactivate()
 end
 
 function Jump_Land_F_onUpdate()
+    ModMotionTrace("callback", "Jump_Land_F_onUpdate") -- movement capture
     if JumpLandCommonFunction() == TRUE then
         return
     end
 end
 
 function Jump_Land_D_onUpdate()
+    ModMotionTrace("callback", "Jump_Land_D_onUpdate") -- movement capture
     if JumpLandCommonFunction() == TRUE then
         return
     end
 end
 
 function Jump_Attack_Land_F_onUpdate()
+    ModMotionTrace("callback", "Jump_Attack_Land_F_onUpdate") -- movement capture
     if JumpLandCommonFunction() == TRUE then
         return
     end
@@ -26744,6 +27718,7 @@ function Jump_Attack_Land_F_onUpdate()
 end
 
 function Jump_Land_To_Run_onUpdate()
+    ModMotionTrace("callback", "Jump_Land_To_Run_onUpdate") -- movement capture
     act(SwitchMotion, TRUE)
     SetEnableAimMode()
     SetVariable("JumpLandMoveDirection", GetVariable("MoveDirection"))
@@ -26762,6 +27737,7 @@ function Jump_Land_To_Run_onUpdate()
 end
 
 function Jump_Land_To_Dash_onUpdate()
+    ModMotionTrace("callback", "Jump_Land_To_Dash_onUpdate") -- movement capture
     act(LockonFixedAngleCancel)
     SetEnableAimMode()
     SetVariable("MoveSpeedLevelReal", 2)
@@ -26780,10 +27756,12 @@ function Jump_Land_To_Dash_onUpdate()
 end
 
 function JumpDamage_Start_onActivate()
+    ModMotionTrace("callback", "JumpDamage_Start_onActivate") -- movement capture
     act(ResetInputQueue)
 end
 
 function JumpDamage_Start_onUpdate()
+    ModMotionTrace("callback", "JumpDamage_Start_onUpdate") -- movement capture
     JUMP_STATE_1 = 1
     JUMP_STATE_2 = 0
     JUMP_STATE_3 = 0
@@ -26808,10 +27786,12 @@ function JumpDamage_Start_onUpdate()
 end
 
 function JumpDamage_Land_onActivate()
+    ModMotionTrace("callback", "JumpDamage_Land_onActivate") -- movement capture
     act(ResetInputQueue)
 end
 
 function JumpDamage_Land_onUpdate()
+    ModMotionTrace("callback", "JumpDamage_Land_onUpdate") -- movement capture
     act(DenyEventAnimPlaybackRequest)
     if EvasionCommonFunction(FALL_TYPE_DEFAULT, "W_AttackRightLight1", "W_AttackRightHeavy1Start", "W_AttackLeftLight1",
         "W_AttackLeftHeavy1", "W_AttackBothLight1", "W_AttackBothHeavy1Start", QUICKTYPE_ROLLING) == TRUE then
@@ -26875,10 +27855,12 @@ function StealthAttackArrow_Activate()
 end
 
 function StealthAttackArrowStart_Upper_onActivate()
+    ModMotionTrace("callback", "StealthAttackArrowStart_Upper_onActivate") -- movement capture
     act(ResetInputQueue)
 end
 
 function StealthAttackArrowStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackArrowStart_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -26912,10 +27894,12 @@ function StealthAttackArrowStart_Upper_onUpdate()
 end
 
 function StealthAttackArrowStartContinue_Upper_onActivate()
+    ModMotionTrace("callback", "StealthAttackArrowStartContinue_Upper_onActivate") -- movement capture
     act(ResetInputQueue)
 end
 
 function StealthAttackArrowStartContinue_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackArrowStartContinue_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -26949,6 +27933,7 @@ function StealthAttackArrowStartContinue_Upper_onUpdate()
 end
 
 function StealthAttackArrowLoop_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthAttackArrowLoop_Upper_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -26974,6 +27959,7 @@ function StealthAttackArrowLoop_Upper_onUpdate()
 end
 
 function StealthAttackArrowShot_onUpdate()
+    ModMotionTrace("callback", "StealthAttackArrowShot_onUpdate") -- movement capture
     act(SetIsPreciseShootingPossible)
     SetStealthState(STEALTH_ATTACK_ARROWSHOT)
     if ArrowCommonFunction(blend_type, FALSE, TURN_TYPE_STANCE) == TRUE then
@@ -27020,6 +28006,7 @@ function StealthAttackArrowShot_onUpdate()
 end
 
 function StealthItemOneShot_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthItemOneShot_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -27038,6 +28025,7 @@ function StealthItemOneShot_Upper_onUpdate()
 end
 
 function StealthItemOneShot_SelfTrans_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthItemOneShot_SelfTrans_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -27056,6 +28044,7 @@ function StealthItemOneShot_SelfTrans_Upper_onUpdate()
 end
 
 function StealthItemDrinkStart_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthItemDrinkStart_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -27082,6 +28071,7 @@ function StealthItemDrinkStart_Upper_onUpdate()
 end
 
 function StealthItemDrinking_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthItemDrinking_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -27101,6 +28091,7 @@ function StealthItemDrinking_Upper_onUpdate()
 end
 
 function StealthItemDrinkEnd_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthItemDrinkEnd_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -27119,6 +28110,7 @@ function StealthItemDrinkEnd_Upper_onUpdate()
 end
 
 function StealthItemDrinkEmpty_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthItemDrinkEmpty_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -27137,6 +28129,7 @@ function StealthItemDrinkEmpty_Upper_onUpdate()
 end
 
 function StealthItemDrinkNothing_Upper_onUpdate()
+    ModMotionTrace("callback", "StealthItemDrinkNothing_Upper_onUpdate") -- movement capture
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
         act(LockonSystemUnableToTurnAngle, 45, 45)
@@ -27155,6 +28148,7 @@ function StealthItemDrinkNothing_Upper_onUpdate()
 end
 
 function Stealth_to_Stealth_Idle_onUpdate()
+    ModMotionTrace("callback", "Stealth_to_Stealth_Idle_onUpdate") -- movement capture
     act(SwitchMotion, TRUE)
     act(SetAllowedThrowAttackType, THROW_STATE_STEALTH)
     SetEnableAimMode()
@@ -27176,6 +28170,7 @@ function Stealth_to_Stealth_Idle_onUpdate()
 end
 
 function Stealth_to_Idle_onUpdate()
+    ModMotionTrace("callback", "Stealth_to_Idle_onUpdate") -- movement capture
     act(SwitchMotion, TRUE)
     act(SetAllowedThrowAttackType, THROW_STATE_STEALTH)
     SetEnableAimMode()
@@ -27198,6 +28193,7 @@ function Stealth_to_Idle_onUpdate()
 end
 
 function Stealth_Idle_onUpdate()
+    ModMotionTrace("callback", "Stealth_Idle_onUpdate") -- movement capture
     act(Wait)
     act(SetAllowedThrowAttackType, THROW_STATE_STEALTH)
     SetEnableAimMode()
@@ -27214,10 +28210,12 @@ function Stealth_Idle_onUpdate()
 end
 
 function Stealth_Move_onActivate()
+    ModMotionTrace("callback", "Stealth_Move_onActivate") -- movement capture
     act(SwitchMotion, TRUE)
 end
 
 function Stealth_Move_onUpdate()
+    ModMotionTrace("callback", "Stealth_Move_onUpdate") -- movement capture
     act(SwitchMotion, TRUE)
     local move_speed = GetVariable("MoveSpeedIndex")
     if move_speed == 2 then
@@ -27254,15 +28252,19 @@ function Stealth_Move_onUpdate()
     end
 
     if hkbGetVariable("MoveDirection") == 3 or hkbGetVariable("MoveDirection") == 2 then
+        ModMotionTrace("scale", "Stealth_Move_onUpdate:" .. tostring(0.9599999785423279)) -- movement capture
         act(SetMovementScaleMult, 0.9599999785423279)
     elseif hkbGetVariable("MoveDirection") == 1 then
+        ModMotionTrace("scale", "Stealth_Move_onUpdate:" .. tostring(0.9599999785423279)) -- movement capture
         act(SetMovementScaleMult, 0.9599999785423279)
     elseif hkbGetVariable("MoveDirection") == 0 then
+        ModMotionTrace("scale", "Stealth_Move_onUpdate:" .. tostring(0.9800000190734863)) -- movement capture
         act(SetMovementScaleMult, 0.9800000190734863)
     end
 end
 
 function Stealth_Move_Upper_onUpdate()
+    ModMotionTrace("callback", "Stealth_Move_Upper_onUpdate") -- movement capture
     act(SetAllowedThrowAttackType, THROW_STATE_STEALTH)
     SetWeightIndex()
     if MoveCommonFunction(UPPER) == TRUE then
@@ -27287,36 +28289,42 @@ function StealthStopCommonFunction(is_dash_stop)
 end
 
 function StealthDashStop_onUpdate()
+    ModMotionTrace("callback", "StealthDashStop_onUpdate") -- movement capture
     if StealthStopCommonFunction(TRUE) == TRUE then
         return
     end
 end
 
 function StealthRunStopFront_onUpdate()
+    ModMotionTrace("callback", "StealthRunStopFront_onUpdate") -- movement capture
     if StealthStopCommonFunction(FALSE) == TRUE then
         return
     end
 end
 
 function StealthRunStopBack_onUpdate()
+    ModMotionTrace("callback", "StealthRunStopBack_onUpdate") -- movement capture
     if StealthStopCommonFunction(FALSE) == TRUE then
         return
     end
 end
 
 function StealthRunStopLeft_onUpdate()
+    ModMotionTrace("callback", "StealthRunStopLeft_onUpdate") -- movement capture
     if StealthStopCommonFunction(FALSE) == TRUE then
         return
     end
 end
 
 function StealthRunStopRight_onUpdate()
+    ModMotionTrace("callback", "StealthRunStopRight_onUpdate") -- movement capture
     if StealthStopCommonFunction(FALSE) == TRUE then
         return
     end
 end
 
 function Stealth_Rolling_onUpdate()
+    ModMotionTrace("callback", "Stealth_Rolling_onUpdate") -- movement capture
     act(SetAllowedThrowAttackType, THROW_STATE_STEALTH)
     SetWeightIndex()
     SetStealthState(STEALTH_ROLLING)
@@ -27336,6 +28344,7 @@ function Stealth_Rolling_onUpdate()
 end
 
 function Stealth_RollingSelftrans_onUpdate()
+    ModMotionTrace("callback", "Stealth_RollingSelftrans_onUpdate") -- movement capture
     act(SetAllowedThrowAttackType, THROW_STATE_STEALTH)
     SetWeightIndex()
     SetStealthState(STEALTH_ROLLING_SELFTRANS)

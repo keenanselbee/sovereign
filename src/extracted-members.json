@@ -6,7 +6,7 @@
   "archives": [
     {
       "runtime": "mod/msg/engus/item_dlc02.msgbnd.dcx",
-      "sha256": "00afc4cf9e6597e041e06c8cfce7a0b74b3611ba016fd03f660d1a1b1bcf3ee9",
+      "sha256": "259c26c7e65c192de9ab2c1092ab6888efb92793fa653263e737bf38e5130e4f",
       "baseSha256": "9e8ce62da854a7f6aef51da5e37c0e9bb26d7a40d88898b7076ce7081d209d96",
       "baselineAvailable": true,
       "kind": "extracted members",
@@ -81,8 +81,8 @@
           "id": 20,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "62c5d35e8883e0c771cd56f9a2cccda362ad0a93a8061c291e43da0c2da441fc",
-          "size": 171364,
+          "sha256": "be23df5eb13f3da4614ea954b4dd4faf01414c484e97f81e65d84c95871d6b8f",
+          "size": 171332,
           "textures": []
         },
         {
@@ -121,8 +121,8 @@
           "id": 24,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "16f6803e9c997ec8525af069cccb0ee0958db6a0bd3c094b8fd6ecbe12fce038",
-          "size": 1097876,
+          "sha256": "bbd3b931805c3f37d2a0f8056adba5e66c0f0a82a33a4338d8d39469dc905cc7",
+          "size": 1098218,
           "textures": []
         },
         {
@@ -181,8 +181,8 @@
           "id": 41,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "26f22913f09ae34739de1b47c6ad1d7499190b971b1482c466cacb20c6d8d4ed",
-          "size": 3860,
+          "sha256": "8e0ff639d06039eab6046e7baac9c7ad892534b5984ca8ee74d13e8fac51d27d",
+          "size": 3824,
           "textures": []
         },
         {
@@ -305,11 +305,214 @@
           "size": 15318,
           "textures": []
         }
-      ]
+      ],
+      "untrackedMembers": [
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicName.fmg",
+          "id": 14
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\PlaceName.fmg",
+          "id": 19
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicInfo.fmg",
+          "id": 28
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicCaption.fmg",
+          "id": 29
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemName.fmg",
+          "id": 35
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemEffect.fmg",
+          "id": 45
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponName_dlc01.fmg",
+          "id": 310
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponCaption_dlc01.fmg",
+          "id": 312
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorName_dlc01.fmg",
+          "id": 313
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorInfo_dlc01.fmg",
+          "id": 314
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorCaption_dlc01.fmg",
+          "id": 315
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryName_dlc01.fmg",
+          "id": 316
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryInfo_dlc01.fmg",
+          "id": 317
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemName_dlc01.fmg",
+          "id": 322
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemInfo_dlc01.fmg",
+          "id": 323
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemCaption_dlc01.fmg",
+          "id": 324
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicName_dlc01.fmg",
+          "id": 325
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicInfo_dlc01.fmg",
+          "id": 326
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicCaption_dlc01.fmg",
+          "id": 327
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NpcName_dlc01.fmg",
+          "id": 328
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\PlaceName_dlc01.fmg",
+          "id": 329
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsDialog_dlc01.fmg",
+          "id": 330
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponEffect_dlc01.fmg",
+          "id": 333
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemEffect_dlc01.fmg",
+          "id": 334
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponName_dlc02.fmg",
+          "id": 410
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponInfo_dlc02.fmg",
+          "id": 411
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponCaption_dlc02.fmg",
+          "id": 412
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorName_dlc02.fmg",
+          "id": 413
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorInfo_dlc02.fmg",
+          "id": 414
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ProtectorCaption_dlc02.fmg",
+          "id": 415
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryName_dlc02.fmg",
+          "id": 416
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryInfo_dlc02.fmg",
+          "id": 417
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\AccessoryCaption_dlc02.fmg",
+          "id": 418
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsName_dlc02.fmg",
+          "id": 419
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsInfo_dlc02.fmg",
+          "id": 420
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsCaption_dlc02.fmg",
+          "id": 421
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemName_dlc02.fmg",
+          "id": 422
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemInfo_dlc02.fmg",
+          "id": 423
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemCaption_dlc02.fmg",
+          "id": 424
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicName_dlc02.fmg",
+          "id": 425
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicInfo_dlc02.fmg",
+          "id": 426
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MagicCaption_dlc02.fmg",
+          "id": 427
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NpcName_dlc02.fmg",
+          "id": 428
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\PlaceName_dlc02.fmg",
+          "id": 429
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsDialog_dlc02.fmg",
+          "id": 430
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ArtsName_dlc02.fmg",
+          "id": 431
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ArtsCaption_dlc02.fmg",
+          "id": 432
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\WeaponEffect_dlc02.fmg",
+          "id": 433
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GemEffect_dlc02.fmg",
+          "id": 434
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GoodsInfo2_dlc02.fmg",
+          "id": 435
+        }
+      ],
+      "untrackedTextures": []
     },
     {
       "runtime": "mod/msg/engus/menu_dlc02.msgbnd.dcx",
-      "sha256": "4b53d010d9a9725d673d03511a1915d8932c4581351c386c154e5419d8437b94",
+      "sha256": "fb7aa29dc9bba0a2a4703d85f4879735a38ddc9f19376a11243e808a0fee6a7b",
       "baseSha256": "1ccfff5fcddd3809c6983c4e05138163835ed84db90886be710ee9cfd6cc55fe",
       "baselineAvailable": true,
       "kind": "extracted members",
@@ -334,8 +537,8 @@
           "id": 1,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "3758e2425c04bea3d1bdc9a9856be746b779af5dff58eb16b6167e773342cc50",
-          "size": 1237498,
+          "sha256": "a39388066923f98ed6b01b7f0f2d4fc5e490ae8225aabf533be49c1e2c9667b6",
+          "size": 1240242,
           "textures": []
         },
         {
@@ -394,8 +597,8 @@
           "id": 208,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "bf57757d321c4cdf9433aafaa7f04402d6aabb13aba1b569bb8a8cb47779807c",
-          "size": 43020,
+          "sha256": "3e4fe914e36c2c7ba9a16cea8480010e39127c4ee735e3308fe42afdaa63d062",
+          "size": 43452,
           "textures": []
         },
         {
@@ -438,11 +641,170 @@
           "size": 1130,
           "textures": []
         }
-      ]
+      ],
+      "untrackedMembers": [
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\BloodMsg.fmg",
+          "id": 2
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MovieSubtitle.fmg",
+          "id": 3
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NetworkMessage.fmg",
+          "id": 31
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText.fmg",
+          "id": 32
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp.fmg",
+          "id": 201
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_KeyGuide.fmg",
+          "id": 202
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64.fmg",
+          "id": 203
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingTitle.fmg",
+          "id": 205
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingText.fmg",
+          "id": 206
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TextEmbedImageName_win64.fmg",
+          "id": 209
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ToS_win64.fmg",
+          "id": 210
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TalkMsg_dlc01.fmg",
+          "id": 360
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\BloodMsg_dlc01.fmg",
+          "id": 361
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MovieSubtitle_dlc01.fmg",
+          "id": 362
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NetworkMessage_dlc01.fmg",
+          "id": 364
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText_dlc01.fmg",
+          "id": 365
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap_dlc01.fmg",
+          "id": 367
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_KeyGuide_dlc01.fmg",
+          "id": 370
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64_dlc01.fmg",
+          "id": 371
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingTitle_dlc01.fmg",
+          "id": 373
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingText_dlc01.fmg",
+          "id": 374
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialTitle_dlc01.fmg",
+          "id": 375
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialBody_dlc01.fmg",
+          "id": 376
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TalkMsg_dlc02.fmg",
+          "id": 460
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\BloodMsg_dlc02.fmg",
+          "id": 461
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MovieSubtitle_dlc02.fmg",
+          "id": 462
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NetworkMessage_dlc02.fmg",
+          "id": 464
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText_dlc02.fmg",
+          "id": 465
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForTalk_dlc02.fmg",
+          "id": 466
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap_dlc02.fmg",
+          "id": 467
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_MenuText_dlc02.fmg",
+          "id": 468
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp_dlc02.fmg",
+          "id": 469
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_KeyGuide_dlc02.fmg",
+          "id": 470
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64_dlc02.fmg",
+          "id": 471
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_Dialogues_dlc02.fmg",
+          "id": 472
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingTitle_dlc02.fmg",
+          "id": 473
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingText_dlc02.fmg",
+          "id": 474
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialTitle_dlc02.fmg",
+          "id": 475
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialBody_dlc02.fmg",
+          "id": 476
+        }
+      ],
+      "untrackedTextures": []
     },
     {
       "runtime": "mod/msg/engus/menu.msgbnd.dcx",
-      "sha256": "63b5308a5b87937785e40d4cd89049d1eac05fd5cd19634845b0a8cb8ccbe1f0",
+      "sha256": "4688efcce8c26ef4c0a2ab86f8e984db1a999fc9780b0ccec3ad0cf9a38474b4",
       "baseSha256": "3a10b9db325819e777a26e52c7049a7f33313f9c4872600dace6cbd3fa9e661f",
       "baselineAvailable": true,
       "kind": "extracted members",
@@ -467,8 +829,8 @@
           "id": 1,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "3758e2425c04bea3d1bdc9a9856be746b779af5dff58eb16b6167e773342cc50",
-          "size": 1237498,
+          "sha256": "a39388066923f98ed6b01b7f0f2d4fc5e490ae8225aabf533be49c1e2c9667b6",
+          "size": 1240242,
           "textures": []
         },
         {
@@ -527,15 +889,62 @@
           "id": 208,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "bf57757d321c4cdf9433aafaa7f04402d6aabb13aba1b569bb8a8cb47779807c",
-          "size": 43020,
+          "sha256": "3e4fe914e36c2c7ba9a16cea8480010e39127c4ee735e3308fe42afdaa63d062",
+          "size": 43452,
           "textures": []
         }
-      ]
+      ],
+      "untrackedMembers": [
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\BloodMsg.fmg",
+          "id": 2
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MovieSubtitle.fmg",
+          "id": 3
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NetworkMessage.fmg",
+          "id": 31
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText.fmg",
+          "id": 32
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp.fmg",
+          "id": 201
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_KeyGuide.fmg",
+          "id": 202
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64.fmg",
+          "id": 203
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingTitle.fmg",
+          "id": 205
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingText.fmg",
+          "id": 206
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TextEmbedImageName_win64.fmg",
+          "id": 209
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ToS_win64.fmg",
+          "id": 210
+        }
+      ],
+      "untrackedTextures": []
     },
     {
       "runtime": "mod/msg/engus/menu_dlc01.msgbnd.dcx",
-      "sha256": "b8a0b63e882c4fc7d1706963aadfef2396812a80a582769e35d3a622a7d954eb",
+      "sha256": "85c510a6f4f1b78d58bacdcc44a2c3df36560dacb2653048962befb4116a911e",
       "baseSha256": "0a06647e7cb308b87a6058049ec986befb66fc6cebefc1707ee48665f3bfd574",
       "baselineAvailable": true,
       "kind": "extracted members",
@@ -560,8 +969,8 @@
           "id": 1,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "3758e2425c04bea3d1bdc9a9856be746b779af5dff58eb16b6167e773342cc50",
-          "size": 1237498,
+          "sha256": "a39388066923f98ed6b01b7f0f2d4fc5e490ae8225aabf533be49c1e2c9667b6",
+          "size": 1240242,
           "textures": []
         },
         {
@@ -620,8 +1029,8 @@
           "id": 208,
           "flags": "Flag1",
           "compression": "Zlib",
-          "sha256": "bf57757d321c4cdf9433aafaa7f04402d6aabb13aba1b569bb8a8cb47779807c",
-          "size": 43020,
+          "sha256": "3e4fe914e36c2c7ba9a16cea8480010e39127c4ee735e3308fe42afdaa63d062",
+          "size": 43452,
           "textures": []
         },
         {
@@ -664,7 +1073,102 @@
           "size": 1130,
           "textures": []
         }
-      ]
+      ],
+      "untrackedMembers": [
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\BloodMsg.fmg",
+          "id": 2
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MovieSubtitle.fmg",
+          "id": 3
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NetworkMessage.fmg",
+          "id": 31
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText.fmg",
+          "id": 32
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_LineHelp.fmg",
+          "id": 201
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_KeyGuide.fmg",
+          "id": 202
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64.fmg",
+          "id": 203
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingTitle.fmg",
+          "id": 205
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingText.fmg",
+          "id": 206
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TextEmbedImageName_win64.fmg",
+          "id": 209
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ToS_win64.fmg",
+          "id": 210
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TalkMsg_dlc01.fmg",
+          "id": 360
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\BloodMsg_dlc01.fmg",
+          "id": 361
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\MovieSubtitle_dlc01.fmg",
+          "id": 362
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\NetworkMessage_dlc01.fmg",
+          "id": 364
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\ActionButtonText_dlc01.fmg",
+          "id": 365
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\EventTextForMap_dlc01.fmg",
+          "id": 367
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_KeyGuide_dlc01.fmg",
+          "id": 370
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\GR_System_Message_win64_dlc01.fmg",
+          "id": 371
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingTitle_dlc01.fmg",
+          "id": 373
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\LoadingText_dlc01.fmg",
+          "id": 374
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialTitle_dlc01.fmg",
+          "id": 375
+        },
+        {
+          "archiveName": "N:\\GR\\data\\INTERROOT_win64\\msg\\engUS\\TutorialBody_dlc01.fmg",
+          "id": 376
+        }
+      ],
+      "untrackedTextures": []
     },
     {
       "runtime": "mod/chr/c0000_a0x.anibnd.dcx",

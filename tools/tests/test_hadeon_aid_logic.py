@@ -9,6 +9,38 @@ ROOT = rescue.ROOT
 @unittest.skipUnless(rescue.LUA.is_file(), 'Existing Lua runtime is unavailable')
 class HadeonAidLogic(unittest.TestCase):
     run_lua = rescue.RescueLogic.run_lua
+
+    def test_saved_flag_ids_set_two_stages_per_death_without_float_rounding(self):
+        source = (ROOT / 'mod/action/script/c0000.hks').read_text(encoding='utf-8')
+        fn = 'function ModHadeonAidDeaths()' + source.split(
+            'function ModHadeonAidDeaths()', 1)[1].split('function ModHadeonAid()', 1)[0]
+        # Ordinary Lua uses wider numbers than HKS. Model single-precision
+        # conversion so tostring(large-number arithmetic) cannot hide rounding.
+        harness = r'''
+TRUE=1;FALSE=0;GetEventFlag=10003
+local ids={"1055420930","1055420931","1055420932","1055420933","1055420934",
+ "1055420952","1055420953","1055420954","1055420955","1055420956"}
+local known,flags={},{}
+for _,id in ipairs(ids) do known[id]=true end
+local nativeTostring=tostring
+function tostring(value)
+ if type(value)=="number" then value=string.unpack("f",string.pack("f",value)) end
+ return nativeTostring(value)
+end
+function env(key,id)
+ assert(key==GetEventFlag)
+ assert(type(id)=="string" and known[id], "Flag ID was rounded or malformed")
+ return flags[id] and TRUE or FALSE
+end
+assert(ModHadeonAidCap()==0)
+for deaths=1,10 do
+ flags[ids[deaths]]=true
+ assert(ModHadeonAidDeaths()==deaths)
+ assert(ModHadeonAidCap()==deaths*2)
+end
+'''
+        self.run_lua(fn + harness)
+
     def test_aid_ramp_resources_and_withdrawal(self):
         source = (ROOT / 'mod/action/script/c0000.hks').read_text(encoding='utf-8')
         fn = source.split('-- Hadeon aid is driven', 1)[1].split('-- Beginner rescue:', 1)[0]
@@ -17,9 +49,11 @@ class HadeonAidLogic(unittest.TestCase):
         bindings = '\n'.join(f'{name}="{name}"' for name in names)
         harness = r'''
 TRUE=1;FALSE=0;FP=0x148;FP_MAX=0x14C
-local effects, current, maximum, base, auraAdds, lag, age, damage, freeze
+local effects, flags, current, maximum, base, auraAdds, lag, age, damage, freeze
 function reset()
- effects={};current={500,100,100};maximum={500,100,100};base={500,100,100}
+ effects={};flags={};for id=1055420930,1055420934 do flags[tostring(id)]=true end
+ for id=1055420952,1055420956 do flags[tostring(id)]=true end
+ current={500,100,100};maximum={500,100,100};base={500,100,100}
  auraAdds=0;lag=0;age=0;damage=nil;freeze=false
  sovereignAidPermissionGrace=0;sovereignAidCalls=0;sovereignAidStage=-1;sovereignAidTimer=0;sovereignAidDirection=0
  sovereignAidInterval=.5;sovereignAidPending=false;sovereignAidFractions={0,0,0}
@@ -32,6 +66,7 @@ function env(key,...)
  if key==GetStamina then return current[3] end
  if key==GetMaxStamina then return maximum[3] end
  if key==GetSpEffectID then return effects[id] and TRUE or FALSE end
+ if key==GetEventFlag then return flags[id] and TRUE or FALSE end
  if key==TraversePointerChain then
   if args[#args]==0x13C then return maximum[1] end
   if args[#args]==FP_MAX then return maximum[2] end
@@ -72,9 +107,39 @@ end
 for i=1,300 do ModHadeonAid() end
 assert(reads==300 and sovereignAidStage==0 and not sovereignAidPending)
 env=realEnv
+-- Genuine-death receipts cap the aid at 10 percent per loss, up to 100 percent.
+for deaths=0,10 do
+ reset();flags={};for i=1,deaths do
+  local id=i<=5 and 1055420929+i or 1055420946+i
+  flags[tostring(id)]=true
+ end
+ effects[1627130]=true;advance(10.5)
+ assert(sovereignAidStage==deaths*2)
+ assert(maximum[1]==math.floor(500*(1+deaths*.10)+.00001))
+ assert(maximum[2]==math.floor(100*(1+deaths*.10)+.00001))
+ assert(maximum[3]==math.floor(100*(1+deaths*.10)+.00001))
+ assert((effects[1627131]~=nil)==(deaths>0))
+ effects[1627130]=nil;advance(10.5)
+ assert(sovereignAidStage==0 and maximum[1]==500 and current[1]==500)
+end
+-- A later genuine death raises the cap without stacking tier effects.
+reset();flags={['1055420930']=true};effects[1627130]=true;advance(10.5)
+assert(sovereignAidStage==2)
+flags['1055420931']=true;advance(2.5);assert(sovereignAidStage==4)
+-- The first capped tier preserves spent resources through exit and reentry.
+reset();flags={['1055420930']=true};current={250,50,30};effects[1627130]=true;advance(10.5)
+assert(sovereignAidStage==2 and maximum[1]==550)
+near(current[1],275);near(current[2],55);near(current[3],33)
+effects[1627130]=nil;advance(10.5)
+assert(sovereignAidStage==0);near(current[1],250);near(current[2],50);near(current[3],30)
+effects[1627130]=true;advance(10.5)
+assert(sovereignAidStage==2 and maximum[1]==550)
 -- A script recreated with an existing tier must still finish its withdrawal.
 reset();effects[1627145]=true;effects[1627131]=true;advance(10.3)
 assert(sovereignAidStage==0 and not effects[1627131])
+-- An existing 20-stage effect remains valid at the ten-loss ceiling.
+reset();effects[1627160]=true;effects[1627130]=true;advance(10.5)
+assert(sovereignAidStage==20 and maximum[1]==1000)
 
 reset();effects[1627130]=true;advance(10.5)
 assert(sovereignAidStage==20 and auraAdds==1)
@@ -86,7 +151,7 @@ assert(sovereignAidStage==0 and not effects[1627131]);assert(current[1]==500)
 
 -- Short permission gaps must not restart the ramp, even before its first tier.
 reset()
-for i=1,220 do
+for i=1,300 do
  effects[1627130]=(i%7<6) and true or nil
  frame()
 end
@@ -110,7 +175,7 @@ assert(current[1]==455 and current[2]==95 and current[3]==85)
 reset();effects[1627130]=true;advance(5.2);local start=sovereignAidStage
 assert(start==10);current={200,20,20};effects[1627130]=nil;advance(5)
 assert(sovereignAidStage>0 and sovereignAidStage<start)
-effects[1627130]=true;advance(10.5);assert(sovereignAidStage==20);assert(current[1]<=270)
+effects[1627130]=true;advance(15);assert(sovereignAidStage==20);assert(current[1]<=270)
 effects[1627130]=nil;advance(10.5);assert(current[1]<=140)
 
 -- Withdrawal may lower maxima, but never kills a living player or revives a dead one.

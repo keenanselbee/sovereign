@@ -9,6 +9,8 @@
 
 // コンストラクタ -- constructor
 $Event(0, Default, function() {
+    // TEMPORARY HADEON LOAD RESET: Default preserves the watcher through grace rests.
+    $InitializeEvent(0, 5750425);
     // SACRED
     $InitializeEvent(0, 5750000);
     $InitializeEvent(0, 5750140);
@@ -493,6 +495,28 @@ $Event(0, Default, function() {
 
 // プリコンストラクタ -- preconstructor
 $Event(50, Default, function() {
+    // BEGIN TEMPORARY HADEON LOAD RESET
+    // Inline preconstructor work runs before encounter initialization. A saved
+    // death marker exempts exactly the next load; other loads include fast travel.
+    if (PlayerIsInOwnWorld()) {
+        if (EventFlag(1055420938)) {
+            SetEventFlagID(1055420938, OFF);
+        } else if ((!EventFlag(1055420915) || EventFlag(1055420916))
+            && (!EventFlag(1055420937) || EventFlag(1055420250))) {
+            // Defer a reset while a previously earned reward awaits delivery.
+            // Preserve item receipts, statue keys and the Nemesis crystal choice.
+            SetEventFlagID(1055420915, OFF);
+            BatchSetEventFlags(1055420930, 1055420937, OFF);
+            // Keep repeat-dialogue memory independent of the temporary test reset.
+            // First-encounter receipts still reset; last spoken pool lines do not.
+            BatchSetEventFlags(1055420952, 1055420956, OFF);
+            BatchSetEventFlags(1055422930, 1055422933, OFF);
+            BatchSetEventFlags(1055422946, 1055422948, OFF);
+            BatchSetEventFlags(1055425200, 1055425247, OFF);
+            BatchSetEventFlags(1055425253, 1055425257, OFF);
+        }
+    }
+    // END TEMPORARY HADEON LOAD RESET
     $InitializeEvent(0, 700);
     $InitializeEvent(0, 707);
     $InitializeEvent(0, 710);
@@ -1604,7 +1628,7 @@ $Event(920, Restart, function() {
     //SetEventFlagID(7500, OFF);
     //SetEventFlagID(9431, OFF);
     AwardItemLot(6700);
-    // SACRED
+// SACRED
 });
 
 // 狂い火抑え_使用可能 -- Crazy fire suppression_usable
@@ -9791,7 +9815,7 @@ $Event(5750017, Restart, function() {
 // SACRED Kill Effects
 $Event(5750018, Restart, function() {
     WaitFor(CharacterHasSpEffect(10000, 189));
-    SetSpEffect(10000, 101990);
+    // Ultimate charge is earned by deflections only; preserve other kill rewards.
     if (CharacterHasSpEffect(10000, 570)) {
         SetSpEffect(10000, 571);
     }
@@ -10776,11 +10800,18 @@ $Event(5750361, Restart, function() {
     EndIf(!PlayerIsInOwnWorld());
     ClearSpEffect(10000, 1627122);
     ClearSpEffect(10000, 1627123);
+    // Clear the local guard after a map transition as well as on room departure.
+    SetEventFlagID(1055425223, OFF);
     EndIf(EventFlag(1055420915));
+    if (!EventFlag(1055420930) && PlayerInMap(18, 0, 0, 0)
+        && InArea(10000, 18000359) && !InArea(10000, 18002367)) {
+        SetEventFlagID(1055425223, ON);
+    }
     if (!CharacterHasSpEffect(10000, 100690) && !CharacterHasSpEffect(10000, 9621)
         && ((PlayerInMap(10, 1, 0, 0) && EventFlag(10010020) && !EventFlag(9021))
             || (PlayerInMap(18, 0, 0, 0) && EventFlag(101) && !EventFlag(18002851)
-                && !InArea(10000, 18002367)))) {
+                && !InArea(10000, 18002367)
+                && (!InArea(10000, 18000359) || EventFlag(1055420930))))) {
         SetSpEffect(10000, 1627122);
         if (PlayerInMap(18, 0, 0, 0) && InArea(10000, 18000359)) {
             SetSpEffect(10000, 1627123);
@@ -10819,7 +10850,6 @@ $Event(5750362, Restart, function() {
     SetSpEffect(10000, 1627121);
     PlaySE(10000, SoundType.SFX, 530181);
     WaitFixedTimeSeconds(0.1);
-    PlaySE(10000, SoundType.SFX, 450264);
     PlaySE(10000, SoundType.SFX, 450264);
     WaitFor(ElapsedSeconds(2.9) || CharacterHPValue(10000) <= 0 || !PlayerInMap(10, 1, 0, 0));
     ClearSpEffect(10000, 1627113);
@@ -13116,3 +13146,26 @@ $Event(5750140, Restart, function() {
     RestartEvent();
 });
 // END GENERATED PROFANE TOMES
+
+// TEMPORARY HADEON LOAD RESET: a real death exempts the next reload globally.
+// Default does not restart on grace rest; explicit restart observes another life.
+$Event(5750425, Default, function() {
+    EndIf(!PlayerIsInOwnWorld());
+    WaitFor(CharacterHPValue(10000) > 0 && !CharacterDead(10000));
+    WaitFor(CharacterHPValue(10000) <= 0
+        && (CharacterDead(10000) || (PlayerInMap(18, 0, 0, 0) && EventFlag(1055425042)))
+        && !CharacterHasSpEffect(10000, 1627125));
+    WaitFixedTimeFrames(1);
+    RestartIf(CharacterHPValue(10000) > 0
+        || (!CharacterDead(10000) && !(PlayerInMap(18, 0, 0, 0) && EventFlag(1055425042)))
+        || CharacterHasSpEffect(10000, 1627125));
+    SetEventFlagID(1055420938, ON);
+    // The encounter loss worker settles for one frame before writing its tier.
+    // Request persistence after that worker has had time to record the same death.
+    WaitFixedTimeFrames(2);
+    SaveRequest();
+    WaitFor(CharacterHPValue(10000) > 0 && !CharacterDead(10000));
+    // Recovery without a reload must not exempt a later deliberate load.
+    SetEventFlagID(1055420938, OFF);
+    RestartEvent();
+});

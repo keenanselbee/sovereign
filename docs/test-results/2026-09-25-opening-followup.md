@@ -40,7 +40,7 @@ pair changes only `00_Solo/MENU_Tuto_00016.tpf.dcx`; every other payload and all
 member metadata match. TPF metadata and the 148-byte DDS header are unchanged.
 The 544x336 BC7 image was decoded and visually inspected. Rebuilding from the
 accepted pair gives identical bytes. See the durable
-[texture recipe](../../src/textures/deflection-tutorial/README.md).
+[texture recipe](../../src/textures/tutorial/README.md).
 
 [Text verification](2026-09-25-opening-dialogue-tutorial.md) records the thirteen
 FMG edits. Game appearance, controller glyphs, full native aid behavior and NPC

@@ -1,0 +1,809 @@
+{
+  "sourceHash": "671a5fb0106a35108240acde40de44aab3452832c1e89ce92de9c503f271926b",
+  "changes": [
+    {
+      "table": "CharaInitParam",
+      "id": 3000,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3001,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3002,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3003,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3004,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3005,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3006,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3007,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3008,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3009,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_02": -1,
+        "secondaryItemNum_02": 0,
+        "secondaryItem_03": -1,
+        "secondaryItemNum_03": 0
+      },
+      "after": {
+        "secondaryItem_02": 1050,
+        "secondaryItemNum_02": 1,
+        "secondaryItem_03": 1000,
+        "secondaryItemNum_03": 1
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1000,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1001,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1002,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1003,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1004,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1005,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1006,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1007,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1008,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1009,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1010,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1011,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1012,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1013,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1014,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1015,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1016,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1017,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1018,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1019,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1020,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1021,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1022,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1023,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1024,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1025,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1050,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1051,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1052,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1053,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1054,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1055,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1056,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1057,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1058,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1059,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1060,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1061,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1062,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1063,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1064,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1065,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1066,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1067,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1068,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1069,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1070,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1071,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1072,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1073,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1074,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    },
+    {
+      "table": "EquipParamGoods",
+      "id": 1075,
+      "clone": null,
+      "name": null,
+      "before": {
+        "isAutoEquip": 1
+      },
+      "after": {
+        "isAutoEquip": 0
+      }
+    }
+  ]
+}

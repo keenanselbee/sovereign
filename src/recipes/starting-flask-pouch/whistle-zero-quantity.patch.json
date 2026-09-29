@@ -1,0 +1,173 @@
+{
+  "sourceHash": "db7e68733d1be9eb1645ac608f8030117baec328a3cd62d03a43a81a9e321d5f",
+  "changes": [
+    {
+      "table": "CharaInitParam",
+      "id": 3000,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3001,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3002,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3003,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3004,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3005,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3006,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3007,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3008,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3009,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3010,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    },
+    {
+      "table": "CharaInitParam",
+      "id": 3011,
+      "clone": null,
+      "name": null,
+      "before": {
+        "secondaryItem_04": -1,
+        "secondaryItemNum_04": 0
+      },
+      "after": {
+        "secondaryItem_04": 130,
+        "secondaryItemNum_04": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "sourceHash": "64ab851b859dbe70c01e0ef3d69fed8c9f98492aed5ca715522666bd92be8870",
+  "changes": [
+    {
+      "table": "SpEffectParam",
+      "id": 3226,
+      "clone": null,
+      "name": null,
+      "before": {
+        "clearSoul": 1
+      },
+      "after": {
+        "clearSoul": 0
+      }
+    }
+  ]
+}

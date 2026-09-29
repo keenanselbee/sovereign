@@ -1,3 +1,199 @@
+Version 1.7.2
+Integrate all eighteen Hadeon teleport destinations across entrances, fall recovery, periodic combat and Vortex; preserve authored heights and facing followed by player-facing rotation.
+Generate landing helpers and bounded on-demand selectors from one destination registry, with horizontal nearest selection and existing three-dimensional clearance checks.
+
+Version 1.7.1
+Remove Memory of Grace's rune-loss effect and simplify its English description and confirmation while preserving its native return behavior.
+
+Version 1.7.0
+Trial a zero-quantity Spectral Steed Whistle assignment in the bottom starting pouch slot for all twelve classes, preserving its normal acquisition and existing flask defaults.
+
+Version 1.6.9
+Give Idus Knight and Heavy Knight the same HP-left/FP-right starting pouch defaults as the original classes, preserving class stats and equipment.
+Remove the Cave of Knowledge ground inscription and its popup without disabling other messages or tutorials.
+
+Version 1.6.8
+Allow queued Hadeon periodic teleports at battle action selection without the blocking attack-finished check.
+Correct private Vortex clip bindings and restore HP-tier teleport chances of 25/42/58/75 percent.
+Delay both Hadeon victory banners by half a second and award Erdtree's Favor five seconds after the banner, preserving complete death audio and reward recovery.
+
+Version 1.6.7
+Make Ultimate charge deflection-only, teach the readiness spark cue and both charge-consuming attacks, and reliably latch the Soldier arena tutorial trigger.
+Include the updated Deflection and Ultimate tutorial artwork in the separate texture package.
+Tighten Hadeon subtitle timing and show Great Enemy Felled after the final words while preserving the full audio tail.
+Raise Hadeon Vortex speed to 200/233/267/300 percent by HP quartile and reduce flame-breath selection weight by 15 percent.
+Expand reversible periodic/Vortex teleport diagnostics and filter ordinary movement transitions without changing movement decisions.
+
+Version 1.6.6
+Extend reversible movement diagnostics with event-animation activation, update, exit and request-gate details, without changing movement decisions.
+Remove one duplicate Nemesis new-game sound request, preserving the original sound assets and remaining opening sequence.
+
+Version 1.6.5
+Refine temporary movement diagnostics to reserve captures for unexplained pauses instead of ordinary attack, deflect, damage, jump and critical windows.
+Record the turn angle used by sprint-turn dispatch and the reason a pause was filtered; retain captures for prolonged pauses and stalled returns to locomotion.
+
+Version 1.6.4
+Give Hadeon's Vortex animation markers a short lifetime matching native attack markers so the teleport event can detect them.
+Add removable diagnostics for Vortex worker startup and independent live/cue marker detection, preserving the existing attack timing and safe destination checks.
+
+Version 1.6.3
+Extend deflect charges from three to seven seconds, refreshed by successful deflections, while preserving guard-counter bonuses.
+Critical attacks consume accumulated deflect charges for 10/20/30/40 percent bonus damage, retained through the complete critical animation. Special grab skills are excluded.
+Update Deflection tutorial text to explain duration, critical damage and charge consumption.
+Trial a guaranteed Hadeon Vortex teleport attempt with eight-metre destination eligibility; preserve landing clearance and the one-second animation cue.
+Extend the removable Hadeon trace with Vortex armed, cue, rejection and success outcomes for diagnosis.
+
+Version 1.6.2
+Allow Hadeon's periodic 15-30-second teleports during close combat instead of requiring eight metres of separation.
+Retain ready teleport requests through dialogue and unavailable landings, waiting for a safe AI action boundary without rerolling the cooldown.
+Keep periodic destinations at least 2.5 metres from both Hadeon and the player; reset the cooldown after successful relocation or encounter invalidation.
+
+Version 1.6.1
+Recheck Hadeon HP before lighting each fixture so interrupted encounter readiness cannot bypass the intended threshold.
+Prepare the death-based boss-room lighting on map load and after respawning, before room entry; retain active-encounter gating for HP additions.
+Increase Nemesis stat aid to 10 percent per counted Hadeon death, capped at 100 percent after ten deaths. Keep the existing gradual ramp and 40-to-20-second rescue cooldown.
+Extend the removable diagnostic trace with lighting-state snapshots for in-game verification.
+
+Version 1.6.0
+Correct Hadeon Vortex attack dispatch using native-supported private animation routes; retain HP speed tiers and slam teleport behavior.
+Preserve repeat-dialogue history across temporary encounter resets and add a removable transition log for repeat-line diagnosis.
+Light the boss room from prior deaths and current Hadeon HP: no entry lights on the first attempt, 75 percent after ten deaths, all lights at victory.
+Keep each attempt's baseline fixed, preserve lit fixtures through player death, and retain the crystal presentation.
+Native and automated verification does not replace in-game acceptance of attack routing, dialogue history and lighting.
+
+Version 1.5.9
+Increase all Hadeon entrance dialogue admission to 30 metres and post the final opening phrase from his post-teleport position without restarting subtitles.
+Give Hadeon private Ordovis Vortex speed tiers from normal to double speed based on HP at attack selection, with a modest low-HP selection preference.
+Add a 25-75 percent HP-tier chance to relocate one second before the ground wave to the nearest eligible arena marker, retaining the active attack.
+A successful Vortex relocation restarts the existing periodic teleport timer. Preserve original Crucible Knight attacks and retain reversible backups.
+Native format and automated checks pass; attack speed, positional audio and teleport timing require in-game acceptance.
+
+Version 1.5.8
+Keep Soldier/Rick boss music playing through Nemesis beginner rescue by waiting for confirmed player death.
+Trial HP-left and FP-right pouch defaults for all new-character classes using empty flasks; preserve the normal three-HP/one-FP grant.
+Disable automatic quick-item assignment for HP/FP flasks through +12 while retaining manual equipment and existing saved assignments.
+Pouch direction, charge conversion and upgrade persistence require in-game verification. Includes the complete 1.5.7 Hadeon refinement.
+
+Version 1.5.7
+Update Hadeon's first entrance recording and subtitle timing, with a 22-metre entrance gate and the requested 12.2-second teleport cue.
+Extend subtitle processing across the arena and route defeat voices through a persistent sound carrier so boss cleanup does not truncate them.
+Grant 5% Nemesis aid per counted death, capped at 50% after ten deaths; adjust beginner rescue from a 40-second default to 20 seconds at maximum aid.
+Request periodic combat teleports every 15-30 seconds, waiting for an eligible AI action boundary and a clear landing near the player.
+Preserve temporary load resets, death progression, first-attempt restrictions and existing rewards. In-game timing and defeat subtitle continuation require verification.
+Clarify Nightmare difficulty wording and document the separate, deferred Nemesis Unbound story and crystal weapon-signature proposal.
+
+Version 1.5.6
+Repeat Hadeon encounters wait one second before teleporting to the nearest clear arena point and engaging.
+Gate two defeat-related dialogue variants behind three combat losses and preserve no-repeat selection.
+Replace two player-killed recordings and subtitles; suppress kill dialogue for fatal below-arena falls while retaining loss progression.
+Explain the two-handed deflection stamina reduction in the tutorial and inventory note.
+Fix movement diagnostics aborting on successful file calls that return no value.
+
+Version 1.5.5
+Replace Hadeon's disabled-AI monologue hold with a private waiting goal while his AI remains running, retaining the original Crucible Knight combat logic.
+After the first speech's final word, teleport to the nearest clear arena point and explicitly release the waiting goal into combat. Early hits release immediately and skip the delayed opening teleport.
+Keep subtitles, entrance delay and proximity, repeat dialogue, eight-point fall recovery, progressive aid and temporary load resets. The new waiting-state transition requires in-game verification.
+
+Version 1.5.4
+Temporarily bypass Hadeon's opening AI hold: enable AI as he appears and start combat immediately on valid entrance admission while dialogue and subtitles retain their delay and proximity gate.
+Bypass the delayed opening teleport during this isolation test. Preserve eight-point fall recovery, its one-time HP penalty, load resets and aid progression.
+This is a reversible diagnostic test; in-game normal attack selection remains unconfirmed.
+
+Version 1.5.3
+Add the two author-placed Hadeon landing points to the opening and fall-recovery teleports, choosing the nearest of eight destinations with player clearance.
+Merge the saved Smithbox additions while preserving the existing nearest-point helpers; use one generated selector for both teleport paths.
+Preserve opening timing, subtitles, early-hit engagement and load-reset testing. Fall recovery retains its one-time 5% HP penalty after arrival and faces the player.
+
+Version 1.5.2
+Teleport Hadeon after the first monologue's final word to the nearest existing arena point with player clearance, then face the player and start combat and music.
+Remove combat-AI diagnostic probes and the earlier replan trial; preserve subtitles, early-hit engagement and ordinary fall recovery without adding teleport damage.
+Keep the temporary load reset and death-reload bypass so encounter tests remain easy while deaths retain earned aid progression. In-game engagement remains to be verified.
+
+Version 1.5.1
+Trial a one-time Hadeon animation reset at the first monologue's timed combat release, preserving early-hit actions and ongoing dialogue.
+Restore Hadeon's subtitles and add reversible phase-effect and reset-request probes to the existing aid log.
+Preserve the temporary load reset, normal repeat entrances and earned aid; no-hit engagement still requires in-game verification.
+
+Version 1.5.0
+Trial a one-shot Hadeon AI replan immediately after enabling AI at the first monologue's combat handoff, retaining the 13-second cue and early-hit path.
+Preserve the temporary load-reset test, dialogue playback, repeat encounters and earned aid; in-game no-hit engagement remains to be verified.
+
+Version 1.4.9
+Add a temporary Hadeon fresh-encounter reset on ordinary loads, with a saved real-death guard preserving losses, aid and dialogue history on the next respawn.
+Restore first-versus-repeat entrance selection within each test run; preserve collected rewards and crystal choices, and defer resets while earned rewards await delivery.
+Fast travel also resets the encounter; resting at a grace does not. Returning to the title screen between death and respawn can preserve progress once.
+
+Version 1.4.8
+Raise Hadeon's dialogue mixer by 2 dB while preserving the original recordings, embedded audio and directional attenuation.
+Wait until the player is within 12 metres before starting any entrance line, including the full monologue and all repeat variants; preserve playback once started and time the monologue combat cue from actual speech.
+Retain the temporary repeated-monologue and subtitle-disabled tests, movement diagnostics and earned aid progression.
+
+Version 1.4.7
+Add reversible, bounded movement-stop captures with separate session logs and ordered action, speed and state observations.
+Temporarily replay Hadeon's first entrance monologue on every admitted encounter without resetting earned aid progression.
+Separate Hadeon aid admission from its short-lived permission effect so refresh can recover after expiry; retain the three-second admission and existing stat tiers.
+Log aid admission, saved loss flags, cap and active tier alongside resource maxima for verification.
+
+Version 1.4.6
+Reduce the five existing deflect stamina-cost multipliers to 75% of their previous values.
+Trial a one-stamina floor and normal deflect reaction for exhausted timed guards; engine guard-break protection remains pending in-game acceptance.
+Temporarily disable Hadeon's subtitle conversation to isolate passive AI, preserving voice playback and existing combat timing.
+Fix large saved-flag precision in Hadeon's aid cap and prevent consecutive repeats within each repeat-dialogue pool.
+
+Version 1.4.5
+Count fatal bridge falls during Hadeon's active fight as failed attempts, unlocking the next aid tier and ending no-aid victory eligibility.
+Keep survived falls, recovery teleports, rescue events and deaths outside an active encounter excluded.
+
+Version 1.4.4
+Add Hadeon's complete recorded dialogue and subtitles, with unique first entrance and half-health lines, random repeat pools, immediate player-death responses and two victory outcomes.
+Start the first attempt without Nemesis stat aid, shield stamina savings, room rescue, threshold wards or the 25% wail; genuine combat deaths unlock aid in 20% increments up to 100%.
+Award Stormblessed Zweihander alongside the normal reward for a victory before any qualifying loss, using its existing pickup receipt to prevent duplicates.
+Retain the 0.7-second speaking delay, first-opening combat cue at 13 seconds, immediate retaliation on early hits, positional audio and safe aid withdrawal.
+
+Version 1.4.3
+Use native boss dialogue settings for Hadeon's combat release and room-wide subtitle progression; in-game engagement verification remains pending.
+Delay the entrance voice by 0.7 seconds, retaining combat at 13 seconds into speech and immediate retaliation on an earlier hit.
+Replace unsupported backward event jumps in arena aid, retreat cancellation and lighting with restartable loops.
+Add bounded encounter and actual AI-combat diagnostics without changing the recording, positional audio or stat magnitudes.
+
+Version 1.4.2
+Replace Hadeon's entrance recording and subtitles with the revised oath and imprisoned-hunger dialogue, using a period after "Begone from this place."
+Move the combat cue to 13 seconds and preserve the full recording's reverb tail, positional sound and dialogue release.
+Reset Hadeon if the player is outside the valid room or below the arena when combat would begin; a valid return replays the full opening during calibration.
+
+Version 1.4.1
+Correct Hadeon's subtitle sequence to use native consecutive dialogue playback instead of interrupting each line with another timed call.
+Release the native conversation behavior when playback starts and combat activates, allowing the monologue and subtitles to continue during retaliation.
+Preserve the updated recording, positional audio, every-encounter replay and 17.1-second combat cue; in-game retest remains pending.
+
+Version 1.4.0
+Add Hadeon's full entrance monologue with native subtitle cues, replaying on each fresh encounter for calibration.
+Hold combat and boss music until 17.1 seconds or an earlier hit; keep speech playing during retaliation and cancel it on defeat or true retreat.
+Restore positional voice and distance fading, remove the diagnostic volume boost, and preserve the revised recording's reverb tail.
+
+Version 1.3.9
+Correct the Hadeon test bank's object order so its Sound child precedes its ActorMixer parent, matching the documented and native bank layout.
+Add build-time dependency-order checks; preserve the clip, volume, sound IDs and entrance trigger for a focused playback retest.
+
+Version 1.3.8
+Boost the Hadeon test clip by 3.5 dB and disable its distance attenuation and spatialization for an audibility diagnostic.
+Keep the same ten-second audio, entrance trigger and voice-volume control; playback confirmation remains pending.
+
+Version 1.3.7
+Add a local ten-second custom-audio trial at Hadeon's entrance spawn through a dedicated additional sound bank.
+Preserve ordinary Crucible Knight sounds and suppress the trial cue on retreat and recovery teleports; in-game playback verification remains pending.
+
+Version 1.3.6
+Replace Ultimate and Deflection tutorial illustrations with the author's approved faded combat artwork, including the corner icons and enhanced Deflection sparks.
+
+Version 1.3.5
+Extend guard and dodge-invulnerability bypass to all 47 reviewed ground-wave damage rows, adding the remaining Troll, Ancestor Spirit, Radagon and Black Knight candidates.
+Preserve damage, collision, timing and airborne-avoidance flags; individual family gameplay tests remain pending beyond the successful Hadeon trial.
+
+Version 1.3.4
+Extend guard and dodge-invulnerability bypass to thirteen additional ground-wave attack rows across Beast Clergyman, Radagon, Crucible Knights, Godfrey, Hoarah Loux, Devonia and Messmer Soldiers, following the successful Hadeon trial.
+Preserve damage, collision, timing and airborne-avoidance flags; the expanded families remain pending individual gameplay tests.
+
 Version 1.3.3
 Wait three continuous seconds before Nemesis aid starts; its ten-second ramp now reaches double HP, FP, stamina and outgoing damage, with half blocking stamina cost.
 Keep Hadeon visible at his original position facing the barrier after retreat, preserving confirmed-death recovery and his original first-summon facing.

@@ -1,0 +1,20 @@
+[
+  {
+    "file": "GoodsInfo.fmg",
+    "id": 115,
+    "before": "Lose all runes, return to last site of lost grace visited",
+    "after": "Return to the last site of grace visited."
+  },
+  {
+    "file": "GoodsCaption.fmg",
+    "id": 115,
+    "before": "The memory of first grace, which once guided bygone Tarnished to the Lands Between.\n\nLose all runes and return to last site of grace visited.\n\nIt is merely a cycle.\nStand before the Elden Ring. Become the Elden Lord.",
+    "after": "The memory of first grace, which once guided bygone Tarnished to the Lands Between.\n\nReturn to the last site of grace visited.\n\nIt is merely a cycle.\nStand before the Elden Ring. Become the Elden Lord."
+  },
+  {
+    "file": "GoodsDialog.fmg",
+    "id": 10011954,
+    "before": "Lose all runes to return to the last site of grace visited?",
+    "after": "Return to the last site of grace visited?"
+  }
+]
