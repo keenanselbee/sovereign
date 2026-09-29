@@ -1,5 +1,9 @@
-"""Durable VDB finalization of accepted immutable Sovereign packages."""
+"""Deploy prepared Sovereign packages or resume their durable VDB finalization."""
+import argparse
+import json
 from pathlib import Path
+import subprocess
+import sys
 
 import asset_workflow as assets
 import vdb_workflow as vdb
@@ -31,6 +35,8 @@ def submit(root, settings, stages, path, profile=None, stage_only=False):
         if not prepared or len({doc['packageId'] for _, doc in prepared}) != len(prepared):
             raise ValueError('Finalization requires distinct prepared packages')
         for stage, doc in prepared:
+            if doc.get('finishReceipt'):
+                raise ValueError('Stage already belongs to finalization; resume --receipt ' + doc['finishReceipt'])
             if doc['status'] not in ('prepared', 'completed'):
                 raise ValueError('Stage already has a pending or uncertain operation; resume its original receipt')
             vdb.reserve_version(root, settings, stage, doc)
@@ -100,6 +106,31 @@ def refresh(root, settings, path, seconds=0):
         return receipt
 
 
+def complete(root, settings, receipt):
+    """Verify the entire completed batch before changing packaging selections."""
+    if receipt['status'] != 'completed':
+        raise ValueError('Finalization is ' + receipt['status'] + '; inspect its recorded request, do not resubmit')
+    result = receipt['requests'][-1]['result'] if receipt.get('requests') else {}
+    if (result.get('id') != receipt.get('requestId') or result.get('operation') != 'finish'
+            or result.get('projectId') != 'sovereign' or result.get('status') != 'completed'):
+        raise ValueError('Finalization lacks a matching bridge acknowledgement')
+    for verification in result.get('result', {}).get('verification', []):
+        if verification.get('deployed') != 'verified' or verification.get('enabled') is not True or verification.get('differences'):
+            raise ValueError('Finalization has unverified deployed bytes')
+    for stage in receipt['stages']:
+        _, doc = vdb.load_prepared(root, settings, stage)
+        expected = [b for b in receipt['builds'] if b.get('packageId') == doc['packageId']]
+        confirmed = [b for b in result.get('result', {}).get('builds', [])
+                     if b.get('packageId') == doc['packageId'] and b.get('buildId') == doc.get('buildId')
+                     and b.get('version') == doc['version'] and b.get('staging') == 'completed']
+        if len(expected) != 1 or len(confirmed) != 1 or expected[0].get('buildId') != doc.get('buildId'):
+            raise ValueError('Missing matching completed stage in this finalization')
+        vdb.staged_source(root, settings, stage)
+    if not receipt['stageOnly']:
+        for stage in receipt['stages']:
+            vdb.select(root, settings, stage)
+
+
 def advance(root, settings, path, doc, profile, seconds, stage_only=False):
     scope = {'profileId': None if stage_only else profile, 'stageOnly': stage_only}
     if doc.get('finishScope', scope) != scope:
@@ -125,18 +156,49 @@ def advance(root, settings, path, doc, profile, seconds, stage_only=False):
     assets.save(path, doc)
     if receipt['status'] in ('queued', 'pending', 'running'):
         return doc
-    if receipt['status'] != 'completed':
-        raise ValueError('Finalization is ' + receipt['status'] + '; inspect its recorded request, do not resubmit')
-    result = receipt['requests'][-1]['result']
-    if (result.get('id') != receipt.get('requestId') or result.get('operation') != 'finish'
-            or result.get('projectId') != 'sovereign'):
-        raise ValueError('Finalization lacks a matching bridge acknowledgement')
-    for verification in result.get('result', {}).get('verification', []):
-        if verification.get('deployed') != 'verified' or verification.get('enabled') is not True or verification.get('differences'):
-            raise ValueError('Finalization has unverified deployed bytes')
-    vdb.staged_source(root, settings, doc['stageReceipt'])
-    if not stage_only:
-        vdb.select(root, settings, doc['stageReceipt'])
+    complete(root, settings, receipt)
     doc.update(status='complete', note='Immutable stage verified; profile outcomes recorded in finalization receipt. Gameplay not verified.')
     assets.save(path, doc)
     return doc
+
+
+def main(argv=None, root=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    commands = parser.add_subparsers(dest='command', required=True)
+    deploy = commands.add_parser('deploy', help='Queue already prepared packages; does not prepare or sync assets')
+    deploy.add_argument('--stage', action='append', required=True, help='Prepared receipt; repeat for distinct packages')
+    scope = deploy.add_mutually_exclusive_group()
+    scope.add_argument('--profile', help='Limit deployment to this profile; default is all profiles')
+    scope.add_argument('--stage-only', action='store_true', help='Stage only; do not change profiles or packaging selection')
+    resume = commands.add_parser('resume', help='Resume an existing finalization with its recorded profile scope')
+    resume.add_argument('--receipt', required=True, help='Existing .vdb/finalizations receipt')
+    for command in (deploy, resume):
+        command.add_argument('--wait-seconds', type=int, default=15, help='Wait 0 to 45 seconds; pending returns exit 2')
+    args = parser.parse_args(argv)
+    if not 0 <= args.wait_seconds <= 45:
+        parser.error('--wait-seconds must be 0 to 45')
+    root = Path(root or Path(__file__).resolve().parents[1]).resolve()
+    settings = assets.read(root / 'tools/eldenring-paths.local.json')
+    path = (root / '.vdb/finalizations' / vdb.uuid.uuid4().hex / 'receipt.json'
+            if args.command == 'deploy' else Path(args.receipt).absolute())
+    print('Finalization receipt: ' + str(path), flush=True)
+    if args.command == 'deploy':
+        submit(root, settings, args.stage, path, profile=args.profile, stage_only=args.stage_only)
+    receipt = refresh(root, settings, path, args.wait_seconds)
+    pending = receipt['status'] in ('queued', 'pending', 'running')
+    if not pending:
+        complete(root, settings, receipt)
+    print(json.dumps({'status': receipt['status'], 'receipt': str(path),
+                      'requestId': receipt.get('requestId'), 'profileScope': receipt['profileScope'],
+                      'builds': receipt.get('builds', []),
+                      'note': 'Queued work continues in Vortex; resume this receipt.' if pending else
+                      'Verified stages complete; profile outcomes remain in the receipt. Gameplay not verified.'}, indent=2))
+    return 2 if pending else 0
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except (ValueError, OSError, KeyError, subprocess.TimeoutExpired) as error:
+        print(f'ERROR: {error}', file=sys.stderr)
+        sys.exit(1)

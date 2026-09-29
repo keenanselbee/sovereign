@@ -1,4 +1,6 @@
 import shutil
+from contextlib import redirect_stdout
+import io
 from pathlib import Path
 import sys
 import unittest
@@ -118,6 +120,89 @@ class FinishTests(unittest.TestCase):
         assets.save(self.path, receipt)
         finish.refresh(self.root, self.settings, self.path)
         self.assertEqual(sum(c[0] == 'finish-batch' for c in self.calls), 1)
+
+    def cli(self, *arguments):
+        (self.root / 'tools').mkdir(exist_ok=True)
+        assets.save(self.root / 'tools/eldenring-paths.local.json', self.settings)
+        output = io.StringIO()
+        with redirect_stdout(output):
+            result = finish.main(list(arguments), root=self.root)
+        return result, output.getvalue()
+
+    def test_cli_offline_deploy_and_resume_selects_only_after_completion(self):
+        result, output = self.cli('deploy', '--stage', str(self.stage), '--profile', 'p1', '--wait-seconds', '0')
+        self.assertEqual(result, 2)
+        receipt = Path(assets.read(self.stage)['finishReceipt'])
+        self.assertIn(str(receipt), output)
+        self.assertFalse((self.root / '.vdb/selected.json').exists())
+        self.acknowledge_stage(completed=True)
+        result, _ = self.cli('resume', '--receipt', str(receipt), '--wait-seconds', '0')
+        self.assertEqual(result, 0)
+        self.assertEqual(assets.read(receipt)['profileId'], 'p1')
+        self.assertEqual(assets.read(self.root / '.vdb/selected.json')['main']['buildId'], self.build['buildId'])
+        self.assertEqual(sum(c[0] == 'finish-batch' for c in self.calls), 1)
+
+    def test_cli_duplicate_deploy_points_to_existing_finalization(self):
+        self.cli('deploy', '--stage', str(self.stage), '--wait-seconds', '0')
+        with self.assertRaisesRegex(ValueError, 'resume --receipt'):
+            self.cli('deploy', '--stage', str(self.stage), '--wait-seconds', '0')
+        self.assertEqual(sum(c[0] == 'finish-batch' for c in self.calls), 1)
+
+    def test_cli_two_packages_finish_and_select_together(self):
+        textures = vdb.prepare(self.root, self.settings, 'textures', '1.0.1', 'vortex')
+        texture_build = {'packageId': 'textures', 'buildId': 'b' * 24, 'version': '1.0.1'}
+        def invoke(selected, arguments):
+            response = self.invoke(selected, arguments)
+            if arguments[0] == 'finish-batch':
+                response['result']['builds'].append(texture_build)
+            return response
+        with mock.patch.object(vdb, 'invoke', side_effect=invoke):
+            result, _ = self.cli('deploy', '--stage', str(self.stage), '--stage', str(textures), '--wait-seconds', '0')
+        self.assertEqual(result, 2)
+        receipt = assets.read(self.stage)['finishReceipt']
+        self.assertEqual(assets.read(textures)['finishReceipt'], receipt)
+        self.acknowledge_stage(completed=True)
+        shutil.copytree(textures.parent / 'payload', self.root / ('vdb-sovereign-textures-' + texture_build['buildId']))
+        self.outcome['result']['builds'].append({**texture_build, 'staging': 'completed'})
+        result, _ = self.cli('resume', '--receipt', receipt, '--wait-seconds', '0')
+        self.assertEqual(result, 0)
+        selected = assets.read(self.root / '.vdb/selected.json')
+        self.assertEqual(set(selected), {'main', 'textures'})
+        self.assertEqual(sum(c[0] == 'finish-batch' for c in self.calls), 1)
+
+    def test_cli_stage_only_completion_preserves_selection(self):
+        self.cli('deploy', '--stage', str(self.stage), '--stage-only', '--wait-seconds', '0')
+        receipt = assets.read(self.stage)['finishReceipt']
+        self.acknowledge_stage(completed=True)
+        result, _ = self.cli('resume', '--receipt', receipt, '--wait-seconds', '0')
+        self.assertEqual(result, 0)
+        self.assertFalse((self.root / '.vdb/selected.json').exists())
+
+    def test_cli_rejects_completion_without_stage_or_live_verification(self):
+        self.cli('deploy', '--stage', str(self.stage), '--wait-seconds', '0')
+        receipt = assets.read(self.stage)['finishReceipt']
+        self.outcome = {**self.outcome, 'status': 'completed', 'result': {'builds': [], 'verification': []}}
+        with self.assertRaisesRegex(ValueError, 'completed stage'):
+            self.cli('resume', '--receipt', receipt, '--wait-seconds', '0')
+        self.assertFalse((self.root / '.vdb/selected.json').exists())
+
+    def test_unverified_live_bytes_prevent_selection(self):
+        finish.submit(self.root, self.settings, [self.stage], self.path)
+        self.acknowledge_stage(completed=True)
+        self.outcome['result']['verification'] = [{'deployed': 'failed', 'enabled': True, 'differences': ['regulation.bin']}]
+        receipt = finish.refresh(self.root, self.settings, self.path)
+        with self.assertRaisesRegex(ValueError, 'unverified deployed bytes'):
+            finish.complete(self.root, self.settings, receipt)
+        self.assertFalse((self.root / '.vdb/selected.json').exists())
+
+    def test_entire_batch_is_verified_before_any_selection(self):
+        finish.submit(self.root, self.settings, [self.stage], self.path)
+        self.acknowledge_stage(completed=True)
+        receipt = finish.refresh(self.root, self.settings, self.path)
+        receipt['stages'].append(str(self.root / '.vdb/prepared/missing/receipt.json'))
+        with self.assertRaises((ValueError, OSError)):
+            finish.complete(self.root, self.settings, receipt)
+        self.assertFalse((self.root / '.vdb/selected.json').exists())
         self.write('mod/regulation.bin', b'new payload')
         changed = vdb.prepare(self.root, self.settings, 'main', '1.0.1', 'repo')
         with self.assertRaisesRegex(ValueError, 'different contents'):
